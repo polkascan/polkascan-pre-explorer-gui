@@ -1,0 +1,61 @@
+<div class="column is-12">
+
+    <section class="hero is-info welcome is-small">
+        <div class="hero-body">
+            <div class="container">
+                <h1 class="title">
+                    <img src="assets/logo.png" title="Polkascan">
+                </h1>
+                <h2 class="subtitle">
+                    Alexander
+                </h2>
+            </div>
+        </div>
+    </section>
+    <div *ngIf="block$ | async as block">
+      <section class="info-tiles">
+        <div class="card events-card">
+            <header class="card-header">
+                <p class="card-header-title">
+                    Block #{{ block.id }}
+                </p>
+                <a  class="card-header-icon" aria-label="more options">
+               <span class="icon"><i class="fa fa-cube fa-2x"></i></span>
+              </a>
+            </header>
+            <div class="card-table" *ngIf="block">
+                <div class="content">
+                    <table class="table is-fullwidth is-striped">
+                        <tbody>
+                            <tr>
+                                <td width="15%">Hash</td>
+                                <td >{{block.attributes.hash}}</td>
+                            </tr>
+                            <tr>
+                                <td>Parent hash</td>
+                                <td><a *ngIf="block.id > 0" routerLink="/system/block/{{ block.id - 1 }}">{{block.attributes.parent_hash}}</a></td>
+                            </tr>
+                            <tr>
+                                <td>State Root</td>
+                                <td >{{block.attributes.state_root}}</td>
+                            </tr>
+                            <tr>
+                                <td>Extrinsics Root</td>
+                                <td >{{block.attributes.extrinsics_root}}</td>
+                            </tr>
+                            <tr>
+                                <td>Total extrinsics</td>
+                                <td >{{block.attributes.count_extrinsics}}</td>
+                            </tr>
+                            <tr>
+                                <td>Runtime version</td>
+                                <td >{{block.attributes.spec_version_id}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </section>
+    </div>
+</div>

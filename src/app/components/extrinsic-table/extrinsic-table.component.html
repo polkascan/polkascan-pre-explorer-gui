@@ -1,0 +1,67 @@
+
+      <div *ngIf="extrinsic$  | async as extrinsic" class="card events-card">
+        <header class="card-header">
+            <div class="card-header-title">
+               Extrinsic #{{ extrinsic.id }}
+            </div>
+            <a  class="card-header-icon" aria-label="more options">
+            <span class="icon">
+              <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature fa-2x"></i>
+              <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt fa-2x"></i>
+            </span>
+          </a>
+        </header>
+        <div class="card-table">
+            <div class="content">
+                <table class="table is-fullwidth is-striped">
+                    <tbody>
+                        <tr>
+                          <td width="15%">Block</td>
+                          <td><a routerLink="/system/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
+                        </tr>
+                        <tr>
+                          <td width="15%">Module</td>
+                          <td>{{ extrinsic.attributes.module_id }}</td>
+                        </tr>
+                        <tr>
+                          <td width="15%">Call</td>
+                          <td>{{ extrinsic.attributes.call_id }}</td>
+                        </tr>
+                        <tr *ngIf="extrinsic.attributes.signed">
+                          <td width="15%">Nonce</td>
+                          <td>{{ extrinsic.attributes.nonce }}</td>
+                        </tr>
+                        <tr>
+                          <td width="15%">Result</td>
+                          <td>
+                            <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
+                            <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="card-table" *ngIf="extrinsic.attributes.params">
+            <div class="content">
+                <table class="table is-fullwidth is-striped">
+                    <thead>
+                      <tr>
+                        <th colspan="2" style="color: #8F99A3; font-weight: 400; font-size: 16px">Parameters</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let param of extrinsic.attributes.params">
+                          <td width="15%">{{ paramName(param.name) | titlecase}}</td>
+                          <td [ngSwitch]="param.type">
+                            <div *ngSwitchCase="'Address'">0x{{ param.value }}</div>
+                            <div *ngSwitchCase="'Compact<Balance>'"><i class="far fa-dot-circle"></i> {{ extrinsic.attributes.params[1].value / 1000000000000000 | number: '.5'}}</div>
+                            <div *ngSwitchCase="'Compact<Moment>'">{{ param.value | date:'medium' }}</div>
+                            <div *ngSwitchDefault><pre>{{ param.value | json }}</pre></div>
+                          </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>

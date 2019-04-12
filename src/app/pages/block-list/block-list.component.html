@@ -1,0 +1,35 @@
+<div class="columns">
+    <div class="column is-12">
+        <app-polkascan-header></app-polkascan-header>
+        <section>
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Blocks
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <table class="table is-fullwidth is-striped">
+                            <tbody>
+                                <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
+                                    <td width="5%"><i class="fa fa-cube"></i></td>
+                                    <td class="is-fullwidth">#{{ block.id }}</td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/system/block/{{ block.attributes.hash }}">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a (click)="getNextBlocks()" class="card-footer-item">View next</a>
+                </footer>
+            </div>
+        </section>
+    </div>
+</div>

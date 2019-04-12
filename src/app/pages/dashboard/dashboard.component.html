@@ -1,0 +1,70 @@
+<div class="columns">
+    <div class="column is-12">
+        <app-polkascan-header></app-polkascan-header>
+        <section class="info-tiles">
+            <div class="tile is-ancestor has-text-centered">
+                <div class="tile is-parent">
+                    <article class="tile is-child box">
+                        <span class="icon">
+                            <i class="fa fa-cube fa-2x"></i>
+                        </span>
+                        <p class="title" *ngIf="blocks">{{ blocks.meta.best_block| number: '1.'}}</p>
+                        <p class="subtitle">Finalized Block</p>
+                    </article>
+                </div>
+                <div class="tile is-parent is-2-tablet">
+                    <article class="tile is-child box">
+                        <span class="icon">
+                            <i class="fa fa-file-alt fa-2x"></i>
+                        </span>
+                        <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_extrinsics | number: '1.'}}</p>
+                        <p class="subtitle">Extrinsics</p>
+                    </article>
+                </div>
+                <div class="tile is-parent is-2-tablet">
+                    <article class="tile is-child box">
+                        <span class="icon">
+                            <i class="fa fa-cogs fa-2x"></i>
+                        </span>
+                        <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_runtimes }}</p>
+                        <p class="subtitle">Runtime Versions</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="is-12">
+                <div class="card events-card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Last blocks
+                        </p>
+                        <a href="#" class="card-header-icon" aria-label="more options">
+                          <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                          </span>
+                        </a>
+                    </header>
+                    <div class="card-table">
+                        <div class="content">
+                            <table class="table is-fullwidth is-striped">
+                                <tbody>
+                                    <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
+                                        <td width="5%"><i class="fa fa-cube"></i></td>
+                                        <td width="10%">#{{ block.id }}</td>
+                                        <td class="is-fullwidth">{{ block.attributes.hash }}</td>
+                                        <td width="5%"><a class="button is-small is-primary" routerLink="/system/block/{{ block.id }}">Details</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a routerLink="/system/block/" class="card-footer-item">View all</a>
+                    </footer>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
