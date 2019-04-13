@@ -19,7 +19,9 @@
                             <tbody>
                                 <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
                                     <td width="5%"><i class="fa fa-cube"></i></td>
-                                    <td class="is-fullwidth">#{{ block.id }}</td>
+                                    <td width="10%">#{{ block.id }}</td>
+                                    <td class="is-fullwidth is-hidden-tablet">{{ block.attributes.hash | slice:0:16 }}...</td>
+                                    <td class="is-fullwidth is-hidden-mobile">{{ block.attributes.hash }}</td>
                                     <td width="5%"><a class="button is-small is-primary" routerLink="/system/block/{{ block.attributes.hash }}">Details</a></td>
                                 </tr>
                             </tbody>

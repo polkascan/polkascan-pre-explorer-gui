@@ -21,14 +21,16 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {DocumentCollection} from "ngx-jsonapi";
-import {Block} from "../../classes/block.class";
-import {interval, Observable, Subscription} from "rxjs";
-import {Networkstats} from "../../classes/networkstats.class";
-import {BlockService} from "../../services/block.service";
-import {NetworkstatsService} from "../../services/networkstats.service";
-import {Router} from "@angular/router";
-import {HttpClient} from "@angular/common/http";
+import {DocumentCollection} from 'ngx-jsonapi';
+import {Block} from '../../classes/block.class';
+import {interval, Observable, Subscription} from 'rxjs';
+import {Networkstats} from '../../classes/networkstats.class';
+import {BlockService} from '../../services/block.service';
+import {NetworkstatsService} from '../../services/networkstats.service';
+import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+import {BalanceTransfer} from '../../classes/balancetransfer.class';
+import {BalanceTransferService} from '../../services/balance-transfer.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -38,6 +40,7 @@ import {HttpClient} from "@angular/common/http";
 export class DashboardComponent implements OnInit {
 
   public blocks: DocumentCollection<Block>;
+  public balanceTransfers: DocumentCollection<BalanceTransfer>;
   public networkstats$: Observable<Networkstats>;
 
   blockSearchText: string;
@@ -45,6 +48,7 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private blockService: BlockService,
+    private balanceTransferService: BalanceTransferService,
     private networkstatsService: NetworkstatsService,
     private router: Router,
     private http: HttpClient) {
@@ -65,10 +69,18 @@ export class DashboardComponent implements OnInit {
     this.blockService.all({
       page: { number: 0}
     }).subscribe(blocks => (this.blocks = blocks));
+
+    this.balanceTransferService.all({
+      page: { number: 0}
+    }).subscribe(balanceTransfers => (this.balanceTransfers = balanceTransfers));
   }
 
   searchBlock(): void {
-    this.router.navigate(['block', this.blockSearchText])
+    if (this.blockSearchText.includes('-')) {
+      this.router.navigate(['system', 'extrinsic', this.blockSearchText]);
+    } else {
+      this.router.navigate(['system', 'block', this.blockSearchText]);
+    }
   }
 
   ngOnDestroy() {

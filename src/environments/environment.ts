@@ -5,8 +5,7 @@
 export const environment = {
   production: false,
   jsonApiRootUrl: '//127.0.0.1:8000/',
-  networkName: 'Alexander',
-  
+  networkName: 'Local'
 };
 
 /*

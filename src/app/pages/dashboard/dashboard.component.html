@@ -15,10 +15,19 @@
                 <div class="tile is-parent is-2-tablet">
                     <article class="tile is-child box">
                         <span class="icon">
-                            <i class="fa fa-file-alt fa-2x"></i>
+                            <i class="fa fa-file-signature fa-2x"></i>
                         </span>
-                        <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_extrinsics | number: '1.'}}</p>
-                        <p class="subtitle">Extrinsics</p>
+                        <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_signed_extrinsics | number: '1.'}}</p>
+                        <p class="subtitle">Signed Extrinsics</p>
+                    </article>
+                </div>
+                <div class="tile is-parent is-2-tablet">
+                    <article class="tile is-child box">
+                        <span class="icon">
+                            <i class="fa fa-id-card fa-2x"></i>
+                        </span>
+                        <p class="title" *ngIf="networkstats$ | async as networkstats">{{ networkstats.attributes.total_events | number: '1.'}}</p>
+                        <p class="subtitle">Events</p>
                     </article>
                 </div>
                 <div class="tile is-parent is-2-tablet">
@@ -32,9 +41,38 @@
                 </div>
             </div>
         </section>
+            <section class="is-12">
+             <div class="card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                          Search
+                        </p>
+                        <a href="#" class="card-header-icon" aria-label="more options">
+                        <span class="icon">
+                          <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        </span>
+                      </a>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            <form (ngSubmit)="searchBlock()">
+                            <div class="control has-icons-left has-icons-right">
+                                <input class="input is-large" type="text" [(ngModel)]="blockSearchText" [ngModelOptions]="{standalone: true}" placeholder="Search by block / extrinsic / account">
+                                <span class="icon is-medium is-left">
+                                  <i class="fa fa-search"></i>
+                                </span>
+                                <span class="icon is-medium is-right">
+                                  <i class="fa fa-check"></i>
+                                </span>
+                            </div>
+                          </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <section>
-            <div class="is-12">
+        <section class="columns">
+            <div class="column is-6 last-blocks">
                 <div class="card events-card">
                     <header class="card-header">
                         <p class="card-header-title">
@@ -53,7 +91,7 @@
                                     <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
                                         <td width="5%"><i class="fa fa-cube"></i></td>
                                         <td width="10%">#{{ block.id }}</td>
-                                        <td class="is-fullwidth">{{ block.attributes.hash }}</td>
+                                        <td class="is-fullwidth">{{ block.attributes.hash | slice:0:32 }}...</td>
                                         <td width="5%"><a class="button is-small is-primary" routerLink="/system/block/{{ block.id }}">Details</a></td>
                                     </tr>
                                 </tbody>
@@ -62,6 +100,37 @@
                     </div>
                     <footer class="card-footer">
                         <a routerLink="/system/block/" class="card-footer-item">View all</a>
+                    </footer>
+                </div>
+            </div>
+            <div class="column is-6 last-transfers">
+              <div class="card events-card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            Last balance transfers
+                        </p>
+                        <a href="#" class="card-header-icon" aria-label="more options">
+                          <span class="icon">
+                            <i class="fa fa-angle-down" aria-hidden="true"></i>
+                          </span>
+                        </a>
+                    </header>
+                    <div class="card-table">
+                        <div class="content">
+                            <table class="table is-fullwidth is-striped">
+                                <tbody>
+                                    <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
+                                        <td width="5%"><i class="fa fa-coins"></i></td>
+                                        <td>0x{{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
+                                        <td><i class="far fa-dot-circle"></i> {{ balanceTransfer.attributes.value / 1000000000000000 | number: '1.2'}}</td>
+                                        <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ balanceTransfer.id }}">Details</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a routerLink="/system/extrinsic/transfers" class="card-footer-item">View all</a>
                     </footer>
                 </div>
             </div>

@@ -26,7 +26,7 @@
                         <span class="icon">
                             <i class="fa fa-percentage fa-2x"></i>
                         </span>
-                        <p class="title" *ngIf="networkstats$ | async as networkstats">{{ ((networkstats.attributes.total_blocks / networkstats.attributes.best_block) * 100) | number: '1.2'}}</p>
+                        <p class="title" *ngIf="networkstats$ | async as networkstats">{{ ((networkstats.attributes.total_blocks / (networkstats.attributes.best_block + 1)) * 100) | number: '1.2'}}</p>
                         <p class="subtitle">Progress</p>
                     </article>
                 </div>

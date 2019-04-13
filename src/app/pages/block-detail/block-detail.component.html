@@ -48,6 +48,10 @@
                                 <td >{{block.attributes.count_extrinsics}}</td>
                             </tr>
                             <tr>
+                                <td>Total events</td>
+                                <td >{{block.attributes.count_events}}</td>
+                            </tr>
+                            <tr>
                                 <td>Runtime version</td>
                                 <td >{{block.attributes.spec_version_id}}</td>
                             </tr>
@@ -56,6 +60,10 @@
                 </div>
             </div>
         </div>
+
+      </section>
+      <section class="info-tiles" *ngFor="let item of [].constructor(block.attributes.count_extrinsics); let i = index">
+        <app-extrinsic-table [extrinsic_id]="block.id + '-' + i"></app-extrinsic-table>
       </section>
     </div>
 </div>
