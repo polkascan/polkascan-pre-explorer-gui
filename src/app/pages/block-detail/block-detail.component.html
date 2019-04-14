@@ -1,17 +1,7 @@
 <div class="column is-12">
 
-    <section class="hero is-info welcome is-small">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    <img src="assets/logo.png" title="Polkascan">
-                </h1>
-                <h2 class="subtitle">
-                    Alexander
-                </h2>
-            </div>
-        </div>
-    </section>
+    <app-polkascan-header></app-polkascan-header>
+
     <div *ngIf="block$ | async as block">
       <section class="info-tiles">
         <div class="card events-card">
@@ -63,7 +53,7 @@
 
       </section>
       <section class="info-tiles" *ngFor="let item of [].constructor(block.attributes.count_extrinsics); let i = index">
-        <app-extrinsic-table [extrinsic_id]="block.id + '-' + i"></app-extrinsic-table>
+        <app-extrinsic-table [extrinsicId]="block.id + '-' + i" context="block"></app-extrinsic-table>
       </section>
     </div>
 </div>

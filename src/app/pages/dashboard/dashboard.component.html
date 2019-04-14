@@ -3,7 +3,7 @@
         <app-polkascan-header></app-polkascan-header>
         <section class="info-tiles">
             <div class="tile is-ancestor has-text-centered">
-                <div class="tile is-parent">
+                <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
                         <span class="icon">
                             <i class="fa fa-cube fa-2x"></i>
@@ -12,7 +12,7 @@
                         <p class="subtitle">Finalized Block</p>
                     </article>
                 </div>
-                <div class="tile is-parent is-2-tablet">
+                <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
                         <span class="icon">
                             <i class="fa fa-file-signature fa-2x"></i>
@@ -21,16 +21,16 @@
                         <p class="subtitle">Signed Extrinsics</p>
                     </article>
                 </div>
-                <div class="tile is-parent is-2-tablet">
+                <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
                         <span class="icon">
-                            <i class="fa fa-id-card fa-2x"></i>
+                            <i class="fa fa-calendar-check fa-2x"></i>
                         </span>
                         <p class="title" *ngIf="networkstats$ | async as networkstats">{{ networkstats.attributes.total_events | number: '1.'}}</p>
                         <p class="subtitle">Events</p>
                     </article>
                 </div>
-                <div class="tile is-parent is-2-tablet">
+                <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
                         <span class="icon">
                             <i class="fa fa-cogs fa-2x"></i>

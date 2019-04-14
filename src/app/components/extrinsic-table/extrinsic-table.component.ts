@@ -21,10 +21,10 @@
  */
 
 import {Component, Input, OnInit} from '@angular/core';
-import {Extrinsic} from "../../classes/extrinsic.class";
-import {Observable} from "rxjs";
-import {Location} from "@angular/common";
-import {ExtrinsicService} from "../../services/extrinsic.service";
+import {Extrinsic} from '../../classes/extrinsic.class';
+import {Observable} from 'rxjs';
+import {Location} from '@angular/common';
+import {ExtrinsicService} from '../../services/extrinsic.service';
 
 @Component({
   selector: 'app-extrinsic-table',
@@ -34,7 +34,8 @@ import {ExtrinsicService} from "../../services/extrinsic.service";
 export class ExtrinsicTableComponent implements OnInit {
 
   @Input() extrinsic$: Observable<Extrinsic> = null;
-  @Input() extrinsic_id: string = null;
+  @Input() extrinsicId: string = null;
+  @Input() context: string = null;
 
   constructor(
     private location: Location,
@@ -42,8 +43,8 @@ export class ExtrinsicTableComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (this.extrinsic_id) {
-       this.extrinsic$ = this.extrinsicService.get(this.extrinsic_id);
+    if (this.extrinsicId) {
+       this.extrinsic$ = this.extrinsicService.get(this.extrinsicId);
     }
   }
 
@@ -53,7 +54,7 @@ export class ExtrinsicTableComponent implements OnInit {
 
   paramName(name: string) {
 
-    if (name == 'dest') {
+    if (name === 'dest') {
       name = 'Destination';
     }
 

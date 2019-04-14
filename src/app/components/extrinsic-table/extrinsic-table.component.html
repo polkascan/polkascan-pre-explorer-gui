@@ -15,7 +15,7 @@
             <div class="content">
                 <table class="table is-fullwidth is-striped">
                     <tbody>
-                        <tr>
+                        <tr *ngIf="context != 'block'">
                           <td width="15%">Block</td>
                           <td><a routerLink="/system/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                         </tr>
@@ -27,9 +27,21 @@
                           <td width="15%">Call</td>
                           <td>{{ extrinsic.attributes.call_id }}</td>
                         </tr>
+                        <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.address">
+                          <td width="15%">Address</td>
+                          <td><a routerLink="/system/account/{{ extrinsic.attributes.address }}">0x{{ extrinsic.attributes.address }}</a></td>
+                        </tr>
+                        <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.account_index">
+                          <td width="15%">Account index</td>
+                          <td>{{ extrinsic.attributes.account_index }}</td>
+                        </tr>
                         <tr *ngIf="extrinsic.attributes.signed">
                           <td width="15%">Nonce</td>
                           <td>{{ extrinsic.attributes.nonce }}</td>
+                        </tr>
+                        <tr *ngIf="extrinsic.attributes.signed">
+                          <td width="15%">Signature</td>
+                          <td>0x{{ extrinsic.attributes.signature | slice:0:63}}<wbr>{{ extrinsic.attributes.signature | slice:63:128}}</td>
                         </tr>
                         <tr>
                           <td width="15%">Result</td>
@@ -54,7 +66,7 @@
                         <tr *ngFor="let param of extrinsic.attributes.params">
                           <td width="15%">{{ paramName(param.name) | titlecase}}</td>
                           <td [ngSwitch]="param.type">
-                            <div *ngSwitchCase="'Address'">0x{{ param.value }}</div>
+                            <div *ngSwitchCase="'Address'"><a routerLink="/system/account/{{ param.value }}">0x{{ param.value }}</a></div>
                             <div *ngSwitchCase="'Compact<Balance>'"><i class="far fa-dot-circle"></i> {{ extrinsic.attributes.params[1].value / 1000000000000000 | number: '.5'}}</div>
                             <div *ngSwitchCase="'Compact<Moment>'">{{ param.value | date:'medium' }}</div>
                             <div *ngSwitchDefault><pre>{{ param.value | json }}</pre></div>
