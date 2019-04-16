@@ -50,10 +50,12 @@
                 </div>
             </div>
         </div>
-
       </section>
-      <section class="info-tiles" *ngFor="let item of [].constructor(block.attributes.count_extrinsics); let i = index">
-        <app-extrinsic-table [extrinsicId]="block.id + '-' + i" context="block"></app-extrinsic-table>
+      <section class="info-tiles" *ngFor="let extrinsic of block.relationships.extrinsics.data; trackBy: block.relationships.extrinsics.trackBy">
+        <app-extrinsic-table [extrinsic]="extrinsic" context="block"></app-extrinsic-table>
+      </section>
+      <section class="info-tiles" *ngFor="let event of block.relationships.events.data; trackBy: block.relationships.events.trackBy">
+        <app-event-table [event]="event" context="block"></app-event-table>
       </section>
     </div>
 </div>

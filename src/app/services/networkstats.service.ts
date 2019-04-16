@@ -21,8 +21,8 @@
  */
 
 import { Injectable } from '@angular/core';
-import {Autoregister, Service} from "ngx-jsonapi";
-import {Networkstats} from "../classes/networkstats.class";
+import {Autoregister, Service} from 'ngx-jsonapi';
+import {Networkstats} from '../classes/networkstats.class';
 
 @Injectable({
   providedIn: 'root'
@@ -31,5 +31,5 @@ import {Networkstats} from "../classes/networkstats.class";
 export class NetworkstatsService extends Service<Networkstats> {
     public resource = Networkstats;
     public type = 'networkstats';
-    public path = 'system/networkstats'
+    public path = 'system/networkstats';
 }

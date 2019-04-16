@@ -120,8 +120,8 @@
                             <table class="table is-fullwidth is-striped">
                                 <tbody>
                                     <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
-                                        <td width="5%"><i class="fa fa-coins"></i></td>
-                                        <td>0x{{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
+                                        <td width="5%"><i class="fa fa-exchange-alt"></i></td>
+                                        <td>{{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
                                         <td><i class="far fa-dot-circle"></i> {{ balanceTransfer.attributes.value / 1000000000000000 | number: '1.2'}}</td>
                                         <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ balanceTransfer.id }}">Details</a></td>
                                     </tr>

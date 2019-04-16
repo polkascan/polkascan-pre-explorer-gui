@@ -17,19 +17,31 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * extrinsic.service.ts
+ * extrinsic-table.component.ts
  */
 
-import { Injectable } from '@angular/core';
-import {Autoregister, Service} from 'ngx-jsonapi';
-import {Extrinsic} from '../classes/extrinsic.class';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-@Injectable({
-  providedIn: 'root'
-})
-@Autoregister()
-export class ExtrinsicService extends Service<Extrinsic> {
-    public resource = Extrinsic;
-    public type = 'extrinsic';
-    public path = 'system/extrinsic';
-}
+import { EventTableComponent } from './event-table.component';
+
+describe('EventTableComponent', () => {
+  let component: EventTableComponent;
+  let fixture: ComponentFixture<EventTableComponent>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ EventTableComponent ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(EventTableComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+});

@@ -40,6 +40,8 @@ import { HarvesterAdminComponent } from './pages/harvester-admin/harvester-admin
 import { LoadingBoxComponent } from './components/loading-box/loading-box.component';
 import {environment} from "../environments/environment";
 import { PolkascanHeaderComponent } from './components/polkascan-header/polkascan-header.component';
+import { AddressDetailComponent } from './pages/address-detail/address-detail.component';
+import { EventTableComponent } from './components/event-table/event-table.component';
 
 @NgModule({
   declarations: [
@@ -53,7 +55,9 @@ import { PolkascanHeaderComponent } from './components/polkascan-header/polkasca
     ExtrinsicTableComponent,
     HarvesterAdminComponent,
     LoadingBoxComponent,
-    PolkascanHeaderComponent
+    PolkascanHeaderComponent,
+    AddressDetailComponent,
+    EventTableComponent
   ],
   imports: [
     BrowserModule,

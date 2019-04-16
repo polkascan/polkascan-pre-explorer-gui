@@ -17,19 +17,14 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * extrinsic.service.ts
+ * extrinsic.class.ts
  */
 
-import { Injectable } from '@angular/core';
-import {Autoregister, Service} from 'ngx-jsonapi';
-import {Extrinsic} from '../classes/extrinsic.class';
+import { Resource } from 'ngx-jsonapi';
 
-@Injectable({
-  providedIn: 'root'
-})
-@Autoregister()
-export class ExtrinsicService extends Service<Extrinsic> {
-    public resource = Extrinsic;
-    public type = 'extrinsic';
-    public path = 'system/extrinsic';
+export class Event extends Resource {
+  public attributes = {
+    module_id: 'module_id',
+    event_id: 'event_id',
+  };
 }

@@ -21,10 +21,11 @@
  */
 
 import { Resource, DocumentCollection } from 'ngx-jsonapi';
-import {Extrinsic} from "./extrinsic.class";
+import {Extrinsic} from './extrinsic.class';
+import {Event} from './event.class';
 
 export class Block extends Resource {
-    
+
     public attributes = {
         id: 'id',
         hash: 'hash',
@@ -38,6 +39,7 @@ export class Block extends Resource {
 
     public relationships = {
         extrinsics: new DocumentCollection<Extrinsic>(),
+        events: new DocumentCollection<Event>(),
     };
 
 }

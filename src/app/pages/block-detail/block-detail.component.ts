@@ -27,7 +27,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BlockService } from '../../services/block.service';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import {ExtrinsicService} from "../../services/extrinsic.service";
+import {ExtrinsicService} from '../../services/extrinsic.service';
+import {EventService} from '../../services/event.service';
 
 @Component({
   selector: 'app-block-detail',
@@ -36,14 +37,13 @@ import {ExtrinsicService} from "../../services/extrinsic.service";
 })
 export class BlockDetailComponent implements OnInit {
 
-  //@Input() block: Block;
-
   block$: Observable<Block>;
 
   constructor(
-    private route: ActivatedRoute, 
-    private blockService: BlockService, 
+    private route: ActivatedRoute,
+    private blockService: BlockService,
     private extrinsicService: ExtrinsicService,
+    private eventService: EventService,
     private location: Location
   ) { }
 
@@ -51,25 +51,11 @@ export class BlockDetailComponent implements OnInit {
     this.block$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           if (params.get('id')) {
-            return this.blockService.get(params.get('id'), { include: ['extrinsics'] });
+            return this.blockService.get(params.get('id'), { include: ['extrinsics', 'events'] });
           }
       })
     );
   }
-
-  // getBlock(): void {
-  //   const id = +this.route.snapshot.paramMap.get('id');
-  //   if (id > 0) {
-  //     this.blockService.getBlockById(id).subscribe(blocks => this.block = blocks);
-  //   }
-
-  //   const hash = this.route.snapshot.paramMap.get('hash');
-
-  //   if (hash !== null) {
-  //     this.blockService.getBlockByHash(hash).subscribe(blocks => this.block = blocks);
-  //   }
-
-  // }
 
   goBack(): void {
     this.location.back();

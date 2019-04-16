@@ -24,7 +24,7 @@ import { Resource } from 'ngx-jsonapi';
 
 export class Extrinsic extends Resource {
   public attributes = {
-    section_id: 'section_id',
-    type_id: 'type_id',
+    module_id: 'module_id',
+    call_id: 'call_id',
   };
 }

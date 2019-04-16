@@ -78,8 +78,10 @@ export class DashboardComponent implements OnInit {
   searchBlock(): void {
     if (this.blockSearchText.includes('-')) {
       this.router.navigate(['system', 'extrinsic', this.blockSearchText]);
-    } else {
+    } else if (+this.blockSearchText) {
       this.router.navigate(['system', 'block', this.blockSearchText]);
+    } else {
+      this.router.navigate(['system', 'account', this.blockSearchText]);
     }
   }
 

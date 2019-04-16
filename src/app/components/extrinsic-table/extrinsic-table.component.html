@@ -1,5 +1,5 @@
 
-      <div *ngIf="extrinsic$  | async as extrinsic" class="card events-card">
+      <div *ngIf="extrinsic" class="card events-card">
         <header class="card-header">
             <div class="card-header-title">
                Extrinsic #{{ extrinsic.id }}
@@ -29,7 +29,7 @@
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.address">
                           <td width="15%">Address</td>
-                          <td><a routerLink="/system/account/{{ extrinsic.attributes.address }}">0x{{ extrinsic.attributes.address }}</a></td>
+                          <td><a routerLink="/system/account/{{ extrinsic.attributes.address }}">{{ extrinsic.attributes.address }}</a></td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.account_index">
                           <td width="15%">Account index</td>
@@ -66,8 +66,8 @@
                         <tr *ngFor="let param of extrinsic.attributes.params">
                           <td width="15%">{{ paramName(param.name) | titlecase}}</td>
                           <td [ngSwitch]="param.type">
-                            <div *ngSwitchCase="'Address'"><a routerLink="/system/account/{{ param.value }}">0x{{ param.value }}</a></div>
-                            <div *ngSwitchCase="'Compact<Balance>'"><i class="far fa-dot-circle"></i> {{ extrinsic.attributes.params[1].value / 1000000000000000 | number: '.5'}}</div>
+                            <div *ngSwitchCase="'Address'"><a routerLink="/system/account/{{ param.value }}">{{ param.value }}</a></div>
+                            <div *ngSwitchCase="'Compact<Balance>'"><i class="far fa-dot-circle"></i> {{ param.value / 1000000000000000 | number: '.5'}}</div>
                             <div *ngSwitchCase="'Compact<Moment>'">{{ param.value | date:'medium' }}</div>
                             <div *ngSwitchDefault><pre>{{ param.value | json }}</pre></div>
                           </td>

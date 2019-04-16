@@ -21,34 +21,30 @@
  */
 
 import {Component, Input, OnInit} from '@angular/core';
-import {Extrinsic} from '../../classes/extrinsic.class';
 import {Location} from '@angular/common';
-import {ExtrinsicService} from '../../services/extrinsic.service';
+import {Event} from '../../classes/event.class';
+import {EventService} from '../../services/event.service';
 
 @Component({
-  selector: 'app-extrinsic-table',
-  templateUrl: './extrinsic-table.component.html',
-  styleUrls: ['./extrinsic-table.component.scss']
+  selector: 'app-event-table',
+  templateUrl: './event-table.component.html',
+  styleUrls: ['./event-table.component.scss']
 })
-export class ExtrinsicTableComponent implements OnInit {
+export class EventTableComponent implements OnInit {
 
-  @Input() extrinsic: Extrinsic = null;
-  @Input() extrinsicId: string = null;
+  @Input() event: Event = null;
+  @Input() eventId: string = null;
   @Input() context: string = null;
 
   constructor(
     private location: Location,
-    private extrinsicService: ExtrinsicService
+    private eventService: EventService
   ) { }
 
   ngOnInit() {
-    if (this.extrinsicId) {
-       this.extrinsicService.get(this.extrinsicId).subscribe(extrinsic => this.extrinsic = extrinsic);
+    if (this.eventId) {
+       this.eventService.get(this.eventId).subscribe(event => this.event = event);
     }
-  }
-
-  goBack(): void {
-    this.location.back();
   }
 
   paramName(name: string) {
