@@ -5,7 +5,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Blocks
+                        Events
                     </p>
                     <a href="#" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -19,27 +19,30 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Number</th>
-                                <th class="is-hidden-mobile">Block hash</th>
-                                <th>Extrinsics</th>
-                                <th>Events</th>
+                                <th>ID</th>
+                                <th>Block number</th>
+                                <th>Module</th>
+                                <th>Event</th>
+                                <th></th>
                               </tr>
                             </thead>
                             <tbody>
-                                <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
-                                    <td width="5%"><i class="fa fa-cube"></i></td>
-                                    <td width="10%">#{{ block.id }}</td>
-                                    <td class="is-hidden-mobile">{{ block.attributes.hash | slice:0:8 }}...{{ block.attributes.hash | slice:60:66 }}</td>
-                                    <td>{{ block.attributes.count_extrinsics }}</td>
-                                    <td>{{ block.attributes.count_events }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/system/block/{{ block.id }}">Details</a></td>
+                                <tr *ngFor="let event of events.data; trackBy: events.trackBy">
+                                    <td width="5%">
+                                      <i class="fa fa-calendar-check"></i>
+                                    </td>
+                                    <td>{{ event.id }}</td>
+                                    <td><a routerLink="/system/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
+                                    <td>{{ event.attributes.module_id }}</td>
+                                    <td>{{ event.attributes.event_id }}</td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/system/event/{{ event.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <a (click)="getNextBlocks()" class="card-footer-item">View next</a>
+                    <a (click)="getNextEvents()" class="card-footer-item">View next</a>
                 </footer>
             </div>
         </section>

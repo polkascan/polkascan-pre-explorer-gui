@@ -42,6 +42,9 @@ import {environment} from "../environments/environment";
 import { PolkascanHeaderComponent } from './components/polkascan-header/polkascan-header.component';
 import { AddressDetailComponent } from './pages/address-detail/address-detail.component';
 import { EventTableComponent } from './components/event-table/event-table.component';
+import { ExtrinsicListComponent } from './pages/extrinsic-list/extrinsic-list.component';
+import { EventListComponent } from './pages/event-list/event-list.component';
+import { EventDetailComponent } from './pages/event-detail/event-detail.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { EventTableComponent } from './components/event-table/event-table.compon
     LoadingBoxComponent,
     PolkascanHeaderComponent,
     AddressDetailComponent,
-    EventTableComponent
+    EventTableComponent,
+    ExtrinsicListComponent,
+    EventListComponent,
+    EventDetailComponent
   ],
   imports: [
     BrowserModule,

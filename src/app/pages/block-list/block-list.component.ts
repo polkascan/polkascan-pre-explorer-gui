@@ -35,12 +35,12 @@ export class BlockListComponent implements OnInit {
 
   public blocks: DocumentCollection<Block>;
 
-  currentPage:number = 0;
+  currentPage = 0;
 
   constructor(
     private blockService: BlockService
   ) {
-  
+
   }
 
   ngOnInit() {
@@ -49,7 +49,7 @@ export class BlockListComponent implements OnInit {
 
   getBlocks(page: number): void {
     this.blockService.all({
-      page: { number: page}
+      page: { number: page, size: 25}
     }).subscribe(blocks => (this.blocks = blocks));
   }
 

@@ -29,15 +29,21 @@ import {ExtrinsicDetailComponent} from './pages/extrinsic-detail/extrinsic-detai
 import {AddressDetailComponent} from './pages/address-detail/address-detail.component';
 import {HarvesterAdminComponent} from './pages/harvester-admin/harvester-admin.component';
 import {SettingsComponent} from './pages/settings/settings.component';
+import {EventDetailComponent} from './pages/event-detail/event-detail.component';
+import {ExtrinsicListComponent} from './pages/extrinsic-list/extrinsic-list.component';
+import {EventListComponent} from './pages/event-list/event-list.component';
 
 const routes: Routes = [
-  { path: 'system/block', component: BlockListComponent },
-  { path: 'harvester/admin', component: HarvesterAdminComponent },
-  { path: 'system/block/:id', component: BlockDetailComponent },
-  { path: 'system/extrinsic/:id', component: ExtrinsicDetailComponent},
-  { path: 'system/account/:id', component: AddressDetailComponent},
   { path: '', component: DashboardComponent},
+  { path: 'system/block', component: BlockListComponent },
+  { path: 'system/block/:id', component: BlockDetailComponent },
+  { path: 'system/extrinsic', component: ExtrinsicListComponent},
+  { path: 'system/extrinsic/:id', component: ExtrinsicDetailComponent},
+  { path: 'system/event', component: EventListComponent},
+  { path: 'system/event/:id', component: EventDetailComponent},
+  { path: 'system/account/:id', component: AddressDetailComponent},
   { path: 'settings', component: SettingsComponent},
+  { path: 'harvester/admin', component: HarvesterAdminComponent },
   // { path: '', redirectTo: '/blocks', pathMatch: 'full' },
 ];
 

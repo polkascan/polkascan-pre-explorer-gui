@@ -21,14 +21,11 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
-import {Block} from "../../classes/block.class";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {BlockService} from "../../services/block.service";
-import {Location} from "@angular/common";
-import {switchMap} from "rxjs/operators";
-import {Extrinsic} from "../../classes/extrinsic.class";
-import {ExtrinsicService} from "../../services/extrinsic.service";
+import {Observable} from 'rxjs';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
+import {Extrinsic} from '../../classes/extrinsic.class';
+import {ExtrinsicService} from '../../services/extrinsic.service';
 
 @Component({
   selector: 'app-extrinsic-detail',
@@ -42,7 +39,6 @@ export class ExtrinsicDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private extrinsicService: ExtrinsicService,
-    private location: Location
   ) { }
 
   ngOnInit() {

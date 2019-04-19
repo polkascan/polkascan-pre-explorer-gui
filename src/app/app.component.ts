@@ -22,6 +22,7 @@
 
 import { Component } from '@angular/core';
 import {environment} from "../environments/environment";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-root',
@@ -32,4 +33,15 @@ export class AppComponent {
   title = 'Polkascan';
 
   public environment = environment;
+  public showNavigation = false;
+
+  constructor(private router: Router) {
+    router.events.subscribe((val) => {
+        this.showNavigation = false;
+    });
+  }
+
+  toggleNavigation() {
+    this.showNavigation = !this.showNavigation;
+  }
 }

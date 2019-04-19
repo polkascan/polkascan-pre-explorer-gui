@@ -1,0 +1,58 @@
+<div class="columns">
+    <div class="column is-12">
+        <app-polkascan-header></app-polkascan-header>
+        <section>
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Extrinsics
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <table class="table is-fullwidth is-striped">
+                             <thead>
+                              <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>Block number</th>
+                                <th>Module</th>
+                                <th>Call</th>
+                                <th>Signed</th>
+                                <th>Success</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let extrinsic of extrinsics.data; trackBy: extrinsics.trackBy">
+                                    <td width="5%">
+                                      <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
+                                      <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
+                                    </td>
+                                    <td>{{ extrinsic.id }}</td>
+                                    <td><a routerLink="/system/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
+                                    <td>{{ extrinsic.attributes.module_id }}</td>
+                                    <td>{{ extrinsic.attributes.call_id }}</td>
+                                    <td><span *ngIf="extrinsic.attributes.signed">Yes</span><span *ngIf="!extrinsic.attributes.signed">No</span></td>
+                                    <td>
+                                      <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
+                                      <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
+                                    </td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ extrinsic.id }}">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a (click)="getNextExtrinsics()" class="card-footer-item">View next</a>
+                </footer>
+            </div>
+        </section>
+    </div>
+</div>

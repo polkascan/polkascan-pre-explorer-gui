@@ -106,6 +106,9 @@ nav.navbar {
   .card-header-icon {
     color: #ba4887;
   }
+  .navbar {
+    background: linear-gradient(to right, #da68a7, #ba4887);
+  }
 }
 
 .network-edgeware {
@@ -123,6 +126,9 @@ nav.navbar {
 
   .card-header-icon {
     color: #0ac5ff;
+  }
+  .navbar {
+    background: linear-gradient(to right, #0ac5ff, #0a95df);
   }
 }
 
@@ -142,6 +148,9 @@ nav.navbar {
   .card-header-icon {
     color: #f15a24;
   }
+  .navbar {
+    background: linear-gradient(to right, #f15a24, #d13a04);
+  }
 }
 
 .hero.welcome.is-info {
@@ -158,4 +167,8 @@ nav.navbar {
 
 .card-header-icon {
   color: #999;
+}
+
+.navbar {
+  background: linear-gradient(to right, #999, #777);
 }

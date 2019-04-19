@@ -1,31 +1,39 @@
-<!-- START NAV -->
-<nav class="navbar is-white">
-    <div class="container">
-        <div class="navbar-brand">
-            <a class="navbar-item brand-text" routerLink="/">
-              {{ title }}
-    </a>
-            <div class="navbar-burger burger" data-target="navMenu">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-        <div id="navMenu" class="navbar-menu">
-            <div class="navbar-start">
-                <a class="navbar-item" routerLink="/system/block">
-                  Blocks
-                </a>
-            </div>
+<div [ngClass]="{
+    'network-alexander': environment.networkName == 'Alexander',
+    'network-edgeware': environment.networkName == 'Edgeware',
+    'network-robonomics': environment.networkName == 'Robonomics'
+  }">
+  <!-- START NAV -->
+  <nav class="navbar is-black network-alexander"  >
+      <div class="container">
+          <div class="navbar-brand">
+              <a class="navbar-item brand-text" routerLink="/">
+                <img src="assets/logo.png" width="120">
+              </a>
+              <div class="navbar-burger burger" data-target="navMenu" [ngClass]="{'is-active': showNavigation}" (click)="toggleNavigation()">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </div>
+          </div>
+          <div id="navMenu" class="navbar-menu" [ngClass]="{'is-active': showNavigation}">
+              <div class="navbar-start">
+                  <a class="navbar-item" routerLink="/system/block">
+                    Blocks
+                  </a>
+                  <a class="navbar-item" routerLink="/system/extrinsic">
+                    Extrinsics
+                  </a>
+                  <a class="navbar-item" routerLink="/system/event">
+                    Events
+                  </a>
+              </div>
 
-        </div>
-    </div>
-</nav>
-<!-- END NAV -->
-<div class="container" [ngClass]="{
-  'network-alexander': environment.networkName == 'Alexander',
-  'network-edgeware': environment.networkName == 'Edgeware',
-  'network-robonomics': environment.networkName == 'Robonomics'
-}">
-    <router-outlet></router-outlet>
+          </div>
+      </div>
+  </nav>
+  <!-- END NAV -->
+  <div class="container" >
+      <router-outlet></router-outlet>
+  </div>
 </div>
