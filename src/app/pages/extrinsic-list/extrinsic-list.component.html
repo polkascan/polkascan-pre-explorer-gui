@@ -21,9 +21,9 @@
                                 <th></th>
                                 <th>ID</th>
                                 <th>Block number</th>
-                                <th>Module</th>
-                                <th>Call</th>
-                                <th>Signed</th>
+                                <th class="is-hidden-mobile">Module</th>
+                                <th class="is-hidden-mobile">Call</th>
+                                <th class="is-hidden-mobile">Signed</th>
                                 <th>Success</th>
                                 <th></th>
                               </tr>
@@ -36,9 +36,9 @@
                                     </td>
                                     <td>{{ extrinsic.id }}</td>
                                     <td><a routerLink="/system/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
-                                    <td>{{ extrinsic.attributes.module_id }}</td>
-                                    <td>{{ extrinsic.attributes.call_id }}</td>
-                                    <td><span *ngIf="extrinsic.attributes.signed">Yes</span><span *ngIf="!extrinsic.attributes.signed">No</span></td>
+                                    <td class="is-hidden-mobile">{{ extrinsic.attributes.module_id }}</td>
+                                    <td class="is-hidden-mobile">{{ extrinsic.attributes.call_id }}</td>
+                                    <td class="is-hidden-mobile"><span *ngIf="extrinsic.attributes.signed">Yes</span><span *ngIf="!extrinsic.attributes.signed">No</span></td>
                                     <td>
                                       <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
                                       <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>

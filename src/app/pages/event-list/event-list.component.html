@@ -21,8 +21,8 @@
                                 <th></th>
                                 <th>ID</th>
                                 <th>Block number</th>
-                                <th>Module</th>
-                                <th>Event</th>
+                                <th class="is-hidden-mobile">Module</th>
+                                <th class="is-hidden-mobile">Event</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -33,8 +33,8 @@
                                     </td>
                                     <td>{{ event.id }}</td>
                                     <td><a routerLink="/system/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
-                                    <td>{{ event.attributes.module_id }}</td>
-                                    <td>{{ event.attributes.event_id }}</td>
+                                    <td class="is-hidden-mobile">{{ event.attributes.module_id }}</td>
+                                    <td class="is-hidden-mobile">{{ event.attributes.event_id }}</td>
                                     <td width="5%"><a class="button is-small is-primary" routerLink="/system/event/{{ event.id }}">Details</a></td>
                                 </tr>
                             </tbody>
