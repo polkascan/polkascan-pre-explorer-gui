@@ -101,7 +101,7 @@
                                     <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
                                         <td width="5%"><i class="fa fa-cube"></i></td>
                                         <td width="10%">#{{ block.id }}</td>
-                                        <td class="is-fullwidth">{{ block.attributes.hash | slice:0:18 }}...</td>
+                                        <td class="is-fullwidth is-hidden-mobile">{{ block.attributes.hash | slice:0:18 }}...</td>
                                         <td>{{ block.attributes.count_extrinsics }}</td>
                                         <td>{{ block.attributes.count_events }}</td>
                                         <td width="5%"><a class="button is-small is-primary" routerLink="/system/block/{{ block.id }}">Details</a></td>
@@ -141,8 +141,8 @@
                                 <tbody>
                                     <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                                         <td width="5%"><i class="fa fa-exchange-alt"></i></td>
-                                        <td class="is-hidden-tablet">{{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
-                                        <td class="is-hidden-mobile">{{ balanceTransfer.attributes.destination }}</td>
+                                        <td class="is-hidden-tablet">{{ balanceTransfer.attributes.destination | slice:0:8 }}...</td>
+                                        <td class="is-hidden-mobile">{{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
                                         <td><i class="far fa-dot-circle"></i> {{ balanceTransfer.attributes.value / 1000000000000000 | number: '1.2'}}</td>
                                         <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ balanceTransfer.id }}">Details</a></td>
                                     </tr>

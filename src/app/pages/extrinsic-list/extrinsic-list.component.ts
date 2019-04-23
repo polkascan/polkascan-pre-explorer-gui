@@ -11,7 +11,6 @@ import {Extrinsic} from '../../classes/extrinsic.class';
 export class ExtrinsicListComponent implements OnInit {
 
   public extrinsics: DocumentCollection<Extrinsic>;
-
   currentPage = 0;
 
   constructor(
@@ -27,11 +26,13 @@ export class ExtrinsicListComponent implements OnInit {
   getExtrinsics(page: number): void {
     this.extrinsicService.all({
       page: { number: page, size: 25}
-    }).subscribe(extrinsics => (this.extrinsics = extrinsics));
+    }).subscribe(extrinsics => {
+      this.extrinsics = extrinsics;
+    });
   }
 
   getNextExtrinsics(): void {
-    this.currentPage += 1
+    this.currentPage += 1;
     this.getExtrinsics(this.currentPage);
   }
 }

@@ -26,8 +26,8 @@
                             <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                               <td width="5%"><i class="fa fa-exchange-alt"></i></td>
                               <td><a [routerLink]="['/system/block/', balanceTransfer.attributes.block_id]">{{ balanceTransfer.attributes.block_id }}</a></td>
-                              <td class="is-hidden-tablet"><a [routerLink]="['/system/account/', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination| slice:0:16 }}...</a></td>
-                              <td class="is-hidden-mobile"><a [routerLink]="['/system/account/', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination }}</a></td>
+                              <td class="is-hidden-tablet"><a [routerLink]="['/module/account/', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination| slice:0:16 }}...</a></td>
+                              <td class="is-hidden-mobile"><a [routerLink]="['/module/account/', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination }}</a></td>
                               <td><i class="far fa-dot-circle"></i> {{ balanceTransfer.attributes.value / 1000000000000000 | number: '1.2'}}</td>
                               <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ balanceTransfer.id }}">Details</a></td>
                             </tr>

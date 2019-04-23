@@ -41,7 +41,7 @@ const routes: Routes = [
   { path: 'system/extrinsic/:id', component: ExtrinsicDetailComponent},
   { path: 'system/event', component: EventListComponent},
   { path: 'system/event/:id', component: EventDetailComponent},
-  { path: 'system/account/:id', component: AddressDetailComponent},
+  { path: 'module/account/:id', component: AddressDetailComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'harvester/admin', component: HarvesterAdminComponent },
   // { path: '', redirectTo: '/blocks', pathMatch: 'full' },
