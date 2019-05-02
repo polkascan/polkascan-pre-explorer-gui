@@ -17,32 +17,33 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * extrinsic-list.component.spec.ts
+ * runtime-list.component.ts
  *
  */
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, OnInit } from '@angular/core';
+import {DocumentCollection} from "ngx-jsonapi";
+import {Runtime} from "../../classes/runtime.class";
+import {RuntimeService} from "../../services/runtime.service";
 
-import { ExtrinsicListComponent } from './extrinsic-list.component';
+@Component({
+  selector: 'app-runtime-list',
+  templateUrl: './runtime-list.component.html',
+  styleUrls: ['./runtime-list.component.scss']
+})
+export class RuntimeListComponent implements OnInit {
 
-describe('ExtrinsicListComponent', () => {
-  let component: ExtrinsicListComponent;
-  let fixture: ComponentFixture<ExtrinsicListComponent>;
+  public runtimes: DocumentCollection<Runtime>;
 
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ExtrinsicListComponent ]
-    })
-    .compileComponents();
-  }));
+  constructor(
+    private runtimeService: RuntimeService
+  ) {
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ExtrinsicListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
+  }
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  ngOnInit() {
+    this.runtimeService.all({
+
+    }).subscribe(runtimes => (this.runtimes = runtimes));
+  }
+}

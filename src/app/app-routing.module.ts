@@ -32,6 +32,11 @@ import {SettingsComponent} from './pages/settings/settings.component';
 import {EventDetailComponent} from './pages/event-detail/event-detail.component';
 import {ExtrinsicListComponent} from './pages/extrinsic-list/extrinsic-list.component';
 import {EventListComponent} from './pages/event-list/event-list.component';
+import {RuntimeListComponent} from "./pages/runtime-list/runtime-list.component";
+import {RuntimeDetailComponent} from "./pages/runtime-detail/runtime-detail.component";
+import {RuntimeModuleDetailComponent} from "./pages/runtime-module-detail/runtime-module-detail.component";
+import {RuntimeCallDetailComponent} from "./pages/runtime-call-detail/runtime-call-detail.component";
+import {RuntimeEventDetailComponent} from "./pages/runtime-event-detail/runtime-event-detail.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -41,6 +46,11 @@ const routes: Routes = [
   { path: 'system/extrinsic/:id', component: ExtrinsicDetailComponent},
   { path: 'system/event', component: EventListComponent},
   { path: 'system/event/:id', component: EventDetailComponent},
+  { path: 'system/runtime', component: RuntimeListComponent },
+  { path: 'system/runtime/:id', component: RuntimeDetailComponent },
+  { path: 'system/runtime-module/:id', component: RuntimeModuleDetailComponent },
+  { path: 'system/runtime-call/:id', component: RuntimeCallDetailComponent },
+  { path: 'system/runtime-event/:id', component: RuntimeEventDetailComponent},
   { path: 'module/account/:id', component: AddressDetailComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'harvester/admin', component: HarvesterAdminComponent },

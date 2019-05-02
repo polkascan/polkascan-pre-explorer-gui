@@ -1,0 +1,44 @@
+<div class="columns">
+    <div class="column is-12">
+        <app-polkascan-header></app-polkascan-header>
+        <section>
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Runtimes
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <app-loading-box *ngIf="runtimes.data.length === 0"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="runtimes.data.length > 0">
+                             <thead>
+                              <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Spec version</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let runtime of runtimes.data; trackBy: runtimes.trackBy">
+                                    <td width="5%"><i class="fa fa-cogs"></i></td>
+                                    <td width="10%">#{{ runtime.id }}</td>
+                                    <td>{{ runtime.attributes.impl_name }}</td>
+                                    <td>{{ runtime.attributes.spec_version }}</td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/system/runtime/{{ runtime.id }}">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>

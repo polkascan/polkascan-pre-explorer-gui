@@ -17,27 +17,27 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * extrinsic-list.component.spec.ts
+ * runtime-call-detail.component.spec.ts
  *
  */
 
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ExtrinsicListComponent } from './extrinsic-list.component';
+import { RuntimeCallDetailComponent } from './runtime-call-detail.component';
 
-describe('ExtrinsicListComponent', () => {
-  let component: ExtrinsicListComponent;
-  let fixture: ComponentFixture<ExtrinsicListComponent>;
+describe('RuntimeCallDetailComponent', () => {
+  let component: RuntimeCallDetailComponent;
+  let fixture: ComponentFixture<RuntimeCallDetailComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ExtrinsicListComponent ]
+      declarations: [ RuntimeCallDetailComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ExtrinsicListComponent);
+    fixture = TestBed.createComponent(RuntimeCallDetailComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

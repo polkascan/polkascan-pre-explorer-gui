@@ -17,32 +17,20 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * extrinsic-list.component.spec.ts
+ * runtime-event.service.ts
  *
  */
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { Injectable } from '@angular/core';
+import {Autoregister, Service} from "ngx-jsonapi";
+import {RuntimeEvent} from "../classes/runtime-event.class";
 
-import { ExtrinsicListComponent } from './extrinsic-list.component';
-
-describe('ExtrinsicListComponent', () => {
-  let component: ExtrinsicListComponent;
-  let fixture: ComponentFixture<ExtrinsicListComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ExtrinsicListComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ExtrinsicListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+@Injectable({
+  providedIn: 'root'
+})
+@Autoregister()
+export class RuntimeEventService extends Service<RuntimeEvent> {
+    public resource = RuntimeEvent;
+    public type = 'runtimeevent';
+    public path = 'system/runtime-event';
+}

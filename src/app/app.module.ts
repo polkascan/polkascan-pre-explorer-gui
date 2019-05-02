@@ -45,6 +45,11 @@ import { EventTableComponent } from './components/event-table/event-table.compon
 import { ExtrinsicListComponent } from './pages/extrinsic-list/extrinsic-list.component';
 import { EventListComponent } from './pages/event-list/event-list.component';
 import { EventDetailComponent } from './pages/event-detail/event-detail.component';
+import { RuntimeListComponent } from './pages/runtime-list/runtime-list.component';
+import { RuntimeDetailComponent } from './pages/runtime-detail/runtime-detail.component';
+import { RuntimeModuleDetailComponent } from './pages/runtime-module-detail/runtime-module-detail.component';
+import { RuntimeCallDetailComponent } from './pages/runtime-call-detail/runtime-call-detail.component';
+import { RuntimeEventDetailComponent } from './pages/runtime-event-detail/runtime-event-detail.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +68,12 @@ import { EventDetailComponent } from './pages/event-detail/event-detail.componen
     EventTableComponent,
     ExtrinsicListComponent,
     EventListComponent,
-    EventDetailComponent
+    EventDetailComponent,
+    RuntimeListComponent,
+    RuntimeDetailComponent,
+    RuntimeModuleDetailComponent,
+    RuntimeCallDetailComponent,
+    RuntimeEventDetailComponent
   ],
   imports: [
     BrowserModule,

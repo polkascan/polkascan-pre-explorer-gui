@@ -17,32 +17,15 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * extrinsic-list.component.spec.ts
+ * runtime.class.ts
  *
  */
 
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {DocumentCollection, Resource} from 'ngx-jsonapi';
+import {RuntimeModule} from "./runtime-module.class";
 
-import { ExtrinsicListComponent } from './extrinsic-list.component';
-
-describe('ExtrinsicListComponent', () => {
-  let component: ExtrinsicListComponent;
-  let fixture: ComponentFixture<ExtrinsicListComponent>;
-
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      declarations: [ ExtrinsicListComponent ]
-    })
-    .compileComponents();
-  }));
-
-  beforeEach(() => {
-    fixture = TestBed.createComponent(ExtrinsicListComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+export class Runtime extends Resource {
+  public relationships = {
+        modules: new DocumentCollection<RuntimeModule>()
+  };
+}
