@@ -28,6 +28,7 @@ import {switchMap} from "rxjs/operators";
 import {RuntimeCallService} from "../../services/runtime-call.service";
 import {RuntimeCall} from "../../classes/runtime-call.class";
 import {RuntimeCallParamService} from "../../services/runtime-call-param.service";
+import {ExtrinsicService} from "../../services/extrinsic.service";
 
 @Component({
   selector: 'app-runtime-call-detail',
@@ -42,13 +43,14 @@ export class RuntimeCallDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private runtimeCallService: RuntimeCallService,
     private runtimeCallParamService: RuntimeCallParamService,
+    private extrinsicService: ExtrinsicService,
   ) { }
 
   ngOnInit() {
     this.runtimeCall$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           if (params.get('id')) {
-            return this.runtimeCallService.get(params.get('id'), { include: ['params']});
+            return this.runtimeCallService.get(params.get('id'), { include: ['params', 'recent_extrinsics']});
           }
       })
     );

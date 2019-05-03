@@ -28,6 +28,7 @@ import {switchMap} from "rxjs/operators";
 import {RuntimeEvent} from "../../classes/runtime-event.class";
 import {RuntimeEventService} from "../../services/runtime-event.service";
 import {RuntimeEventAttributeService} from "../../services/runtime-event-attribute.service";
+import {EventService} from "../../services/event.service";
 
 @Component({
   selector: 'app-runtime-event-detail',
@@ -42,13 +43,14 @@ export class RuntimeEventDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private runtimeEventService: RuntimeEventService,
     private runtimeEventAttributeService: RuntimeEventAttributeService,
+    private eventService: EventService,
   ) { }
 
   ngOnInit() {
     this.runtimeEvent$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           if (params.get('id')) {
-            return this.runtimeEventService.get(params.get('id'), { include: ['attributes']});
+            return this.runtimeEventService.get(params.get('id'), { include: ['attributes', 'recent_events']});
           }
       })
     );

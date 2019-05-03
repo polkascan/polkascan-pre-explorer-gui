@@ -22,10 +22,12 @@
  */
 
 import {DocumentCollection, Resource} from 'ngx-jsonapi';
-import {RuntimeEventAttribute} from "./runtime-event-attribute.class";
+import {RuntimeEventAttribute} from './runtime-event-attribute.class';
+import {Event} from './event.class'
 
 export class RuntimeEvent extends Resource {
   public relationships = {
-        attributes: new DocumentCollection<RuntimeEventAttribute>()
+        attributes: new DocumentCollection<RuntimeEventAttribute>(),
+        recent_events: new DocumentCollection<Event>()
   };
 }

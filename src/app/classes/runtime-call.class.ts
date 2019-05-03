@@ -23,6 +23,7 @@
 
 import {DocumentCollection, Resource} from 'ngx-jsonapi';
 import {RuntimeCallParam} from "./runtime-call-param.class";
+import {Extrinsic} from "./extrinsic.class";
 
 export class RuntimeCall extends Resource {
   public attributes = {
@@ -31,6 +32,7 @@ export class RuntimeCall extends Resource {
   };
 
   public relationships = {
-        params: new DocumentCollection<RuntimeCallParam>()
+        params: new DocumentCollection<RuntimeCallParam>(),
+        recent_extrinsics: new DocumentCollection<Extrinsic>()
   };
 }

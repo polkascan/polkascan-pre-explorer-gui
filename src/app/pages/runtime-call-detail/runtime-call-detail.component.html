@@ -79,6 +79,46 @@
                 </div>
             </div>
         </section>
+        <section *ngIf="runtimeCall.relationships.recent_extrinsics.data.length > 0">
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Recent extrinsics using call "{{ runtimeCall.attributes.name }}"
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <table class="table is-fullwidth is-striped">
+                             <thead>
+                              <tr>
+                                <th></th>
+                                <th>ID</th>
+                                <th>Result</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let extrinsic of runtimeCall.relationships.recent_extrinsics.data; trackBy: runtimeCall.relationships.recent_extrinsics.trackBy">
+                                    <td width="5%">
+                                      <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
+                                      <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
+                                    </td>
+                                    <td><a routerLink="/system/extrinsic/{{ extrinsic.id }}">{{ extrinsic.id }}</a></td>
+                                    <td>
+                                      <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
+                                      <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
       </div>
   </div>
 </div>
