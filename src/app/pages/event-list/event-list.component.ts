@@ -12,7 +12,7 @@ export class EventListComponent implements OnInit {
 
 public events: DocumentCollection<Event>;
 
-  currentPage = 0;
+  currentPage = 1;
 
   constructor(
     private eventService: EventService

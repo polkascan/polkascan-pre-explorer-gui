@@ -34,7 +34,8 @@ import {Extrinsic} from '../../classes/extrinsic.class';
 export class ExtrinsicListComponent implements OnInit {
 
   public extrinsics: DocumentCollection<Extrinsic>;
-  currentPage = 0;
+  currentPage = 1;
+  signedOnly = false;
 
   constructor(
     private extrinsicService: ExtrinsicService
@@ -43,19 +44,31 @@ export class ExtrinsicListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getExtrinsics(this.currentPage);
+    this.getExtrinsics(this.currentPage, this.signedOnly);
   }
 
-  getExtrinsics(page: number): void {
-    this.extrinsicService.all({
-      page: { number: page, size: 25}
-    }).subscribe(extrinsics => {
+  getExtrinsics(page: number, signedOnly: boolean): void {
+
+    let params = {
+      page: { number: page, size: 25},
+      remotefilter: {},
+    };
+
+    if (this.signedOnly) {
+      params['remotefilter']['signed'] = 1;
+    }
+
+    this.extrinsicService.all(params).subscribe(extrinsics => {
       this.extrinsics = extrinsics;
     });
   }
 
+  refreshExtrinsics(): void {
+    this.getExtrinsics(this.currentPage, this.signedOnly);
+  }
+
   getNextExtrinsics(): void {
     this.currentPage += 1;
-    this.getExtrinsics(this.currentPage);
+    this.refreshExtrinsics();
   }
 }
