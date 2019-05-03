@@ -15,12 +15,15 @@ COPY . .
 
 ## Build the angular app in production mode and store the artifacts in dist folder
 ARG env=docker
-ENV NETWORK=$env
+ENV ENV_CONFIG=$env
 
-ARG API_URL=http://127.0.0.1:8000
+ARG API_URL=//127.0.0.1:8080/api/v1/
 ENV API_URL=$API_URL
 
-RUN npm run ng build -- --configuration=${NETWORK} --output-path=dist
+ARG NETWORK_NAME=Dev
+ENV NETWORK_NAME=$NETWORK_NAME
+
+RUN npm run ng build -- --configuration=${ENV_CONFIG} --output-path=dist
 
 
 ### STAGE 2: Setup ###

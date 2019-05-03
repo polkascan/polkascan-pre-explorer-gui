@@ -153,6 +153,27 @@ nav.navbar {
   }
 }
 
+.network-joystream {
+  .hero.welcome.is-info {
+    background: linear-gradient(to right, #00daaf, #00ba8f);
+  }
+
+  .button.is-primary {
+    background-color: #00daaf;
+  }
+
+  .button.is-primary:hover {
+    background-color: #00daaf;
+  }
+
+  .card-header-icon {
+    color: #00daaf;
+  }
+  .navbar {
+    background: linear-gradient(to right, #00daaf, #00ba8f);
+  }
+}
+
 .hero.welcome.is-info {
   background: linear-gradient(to right, #999, #777);
 }
