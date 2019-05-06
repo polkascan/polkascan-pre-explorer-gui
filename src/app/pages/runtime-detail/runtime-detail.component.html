@@ -73,6 +73,46 @@
                 </div>
             </div>
         </section>
+        <section>
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Types
+                    </p>
+                    <a href="#" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <app-loading-box *ngIf="runtime.relationships.types.data.length === 0"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="runtime.relationships.types.data.length > 0">
+                             <thead>
+                              <tr>
+                                <th></th>
+                                <th>Type string</th>
+                                <th class="is-hidden-mobile">Compatible with decoder</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let type of runtime.relationships.types.data; trackBy: runtime.relationships.types.trackBy">
+                                    <td width="5%">
+                                      <i class="fa fa-cog"></i>
+                                    </td>
+                                    <td>{{ type.attributes.type_string }}</td>
+                                    <td class="is-hidden-mobile">
+                                      <i *ngIf="type.attributes.decoder_class != '[not implemented]'" class="fa fa-check" style="color: forestgreen"></i>
+                                      <i *ngIf="type.attributes.decoder_class == '[not implemented]'" class="fa fa-times" style="color: darkred"></i>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
       </div>
   </div>
 </div>

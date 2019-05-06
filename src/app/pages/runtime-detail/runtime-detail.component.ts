@@ -29,6 +29,7 @@ import {switchMap} from "rxjs/operators";
 import {Runtime} from "../../classes/runtime.class";
 import {RuntimeService} from "../../services/runtime.service";
 import {RuntimeModuleService} from "../../services/runtime-module.service";
+import {RuntimeTypeService} from "../../services/runtime-type.service";
 
 @Component({
   selector: 'app-runtime-detail',
@@ -43,6 +44,7 @@ export class RuntimeDetailComponent implements OnInit {
     private route: ActivatedRoute,
     private runtimeService: RuntimeService,
     private runtimeModuleService: RuntimeModuleService,
+    private runtimeTypeService: RuntimeTypeService,
     private location: Location
   ) { }
 
@@ -50,7 +52,7 @@ export class RuntimeDetailComponent implements OnInit {
     this.runtime$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           if (params.get('id')) {
-            return this.runtimeService.get(params.get('id'), { include: ['modules'] });
+            return this.runtimeService.get(params.get('id'), { include: ['modules', 'types'] });
           }
       })
     );

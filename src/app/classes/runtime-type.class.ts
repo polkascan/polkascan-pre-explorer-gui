@@ -17,17 +17,12 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * runtime.class.ts
+ * runtime-type.class.ts
  *
  */
 
-import {DocumentCollection, Resource} from 'ngx-jsonapi';
-import {RuntimeModule} from "./runtime-module.class";
-import {RuntimeType} from "./runtime-type.class";
+import {Resource} from 'ngx-jsonapi';
 
-export class Runtime extends Resource {
-  public relationships = {
-        modules: new DocumentCollection<RuntimeModule>(),
-        types: new DocumentCollection<RuntimeType>()
-  };
+export class RuntimeType extends Resource {
+
 }
