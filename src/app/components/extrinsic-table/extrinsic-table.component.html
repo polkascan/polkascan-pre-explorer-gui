@@ -19,6 +19,10 @@
                           <td width="15%">Block</td>
                           <td><a routerLink="/system/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                         </tr>
+                        <tr *ngIf="extrinsic.attributes.extrinsic_hash">
+                          <td width="15%">Extrinsic Hash</td>
+                          <td><a routerLink="/system/extrinsic/0x{{ extrinsic.attributes.extrinsic_hash}}">0x{{ extrinsic.attributes.extrinsic_hash}}</a></td>
+                        </tr>
                         <tr>
                           <td width="15%">Module</td>
                           <td>{{ extrinsic.attributes.module_id }}</td>
