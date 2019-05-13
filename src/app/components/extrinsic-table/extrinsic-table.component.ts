@@ -35,6 +35,8 @@ export class ExtrinsicTableComponent implements OnInit {
   @Input() extrinsic: Extrinsic = null;
   @Input() extrinsicId: string = null;
   @Input() context: string = null;
+  @Input() networkTokenDecimals: number = 0;
+  @Input() networkTokenSymbol: string;
 
   constructor(
     private location: Location,
@@ -49,6 +51,10 @@ export class ExtrinsicTableComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  public formatBalance(balance: number) {
+    return balance / Math.pow(10, this.networkTokenDecimals);
   }
 
   paramName(name: string) {

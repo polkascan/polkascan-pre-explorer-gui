@@ -31,6 +31,7 @@ import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {BalanceTransfer} from '../../classes/balancetransfer.class';
 import {BalanceTransferService} from '../../services/balance-transfer.service';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-dashboard',
@@ -46,6 +47,9 @@ export class DashboardComponent implements OnInit {
   blockSearchText: string;
   private blockUpdateSubsription: Subscription;
 
+  public networkTokenDecimals: number;
+  public networkTokenSymbol: string;
+
   constructor(
     private blockService: BlockService,
     private balanceTransferService: BalanceTransferService,
@@ -56,6 +60,9 @@ export class DashboardComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.networkTokenDecimals = environment.networkTokenDecimals;
+    this.networkTokenSymbol = environment.networkTokenSymbol;
 
     this.getBlocks();
     this.networkstats$ = this.networkstatsService.get('alexander');
@@ -76,13 +83,17 @@ export class DashboardComponent implements OnInit {
   }
 
   searchBlock(): void {
-    if (this.blockSearchText.startsWith('0x')) {
+    if (this.blockSearchText.startsWith('0x') || this.blockSearchText.includes('-')) {
       this.router.navigate(['system', 'extrinsic', this.blockSearchText]);
     } else if (+this.blockSearchText) {
       this.router.navigate(['system', 'block', this.blockSearchText]);
     } else {
       this.router.navigate(['module', 'account', this.blockSearchText]);
     }
+  }
+
+  public formatBalance(balance: number) {
+    return balance / Math.pow(10, this.networkTokenDecimals);
   }
 
   ngOnDestroy() {

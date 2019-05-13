@@ -26,6 +26,7 @@ import {ActivatedRoute, ParamMap} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {Extrinsic} from '../../classes/extrinsic.class';
 import {ExtrinsicService} from '../../services/extrinsic.service';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-extrinsic-detail',
@@ -36,12 +37,19 @@ export class ExtrinsicDetailComponent implements OnInit {
 
   extrinsic$: Observable<Extrinsic>;
 
+  public networkTokenDecimals: number;
+  public networkTokenSymbol: string;
+
   constructor(
     private route: ActivatedRoute,
     private extrinsicService: ExtrinsicService,
   ) { }
 
   ngOnInit() {
+
+    this.networkTokenDecimals = environment.networkTokenDecimals;
+    this.networkTokenSymbol = environment.networkTokenSymbol;
+
     this.extrinsic$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           return this.extrinsicService.get(params.get('id'));

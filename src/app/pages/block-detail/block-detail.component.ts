@@ -29,6 +29,7 @@ import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import {ExtrinsicService} from '../../services/extrinsic.service';
 import {EventService} from '../../services/event.service';
+import {environment} from "../../../environments/environment";
 
 @Component({
   selector: 'app-block-detail',
@@ -39,6 +40,9 @@ export class BlockDetailComponent implements OnInit {
 
   block$: Observable<Block>;
 
+  public networkTokenDecimals: number;
+  public networkTokenSymbol: string;
+
   constructor(
     private route: ActivatedRoute,
     private blockService: BlockService,
@@ -48,6 +52,10 @@ export class BlockDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    this.networkTokenDecimals = environment.networkTokenDecimals;
+    this.networkTokenSymbol = environment.networkTokenSymbol;
+
     this.block$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           if (params.get('id')) {

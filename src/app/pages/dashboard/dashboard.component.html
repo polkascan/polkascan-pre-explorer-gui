@@ -110,9 +110,6 @@
                             </table>
                         </div>
                     </div>
-                    <footer class="card-footer">
-                        <a routerLink="/system/block/" class="card-footer-item">View blocks</a>
-                    </footer>
                 </div>
             </div>
             <div class="column is-6 last-transfers">
@@ -143,16 +140,13 @@
                                         <td width="5%"><i class="fa fa-exchange-alt"></i></td>
                                         <td class="is-hidden-tablet">{{ balanceTransfer.attributes.destination | slice:0:8 }}...</td>
                                         <td class="is-hidden-mobile">{{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
-                                        <td><i class="far fa-dot-circle"></i> {{ balanceTransfer.attributes.value / 1000000000000000 | number: '1.2'}}</td>
-                                        <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ balanceTransfer.id }}">Details</a></td>
+                                        <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
+                                        <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ balanceTransfer.attributes.extrinsic_hash ? '0x' + balanceTransfer.attributes.extrinsic_hash : balanceTransfer.id }}">Details</a></td>
                                     </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <footer class="card-footer">
-                        <a routerLink="/system/extrinsic/transfers" class="card-footer-item">View balance transfers</a>
-                    </footer>
                 </div>
             </div>
         </section>

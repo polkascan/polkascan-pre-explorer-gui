@@ -71,7 +71,7 @@
                           <td width="15%">{{ paramName(param.name) | titlecase}}</td>
                           <td [ngSwitch]="param.type">
                             <div *ngSwitchCase="'Address'"><a routerLink="/module/account/{{ param.value }}">{{ param.value }}</a></div>
-                            <div *ngSwitchCase="'Compact<Balance>'"><i class="far fa-dot-circle"></i> {{ param.value / 1000000000000000 | number: '.5'}}</div>
+                            <div *ngSwitchCase="'Compact<Balance>'">{{ formatBalance(param.value) | number}} {{ networkTokenSymbol }}</div>
                             <div *ngSwitchCase="'Compact<Moment>'">{{ param.value | date:'medium' }}</div>
                             <div *ngSwitchDefault><pre>{{ param.value | json }}</pre></div>
                           </td>

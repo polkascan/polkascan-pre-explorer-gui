@@ -4,8 +4,10 @@
 
 export const environment = {
   production: false,
-  jsonApiRootUrl: '//127.0.0.1:8000/',
-  networkName: 'Dev'
+  jsonApiRootUrl: 'http://127.0.0.1:8000/',
+  networkName: 'Dev',
+  networkTokenSymbol: 'DOT',
+  networkTokenDecimals: 15
 };
 
 /*

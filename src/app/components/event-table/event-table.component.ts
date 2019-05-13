@@ -35,6 +35,8 @@ export class EventTableComponent implements OnInit {
   @Input() event: Event = null;
   @Input() eventId: string = null;
   @Input() context: string = null;
+  @Input() networkTokenDecimals: number = 0;
+  @Input() networkTokenSymbol: string = '';
 
   constructor(
     private location: Location,
@@ -45,6 +47,10 @@ export class EventTableComponent implements OnInit {
     if (this.eventId) {
        this.eventService.get(this.eventId).subscribe(event => this.event = event);
     }
+  }
+
+  public formatBalance(balance: number) {
+    return balance / Math.pow(10, this.networkTokenDecimals);
   }
 
   paramName(name: string) {

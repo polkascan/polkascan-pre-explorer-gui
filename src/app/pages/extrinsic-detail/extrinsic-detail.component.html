@@ -2,7 +2,11 @@
   <div class="column is-12">
       <app-polkascan-header></app-polkascan-header>
        <section class="info-tiles">
-        <app-extrinsic-table [extrinsic]="extrinsic$ | async"></app-extrinsic-table>
+        <app-extrinsic-table
+          [extrinsic]="extrinsic$ | async"
+          [networkTokenDecimals]="networkTokenDecimals"
+          [networkTokenSymbol]="networkTokenSymbol"
+        ></app-extrinsic-table>
        </section>
   </div>
 </div>

@@ -2,7 +2,11 @@
   <div class="column is-12">
       <app-polkascan-header></app-polkascan-header>
        <section class="info-tiles">
-        <app-event-table [event]="event$ | async"></app-event-table>
+        <app-event-table
+          [event]="event$ | async"
+          [networkTokenDecimals]="networkTokenDecimals"
+          [networkTokenSymbol]="networkTokenSymbol"
+        ></app-event-table>
        </section>
   </div>
 </div>

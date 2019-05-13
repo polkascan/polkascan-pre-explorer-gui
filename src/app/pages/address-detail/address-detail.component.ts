@@ -3,6 +3,7 @@ import {ActivatedRoute, ParamMap} from '@angular/router'
 import {BalanceTransferService} from '../../services/balance-transfer.service';
 import {DocumentCollection} from 'ngx-jsonapi';
 import {BalanceTransfer} from '../../classes/balancetransfer.class';
+import {environment} from "../../../environments/environment";
 
 
 @Component({
@@ -14,17 +15,27 @@ export class AddressDetailComponent implements OnInit {
 
   public balanceTransfers: DocumentCollection<BalanceTransfer>;
   public account: string;
+  public networkTokenDecimals: number;
+  public networkTokenSymbol: string;
 
   constructor(private balanceTransferService: BalanceTransferService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.networkTokenDecimals = environment.networkTokenDecimals;
+    this.networkTokenSymbol = environment.networkTokenSymbol;
+
     this.activatedRoute.params.subscribe(val => {
       this.account = val.id;
-      // console.log(blake2b(val.id.slice(0, 33)));
+
       this.balanceTransferService.all({
         remotefilter: {address: this.account},
         page: { number: 0}
       }).subscribe(balanceTransfers => (this.balanceTransfers = balanceTransfers));
     });
+  }
+
+   public formatBalance(balance: number) {
+    return balance / Math.pow(10, this.networkTokenDecimals);
   }
 }

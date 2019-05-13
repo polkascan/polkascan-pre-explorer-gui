@@ -35,7 +35,7 @@ export class ExtrinsicListComponent implements OnInit {
 
   public extrinsics: DocumentCollection<Extrinsic>;
   currentPage = 1;
-  signedOnly = false;
+  signedOnly = true;
 
   constructor(
     private extrinsicService: ExtrinsicService
