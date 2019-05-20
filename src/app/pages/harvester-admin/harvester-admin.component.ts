@@ -48,7 +48,7 @@ export class HarvesterAdminComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-     this.networkstats$ = this.networkstatsService.get('alexander');
+     this.networkstats$ = this.networkstatsService.get('latest');
 
      this.harvesterQueue$ = this.httpClient.get(environment.jsonApiRootUrl + 'harvester/status');
 
@@ -59,7 +59,7 @@ export class HarvesterAdminComponent implements OnInit {
 
      const updateCounter = interval(20000);
 
-     this.statsUpdateSubsription = updateCounter.subscribe( n => this.networkstats$ = this.networkstatsService.get('alexander'));
+     this.statsUpdateSubsription = updateCounter.subscribe( n => this.networkstats$ = this.networkstatsService.get('latest'));
   }
 
   ngOnDestroy() {

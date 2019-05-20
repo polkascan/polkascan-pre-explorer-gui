@@ -65,7 +65,7 @@ export class DashboardComponent implements OnInit {
     this.networkTokenSymbol = environment.networkTokenSymbol;
 
     this.getBlocks();
-    this.networkstats$ = this.networkstatsService.get('alexander');
+    this.networkstats$ = this.networkstatsService.get('latest');
 
     const blockUpdateCounter = interval(10000);
 
