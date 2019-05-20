@@ -28,7 +28,9 @@ module.exports = {
     new webpack.DefinePlugin({
       $ENV: {
         API_URL: JSON.stringify(process.env.API_URL),
-        NETWORK_NAME: JSON.stringify(process.env.NETWORK_NAME)
+        NETWORK_NAME: JSON.stringify(process.env.NETWORK_NAME),
+        NETWORK_TOKEN_SYMBOL: JSON.stringify(process.env.NETWORK_TOKEN_SYMBOL),
+        NETWORK_TOKEN_DECIMALS: JSON.stringify(process.env.NETWORK_TOKEN_DECIMALS)
       }
     })
   ]

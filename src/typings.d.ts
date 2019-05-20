@@ -26,6 +26,6 @@ declare var $ENV: Env;
 interface Env {
   API_URL: string;
   NETWORK_NAME: string;
-  //SomeAPIKey: string;
-  //SomeOtherAPIKey: string;
+  NETWORK_TOKEN_SYMBOL: string;
+  NETWORK_TOKEN_DECIMALS: number;
 }

@@ -1,0 +1,19 @@
+.last-blocks {
+    padding-left: 0;
+  }
+
+  .last-transfers {
+    padding-right: 0;
+  }
+
+@media screen and (max-width: 1088px) {
+
+  .last-blocks {
+    padding-right: 0;
+  }
+
+  .last-transfers {
+    padding-left: 0;
+  }
+
+}
