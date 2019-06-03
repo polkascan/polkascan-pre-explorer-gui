@@ -51,7 +51,7 @@
                 </header>
                 <div class="card-table">
                     <div class="content">
-                        <app-loading-box *ngIf="!extrinsics || extrinsics.data.length === 0"></app-loading-box>
+                        <app-loading-box *ngIf="!extrinsics || extrinsics.is_loading"></app-loading-box>
                         <table class="table is-fullwidth is-striped" *ngIf="extrinsics && extrinsics.data.length > 0">
                              <thead>
                               <tr>
@@ -84,6 +84,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                      <div class="no-items" *ngIf="extrinsics && !extrinsics.is_loading && extrinsics.data.length == 0">No transactions found for this account</div>
                     </div>
                 </div>
             </div>

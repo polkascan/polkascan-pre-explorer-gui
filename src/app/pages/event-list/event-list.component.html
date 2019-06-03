@@ -15,7 +15,7 @@
                 </header>
                 <div class="card-table">
                     <div class="content">
-                        <app-loading-box *ngIf="events.data.length === 0"></app-loading-box>
+                        <app-loading-box *ngIf="events.is_loading"></app-loading-box>
                         <table class="table is-fullwidth is-striped" *ngIf="events.data.length > 0">
                              <thead>
                               <tr>
@@ -40,6 +40,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="no-items" *ngIf="events.data.length == 0 && !events.is_loading">No items</div>
                     </div>
                 </div>
                 <footer class="card-footer">

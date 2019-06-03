@@ -15,7 +15,7 @@
                 </header>
                 <div class="card-table">
                     <div class="content">
-                        <app-loading-box *ngIf="runtimes.data.length === 0"></app-loading-box>
+                        <app-loading-box *ngIf="runtimes.is_loading"></app-loading-box>
                         <table class="table is-fullwidth is-striped" *ngIf="runtimes.data.length > 0">
                              <thead>
                               <tr>
