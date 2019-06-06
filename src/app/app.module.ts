@@ -50,6 +50,8 @@ import { RuntimeDetailComponent } from './pages/runtime-detail/runtime-detail.co
 import { RuntimeModuleDetailComponent } from './pages/runtime-module-detail/runtime-module-detail.component';
 import { RuntimeCallDetailComponent } from './pages/runtime-call-detail/runtime-call-detail.component';
 import { RuntimeEventDetailComponent } from './pages/runtime-event-detail/runtime-event-detail.component';
+import {TimeAgoPipe} from "time-ago-pipe";
+import { RuntimeStorageDetailComponent } from './pages/runtime-storage-detail/runtime-storage-detail.component';
 
 @NgModule({
   declarations: [
@@ -73,7 +75,9 @@ import { RuntimeEventDetailComponent } from './pages/runtime-event-detail/runtim
     RuntimeDetailComponent,
     RuntimeModuleDetailComponent,
     RuntimeCallDetailComponent,
-    RuntimeEventDetailComponent
+    RuntimeEventDetailComponent,
+    TimeAgoPipe,
+    RuntimeStorageDetailComponent
   ],
   imports: [
     BrowserModule,

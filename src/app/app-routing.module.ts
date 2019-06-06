@@ -37,6 +37,7 @@ import {RuntimeDetailComponent} from "./pages/runtime-detail/runtime-detail.comp
 import {RuntimeModuleDetailComponent} from "./pages/runtime-module-detail/runtime-module-detail.component";
 import {RuntimeCallDetailComponent} from "./pages/runtime-call-detail/runtime-call-detail.component";
 import {RuntimeEventDetailComponent} from "./pages/runtime-event-detail/runtime-event-detail.component";
+import {RuntimeStorageDetailComponent} from "./pages/runtime-storage-detail/runtime-storage-detail.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -51,14 +52,14 @@ const routes: Routes = [
   { path: 'system/runtime-module/:id', component: RuntimeModuleDetailComponent },
   { path: 'system/runtime-call/:id', component: RuntimeCallDetailComponent },
   { path: 'system/runtime-event/:id', component: RuntimeEventDetailComponent},
+  { path: 'system/runtime-storage/:id', component: RuntimeStorageDetailComponent},
   { path: 'module/account/:id', component: AddressDetailComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'harvester/admin', component: HarvesterAdminComponent },
-  // { path: '', redirectTo: '/blocks', pathMatch: 'full' },
 ];
 
 @NgModule({
   imports: [ RouterModule.forRoot(routes)],
-  exports: [ RouterModule ]
+  exports: [ RouterModule ],
 })
 export class AppRoutingModule {}

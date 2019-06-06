@@ -18,8 +18,12 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                               <tr>
+                                  <td width="15%">Timestamp</td>
+                                  <td>{{ block.attributes.datetime | date:'medium'}}</td>
+                              </tr>
+                              <tr>
                                   <td width="15%">Hash</td>
-                                  <td >{{block.attributes.hash}}</td>
+                                  <td>{{block.attributes.hash}}</td>
                               </tr>
                               <tr>
                                   <td>Parent hash</td>

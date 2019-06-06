@@ -17,19 +17,15 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * runtime-module.class.ts
+ * runtime-storage.class.ts
  *
  */
 
-import {DocumentCollection, Resource} from 'ngx-jsonapi';
-import {RuntimeEvent} from "./runtime-event.class";
-import {RuntimeCall} from "./runtime-call.class";
-import {RuntimeStorage} from "./runtime-storage.class";
+import {Resource} from 'ngx-jsonapi';
 
-export class RuntimeModule extends Resource {
-  public relationships = {
-        events: new DocumentCollection<RuntimeEvent>(),
-        calls: new DocumentCollection<RuntimeCall>(),
-        storage: new DocumentCollection<RuntimeStorage>()
+export class RuntimeStorage extends Resource {
+  public attributes = {
+    module_id: 'module_id',
+    name: 'name',
   };
 }

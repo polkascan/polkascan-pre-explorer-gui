@@ -7,7 +7,7 @@
                     <p class="card-header-title">
                         Blocks
                     </p>
-                    <a href="#" class="card-header-icon" aria-label="more options">
+                    <a  class="card-header-icon" aria-label="more options">
                       <span class="icon">
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                       </span>
@@ -21,6 +21,7 @@
                               <tr>
                                 <th></th>
                                 <th>Number</th>
+                                <th class="is-hidden-mobile">Age</th>
                                 <th class="is-hidden-mobile">Block hash</th>
                                 <th>Extrinsics</th>
                                 <th>Events</th>
@@ -31,6 +32,7 @@
                                 <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
                                     <td width="5%"><i class="fa fa-cube"></i></td>
                                     <td width="10%">#{{ block.id }}</td>
+                                    <td class="is-hidden-mobile"><span rel="tooltip" title="{{ block.attributes.datetime | date:'medium'}}">{{ block.attributes.datetime | date:"medium" | timeAgo }}</span></td>
                                     <td class="is-hidden-mobile">{{ block.attributes.hash | slice:0:8 }}...{{ block.attributes.hash | slice:60:66 }}</td>
                                     <td>{{ block.attributes.count_extrinsics }}</td>
                                     <td>{{ block.attributes.count_events }}</td>

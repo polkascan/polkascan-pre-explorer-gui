@@ -37,7 +37,7 @@
                     <p class="card-header-title">
                         Call functions
                     </p>
-                    <a href="#" class="card-header-icon" aria-label="more options">
+                    <a class="card-header-icon" aria-label="more options">
                       <span class="icon">
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                       </span>
@@ -72,13 +72,51 @@
                 </div>
             </div>
         </section>
+        <section *ngIf="runtimeModule.relationships.storage.data.length > 0">
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Storage functions
+                    </p>
+                    <a class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <table class="table is-fullwidth is-striped">
+                             <thead>
+                              <tr>
+                                <th></th>
+                                <th>Name</th>
+                                <th class="is-hidden-mobile">Type</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let storage of runtimeModule.relationships.storage.data; trackBy: runtimeModule.relationships.storage.trackBy">
+                                    <td width="5%">
+                                      <i class="fa fa-database"></i>
+                                    </td>
+                                    <td>{{ storage.attributes.name }}</td>
+                                    <td class="is-hidden-mobile">{{ storage.attributes.type_value }}</td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/system/runtime-storage/{{ storage.id }}">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section *ngIf="runtimeModule.relationships.events.data.length > 0">
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
                         Events
                     </p>
-                    <a href="#" class="card-header-icon" aria-label="more options">
+                    <a  class="card-header-icon" aria-label="more options">
                       <span class="icon">
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                       </span>

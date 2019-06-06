@@ -25,6 +25,7 @@
     "ngx-jsonapi": "^2.0.2",
     "node-sass": "^4.12.0",
     "rxjs": "~6.3.3",
+    "time-ago-pipe": "^1.3.2",
     "tslib": "^1.9.0",
     "zone.js": "~0.8.26"
   },
