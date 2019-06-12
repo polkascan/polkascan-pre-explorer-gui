@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   jsonApiRootUrl: 'http://127.0.0.1:8000/',
-  networkName: 'Dev',
+  networkName: 'Alexander',
   networkTokenSymbol: 'DOT',
   networkTokenDecimals: 15
 };
