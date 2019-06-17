@@ -27,7 +27,6 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgxJsonapiModule } from 'ngx-jsonapi';
 
-
 import { BlockListComponent } from './pages/block-list/block-list.component';
 import { BlockDetailComponent } from './pages/block-detail/block-detail.component';
 import { MessagesComponent } from './components/messages/messages.component';
@@ -50,8 +49,16 @@ import { RuntimeDetailComponent } from './pages/runtime-detail/runtime-detail.co
 import { RuntimeModuleDetailComponent } from './pages/runtime-module-detail/runtime-module-detail.component';
 import { RuntimeCallDetailComponent } from './pages/runtime-call-detail/runtime-call-detail.component';
 import { RuntimeEventDetailComponent } from './pages/runtime-event-detail/runtime-event-detail.component';
-import {TimeAgoPipe} from "time-ago-pipe";
 import { RuntimeStorageDetailComponent } from './pages/runtime-storage-detail/runtime-storage-detail.component';
+
+import {TimeagoModule, TimeagoClock} from "ngx-timeago";
+import { Observable, interval } from 'rxjs';
+
+export class MyClock extends TimeagoClock {
+  tick(then: number): Observable<number> {
+    return interval(1000);
+  }
+}
 
 @NgModule({
   declarations: [
@@ -76,7 +83,6 @@ import { RuntimeStorageDetailComponent } from './pages/runtime-storage-detail/ru
     RuntimeModuleDetailComponent,
     RuntimeCallDetailComponent,
     RuntimeEventDetailComponent,
-    TimeAgoPipe,
     RuntimeStorageDetailComponent
   ],
   imports: [
@@ -87,6 +93,9 @@ import { RuntimeStorageDetailComponent } from './pages/runtime-storage-detail/ru
     NgxJsonapiModule.forRoot({
         url: environment.jsonApiRootUrl
     }),
+    TimeagoModule.forRoot({
+      clock: { provide: TimeagoClock, useClass: MyClock },
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]
