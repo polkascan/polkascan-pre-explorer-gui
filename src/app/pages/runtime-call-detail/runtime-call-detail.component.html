@@ -107,7 +107,7 @@
                                       <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
                                       <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
                                     </td>
-                                    <td><a routerLink="/system/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.id }}</a></td>
+                                    <td><a routerLink="/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.id }}</a></td>
                                     <td>
                                       <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
                                       <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>

@@ -32,8 +32,8 @@
                                       <i class="fa fa-file-contract"></i>
                                     </td>
                                     <td>{{ session.id }}</td>
-                                    <td><a routerLink="/system/block/{{ session.attributes.start_at_block }}">{{ session.attributes.start_at_block }}</a></td>
-                                    <td><a routerLink="/system/block/{{ session.attributes.end_at_block }}">{{ session.attributes.end_at_block }}</a></td>
+                                    <td><a routerLink="/block/{{ session.attributes.start_at_block }}">{{ session.attributes.start_at_block }}</a></td>
+                                    <td><a routerLink="/block/{{ session.attributes.end_at_block }}">{{ session.attributes.end_at_block }}</a></td>
                                     <td width="5%"><a class="button is-small is-primary" routerLink="/session/session/{{ session.id }}">Details</a></td>
                                 </tr>
                             </tbody>

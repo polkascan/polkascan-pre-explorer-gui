@@ -17,11 +17,11 @@
                           <tbody>
                               <tr>
                                 <td width="20%">Created at block</td>
-                                <td><a routerLink="/system/block/{{ account.attributes.created_at_block }}">{{account.attributes.created_at_block}}</a></td>
+                                <td><a routerLink="/block/{{ account.attributes.created_at_block }}">{{account.attributes.created_at_block}}</a></td>
                               </tr>
                               <tr>
                                 <td width="20%">Updated at block</td>
-                                <td><a routerLink="/system/block/{{ account.attributes.updated_at_block }}">{{account.attributes.updated_at_block}}</a></td>
+                                <td><a routerLink="/block/{{ account.attributes.updated_at_block }}">{{account.attributes.updated_at_block}}</a></td>
                               </tr>
                               <tr>
                                 <td>Active</td>
@@ -61,11 +61,11 @@
                           <tbody>
                               <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                                 <td width="5%"><i class="fa fa-exchange-alt"></i></td>
-                                <td class="is-hidden-mobile"><a [routerLink]="['/system/block/', balanceTransfer.attributes.block_id]">{{ balanceTransfer.attributes.block_id }}</a></td>
-                                <td class="is-hidden-tablet"><a [routerLink]="['/balances/account/', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination| slice:0:16 }}...</a></td>
-                                <td class="is-hidden-mobile"><a [routerLink]="['/balances/account/', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination }}</a></td>
+                                <td class="is-hidden-mobile"><a [routerLink]="['/block/', balanceTransfer.attributes.block_id]">{{ balanceTransfer.attributes.block_id }}</a></td>
+                                <td class="is-hidden-tablet"><a [routerLink]="['/account/', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination| slice:0:16 }}...</a></td>
+                                <td class="is-hidden-mobile"><a [routerLink]="['/account/', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination }}</a></td>
                                 <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
-                                <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ balanceTransfer.attributes.extrinsic_hash ? '0x' + balanceTransfer.attributes.extrinsic_hash : balanceTransfer.id }}">Details</a></td>
+                                <td width="5%"><a class="button is-small is-primary" routerLink="/extrinsic/{{ balanceTransfer.attributes.extrinsic_hash ? '0x' + balanceTransfer.attributes.extrinsic_hash : balanceTransfer.id }}">Details</a></td>
                               </tr>
                           </tbody>
                       </table>
@@ -108,7 +108,7 @@
                                       <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
                                     </td>
                                     <td>{{ extrinsic.id }}</td>
-                                    <td><a routerLink="/system/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
+                                    <td><a routerLink="/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                                     <td class="is-hidden-mobile">{{ extrinsic.attributes.module_id }}</td>
                                     <td class="is-hidden-mobile">{{ extrinsic.attributes.call_id }}</td>
                                     <td class="is-hidden-mobile"><span *ngIf="extrinsic.attributes.signed">Yes</span><span *ngIf="!extrinsic.attributes.signed">No</span></td>
@@ -116,7 +116,7 @@
                                       <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
                                       <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
                                     </td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -31,5 +31,5 @@ import {Account} from "../classes/account.class";
 export class AccountService extends Service<Account> {
     public resource = Account;
     public type = 'account';
-    public path = 'balances/account';
+    public path = 'system/account';
 }

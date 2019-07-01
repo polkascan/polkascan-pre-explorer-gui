@@ -91,7 +91,7 @@ export class DashboardComponent implements OnInit {
     } else if (+this.blockSearchText) {
       this.router.navigate(['system', 'block', this.blockSearchText]);
     } else {
-      this.router.navigate(['balances', 'account', this.blockSearchText]);
+      this.router.navigate(['system', 'account', this.blockSearchText]);
     }
   }
 

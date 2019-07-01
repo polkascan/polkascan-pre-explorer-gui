@@ -32,7 +32,7 @@
                                       <i class="fa fa-file-contract"></i>
                                     </td>
                                     <td>{{ contract.id }}</td>
-                                    <td class="is-hidden-mobile"><a routerLink="/system/block/{{ contract.attributes.created_at_block }}">{{ contract.attributes.created_at_block }}</a></td>
+                                    <td class="is-hidden-mobile"><a routerLink="/block/{{ contract.attributes.created_at_block }}">{{ contract.attributes.created_at_block }}</a></td>
                                     <td>
                                       <i *ngIf="contract.attributes.source" class="fa fa-check" style="color: forestgreen"></i>
                                       <i *ngIf="!contract.attributes.source" class="fa fa-times" style="color: darkred"></i>

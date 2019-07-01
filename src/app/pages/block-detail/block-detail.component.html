@@ -27,7 +27,7 @@
                               </tr>
                               <tr>
                                   <td>Parent hash</td>
-                                  <td><a *ngIf="block.id > 0" routerLink="/system/block/{{ block.id - 1 }}">{{block.attributes.parent_hash}}</a></td>
+                                  <td><a *ngIf="block.id > 0" routerLink="/block/{{ block.id - 1 }}">{{block.attributes.parent_hash}}</a></td>
                               </tr>
                               <tr>
                                   <td>State Root</td>
@@ -79,7 +79,7 @@
                               </tr>
                               <tr>
                                   <td>Runtime version</td>
-                                  <td><a routerLink="/system/runtime/{{ block.attributes.spec_version_id }}">{{block.attributes.spec_version_id}}</a></td>
+                                  <td><a routerLink="/runtime/{{ block.attributes.spec_version_id }}">{{block.attributes.spec_version_id}}</a></td>
                               </tr>
                               <tr>
                                   <td>Block time</td>

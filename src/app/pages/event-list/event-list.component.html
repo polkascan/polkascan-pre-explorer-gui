@@ -33,10 +33,10 @@
                                       <i class="fa fa-calendar-check"></i>
                                     </td>
                                     <td>{{ event.id }}</td>
-                                    <td><a routerLink="/system/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
+                                    <td><a routerLink="/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
                                     <td class="is-hidden-mobile">{{ event.attributes.module_id }}</td>
                                     <td class="is-hidden-mobile">{{ event.attributes.event_id }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/system/event/{{ event.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/event/{{ event.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>

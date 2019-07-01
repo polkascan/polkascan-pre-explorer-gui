@@ -34,7 +34,7 @@
             <div class="tile is-ancestor has-text-centered">
                 <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
-                      <a routerLink="/system/block/">
+                      <a routerLink="/block/">
                         <div>
                         <span class="icon">
                             <i class="fa fa-cube fa-2x"></i>
@@ -47,7 +47,7 @@
                 </div>
                 <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
-                      <a routerLink="/system/extrinsic">
+                      <a routerLink="/extrinsic">
                         <div>
                           <span class="icon">
                               <i class="fa fa-file-signature fa-2x"></i>
@@ -60,7 +60,7 @@
                 </div>
                 <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
-                      <a routerLink="/system/event">
+                      <a routerLink="/event">
                         <div>
                           <span class="icon">
                               <i class="fa fa-calendar-check fa-2x"></i>
@@ -73,7 +73,7 @@
                 </div>
                 <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
-                      <a routerLink="/balances/account">
+                      <a routerLink="/account">
                         <div>
                           <span class="icon">
                               <i class="fa fa-id-card fa-2x"></i>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
-                      <a routerLink="/system/runtime">
+                      <a routerLink="/runtime">
                         <div>
                           <span class="icon">
                               <i class="fa fa-cogs fa-2x"></i>
@@ -134,7 +134,7 @@
                                         </span></td>
                                         <td>{{ block.attributes.count_extrinsics }}</td>
                                         <td>{{ block.attributes.count_events }}</td>
-                                        <td width="5%"><a class="button is-small is-primary" routerLink="/system/block/{{ block.id }}">Details</a></td>
+                                        <td width="5%"><a class="button is-small is-primary" routerLink="/block/{{ block.id }}">Details</a></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -171,7 +171,7 @@
                                         <td class="is-hidden-tablet">{{ balanceTransfer.attributes.destination | slice:0:8 }}...</td>
                                         <td class="is-hidden-mobile">{{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
                                         <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
-                                        <td width="5%"><a class="button is-small is-primary" routerLink="/system/extrinsic/{{ balanceTransfer.attributes.extrinsic_hash ? '0x' + balanceTransfer.attributes.extrinsic_hash : balanceTransfer.id }}">Details</a></td>
+                                        <td width="5%"><a class="button is-small is-primary" routerLink="/extrinsic/{{ balanceTransfer.attributes.extrinsic_hash ? '0x' + balanceTransfer.attributes.extrinsic_hash : balanceTransfer.id }}">Details</a></td>
                                     </tr>
                                 </tbody>
                             </table>
