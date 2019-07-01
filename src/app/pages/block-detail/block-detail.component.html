@@ -42,12 +42,52 @@
                                   <td >{{block.attributes.count_extrinsics}}</td>
                               </tr>
                               <tr>
+                                  <td>Total signed extrinsics</td>
+                                  <td >{{ block.attributes.count_extrinsics_signed }}</td>
+                              </tr>
+                              <tr>
+                                  <td>Total failed extrinsics</td>
+                                  <td >{{ block.attributes.count_extrinsics_error }}</td>
+                              </tr>
+                              <tr>
                                   <td>Total events</td>
                                   <td >{{block.attributes.count_events}}</td>
                               </tr>
                               <tr>
+                                  <td>Total system events</td>
+                                  <td >{{block.attributes.count_events_system}}</td>
+                              </tr>
+                              <tr>
+                                  <td>Total module events</td>
+                                  <td >{{block.attributes.count_events_module}}</td>
+                              </tr>
+                              <tr>
+                                  <td>New accounts</td>
+                                  <td >{{block.attributes.count_contracts_new}}</td>
+                              </tr>
+                              <tr>
+                                  <td>Reaped accounts</td>
+                                  <td >{{block.attributes.count_accounts_reaped}}</td>
+                              </tr>
+                              <tr>
+                                  <td>New contracts</td>
+                                  <td >{{block.attributes.count_contracts_new}}</td>
+                              </tr>
+                              <tr>
+                                  <td>New sessions</td>
+                                  <td >{{block.attributes.count_sessions_new}}</td>
+                              </tr>
+                              <tr>
                                   <td>Runtime version</td>
-                                  <td >{{block.attributes.spec_version_id}}</td>
+                                  <td><a routerLink="/system/runtime/{{ block.attributes.spec_version_id }}">{{block.attributes.spec_version_id}}</a></td>
+                              </tr>
+                              <tr>
+                                  <td>Block time</td>
+                                  <td >{{block.attributes.blocktime }} seconds</td>
+                              </tr>
+                              <tr>
+                                  <td>Session ID</td>
+                                  <td><a routerLink="/session/session/{{ block.attributes.session_id }}">{{ block.attributes.session_id }}</a></td>
                               </tr>
                           </tbody>
                       </table>

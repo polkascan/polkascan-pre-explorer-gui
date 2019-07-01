@@ -38,6 +38,14 @@ import {RuntimeModuleDetailComponent} from "./pages/runtime-module-detail/runtim
 import {RuntimeCallDetailComponent} from "./pages/runtime-call-detail/runtime-call-detail.component";
 import {RuntimeEventDetailComponent} from "./pages/runtime-event-detail/runtime-event-detail.component";
 import {RuntimeStorageDetailComponent} from "./pages/runtime-storage-detail/runtime-storage-detail.component";
+import {AccountDetailComponent} from "./pages/account-detail/account-detail.component";
+import {ContractDetailComponent} from "./pages/contract-detail/contract-detail.component";
+import {ContractListComponent} from "./pages/contract-list/contract-list.component";
+import {AccountListComponent} from "./pages/account-list/account-list.component";
+import {SessionListComponent} from "./pages/session-list/session-list.component";
+import {SessionDetailComponent} from "./pages/session-detail/session-detail.component";
+import {DemocracyProposalListComponent} from "./pages/democracy-proposal-list/democracy-proposal-list.component";
+import {DemocracyProposalDetailComponent} from "./pages/democracy-proposal-detail/democracy-proposal-detail.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -54,6 +62,14 @@ const routes: Routes = [
   { path: 'system/runtime-event/:id', component: RuntimeEventDetailComponent},
   { path: 'system/runtime-storage/:id', component: RuntimeStorageDetailComponent},
   { path: 'module/account/:id', component: AddressDetailComponent},
+  { path: 'balances/account', component: AccountListComponent},
+  { path: 'balances/account/:id', component: AccountDetailComponent},
+  { path: 'contracts/contract', component: ContractListComponent},
+  { path: 'contracts/contract/:id', component: ContractDetailComponent},
+  { path: 'session/session', component: SessionListComponent},
+  { path: 'session/session/:id', component: SessionDetailComponent},
+  { path: 'democracy/proposal', component: DemocracyProposalListComponent},
+  { path: 'democracy/proposal/:id', component: DemocracyProposalDetailComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'harvester/admin', component: HarvesterAdminComponent },
 ];

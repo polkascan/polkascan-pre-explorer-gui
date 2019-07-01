@@ -53,6 +53,14 @@ import { RuntimeStorageDetailComponent } from './pages/runtime-storage-detail/ru
 
 import {TimeagoModule, TimeagoClock} from "ngx-timeago";
 import { Observable, interval } from 'rxjs';
+import { AccountListComponent } from './pages/account-list/account-list.component';
+import { AccountDetailComponent } from './pages/account-detail/account-detail.component';
+import { SessionListComponent } from './pages/session-list/session-list.component';
+import { SessionDetailComponent } from './pages/session-detail/session-detail.component';
+import { DemocracyProposalListComponent } from './pages/democracy-proposal-list/democracy-proposal-list.component';
+import { DemocracyProposalDetailComponent } from './pages/democracy-proposal-detail/democracy-proposal-detail.component';
+import { ContractListComponent } from './pages/contract-list/contract-list.component';
+import { ContractDetailComponent } from './pages/contract-detail/contract-detail.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -83,7 +91,15 @@ export class MyClock extends TimeagoClock {
     RuntimeModuleDetailComponent,
     RuntimeCallDetailComponent,
     RuntimeEventDetailComponent,
-    RuntimeStorageDetailComponent
+    RuntimeStorageDetailComponent,
+    AccountListComponent,
+    AccountDetailComponent,
+    SessionListComponent,
+    SessionDetailComponent,
+    DemocracyProposalListComponent,
+    DemocracyProposalDetailComponent,
+    ContractListComponent,
+    ContractDetailComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,50 @@
+<div class="columns">
+    <div class="column is-12">
+        <app-polkascan-header></app-polkascan-header>
+        <section>
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Sessions
+                    </p>
+                    <a class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <app-loading-box *ngIf="sessions.is_loading"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="sessions.data.length > 0">
+                             <thead>
+                              <tr>
+                                <th></th>
+                                <th>Id</th>
+                                <th>Start at Block</th>
+                                <th>End at Block</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let session of sessions.data; trackBy: sessions.trackBy">
+                                    <td width="5%">
+                                      <i class="fa fa-file-contract"></i>
+                                    </td>
+                                    <td>{{ session.id }}</td>
+                                    <td><a routerLink="/system/block/{{ session.attributes.start_at_block }}">{{ session.attributes.start_at_block }}</a></td>
+                                    <td><a routerLink="/system/block/{{ session.attributes.end_at_block }}">{{ session.attributes.end_at_block }}</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/session/session/{{ session.id }}">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="no-items" *ngIf="sessions.data.length == 0 && !sessions.is_loading">No items</div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a (click)="getNextItems()" class="card-footer-item">View next</a>
+                </footer>
+            </div>
+        </section>
+    </div>
+</div>

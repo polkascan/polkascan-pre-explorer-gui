@@ -1,0 +1,37 @@
+<div class="column is-12">
+    <app-polkascan-header></app-polkascan-header>
+    <div *ngIf="session$ | async as session">
+        <section class="info-tiles">
+          <div class="card events-card">
+              <header class="card-header">
+                  <p class="card-header-title">
+                      Session #{{ session.id }}
+                  </p>
+                  <a  class="card-header-icon" aria-label="more options">
+                 <span class="icon"><i class="fa fa-file-contract fa-2x"></i></span>
+                </a>
+              </header>
+              <div class="card-table" *ngIf="session">
+                  <div class="content">
+                      <table class="table is-fullwidth is-striped">
+                          <tbody>
+                              <tr>
+                                <td width="20%">Start at block</td>
+                                <td><a routerLink="/system/block/{{ session.attributes.start_at_block }}">{{ session.attributes.start_at_block }}</a></td>
+                              </tr>
+                              <tr>
+                                <td width="20%">End at block</td>
+                                <td><a routerLink="/system/block/{{ session.attributes.end_at_block }}">{{ session.attributes.end_at_block }}</a></td>
+                              </tr>
+                              <tr>
+                                <td width="20%">Block count</td>
+                                <td>{{ session.attributes.count_blocks }}</td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+        </section>
+    </div>
+</div>

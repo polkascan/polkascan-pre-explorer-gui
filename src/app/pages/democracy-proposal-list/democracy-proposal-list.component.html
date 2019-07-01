@@ -1,0 +1,52 @@
+<div class="columns">
+    <div class="column is-12">
+        <app-polkascan-header></app-polkascan-header>
+        <section>
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Democracy Proposals
+                    </p>
+                    <a class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <app-loading-box *ngIf="proposals.is_loading"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="proposals.data.length > 0">
+                             <thead>
+                              <tr>
+                                <th></th>
+                                <th>Id</th>
+                                <th class="is-hidden-mobile">Created at Block</th>
+                                <th>Status</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let proposal of proposals.data; trackBy: proposals.trackBy">
+                                    <td width="5%">
+                                      <i class="fa fa-poll"></i>
+                                    </td>
+                                    <td>{{ proposal.id }}</td>
+                                    <td class="is-hidden-mobile"><a routerLink="/system/block/{{ proposal.attributes.created_at_block }}">{{ proposal.attributes.created_at_block }}</a></td>
+                                    <td>
+                                      {{ proposal.attributes.status }}
+                                    </td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/democracy/proposal/{{ proposal.id }}">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="no-items" *ngIf="proposals.data.length == 0 && !proposals.is_loading">No items</div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a (click)="getNextItems()" class="card-footer-item">View next</a>
+                </footer>
+            </div>
+        </section>
+    </div>
+</div>

@@ -34,38 +34,67 @@
             <div class="tile is-ancestor has-text-centered">
                 <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
+                      <a routerLink="/system/block/">
+                        <div>
                         <span class="icon">
                             <i class="fa fa-cube fa-2x"></i>
                         </span>
-                        <p class="title" *ngIf="blocks">{{ blocks.meta.best_block| number: '1.'}}</p>
+                        <p class="title" *ngIf="networkstats$ | async as networkstats">{{ networkstats.attributes.best_block| number: '1.'}}</p>
                         <p class="subtitle">Finalized Block</p>
+                          </div>
+                      </a>
                     </article>
                 </div>
                 <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
-                        <span class="icon">
-                            <i class="fa fa-file-signature fa-2x"></i>
-                        </span>
-                        <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_signed_extrinsics | number: '1.'}}</p>
-                        <p class="subtitle">Signed Extrinsics</p>
+                      <a routerLink="/system/extrinsic">
+                        <div>
+                          <span class="icon">
+                              <i class="fa fa-file-signature fa-2x"></i>
+                          </span>
+                          <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_signed_extrinsics | number: '1.'}}</p>
+                          <p class="subtitle">Signed Extrinsics</p>
+                        </div>
+                      </a>
                     </article>
                 </div>
                 <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
-                        <span class="icon">
-                            <i class="fa fa-calendar-check fa-2x"></i>
-                        </span>
-                        <p class="title" *ngIf="networkstats$ | async as networkstats">{{ networkstats.attributes.total_events | number: '1.'}}</p>
-                        <p class="subtitle">Events</p>
+                      <a routerLink="/system/event">
+                        <div>
+                          <span class="icon">
+                              <i class="fa fa-calendar-check fa-2x"></i>
+                          </span>
+                          <p class="title" *ngIf="networkstats$ | async as networkstats">{{ networkstats.attributes.total_events_module | number: '1.'}}</p>
+                          <p class="subtitle">Module Events</p>
+                        </div>
+                      </a>
                     </article>
                 </div>
                 <div class="tile is-parent is-2-mobile">
                     <article class="tile is-child box">
-                        <span class="icon">
-                            <i class="fa fa-cogs fa-2x"></i>
-                        </span>
-                        <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_runtimes }}</p>
-                        <p class="subtitle">Runtime Versions</p>
+                      <a routerLink="/balances/account">
+                        <div>
+                          <span class="icon">
+                              <i class="fa fa-id-card fa-2x"></i>
+                          </span>
+                          <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_accounts }}</p>
+                          <p class="subtitle">Active Accounts</p>
+                        </div>
+                      </a>
+                    </article>
+                </div>
+                <div class="tile is-parent is-2-mobile">
+                    <article class="tile is-child box">
+                      <a routerLink="/system/runtime">
+                        <div>
+                          <span class="icon">
+                              <i class="fa fa-cogs fa-2x"></i>
+                          </span>
+                          <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_runtimes }}</p>
+                          <p class="subtitle">Runtime Versions</p>
+                        </div>
+                      </a>
                     </article>
                 </div>
             </div>

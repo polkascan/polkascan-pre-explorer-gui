@@ -33,7 +33,7 @@
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.address">
                           <td width="15%">Address</td>
-                          <td><a routerLink="/module/account/{{ extrinsic.attributes.address }}">{{ extrinsic.attributes.address }}</a></td>
+                          <td><a routerLink="/balances/account/{{ extrinsic.attributes.address }}">{{ extrinsic.attributes.address }}</a></td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.account_index">
                           <td width="15%">Account index</td>
@@ -70,7 +70,7 @@
                         <tr *ngFor="let param of extrinsic.attributes.params">
                           <td width="15%">{{ paramName(param.name) | titlecase}}</td>
                           <td [ngSwitch]="param.type">
-                            <div *ngSwitchCase="'Address'"><a routerLink="/module/account/{{ param.value }}">{{ param.value }}</a></div>
+                            <div *ngSwitchCase="'Address'"><a routerLink="/balances/account/{{ param.value }}">{{ param.value }}</a></div>
                             <div *ngSwitchCase="'Compact<Balance>'">{{ formatBalance(param.value) | number}} {{ networkTokenSymbol }}</div>
                             <div *ngSwitchCase="'Compact<Moment>'">{{ param.value | date:'medium' }}</div>
                             <div *ngSwitchDefault><pre>{{ param.value | json }}</pre></div>

@@ -67,9 +67,12 @@ export class DashboardComponent implements OnInit {
     this.getBlocks();
     this.networkstats$ = this.networkstatsService.get('latest');
 
-    const blockUpdateCounter = interval(10000);
+    const blockUpdateCounter = interval(6000);
 
-    this.blockUpdateSubsription = blockUpdateCounter.subscribe( n => this.getBlocks());
+    this.blockUpdateSubsription = blockUpdateCounter.subscribe( n => {
+      this.networkstats$ = this.networkstatsService.get('latest');
+      this.getBlocks();
+    });
   }
 
   getBlocks(): void {
@@ -88,7 +91,7 @@ export class DashboardComponent implements OnInit {
     } else if (+this.blockSearchText) {
       this.router.navigate(['system', 'block', this.blockSearchText]);
     } else {
-      this.router.navigate(['module', 'account', this.blockSearchText]);
+      this.router.navigate(['balances', 'account', this.blockSearchText]);
     }
   }
 
