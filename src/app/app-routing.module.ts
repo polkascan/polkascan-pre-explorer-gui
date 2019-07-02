@@ -73,21 +73,21 @@ const routes: Routes = [
   { path: 'harvester/admin', component: HarvesterAdminComponent },
 
   // Redirect old URLs
-  { path: 'system/block', redirectTo: '/block' },
   { path: 'system/block/:id', redirectTo: '/block/:id' },
-  { path: 'system/extrinsic', redirectTo: '/extrinsic'},
+  { path: 'system/block', redirectTo: '/block' },
   { path: 'system/extrinsic/:id', redirectTo: '/extrinsic/:id'},
-  { path: 'system/event', redirectTo: '/event'},
+  { path: 'system/extrinsic', redirectTo: '/extrinsic'},
   { path: 'system/event/:id', redirectTo: '/event/:id'},
-  { path: 'system/runtime', redirectTo: '/runtime' },
+  { path: 'system/event', redirectTo: '/event'},
   { path: 'system/runtime/:id', redirectTo: '/runtime/:id' },
+  { path: 'system/runtime', redirectTo: '/runtime' },
   { path: 'system/runtime-module/:id', redirectTo: '/runtime-module/:id' },
   { path: 'system/runtime-call/:id', redirectTo: '/runtime-call/:id' },
   { path: 'system/runtime-event/:id', redirectTo: '/runtime-event/:id'},
   { path: 'system/runtime-storage/:id', redirectTo: '/runtime-storage/:id'},
-  { path: 'system/account', redirectTo: '/account'},
   { path: 'system/account/:id', redirectTo: '/account/:id'},
   { path: 'module/account/:id', redirectTo: '/account/:id',},
+  { path: 'system/account', redirectTo: '/account'},
 ];
 
 @NgModule({
