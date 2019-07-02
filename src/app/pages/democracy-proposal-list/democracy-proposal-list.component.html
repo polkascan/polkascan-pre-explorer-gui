@@ -31,12 +31,12 @@
                                     <td width="5%">
                                       <i class="fa fa-poll"></i>
                                     </td>
-                                    <td>{{ proposal.id }}</td>
+                                    <td>{{ proposal.attributes.id }}</td>
                                     <td class="is-hidden-mobile"><a routerLink="/block/{{ proposal.attributes.created_at_block }}">{{ proposal.attributes.created_at_block }}</a></td>
                                     <td>
                                       {{ proposal.attributes.status }}
                                     </td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/democracy/proposal/{{ proposal.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/democracy/proposal/{{ proposal.attributes.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>

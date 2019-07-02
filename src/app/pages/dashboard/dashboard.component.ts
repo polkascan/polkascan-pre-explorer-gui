@@ -87,11 +87,11 @@ export class DashboardComponent implements OnInit {
 
   searchBlock(): void {
     if (this.blockSearchText.startsWith('0x') || this.blockSearchText.includes('-')) {
-      this.router.navigate(['system', 'extrinsic', this.blockSearchText]);
+      this.router.navigate(['extrinsic', this.blockSearchText]);
     } else if (+this.blockSearchText) {
-      this.router.navigate(['system', 'block', this.blockSearchText]);
+      this.router.navigate(['block', this.blockSearchText]);
     } else {
-      this.router.navigate(['system', 'account', this.blockSearchText]);
+      this.router.navigate(['account', this.blockSearchText]);
     }
   }
 

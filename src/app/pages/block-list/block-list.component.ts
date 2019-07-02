@@ -24,6 +24,7 @@ import { Component, OnInit } from '@angular/core';
 import { Block } from '../../classes/block.class';
 import { BlockService} from '../../services/block.service';
 import { DocumentCollection } from 'ngx-jsonapi';
+import {interval, Subscription} from "rxjs";
 
 
 @Component({
@@ -35,6 +36,8 @@ export class BlockListComponent implements OnInit {
 
   public blocks: DocumentCollection<Block>;
 
+  private blockUpdateSubsription: Subscription;
+
   currentPage = 1;
 
   constructor(
@@ -45,6 +48,13 @@ export class BlockListComponent implements OnInit {
 
   ngOnInit() {
     this.getBlocks(this.currentPage);
+
+    const blockUpdateCounter = interval(6000);
+
+    this.blockUpdateSubsription = blockUpdateCounter.subscribe( n => {
+      this.getBlocks(this.currentPage);
+    });
+
   }
 
   getBlocks(page: number): void {
@@ -56,5 +66,10 @@ export class BlockListComponent implements OnInit {
 
   getNextBlocks(): void {
     this.getBlocks(++this.currentPage);
+  }
+
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.blockUpdateSubsription.unsubscribe();
   }
 }
