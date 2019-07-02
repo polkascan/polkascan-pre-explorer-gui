@@ -81,13 +81,13 @@
                                   <td>Runtime version</td>
                                   <td><a routerLink="/runtime/{{ block.attributes.spec_version_id }}">{{block.attributes.spec_version_id}}</a></td>
                               </tr>
-                              <tr>
+                              <tr *ngIf="blockTotal$ | async as blockTotal">
                                   <td>Block time</td>
-                                  <td >{{block.attributes.blocktime }} seconds</td>
+                                  <td >{{blockTotal.attributes.blocktime }} seconds</td>
                               </tr>
-                              <tr>
+                              <tr *ngIf="blockTotal$ | async as blockTotal">
                                   <td>Session ID</td>
-                                  <td><a routerLink="/session/session/{{ block.attributes.session_id }}">{{ block.attributes.session_id }}</a></td>
+                                  <td><a routerLink="/session/session/{{ blockTotal.attributes.session_id }}">{{ blockTotal.attributes.session_id }}</a></td>
                               </tr>
                           </tbody>
                       </table>

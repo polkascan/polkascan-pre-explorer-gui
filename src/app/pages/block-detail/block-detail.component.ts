@@ -30,6 +30,8 @@ import { switchMap } from 'rxjs/operators';
 import {ExtrinsicService} from '../../services/extrinsic.service';
 import {EventService} from '../../services/event.service';
 import {environment} from "../../../environments/environment";
+import {BlockTotal} from "../../classes/block-total.class";
+import {BlockTotalService} from "../../services/block-total.service";
 
 @Component({
   selector: 'app-block-detail',
@@ -39,6 +41,7 @@ import {environment} from "../../../environments/environment";
 export class BlockDetailComponent implements OnInit {
 
   block$: Observable<Block>;
+  blockTotal$: Observable<BlockTotal>;
 
   public networkTokenDecimals: number;
   public networkTokenSymbol: string;
@@ -46,6 +49,7 @@ export class BlockDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private blockService: BlockService,
+    private blockTotalService: BlockTotalService,
     private extrinsicService: ExtrinsicService,
     private eventService: EventService,
     private location: Location
@@ -60,6 +64,14 @@ export class BlockDetailComponent implements OnInit {
       switchMap((params: ParamMap) => {
           if (params.get('id')) {
             return this.blockService.get(params.get('id'), { include: ['extrinsics', 'events'] });
+          }
+      })
+    );
+
+    this.blockTotal$ = this.route.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+          if (params.get('id')) {
+            return this.blockTotalService.get(params.get('id'), { });
           }
       })
     );
