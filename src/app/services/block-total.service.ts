@@ -9,5 +9,5 @@ import {BlockTotal} from "../classes/block-total.class";
 export class BlockTotalService extends Service<BlockTotal> {
     public resource = BlockTotal;
     public type = 'block-total';
-    public path = 'system/block-total';
+    public path = 'block-total';
 }

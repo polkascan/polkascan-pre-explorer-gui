@@ -1,0 +1,54 @@
+<div class="column is-12">
+    <app-polkascan-header></app-polkascan-header>
+    <div *ngIf="balanceTransfer$ | async as balanceTransfer">
+        <section class="info-tiles">
+          <div class="card events-card">
+              <header class="card-header">
+                  <p class="card-header-title">
+                      Balance transfer "0x{{ balanceTransfer.id }}"
+                  </p>
+                  <a  class="card-header-icon" aria-label="more options">
+                 <span class="icon"><i class="fa fa-exchange-alt fa-2x"></i></span>
+                </a>
+              </header>
+              <div class="card-table" *ngIf="balanceTransfer">
+                  <div class="content">
+                      <table class="table is-fullwidth is-striped">
+                          <tbody>
+                            <tr>
+                              <td width="20%">Block ID</td>
+                              <td><a routerLink="/block/{{ balanceTransfer.attributes.block_id }}">{{ balanceTransfer.attributes.block_id }}</a></td>
+                            </tr>
+                            <tr>
+                              <td>Sender</td>
+                              <td class="is-hidden-tablet"><a routerLink="/account/{{ balanceTransfer.attributes.sender }}">{{ balanceTransfer.attributes.sender | slice:0:16 }}...</a></td>
+                              <td class="is-hidden-mobile"><a routerLink="/account/{{ balanceTransfer.attributes.sender }}">{{ balanceTransfer.attributes.sender }}</a></td>
+                            </tr>
+                            <tr>
+                              <td>Destination</td>
+                              <td class="is-hidden-tablet"><a routerLink="/account/{{ balanceTransfer.attributes.destination }}">{{ balanceTransfer.attributes.destination | slice:0:16 }}...</a></td>
+                              <td class="is-hidden-mobile"><a routerLink="/account/{{ balanceTransfer.attributes.destination }}">{{ balanceTransfer.attributes.destination }}</a></td>
+                            </tr>
+                            <tr>
+                              <td>Value</td>
+                              <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
+                            </tr>
+                            <tr>
+                              <td width="15%">Success</td>
+                              <td>
+                                <i *ngIf="balanceTransfer.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
+                                <i *ngIf="balanceTransfer.attributes.error" class="fa fa-times" style="color: darkred"></i>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td width="20%">Extrinsic Hash</td>
+                              <td><a routerLink="/extrinsic/0x{{ balanceTransfer.id }}">0x{{ balanceTransfer.id }}</a></td>
+                            </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+        </section>
+    </div>
+</div>

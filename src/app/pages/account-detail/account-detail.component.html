@@ -65,7 +65,7 @@
                                 <td class="is-hidden-tablet"><a [routerLink]="['account', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination| slice:0:16 }}...</a></td>
                                 <td class="is-hidden-mobile"><a [routerLink]="['account', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination }}</a></td>
                                 <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
-                                <td width="5%"><a class="button is-small is-primary" routerLink="/extrinsic/{{ balanceTransfer.attributes.extrinsic_hash ? '0x' + balanceTransfer.attributes.extrinsic_hash : balanceTransfer.id }}">Details</a></td>
+                                <td width="5%"><a class="button is-small is-primary" routerLink="/balances/transfer/0x{{ balanceTransfer.id }}">Details</a></td>
                               </tr>
                           </tbody>
                       </table>

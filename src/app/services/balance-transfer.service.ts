@@ -9,5 +9,5 @@ import {BalanceTransfer} from "../classes/balancetransfer.class";
 export class BalanceTransferService extends Service<BalanceTransfer> {
     public resource = BalanceTransfer;
     public type = 'balancetransfer';
-    public path = 'balance/transfers'
+    public path = 'balances/transfer'
 }

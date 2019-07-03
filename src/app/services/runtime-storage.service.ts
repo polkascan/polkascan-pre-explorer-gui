@@ -9,5 +9,5 @@ import {RuntimeStorage} from "../classes/runtime-storage.class";
 export class RuntimeStorageService extends Service<RuntimeStorage> {
   public resource = RuntimeStorage;
   public type = 'runtimestorage';
-  public path = 'system/runtime-storage';
+  public path = 'runtime-storage';
 }

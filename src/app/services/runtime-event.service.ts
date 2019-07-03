@@ -32,5 +32,5 @@ import {RuntimeEvent} from "../classes/runtime-event.class";
 export class RuntimeEventService extends Service<RuntimeEvent> {
     public resource = RuntimeEvent;
     public type = 'runtimeevent';
-    public path = 'system/runtime-event';
+    public path = 'runtime-event';
 }

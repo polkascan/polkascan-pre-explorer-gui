@@ -32,5 +32,5 @@ import {RuntimeModule} from "../classes/runtime-module.class";
 export class RuntimeModuleService extends Service<RuntimeModule> {
     public resource = RuntimeModule;
     public type = 'runtimemodule';
-    public path = 'system/runtime-module';
+    public path = 'runtime-module';
 }

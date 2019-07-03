@@ -32,5 +32,5 @@ import {Runtime} from "../classes/runtime.class";
 export class RuntimeService extends Service<Runtime> {
     public resource = Runtime;
     public type = 'runtime';
-    public path = 'system/runtime';
+    public path = 'runtime';
 }

@@ -31,5 +31,5 @@ import {Networkstats} from '../classes/networkstats.class';
 export class NetworkstatsService extends Service<Networkstats> {
     public resource = Networkstats;
     public type = 'networkstats';
-    public path = 'system/networkstats';
+    public path = 'networkstats';
 }

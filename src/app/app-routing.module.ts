@@ -46,6 +46,8 @@ import {SessionListComponent} from "./pages/session-list/session-list.component"
 import {SessionDetailComponent} from "./pages/session-detail/session-detail.component";
 import {DemocracyProposalListComponent} from "./pages/democracy-proposal-list/democracy-proposal-list.component";
 import {DemocracyProposalDetailComponent} from "./pages/democracy-proposal-detail/democracy-proposal-detail.component";
+import {BalancesTransferListComponent} from "./pages/balances-transfer-list/balances-transfer-list.component";
+import {BalancesTransferDetailComponent} from "./pages/balances-transfer-detail/balances-transfer-detail.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -69,6 +71,8 @@ const routes: Routes = [
   { path: 'session/session/:id', component: SessionDetailComponent},
   { path: 'democracy/proposal', component: DemocracyProposalListComponent},
   { path: 'democracy/proposal/:id', component: DemocracyProposalDetailComponent},
+  { path: 'balances/transfer', component: BalancesTransferListComponent},
+  { path: 'balances/transfer/:id', component: BalancesTransferDetailComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'harvester/admin', component: HarvesterAdminComponent },
 

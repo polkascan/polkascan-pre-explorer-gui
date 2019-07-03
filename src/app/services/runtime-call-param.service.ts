@@ -32,5 +32,5 @@ import {RuntimeCallParam} from "../classes/runtime-call-param.class";
 export class RuntimeCallParamService extends Service<RuntimeCallParam> {
     public resource = RuntimeCallParam;
     public type = 'runtimecallparam';
-    public path = 'system/runtime-call-param';
+    public path = 'runtime-call-param';
 }

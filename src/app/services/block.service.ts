@@ -32,5 +32,5 @@ import { Block } from '../classes/block.class';
 export class BlockService extends Service<Block> {
     public resource = Block;
     public type = 'block';
-    public path = 'system/block';
+    public path = 'block';
 }

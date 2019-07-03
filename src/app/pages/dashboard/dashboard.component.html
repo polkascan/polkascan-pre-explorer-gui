@@ -102,16 +102,18 @@
         <section class="columns">
             <div class="column is-6 last-blocks">
                 <div class="card dashboard-card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            Last blocks
-                        </p>
-                        <a  class="card-header-icon" aria-label="more options">
-                          <span class="icon">
-                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                          </span>
-                        </a>
-                    </header>
+                    <a routerLink="/block">
+                      <header class="card-header">
+                          <p class="card-header-title">
+                              Last blocks
+                          </p>
+                          <a  class="card-header-icon" aria-label="more options">
+                            <span class="icon">
+                              <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                          </a>
+                      </header>
+                    </a>
                     <div class="card-table">
                         <div class="content">
                             <table class="table is-fullwidth is-striped">
@@ -144,16 +146,18 @@
             </div>
             <div class="column is-6 last-transfers">
               <div class="card dashboard-card">
-                    <header class="card-header">
-                        <p class="card-header-title">
-                            Last balance transfers
-                        </p>
-                        <a  class="card-header-icon" aria-label="more options">
-                          <span class="icon">
-                            <i class="fa fa-angle-down" aria-hidden="true"></i>
-                          </span>
-                        </a>
-                    </header>
+                    <a routerLink="/balances/transfer">
+                      <header class="card-header">
+                          <p class="card-header-title">
+                              Last balance transfers
+                          </p>
+                          <a  class="card-header-icon" aria-label="more options">
+                            <span class="icon">
+                              <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </span>
+                          </a>
+                      </header>
+                    </a>
                     <div class="card-table">
                         <div class="content">
                             <table class="table is-fullwidth is-striped">
@@ -171,7 +175,7 @@
                                         <td class="is-hidden-tablet">{{ balanceTransfer.attributes.destination | slice:0:8 }}...</td>
                                         <td class="is-hidden-mobile">{{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
                                         <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
-                                        <td width="5%"><a class="button is-small is-primary" routerLink="/extrinsic/{{ balanceTransfer.attributes.extrinsic_hash ? '0x' + balanceTransfer.attributes.extrinsic_hash : balanceTransfer.id }}">Details</a></td>
+                                        <td width="5%"><a class="button is-small is-primary" routerLink="/balances/transfer/0x{{ balanceTransfer.id }}">Details</a></td>
                                     </tr>
                                 </tbody>
                             </table>

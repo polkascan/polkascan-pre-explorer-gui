@@ -31,5 +31,5 @@ import {Extrinsic} from '../classes/extrinsic.class';
 export class ExtrinsicService extends Service<Extrinsic> {
     public resource = Extrinsic;
     public type = 'extrinsic';
-    public path = 'system/extrinsic';
+    public path = 'extrinsic';
 }

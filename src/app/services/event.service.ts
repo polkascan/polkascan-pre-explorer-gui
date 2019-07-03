@@ -9,5 +9,5 @@ import {Event} from '../classes/event.class';
 export class EventService extends Service<Event> {
     public resource = Event;
     public type = 'event';
-    public path = 'system/event';
+    public path = 'event';
 }

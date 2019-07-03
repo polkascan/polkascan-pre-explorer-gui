@@ -32,5 +32,5 @@ import {RuntimeEventAttribute} from "../classes/runtime-event-attribute.class";
 export class RuntimeEventAttributeService extends Service<RuntimeEventAttribute> {
     public resource = RuntimeEventAttribute;
     public type = 'runtimeeventattribute';
-    public path = 'system/runtime-event-attribute';
+    public path = 'runtime-event-attribute';
 }

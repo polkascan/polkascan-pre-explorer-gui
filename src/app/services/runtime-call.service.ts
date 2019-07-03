@@ -32,5 +32,5 @@ import {RuntimeCall} from "../classes/runtime-call.class";
 export class RuntimeCallService extends Service<RuntimeCall> {
     public resource = RuntimeCall;
     public type = 'runtimecall';
-    public path = 'system/runtime-call';
+    public path = 'runtime-call';
 }
