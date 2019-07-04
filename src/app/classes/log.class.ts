@@ -17,31 +17,14 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * block.class.ts
+ * log.class.ts
+ *
  */
 
-import { Resource, DocumentCollection } from 'ngx-jsonapi';
-import {Extrinsic} from './extrinsic.class';
-import {Event} from './event.class';
-import {Log} from "./log.class";
+import { Resource } from 'ngx-jsonapi';
 
-export class Block extends Resource {
+export class Log extends Resource {
+  public attributes = {
 
-    public attributes = {
-        id: 'id',
-        hash: 'hash',
-        parent_hash: 'parent_hash',
-        state_root: 'state_root',
-        extrinsics_root: 'extrinsics_root',
-        count_extrinsics: 'count_extrinsics',
-        count_events: 'count_events',
-        runtime_id: 'runtime_id'
-    };
-
-    public relationships = {
-        extrinsics: new DocumentCollection<Extrinsic>(),
-        events: new DocumentCollection<Event>(),
-        logs: new DocumentCollection<Log>(),
-    };
-
+  };
 }

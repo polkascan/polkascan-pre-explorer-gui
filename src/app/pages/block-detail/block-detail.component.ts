@@ -32,6 +32,7 @@ import {EventService} from '../../services/event.service';
 import {environment} from "../../../environments/environment";
 import {BlockTotal} from "../../classes/block-total.class";
 import {BlockTotalService} from "../../services/block-total.service";
+import {LogService} from "../../services/log.service";
 
 @Component({
   selector: 'app-block-detail',
@@ -52,6 +53,7 @@ export class BlockDetailComponent implements OnInit {
     private blockTotalService: BlockTotalService,
     private extrinsicService: ExtrinsicService,
     private eventService: EventService,
+    private logService: LogService,
     private location: Location
   ) { }
 
@@ -63,7 +65,7 @@ export class BlockDetailComponent implements OnInit {
     this.block$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           if (params.get('id')) {
-            return this.blockService.get(params.get('id'), { include: ['extrinsics', 'events'] });
+            return this.blockService.get(params.get('id'), { include: ['extrinsics', 'events', 'logs'] });
           }
       })
     );

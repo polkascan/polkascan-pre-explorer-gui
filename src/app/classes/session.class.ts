@@ -21,10 +21,16 @@
  *
  */
 
-import { Resource } from 'ngx-jsonapi';
+import {DocumentCollection, Resource} from 'ngx-jsonapi';
+import {SessionValidator} from "./session-validator.class";
+import {Block} from "./block.class";
 
 export class Session extends Resource {
   public attributes = {
 
+  };
+  public relationships = {
+        validators: new DocumentCollection<SessionValidator>(),
+        blocks: new DocumentCollection<Block>()
   };
 }

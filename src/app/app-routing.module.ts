@@ -48,6 +48,8 @@ import {DemocracyProposalListComponent} from "./pages/democracy-proposal-list/de
 import {DemocracyProposalDetailComponent} from "./pages/democracy-proposal-detail/democracy-proposal-detail.component";
 import {BalancesTransferListComponent} from "./pages/balances-transfer-list/balances-transfer-list.component";
 import {BalancesTransferDetailComponent} from "./pages/balances-transfer-detail/balances-transfer-detail.component";
+import {LogListComponent} from "./pages/log-list/log-list.component";
+import {LogDetailComponent} from "./pages/log-detail/log-detail.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -57,6 +59,8 @@ const routes: Routes = [
   { path: 'extrinsic/:id', component: ExtrinsicDetailComponent},
   { path: 'event', component: EventListComponent},
   { path: 'event/:id', component: EventDetailComponent},
+  { path: 'log', component: LogListComponent},
+  { path: 'log/:id', component: LogDetailComponent},
   { path: 'runtime', component: RuntimeListComponent },
   { path: 'runtime/:id', component: RuntimeDetailComponent },
   { path: 'runtime-module/:id', component: RuntimeModuleDetailComponent },

@@ -63,6 +63,9 @@ import { ContractListComponent } from './pages/contract-list/contract-list.compo
 import { ContractDetailComponent } from './pages/contract-detail/contract-detail.component';
 import { BalancesTransferListComponent } from './pages/balances-transfer-list/balances-transfer-list.component';
 import { BalancesTransferDetailComponent } from './pages/balances-transfer-detail/balances-transfer-detail.component';
+import { LogListComponent } from './pages/log-list/log-list.component';
+import { LogDetailComponent } from './pages/log-detail/log-detail.component';
+import { LogTableComponent } from './components/log-table/log-table.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -103,7 +106,10 @@ export class MyClock extends TimeagoClock {
     ContractListComponent,
     ContractDetailComponent,
     BalancesTransferListComponent,
-    BalancesTransferDetailComponent
+    BalancesTransferDetailComponent,
+    LogListComponent,
+    LogDetailComponent,
+    LogTableComponent
   ],
   imports: [
     BrowserModule,
