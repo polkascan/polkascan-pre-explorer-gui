@@ -16,7 +16,7 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                             <tr>
-                              <td width="20%">Block ID</td>
+                              <td width="20%">Block</td>
                               <td><a routerLink="/block/{{ balanceTransfer.attributes.block_id }}">{{ balanceTransfer.attributes.block_id }}</a></td>
                             </tr>
                             <tr>
@@ -39,6 +39,10 @@
                                 <i *ngIf="balanceTransfer.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
                                 <i *ngIf="balanceTransfer.attributes.error" class="fa fa-times" style="color: darkred"></i>
                               </td>
+                            </tr>
+                            <tr>
+                              <td width="20%">Extrinsic Index</td>
+                              <td><a routerLink="/extrinsic/{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}">{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}</a></td>
                             </tr>
                             <tr>
                               <td width="20%">Extrinsic Hash</td>

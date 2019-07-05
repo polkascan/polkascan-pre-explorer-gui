@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DocumentCollection} from "ngx-jsonapi";
-import {DemocracyProposal} from "../../classes/democracy-proposal.class";
-import {DemocracyProposalService} from "../../services/democracy-proposal.service";
+import {DocumentCollection} from 'ngx-jsonapi';
+import {DemocracyProposal} from '../../classes/democracy-proposal.class';
+import {DemocracyProposalService} from '../../services/democracy-proposal.service';
 
 @Component({
   selector: 'app-democracy-proposal-list',
@@ -25,7 +25,7 @@ export class DemocracyProposalListComponent implements OnInit {
 
   getItems(page: number): void {
 
-    let params = {
+    const params = {
       page: { number: page, size: 25},
       remotefilter: {},
     };

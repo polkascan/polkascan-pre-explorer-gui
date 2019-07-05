@@ -19,6 +19,10 @@
                           <td width="15%">Block</td>
                           <td><a routerLink="/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                         </tr>
+                        <tr>
+                          <td width="15%">Extrinsic Index</td>
+                          <td>{{ extrinsic.attributes.extrinsic_idx }}</td>
+                        </tr>
                         <tr *ngIf="extrinsic.attributes.extrinsic_hash">
                           <td width="15%">Extrinsic Hash</td>
                           <td><a routerLink="/extrinsic/0x{{ extrinsic.attributes.extrinsic_hash}}">0x{{ extrinsic.attributes.extrinsic_hash}}</a></td>
@@ -36,7 +40,7 @@
                           <td><a routerLink="/account/{{ extrinsic.attributes.address }}">{{ extrinsic.attributes.address }}</a></td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.account_index">
-                          <td width="15%">Account index</td>
+                          <td width="15%">Account Index</td>
                           <td>{{ extrinsic.attributes.account_index }}</td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed">

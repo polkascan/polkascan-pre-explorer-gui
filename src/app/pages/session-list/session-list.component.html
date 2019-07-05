@@ -22,7 +22,8 @@
                                 <th></th>
                                 <th>Session ID</th>
                                 <th>Start at Block</th>
-                                <th>End at Block</th>
+                                <th># Blocks</th>
+                                <th># Validators</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -33,7 +34,8 @@
                                     </td>
                                     <td>{{ session.id }}</td>
                                     <td><a routerLink="/block/{{ session.attributes.start_at_block }}">{{ session.attributes.start_at_block }}</a></td>
-                                    <td><a routerLink="/block/{{ session.attributes.end_at_block }}">{{ session.attributes.end_at_block }}</a></td>
+                                    <td>{{ session.attributes.count_blocks || '-'}}</td>
+                                    <td>{{ session.attributes.count_validators }}</td>
                                     <td width="5%"><a class="button is-small is-primary" routerLink="/session/session/{{ session.id }}">Details</a></td>
                                 </tr>
                             </tbody>

@@ -28,8 +28,12 @@
                                 <td>{{ session.attributes.era || 'N/A'}}</td>
                               </tr>
                               <tr>
-                                <td width="20%">Block count</td>
+                                <td width="20%"># Blocks</td>
                                 <td>{{ session.attributes.count_blocks }}</td>
+                              </tr>
+                              <tr>
+                                <td width="20%"># Validators</td>
+                                <td>{{ session.attributes.count_validators }}</td>
                               </tr>
                           </tbody>
                       </table>
@@ -67,7 +71,7 @@
                                       <i class="fa fa-id-badge"></i>
                                     </td>
                                     <td>{{ validator.attributes.validator }}</td>
-                                    <td>{{ validator.attributes.rank_validator || 'N/A'}}</td>
+                                    <td>{{ validator.attributes.rank_validator !== null ? validator.attributes.rank_validator + 1 : 'N/A'}}</td>
                                     <td width="5%"><a class="button is-small is-primary" routerLink="/account/{{ validator.attributes.validator }}">Details</a></td>
                                 </tr>
                             </tbody>

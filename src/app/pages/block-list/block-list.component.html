@@ -31,7 +31,7 @@
                             <tbody>
                                 <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
                                     <td width="5%"><i class="fa fa-cube"></i></td>
-                                    <td width="10%">#{{ block.id }}</td>
+                                    <td width="10%">{{ block.id }}</td>
                                     <td class="is-hidden-mobile"><span rel="tooltip" title="{{ block.attributes.datetime | date:'medium'}}">{{ block.attributes.datetime | timeago }}</span></td>
                                     <td class="is-hidden-mobile">{{ block.attributes.hash | slice:0:8 }}...{{ block.attributes.hash | slice:60:66 }}</td>
                                     <td>{{ block.attributes.count_extrinsics_signed }}</td>

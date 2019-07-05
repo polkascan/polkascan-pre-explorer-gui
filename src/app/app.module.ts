@@ -66,6 +66,8 @@ import { BalancesTransferDetailComponent } from './pages/balances-transfer-detai
 import { LogListComponent } from './pages/log-list/log-list.component';
 import { LogDetailComponent } from './pages/log-detail/log-detail.component';
 import { LogTableComponent } from './components/log-table/log-table.component';
+import { DemocracyReferendumDetailComponent } from './pages/democracy-referendum-detail/democracy-referendum-detail.component';
+import { DemocracyReferendumListComponent } from './pages/democracy-referendum-list/democracy-referendum-list.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -109,7 +111,9 @@ export class MyClock extends TimeagoClock {
     BalancesTransferDetailComponent,
     LogListComponent,
     LogDetailComponent,
-    LogTableComponent
+    LogTableComponent,
+    DemocracyReferendumDetailComponent,
+    DemocracyReferendumListComponent
   ],
   imports: [
     BrowserModule,

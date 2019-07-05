@@ -3,7 +3,7 @@
     <div *ngIf="account$ | async as account">
         <section class="info-tiles">
           <div class="card events-card">
-              <header class="card-header">
+              <header class="card-header" *ngIf="account && account.attributes && account.attributes.id">
                   <p class="card-header-title">
                       Account {{ account.attributes.address }}
                   </p>
@@ -61,9 +61,9 @@
                           <tbody>
                               <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                                 <td width="5%"><i class="fa fa-exchange-alt"></i></td>
-                                <td class="is-hidden-mobile"><a [routerLink]="['block', balanceTransfer.attributes.block_id]">{{ balanceTransfer.attributes.block_id }}</a></td>
-                                <td class="is-hidden-tablet"><a [routerLink]="['account', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination| slice:0:16 }}...</a></td>
-                                <td class="is-hidden-mobile"><a [routerLink]="['account', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination }}</a></td>
+                                <td class="is-hidden-mobile"><a [routerLink]="['/', 'block', balanceTransfer.attributes.block_id]">{{ balanceTransfer.attributes.block_id }}</a></td>
+                                <td class="is-hidden-tablet"><a [routerLink]="['/', 'account', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination| slice:0:16 }}...</a></td>
+                                <td class="is-hidden-mobile"><a [routerLink]="['/', 'account', balanceTransfer.attributes.destination]">{{ balanceTransfer.attributes.destination }}</a></td>
                                 <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
                                 <td width="5%"><a class="button is-small is-primary" routerLink="/balances/transfer/0x{{ balanceTransfer.id }}">Details</a></td>
                               </tr>
@@ -93,7 +93,7 @@
                               <tr>
                                 <th></th>
                                 <th>ID</th>
-                                <th>Block number</th>
+                                <th>Block</th>
                                 <th class="is-hidden-mobile">Module</th>
                                 <th class="is-hidden-mobile">Call</th>
                                 <th class="is-hidden-mobile">Signed</th>

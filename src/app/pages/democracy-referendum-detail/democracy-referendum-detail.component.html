@@ -1,0 +1,58 @@
+<div class="column is-12">
+    <app-polkascan-header></app-polkascan-header>
+    <div *ngIf="referendum$ | async as referendum">
+        <section class="info-tiles">
+          <div class="card events-card">
+              <header class="card-header">
+                  <p class="card-header-title">
+                      Democracy referendum #{{ referendum.attributes.id }}
+                  </p>
+                  <a  class="card-header-icon" aria-label="more options">
+                 <span class="icon"><i class="fa fa-poll fa-2x"></i></span>
+                </a>
+              </header>
+              <div class="card-table" *ngIf="referendum">
+                  <div class="content">
+                      <table class="table is-fullwidth is-striped">
+                          <tbody>
+                              <tr>
+                                <td width="20%">Created at block</td>
+                                <td><a routerLink="/block/{{ referendum.attributes.created_at_block }}">{{ referendum.attributes.created_at_block }}</a></td>
+                              </tr>
+                              <tr>
+                                <td width="20%">Updated at block</td>
+                                <td><a routerLink="/block/{{ referendum.attributes.updated_at_block }}">{{ referendum.attributes.updated_at_block }}</a></td>
+                              </tr>
+                              <tr *ngIf="referendum.attributes.proposal">
+                                <td width="20%">Proposal</td>
+                                <td>
+                                  <pre>{{ referendum.attributes.proposal | json }}</pre>
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width="20%">Vote Threshold</td>
+                                <td>
+                                  {{ referendum.attributes.vote_threshold }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width="20%">Status</td>
+                                <td>
+                                  {{ referendum.attributes.status }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width="15%">Result</td>
+                                <td>
+                                  <i *ngIf="referendum.attributes.success === true" class="fa fa-check" style="color: forestgreen"></i>
+                                  <i *ngIf="referendum.attributes.success === false" class="fa fa-times" style="color: darkred"></i>
+                                </td>
+                              </tr>
+                          </tbody>
+                      </table>
+                  </div>
+              </div>
+          </div>
+        </section>
+    </div>
+</div>

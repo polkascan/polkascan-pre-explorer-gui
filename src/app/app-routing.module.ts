@@ -32,24 +32,26 @@ import {SettingsComponent} from './pages/settings/settings.component';
 import {EventDetailComponent} from './pages/event-detail/event-detail.component';
 import {ExtrinsicListComponent} from './pages/extrinsic-list/extrinsic-list.component';
 import {EventListComponent} from './pages/event-list/event-list.component';
-import {RuntimeListComponent} from "./pages/runtime-list/runtime-list.component";
-import {RuntimeDetailComponent} from "./pages/runtime-detail/runtime-detail.component";
-import {RuntimeModuleDetailComponent} from "./pages/runtime-module-detail/runtime-module-detail.component";
-import {RuntimeCallDetailComponent} from "./pages/runtime-call-detail/runtime-call-detail.component";
-import {RuntimeEventDetailComponent} from "./pages/runtime-event-detail/runtime-event-detail.component";
-import {RuntimeStorageDetailComponent} from "./pages/runtime-storage-detail/runtime-storage-detail.component";
-import {AccountDetailComponent} from "./pages/account-detail/account-detail.component";
-import {ContractDetailComponent} from "./pages/contract-detail/contract-detail.component";
-import {ContractListComponent} from "./pages/contract-list/contract-list.component";
-import {AccountListComponent} from "./pages/account-list/account-list.component";
-import {SessionListComponent} from "./pages/session-list/session-list.component";
-import {SessionDetailComponent} from "./pages/session-detail/session-detail.component";
-import {DemocracyProposalListComponent} from "./pages/democracy-proposal-list/democracy-proposal-list.component";
-import {DemocracyProposalDetailComponent} from "./pages/democracy-proposal-detail/democracy-proposal-detail.component";
-import {BalancesTransferListComponent} from "./pages/balances-transfer-list/balances-transfer-list.component";
-import {BalancesTransferDetailComponent} from "./pages/balances-transfer-detail/balances-transfer-detail.component";
-import {LogListComponent} from "./pages/log-list/log-list.component";
-import {LogDetailComponent} from "./pages/log-detail/log-detail.component";
+import {RuntimeListComponent} from './pages/runtime-list/runtime-list.component';
+import {RuntimeDetailComponent} from './pages/runtime-detail/runtime-detail.component';
+import {RuntimeModuleDetailComponent} from './pages/runtime-module-detail/runtime-module-detail.component';
+import {RuntimeCallDetailComponent} from './pages/runtime-call-detail/runtime-call-detail.component';
+import {RuntimeEventDetailComponent} from './pages/runtime-event-detail/runtime-event-detail.component';
+import {RuntimeStorageDetailComponent} from './pages/runtime-storage-detail/runtime-storage-detail.component';
+import {AccountDetailComponent} from './pages/account-detail/account-detail.component';
+import {ContractDetailComponent} from './pages/contract-detail/contract-detail.component';
+import {ContractListComponent} from './pages/contract-list/contract-list.component';
+import {AccountListComponent} from './pages/account-list/account-list.component';
+import {SessionListComponent} from './pages/session-list/session-list.component';
+import {SessionDetailComponent} from './pages/session-detail/session-detail.component';
+import {DemocracyProposalListComponent} from './pages/democracy-proposal-list/democracy-proposal-list.component';
+import {DemocracyProposalDetailComponent} from './pages/democracy-proposal-detail/democracy-proposal-detail.component';
+import {BalancesTransferListComponent} from './pages/balances-transfer-list/balances-transfer-list.component';
+import {BalancesTransferDetailComponent} from './pages/balances-transfer-detail/balances-transfer-detail.component';
+import {LogListComponent} from './pages/log-list/log-list.component';
+import {LogDetailComponent} from './pages/log-detail/log-detail.component';
+import {DemocracyReferendumListComponent} from './pages/democracy-referendum-list/democracy-referendum-list.component';
+import {DemocracyReferendumDetailComponent} from './pages/democracy-referendum-detail/democracy-referendum-detail.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -75,6 +77,8 @@ const routes: Routes = [
   { path: 'session/session/:id', component: SessionDetailComponent},
   { path: 'democracy/proposal', component: DemocracyProposalListComponent},
   { path: 'democracy/proposal/:id', component: DemocracyProposalDetailComponent},
+  { path: 'democracy/referendum', component: DemocracyReferendumListComponent},
+  { path: 'democracy/referendum/:id', component: DemocracyReferendumDetailComponent},
   { path: 'balances/transfer', component: BalancesTransferListComponent},
   { path: 'balances/transfer/:id', component: BalancesTransferDetailComponent},
   { path: 'settings', component: SettingsComponent},
@@ -94,7 +98,7 @@ const routes: Routes = [
   { path: 'system/runtime-event/:id', redirectTo: '/runtime-event/:id'},
   { path: 'system/runtime-storage/:id', redirectTo: '/runtime-storage/:id'},
   { path: 'system/account/:id', redirectTo: '/account/:id'},
-  { path: 'module/account/:id', redirectTo: '/account/:id',},
+  { path: 'module/account/:id', redirectTo: '/account/:id', },
   { path: 'system/account', redirectTo: '/account'},
 ];
 
