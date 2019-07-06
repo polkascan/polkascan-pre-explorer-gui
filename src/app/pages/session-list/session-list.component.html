@@ -30,7 +30,7 @@
                             <tbody>
                                 <tr *ngFor="let session of sessions.data; trackBy: sessions.trackBy">
                                     <td width="5%">
-                                      <i class="fa fa-file-contract"></i>
+                                      <i class="fa fa-user-clock"></i>
                                     </td>
                                     <td>{{ session.id }}</td>
                                     <td><a routerLink="/block/{{ session.attributes.start_at_block }}">{{ session.attributes.start_at_block }}</a></td>
