@@ -45,7 +45,7 @@
                     <tbody>
                         <tr *ngFor="let attribute of event.attributes.attributes">
                           <td [ngSwitch]="attribute.type">
-                            <div *ngSwitchCase="'AccountId'"><a routerLink="/account/{{ attribute.value.replace('0x', '') }}">{{ attribute.value }}</a></div>
+                            <div *ngSwitchCase="'AccountId'"><a routerLink="/account/{{ attribute.value.replace('0x', '') }}"><app-identicon [accountId]="attribute.orig_value"></app-identicon> {{ attribute.value }}</a></div>
                             <div *ngSwitchCase="'Balance'">{{ formatBalance(attribute.value) | number }} {{ networkTokenSymbol }}</div>
                             <div *ngSwitchCase="'Moment'">{{ attribute.value | date:'medium' }}</div>
                             <div *ngSwitchDefault><pre>{{ attribute.value | json }}</pre></div>

@@ -70,7 +70,7 @@
                                     <td width="5%">
                                       <i class="fa fa-id-badge"></i>
                                     </td>
-                                    <td>{{ validator.attributes.validator }}</td>
+                                    <td><app-identicon [accountId]="validator.attributes.validator_id"></app-identicon> {{ validator.attributes.validator }}</td>
                                     <td>{{ validator.attributes.rank_validator !== null ? validator.attributes.rank_validator + 1 : 'N/A'}}</td>
                                     <td width="5%"><a class="button is-small is-primary" routerLink="/account/{{ validator.attributes.validator }}">Details</a></td>
                                 </tr>
