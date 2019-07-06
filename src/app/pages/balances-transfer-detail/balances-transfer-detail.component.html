@@ -21,13 +21,13 @@
                             </tr>
                             <tr>
                               <td>Sender</td>
-                              <td class="is-hidden-tablet"><a routerLink="/account/{{ balanceTransfer.attributes.sender }}">{{ balanceTransfer.attributes.sender | slice:0:16 }}...</a></td>
-                              <td class="is-hidden-mobile"><a routerLink="/account/{{ balanceTransfer.attributes.sender }}">{{ balanceTransfer.attributes.sender }}</a></td>
+                              <td class="is-hidden-tablet"><a routerLink="/account/{{ balanceTransfer.attributes.sender }}"><app-identicon [accountId]="balanceTransfer.attributes.sender_id"></app-identicon> {{ balanceTransfer.attributes.sender | slice:0:16 }}...</a></td>
+                              <td class="is-hidden-mobile"><a routerLink="/account/{{ balanceTransfer.attributes.sender }}"><app-identicon [accountId]="balanceTransfer.attributes.sender_id"></app-identicon> {{ balanceTransfer.attributes.sender }}</a></td>
                             </tr>
                             <tr>
                               <td>Destination</td>
-                              <td class="is-hidden-tablet"><a routerLink="/account/{{ balanceTransfer.attributes.destination }}">{{ balanceTransfer.attributes.destination | slice:0:16 }}...</a></td>
-                              <td class="is-hidden-mobile"><a routerLink="/account/{{ balanceTransfer.attributes.destination }}">{{ balanceTransfer.attributes.destination }}</a></td>
+                              <td class="is-hidden-tablet"><a routerLink="/account/{{ balanceTransfer.attributes.destination }}"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination | slice:0:16 }}...</a></td>
+                              <td class="is-hidden-mobile"><a routerLink="/account/{{ balanceTransfer.attributes.destination }}"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination }}</a></td>
                             </tr>
                             <tr>
                               <td>Value</td>

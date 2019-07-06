@@ -172,8 +172,8 @@
                                 <tbody>
                                     <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                                         <td width="5%"><i class="fa fa-exchange-alt"></i></td>
-                                        <td class="is-hidden-tablet">{{ balanceTransfer.attributes.destination | slice:0:8 }}...</td>
-                                        <td class="is-hidden-mobile">{{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
+                                        <td class="is-hidden-tablet"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination | slice:0:8 }}...</td>
+                                        <td class="is-hidden-mobile"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
                                         <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
                                         <td width="5%"><a class="button is-small is-primary" routerLink="/balances/transfer/0x{{ balanceTransfer.id }}">Details</a></td>
                                     </tr>

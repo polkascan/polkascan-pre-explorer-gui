@@ -31,7 +31,7 @@
                                     <td width="5%">
                                       <i class="fa fa-id-card"></i>
                                     </td>
-                                    <td>{{ account.attributes.address }}</td>
+                                    <td><app-identicon [accountId]="account.attributes.id"></app-identicon> {{ account.attributes.address }}</td>
                                     <td class="is-hidden-mobile"><a routerLink="/block/{{ account.attributes.created_at_block }}">{{ account.attributes.created_at_block }}</a></td>
                                     <td>
                                       <i *ngIf="!account.attributes.is_reaped" class="fa fa-check" style="color: forestgreen"></i>

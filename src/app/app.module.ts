@@ -22,7 +22,7 @@
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule }    from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgxJsonapiModule } from 'ngx-jsonapi';
@@ -37,7 +37,7 @@ import { ExtrinsicDetailComponent } from './pages/extrinsic-detail/extrinsic-det
 import { ExtrinsicTableComponent } from './components/extrinsic-table/extrinsic-table.component';
 import { HarvesterAdminComponent } from './pages/harvester-admin/harvester-admin.component';
 import { LoadingBoxComponent } from './components/loading-box/loading-box.component';
-import {environment} from "../environments/environment";
+import {environment} from '../environments/environment';
 import { PolkascanHeaderComponent } from './components/polkascan-header/polkascan-header.component';
 import { AddressDetailComponent } from './pages/address-detail/address-detail.component';
 import { EventTableComponent } from './components/event-table/event-table.component';
@@ -51,7 +51,7 @@ import { RuntimeCallDetailComponent } from './pages/runtime-call-detail/runtime-
 import { RuntimeEventDetailComponent } from './pages/runtime-event-detail/runtime-event-detail.component';
 import { RuntimeStorageDetailComponent } from './pages/runtime-storage-detail/runtime-storage-detail.component';
 
-import {TimeagoModule, TimeagoClock} from "ngx-timeago";
+import {TimeagoModule, TimeagoClock} from 'ngx-timeago';
 import { Observable, interval } from 'rxjs';
 import { AccountListComponent } from './pages/account-list/account-list.component';
 import { AccountDetailComponent } from './pages/account-detail/account-detail.component';
@@ -68,6 +68,7 @@ import { LogDetailComponent } from './pages/log-detail/log-detail.component';
 import { LogTableComponent } from './components/log-table/log-table.component';
 import { DemocracyReferendumDetailComponent } from './pages/democracy-referendum-detail/democracy-referendum-detail.component';
 import { DemocracyReferendumListComponent } from './pages/democracy-referendum-list/democracy-referendum-list.component';
+import {IdenticonComponent} from './components/identicon/identicon.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -113,7 +114,8 @@ export class MyClock extends TimeagoClock {
     LogDetailComponent,
     LogTableComponent,
     DemocracyReferendumDetailComponent,
-    DemocracyReferendumListComponent
+    DemocracyReferendumListComponent,
+    IdenticonComponent
   ],
   imports: [
     BrowserModule,

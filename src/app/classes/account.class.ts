@@ -25,6 +25,6 @@ import { Resource } from 'ngx-jsonapi';
 
 export class Account extends Resource {
   public attributes = {
-
+    id: 'id'
   };
 }
