@@ -26,7 +26,6 @@ import { BlockListComponent } from './pages/block-list/block-list.component';
 import { BlockDetailComponent } from './pages/block-detail/block-detail.component';
 import {DashboardComponent} from './pages/dashboard/dashboard.component';
 import {ExtrinsicDetailComponent} from './pages/extrinsic-detail/extrinsic-detail.component';
-import {AddressDetailComponent} from './pages/address-detail/address-detail.component';
 import {HarvesterAdminComponent} from './pages/harvester-admin/harvester-admin.component';
 import {SettingsComponent} from './pages/settings/settings.component';
 import {EventDetailComponent} from './pages/event-detail/event-detail.component';
@@ -52,6 +51,7 @@ import {LogListComponent} from './pages/log-list/log-list.component';
 import {LogDetailComponent} from './pages/log-detail/log-detail.component';
 import {DemocracyReferendumListComponent} from './pages/democracy-referendum-list/democracy-referendum-list.component';
 import {DemocracyReferendumDetailComponent} from './pages/democracy-referendum-detail/democracy-referendum-detail.component';
+import {NotFoundComponent} from './pages/not-found/not-found.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -100,6 +100,7 @@ const routes: Routes = [
   { path: 'system/account/:id', redirectTo: '/account/:id'},
   { path: 'module/account/:id', redirectTo: '/account/:id', },
   { path: 'system/account', redirectTo: '/account'},
+  { path: '**', component: NotFoundComponent},
 ];
 
 @NgModule({
