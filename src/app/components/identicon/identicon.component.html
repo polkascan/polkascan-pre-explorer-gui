@@ -6,7 +6,7 @@
       style=""
       [attr.width]="size"
       [attr.height]="size"
-
+      *ngIf="colors"
     >
       <circle [attr.cx]="s / 2" [attr.cy]="s / 2" [attr.r]="s / 2" fill="#eee"/>
       <circle [attr.cx]="c" [attr.cy]="c - r" [attr.r]="z" [attr.fill]="colors[0]"/>

@@ -113,7 +113,11 @@ export class IdenticonComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.updateIcon(changes.accountId.currentValue);
+    if (changes.accountId.currentValue) {
+      this.updateIcon(changes.accountId.currentValue);
+    } else {
+      this.colors = null;
+    }
   }
 
 }
