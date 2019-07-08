@@ -68,8 +68,10 @@ import { LogDetailComponent } from './pages/log-detail/log-detail.component';
 import { LogTableComponent } from './components/log-table/log-table.component';
 import { DemocracyReferendumDetailComponent } from './pages/democracy-referendum-detail/democracy-referendum-detail.component';
 import { DemocracyReferendumListComponent } from './pages/democracy-referendum-list/democracy-referendum-list.component';
-import {IdenticonComponent} from './components/identicon/identicon.component';
-import {NotFoundComponent} from './pages/not-found/not-found.component';
+import { IdenticonComponent } from './components/identicon/identicon.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AccountIndexListComponent } from './pages/account-index-list/account-index-list.component';
+import { AccountIndexDetailComponent } from './pages/account-index-detail/account-index-detail.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -117,7 +119,9 @@ export class MyClock extends TimeagoClock {
     DemocracyReferendumDetailComponent,
     DemocracyReferendumListComponent,
     IdenticonComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AccountIndexListComponent,
+    AccountIndexDetailComponent
   ],
   imports: [
     BrowserModule,

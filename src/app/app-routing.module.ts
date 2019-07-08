@@ -52,6 +52,8 @@ import {LogDetailComponent} from './pages/log-detail/log-detail.component';
 import {DemocracyReferendumListComponent} from './pages/democracy-referendum-list/democracy-referendum-list.component';
 import {DemocracyReferendumDetailComponent} from './pages/democracy-referendum-detail/democracy-referendum-detail.component';
 import {NotFoundComponent} from './pages/not-found/not-found.component';
+import {AccountIndexListComponent} from './pages/account-index-list/account-index-list.component';
+import {AccountIndexDetailComponent} from './pages/account-index-detail/account-index-detail.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -71,6 +73,8 @@ const routes: Routes = [
   { path: 'runtime-storage/:id', component: RuntimeStorageDetailComponent},
   { path: 'account', component: AccountListComponent},
   { path: 'account/:id', component: AccountDetailComponent},
+  { path: 'index', component: AccountIndexListComponent},
+  { path: 'index/:id', component: AccountIndexDetailComponent},
   { path: 'contracts/contract', component: ContractListComponent},
   { path: 'contracts/contract/:id', component: ContractDetailComponent},
   { path: 'session/session', component: SessionListComponent},

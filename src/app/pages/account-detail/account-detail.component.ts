@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {DocumentCollection} from "ngx-jsonapi";
-import {Extrinsic} from "../../classes/extrinsic.class";
-import {BalanceTransferService} from "../../services/balance-transfer.service";
-import {ExtrinsicService} from "../../services/extrinsic.service";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {environment} from "../../../environments/environment";
-import {Observable} from "rxjs";
-import {Account} from "../../classes/account.class";
-import {AccountService} from "../../services/account.service";
-import {switchMap} from "rxjs/operators";
-import {BalanceTransfer} from "../../classes/balancetransfer.class";
+import {DocumentCollection} from 'ngx-jsonapi';
+import {Extrinsic} from '../../classes/extrinsic.class';
+import {BalanceTransferService} from '../../services/balance-transfer.service';
+import {ExtrinsicService} from '../../services/extrinsic.service';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {environment} from '../../../environments/environment';
+import {Observable} from 'rxjs';
+import {Account} from '../../classes/account.class';
+import {AccountService} from '../../services/account.service';
+import {switchMap} from 'rxjs/operators';
+import {BalanceTransfer} from '../../classes/balancetransfer.class';
 
 @Component({
   selector: 'app-account-detail',
@@ -51,9 +51,9 @@ export class AccountDetailComponent implements OnInit {
         page: { number: 0}
       }).subscribe(balanceTransfers => (this.balanceTransfers = balanceTransfers));
 
-      let params = {
+      const params = {
         page: {number: 0, size: 25},
-        remotefilter:{address: val.id},
+        remotefilter: {address: val.id},
       };
 
       this.extrinsicService.all(params).subscribe(extrinsics => {

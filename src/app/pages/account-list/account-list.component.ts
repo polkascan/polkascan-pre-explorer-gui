@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {DocumentCollection} from "ngx-jsonapi";
-import {Account} from "../../classes/account.class";
-import {AccountService} from "../../services/account.service";
+import {DocumentCollection} from 'ngx-jsonapi';
+import {Account} from '../../classes/account.class';
+import {AccountService} from '../../services/account.service';
 
 @Component({
   selector: 'app-account-list',
@@ -25,7 +25,7 @@ export class AccountListComponent implements OnInit {
 
   getItems(page: number): void {
 
-    let params = {
+    const params = {
       page: { number: page, size: 25},
       remotefilter: {},
     };
