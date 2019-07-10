@@ -60,11 +60,11 @@
                                     <td width="5%">
                                       <i class="fa fa-file-alt"></i>
                                     </td>
-                                    <td>{{ call.attributes.name }}</td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/runtime-call/{{ call.id }}">{{ call.attributes.name }}</a></td>
                                     <td class="is-hidden-mobile">{{ call.attributes.lookup }}</td>
                                     <td class="is-hidden-mobile">{{ call.attributes.count_params }}</td>
 
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/runtime-call/{{ call.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-call/{{ call.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -100,9 +100,9 @@
                                     <td width="5%">
                                       <i class="fa fa-database"></i>
                                     </td>
-                                    <td>{{ storage.attributes.name }}</td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/runtime-storage/{{ storage.id }}">{{ storage.attributes.name }}</a></td>
                                     <td class="is-hidden-mobile">{{ storage.attributes.type_value }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/runtime-storage/{{ storage.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-storage/{{ storage.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -139,11 +139,11 @@
                                     <td width="5%">
                                       <i class="fa fa-calendar-check"></i>
                                     </td>
-                                    <td>{{ event.attributes.name }}</td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/runtime-event/{{ event.id }}">{{ event.attributes.name }}</a></td>
                                     <td class="is-hidden-mobile">{{ event.attributes.lookup }}</td>
                                     <td class="is-hidden-mobile">{{ event.attributes.count_attributes }}</td>
 
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/runtime-event/{{ event.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-event/{{ event.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>

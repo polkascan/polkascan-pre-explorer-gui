@@ -18,7 +18,7 @@
                               <tr>
                                 <td>Account</td>
                                 <td *ngIf="!accountIndex.attributes.address">N/A</td>
-                                <td *ngIf="accountIndex.attributes.address"><a routerLink="/account/{{ accountIndex.attributes.address }}"><app-identicon [accountId]="accountIndex.attributes.account_id"></app-identicon> {{ accountIndex.attributes.address }}</a></td>
+                                <td *ngIf="accountIndex.attributes.address"><a routerLink="/account/{{ accountIndex.attributes.address }}" class="address-mobile-format"><app-identicon [accountId]="accountIndex.attributes.account_id"></app-identicon> {{ accountIndex.attributes.address }}</a></td>
                               </tr>
                               <tr>
                                 <td>Is reclaimable</td>

@@ -120,7 +120,7 @@
                                 <thead>
                                   <tr>
                                     <th></th>
-                                    <th>#</th>
+                                    <th>Number</th>
                                     <th class="is-hidden-mobile">Age</th>
                                     <th>Signed Extrinsics</th>
                                     <th>Module Events</th>
@@ -130,7 +130,7 @@
                                 <tbody>
                                     <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
                                         <td width="5%"><i class="fa fa-cube"></i></td>
-                                        <td width="10%">#{{ block.id }}</td>
+                                        <td width="10%"><a routerLink="{{ networkURLPrefix }}/block/{{ block.id }}">{{ block.id }}</a></td>
                                         <td class="is-hidden-mobile"><span rel="tooltip" title="{{ block.attributes.datetime | date:'medium'}}">
                                           {{ block.attributes.datetime | timeago }}
                                         </span></td>
@@ -172,8 +172,7 @@
                                 <tbody>
                                     <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                                         <td width="5%"><i class="fa fa-exchange-alt"></i></td>
-                                        <td class="is-hidden-tablet"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination | slice:0:8 }}...</td>
-                                        <td class="is-hidden-mobile"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination | slice:0:16 }}...</td>
+                                        <td><a routerLink="{{ networkURLPrefix }}/account/{{balanceTransfer.attributes.destination_id}}" class="address-format"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination }}</a></td>
                                         <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
                                         <td width="5%"><a class="button is-small is-primary" routerLink="/balances/transfer/0x{{ balanceTransfer.id }}">Details</a></td>
                                     </tr>

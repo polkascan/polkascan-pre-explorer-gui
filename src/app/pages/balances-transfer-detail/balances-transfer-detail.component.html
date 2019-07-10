@@ -17,17 +17,15 @@
                           <tbody>
                             <tr>
                               <td width="20%">Block</td>
-                              <td><a routerLink="/block/{{ balanceTransfer.attributes.block_id }}">{{ balanceTransfer.attributes.block_id }}</a></td>
+                              <td><a routerLink="{{ networkURLPrefix }}/block/{{ balanceTransfer.attributes.block_id }}">{{ balanceTransfer.attributes.block_id }}</a></td>
                             </tr>
                             <tr>
                               <td>Sender</td>
-                              <td class="is-hidden-tablet"><a routerLink="/account/{{ balanceTransfer.attributes.sender }}"><app-identicon [accountId]="balanceTransfer.attributes.sender_id"></app-identicon> {{ balanceTransfer.attributes.sender | slice:0:16 }}...</a></td>
-                              <td class="is-hidden-mobile"><a routerLink="/account/{{ balanceTransfer.attributes.sender }}"><app-identicon [accountId]="balanceTransfer.attributes.sender_id"></app-identicon> {{ balanceTransfer.attributes.sender }}</a></td>
+                              <td><a routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.sender }}" class="address-mobile-format"><app-identicon [accountId]="balanceTransfer.attributes.sender_id"></app-identicon> {{ balanceTransfer.attributes.sender }}</a></td>
                             </tr>
                             <tr>
                               <td>Destination</td>
-                              <td class="is-hidden-tablet"><a routerLink="/account/{{ balanceTransfer.attributes.destination }}"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination | slice:0:16 }}...</a></td>
-                              <td class="is-hidden-mobile"><a routerLink="/account/{{ balanceTransfer.attributes.destination }}"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination }}</a></td>
+                              <td><a routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.destination }}" class="address-mobile-format"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination }}</a></td>
                             </tr>
                             <tr>
                               <td>Value</td>
@@ -42,11 +40,11 @@
                             </tr>
                             <tr>
                               <td width="20%">Extrinsic Index</td>
-                              <td><a routerLink="/extrinsic/{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}">{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}</a></td>
+                              <td><a routerLink="{{ networkURLPrefix }}/extrinsic/{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}">{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}</a></td>
                             </tr>
                             <tr>
                               <td width="20%">Extrinsic Hash</td>
-                              <td><a routerLink="/extrinsic/0x{{ balanceTransfer.id }}">0x{{ balanceTransfer.id }}</a></td>
+                              <td><a routerLink="{{ networkURLPrefix }}/extrinsic/0x{{ balanceTransfer.id }}">0x{{ balanceTransfer.id }}</a></td>
                             </tr>
                           </tbody>
                       </table>

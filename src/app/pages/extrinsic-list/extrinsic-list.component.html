@@ -20,7 +20,7 @@
                       <td><div class="field">
                         <div class="control">
                           <label class="checkbox">
-                            <input type="checkbox" [value]="true" [(ngModel)]="signedOnly" (ngModelChange)="refreshExtrinsics($event)"> Signed only
+                            <input type="checkbox" [value]="true" [(ngModel)]="signedOnly" (ngModelChange)="refreshExtrinsics()"> Signed only
                           </label>
                         </div>
                       </div>
@@ -31,8 +31,8 @@
                 </div>
                 <div class="card-table">
                     <div class="content">
-                        <app-loading-box *ngIf="extrinsics.is_loading"></app-loading-box>
-                        <table class="table is-fullwidth is-striped" *ngIf="extrinsics.data.length > 0">
+                        <app-loading-box *ngIf="!extrinsics || extrinsics.is_loading"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="extrinsics && extrinsics.data.length > 0">
                              <thead>
                               <tr>
                                 <th></th>
@@ -51,8 +51,8 @@
                                       <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
                                       <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
                                     </td>
-                                    <td>{{ extrinsic.id }}</td>
-                                    <td><a routerLink="/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.id }}</a></td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                                     <td class="is-hidden-mobile">{{ extrinsic.attributes.module_id }}</td>
                                     <td class="is-hidden-mobile">{{ extrinsic.attributes.call_id }}</td>
                                     <td class="is-hidden-mobile"><span *ngIf="extrinsic.attributes.signed">Yes</span><span *ngIf="!extrinsic.attributes.signed">No</span></td>
@@ -60,11 +60,11 @@
                                       <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
                                       <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
                                     </td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="extrinsics.data.length == 0 && !extrinsics.is_loading">No items</div>
+                        <div class="no-items" *ngIf="extrinsics && extrinsics.data.length == 0 && !extrinsics.is_loading">No items</div>
                     </div>
                 </div>
                 <footer class="card-footer">

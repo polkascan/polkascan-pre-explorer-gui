@@ -32,8 +32,9 @@
                                     <td width="5%">
                                       <i class="fa fa-id-card-alt"></i>
                                     </td>
-                                    <td>{{ accountIndex.attributes.short_address }}</td>
-                                    <td><app-identicon [accountId]="accountIndex.attributes.account_id"></app-identicon> {{ accountIndex.attributes.address }}</td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/indices/account/{{ accountIndex.id }}">{{ accountIndex.attributes.short_address }}</a></td>
+                                    <td *ngIf="!accountIndex.attributes.address">-</td>
+                                    <td *ngIf="accountIndex.attributes.address"><a routerLink="{{ networkURLPrefix }}/account/{{ accountIndex.attributes.address }}" class="address-mobile-format"><app-identicon [accountId]="accountIndex.attributes.account_id"></app-identicon> {{ accountIndex.attributes.address }}</a></td>
                                     <td class="is-hidden-mobile"><a routerLink="/block/{{ accountIndex.attributes.created_at_block }}">{{ accountIndex.attributes.created_at_block }}</a></td>
                                     <td>
                                       <i *ngIf="accountIndex.attributes.is_reclaimable" class="fa fa-check" style="color: forestgreen"></i>

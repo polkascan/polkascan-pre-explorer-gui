@@ -7,7 +7,7 @@
                     <p class="card-header-title">
                         Blocks
                     </p>
-                    <a  class="card-header-icon" aria-label="more options">
+                    <a class="card-header-icon" aria-label="more options">
                       <span class="icon">
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                       </span>
@@ -15,8 +15,8 @@
                 </header>
                 <div class="card-table">
                     <div class="content">
-                        <app-loading-box *ngIf="blocks.is_loading"></app-loading-box>
-                        <table class="table is-fullwidth is-striped" *ngIf="blocks.data.length > 0">
+                        <app-loading-box *ngIf="!blocks || blocks.is_loading"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="blocks && blocks.data.length > 0">
                              <thead>
                               <tr>
                                 <th></th>
@@ -31,16 +31,16 @@
                             <tbody>
                                 <tr *ngFor="let block of blocks.data; trackBy: blocks.trackBy">
                                     <td width="5%"><i class="fa fa-cube"></i></td>
-                                    <td width="10%">{{ block.id }}</td>
+                                    <td width="10%"><a routerLink="{{ networkURLPrefix }}/block/{{ block.id }}">{{ block.id }}</a></td>
                                     <td class="is-hidden-mobile"><span rel="tooltip" title="{{ block.attributes.datetime | date:'medium'}}">{{ block.attributes.datetime | timeago }}</span></td>
-                                    <td class="is-hidden-mobile">{{ block.attributes.hash | slice:0:8 }}...{{ block.attributes.hash | slice:60:66 }}</td>
+                                    <td class="is-hidden-mobile"><div class="hash-format">{{ block.attributes.hash }}</div></td>
                                     <td>{{ block.attributes.count_extrinsics_signed }}</td>
                                     <td>{{ block.attributes.count_events_module }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/block/{{ block.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/block/{{ block.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>
-                      <div class="no-items" *ngIf="blocks.data.length == 0 && !blocks.is_loading">No items</div>
+                      <div class="no-items" *ngIf="blocks && blocks.data.length == 0 && !blocks.is_loading">No items</div>
                     </div>
                 </div>
                 <footer class="card-footer">

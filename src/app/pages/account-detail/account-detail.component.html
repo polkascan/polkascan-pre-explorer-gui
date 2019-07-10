@@ -16,6 +16,14 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                               <tr>
+                                <td>Balance</td>
+                                <td>{{ formatBalance(account.attributes.balance) | number }} {{ networkTokenSymbol }}</td>
+                              </tr>
+                              <tr>
+                                <td>Nonce</td>
+                                <td>{{ account.attributes.nonce || 0}}</td>
+                              </tr>
+                              <tr>
                                 <td width="20%">Created at block</td>
                                 <td><a routerLink="/block/{{ account.attributes.created_at_block }}">{{account.attributes.created_at_block}}</a></td>
                               </tr>
@@ -62,8 +70,7 @@
                               <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
                                 <td width="5%"><i class="fa fa-exchange-alt"></i></td>
                                 <td class="is-hidden-mobile"><a [routerLink]="['/', 'block', balanceTransfer.attributes.block_id]">{{ balanceTransfer.attributes.block_id }}</a></td>
-                                <td class="is-hidden-tablet"><a [routerLink]="['/', 'account', balanceTransfer.attributes.destination]"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination| slice:0:16 }}...</a></td>
-                                <td class="is-hidden-mobile"><a [routerLink]="['/', 'account', balanceTransfer.attributes.destination]"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination }}</a></td>
+                                <td class="is-hidden-mobile"><a [routerLink]="['/', 'account', balanceTransfer.attributes.destination]" class="address-mobile-format"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination }}</a></td>
                                 <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
                                 <td width="5%"><a class="button is-small is-primary" routerLink="/balances/transfer/0x{{ balanceTransfer.id }}">Details</a></td>
                               </tr>
@@ -107,7 +114,7 @@
                                       <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
                                       <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
                                     </td>
-                                    <td>{{ extrinsic.id }}</td>
+                                    <td><a routerLink="/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.id }}</a></td>
                                     <td><a routerLink="/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                                     <td class="is-hidden-mobile">{{ extrinsic.attributes.module_id }}</td>
                                     <td class="is-hidden-mobile">{{ extrinsic.attributes.call_id }}</td>

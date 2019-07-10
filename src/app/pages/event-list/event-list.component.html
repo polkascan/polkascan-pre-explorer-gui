@@ -7,7 +7,7 @@
                     <p class="card-header-title">
                         Events
                     </p>
-                    <a  class="card-header-icon" aria-label="more options">
+                    <a class="card-header-icon" aria-label="more options">
                       <span class="icon">
                         <i class="fa fa-angle-down" aria-hidden="true"></i>
                       </span>
@@ -15,8 +15,8 @@
                 </header>
                 <div class="card-table">
                     <div class="content">
-                        <app-loading-box *ngIf="events.is_loading"></app-loading-box>
-                        <table class="table is-fullwidth is-striped" *ngIf="events.data.length > 0">
+                        <app-loading-box *ngIf="!events || events.is_loading"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="events && events.data.length > 0">
                              <thead>
                               <tr>
                                 <th></th>
@@ -32,15 +32,15 @@
                                     <td width="5%">
                                       <i class="fa fa-calendar-check"></i>
                                     </td>
-                                    <td>{{ event.id }}</td>
-                                    <td><a routerLink="/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/event/{{ event.id }}">{{ event.id }}</a></td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
                                     <td class="is-hidden-mobile">{{ event.attributes.module_id }}</td>
                                     <td class="is-hidden-mobile">{{ event.attributes.event_id }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/event/{{ event.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/event/{{ event.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="events.data.length == 0 && !events.is_loading">No items</div>
+                        <div class="no-items" *ngIf="events && events.data.length == 0 && !events.is_loading">No items</div>
                     </div>
                 </div>
                 <footer class="card-footer">

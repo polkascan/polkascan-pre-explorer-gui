@@ -17,11 +17,11 @@
                           <tbody>
                               <tr>
                                 <td width="20%">Start at block</td>
-                                <td><a routerLink="/block/{{ session.attributes.start_at_block }}">{{ session.attributes.start_at_block }}</a></td>
+                                <td><a routerLink="{{ networkURLPrefix }}/block/{{ session.attributes.start_at_block }}">{{ session.attributes.start_at_block }}</a></td>
                               </tr>
                               <tr>
                                 <td width="20%">End at block</td>
-                                <td><a routerLink="/block/{{ session.attributes.end_at_block }}">{{ session.attributes.end_at_block }}</a></td>
+                                <td><a routerLink="{{ networkURLPrefix }}/block/{{ session.attributes.end_at_block }}">{{ session.attributes.end_at_block }}</a></td>
                               </tr>
                               <tr>
                                 <td width="20%">Era</td>
@@ -55,7 +55,7 @@
                 </header>
                 <div class="card-table">
                     <div class="content">
-                        <app-loading-box *ngIf="session.relationships.validators.data.length === 0"></app-loading-box>
+                        <app-loading-box *ngIf="session.relationships.validators.loading"></app-loading-box>
                         <table class="table is-fullwidth is-striped" *ngIf="session.relationships.validators.data.length > 0">
                              <thead>
                               <tr>
@@ -70,9 +70,9 @@
                                     <td width="5%">
                                       <i class="fa fa-id-badge"></i>
                                     </td>
-                                    <td><app-identicon [accountId]="validator.attributes.validator_id"></app-identicon> {{ validator.attributes.validator }}</td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator }}" class="address-mobile-format"><app-identicon [accountId]="validator.attributes.validator_id"></app-identicon> {{ validator.attributes.validator }}</a></td>
                                     <td>{{ validator.attributes.rank_validator !== null ? validator.attributes.rank_validator + 1 : 'N/A'}}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/account/{{ validator.attributes.validator }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>

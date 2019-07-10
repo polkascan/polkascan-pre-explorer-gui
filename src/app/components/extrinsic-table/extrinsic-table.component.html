@@ -37,7 +37,7 @@
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.address">
                           <td width="15%">Address</td>
-                          <td><a routerLink="/account/{{ extrinsic.attributes.address }}"><app-identicon [accountId]="extrinsic.attributes.address_id"></app-identicon> {{ extrinsic.attributes.address }}</a></td>
+                          <td><a routerLink="/account/{{ extrinsic.attributes.address }}" class="address-mobile-format"><app-identicon [accountId]="extrinsic.attributes.address_id"></app-identicon> {{ extrinsic.attributes.address }}</a></td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.account_index">
                           <td width="15%">Account Index</td>
@@ -49,7 +49,7 @@
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed">
                           <td width="15%">Signature</td>
-                          <td>0x{{ extrinsic.attributes.signature | slice:0:63}}<wbr>{{ extrinsic.attributes.signature | slice:63:128}}</td>
+                          <td><div class="address-mobile-format">0x{{ extrinsic.attributes.signature }}</div></td>
                         </tr>
                         <tr>
                           <td width="15%">Result</td>
@@ -74,7 +74,7 @@
                         <tr *ngFor="let param of extrinsic.attributes.params">
                           <td width="15%">{{ paramName(param.name) | titlecase}}</td>
                           <td [ngSwitch]="param.type">
-                            <div *ngSwitchCase="'Address'"><a routerLink="/account/{{ param.value }}"><app-identicon [accountId]="param.orig_value"></app-identicon>{{ param.value }}</a></div>
+                            <div *ngSwitchCase="'Address'"><a routerLink="/account/{{ param.value }}" class="address-mobile-format"><app-identicon [accountId]="param.orig_value"></app-identicon>{{ param.value }}</a></div>
                             <div *ngSwitchCase="'Compact<Balance>'">{{ formatBalance(param.value) | number}} {{ networkTokenSymbol }}</div>
                             <div *ngSwitchCase="'Compact<Moment>'">{{ param.value | date:'medium' }}</div>
                             <div *ngSwitchDefault><pre>{{ param.value | json }}</pre></div>
