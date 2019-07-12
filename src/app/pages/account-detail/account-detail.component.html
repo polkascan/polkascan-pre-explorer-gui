@@ -28,7 +28,7 @@
                                 <td>{{ account.attributes.nonce || 0}}</td>
                               </tr>
                               <tr *ngFor="let accountIndex of account.relationships.indices.data; trackBy: account.relationships.indices.trackBy">
-                                <td>Index</td>
+                                <td>Account index</td>
                                 <td><a routerLink="/indices/account/{{ accountIndex.id }}">{{ accountIndex.id}}</a></td>
                               </tr>
                               <tr>
