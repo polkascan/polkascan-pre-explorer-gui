@@ -10,6 +10,7 @@ import {Account} from '../../classes/account.class';
 import {AccountService} from '../../services/account.service';
 import {switchMap} from 'rxjs/operators';
 import {BalanceTransfer} from '../../classes/balancetransfer.class';
+import {AccountIndexService} from '../../services/account-index.service';
 
 @Component({
   selector: 'app-account-detail',
@@ -30,6 +31,7 @@ export class AccountDetailComponent implements OnInit {
     private balanceTransferService: BalanceTransferService,
     private extrinsicService: ExtrinsicService,
     private accountService: AccountService,
+    private accountIndexService: AccountIndexService,
     private activatedRoute: ActivatedRoute
   ) { }
 
@@ -40,7 +42,7 @@ export class AccountDetailComponent implements OnInit {
 
     this.account$ = this.activatedRoute.paramMap.pipe(
       switchMap((params: ParamMap) => {
-          return this.accountService.get(params.get('id'));
+          return this.accountService.get(params.get('id'), { include: ['indices'] });
       })
     );
 

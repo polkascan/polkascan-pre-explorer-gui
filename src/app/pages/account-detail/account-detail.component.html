@@ -16,12 +16,20 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                               <tr>
-                                <td>Balance</td>
-                                <td>{{ formatBalance(account.attributes.balance) | number }} {{ networkTokenSymbol }}</td>
+                                <td>Free Balance</td>
+                                <td>{{ formatBalance(account.attributes.free_balance) | number }} {{ networkTokenSymbol }}</td>
+                              </tr>
+                              <tr>
+                                <td>Reserved Balance</td>
+                                <td>{{ formatBalance(account.attributes.reserved_balance) | number }} {{ networkTokenSymbol }}</td>
                               </tr>
                               <tr>
                                 <td>Nonce</td>
                                 <td>{{ account.attributes.nonce || 0}}</td>
+                              </tr>
+                              <tr *ngFor="let accountIndex of account.relationships.indices.data; trackBy: account.relationships.indices.trackBy">
+                                <td>Index</td>
+                                <td><a routerLink="/indices/account/{{ accountIndex.id }}">{{ accountIndex.id}}</a></td>
                               </tr>
                               <tr>
                                 <td width="20%">Created at block</td>

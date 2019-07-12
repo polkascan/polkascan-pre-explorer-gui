@@ -21,10 +21,15 @@
  *
  */
 
-import { Resource } from 'ngx-jsonapi';
+import {DocumentCollection, Resource} from 'ngx-jsonapi';
+import {AccountIndex} from './account-index.class';
 
 export class Account extends Resource {
   public attributes = {
     id: 'id'
   };
+
+  public relationships = {
+        indices: new DocumentCollection<AccountIndex>(),
+    };
 }
