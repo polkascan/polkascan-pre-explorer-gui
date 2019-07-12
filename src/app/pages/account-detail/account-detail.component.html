@@ -4,9 +4,9 @@
         <section class="info-tiles">
           <div class="card events-card">
               <header class="card-header" *ngIf="account && account.attributes && account.attributes.id">
-                  <p class="card-header-title">
-                      <app-identicon [accountId]="account.attributes.id" size="64"></app-identicon> Account {{ account.attributes.address }}
-                  </p>
+                  <div class="card-header-title">
+                    <app-identicon [accountId]="account.attributes.id" size="64"></app-identicon><div class="address-mobile-format">{{ account.attributes.address }}</div>
+                  </div>
                   <a  class="card-header-icon" aria-label="more options">
                  <span class="icon"><i class="fa fa-id-card fa-2x"></i></span>
                 </a>
