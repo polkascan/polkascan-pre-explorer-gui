@@ -22,17 +22,18 @@
  */
 
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
-import {Runtime} from "../../classes/runtime.class";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {RuntimeService} from "../../services/runtime.service";
-import {RuntimeModuleService} from "../../services/runtime-module.service";
-import {Location} from "@angular/common";
-import {switchMap} from "rxjs/operators";
-import {RuntimeModule} from "../../classes/runtime-module.class";
-import {RuntimeCallService} from "../../services/runtime-call.service";
-import {RuntimeEventService} from "../../services/runtime-event.service";
-import {RuntimeStorageService} from "../../services/runtime-storage.service";
+import {Observable} from 'rxjs';
+import {Runtime} from '../../classes/runtime.class';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {RuntimeService} from '../../services/runtime.service';
+import {RuntimeModuleService} from '../../services/runtime-module.service';
+import {Location} from '@angular/common';
+import {switchMap} from 'rxjs/operators';
+import {RuntimeModule} from '../../classes/runtime-module.class';
+import {RuntimeCallService} from '../../services/runtime-call.service';
+import {RuntimeEventService} from '../../services/runtime-event.service';
+import {RuntimeStorageService} from '../../services/runtime-storage.service';
+import {RuntimeConstantService} from '../../services/runtime-constant.service';
 
 @Component({
   selector: 'app-runtime-module-detail',
@@ -48,6 +49,7 @@ export class RuntimeModuleDetailComponent implements OnInit {
     private runtimeModuleService: RuntimeModuleService,
     private runtimeCallService: RuntimeCallService,
     private runtimeStorageService: RuntimeStorageService,
+    private runtimeConstantService: RuntimeConstantService,
     private runtimeEventService: RuntimeEventService
   ) {
   }
@@ -56,7 +58,7 @@ export class RuntimeModuleDetailComponent implements OnInit {
     this.runtimeModule$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
         if (params.get('id')) {
-          return this.runtimeModuleService.get(params.get('id'), {include: ['calls', 'events', 'storage']});
+          return this.runtimeModuleService.get(params.get('id'), {include: ['calls', 'events', 'storage', 'constants']});
         }
       })
     );

@@ -72,6 +72,7 @@ import { IdenticonComponent } from './components/identicon/identicon.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AccountIndexListComponent } from './pages/account-index-list/account-index-list.component';
 import { AccountIndexDetailComponent } from './pages/account-index-detail/account-index-detail.component';
+import { RuntimeConstantDetailComponent } from './pages/runtime-constant-detail/runtime-constant-detail.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -121,7 +122,8 @@ export class MyClock extends TimeagoClock {
     IdenticonComponent,
     NotFoundComponent,
     AccountIndexListComponent,
-    AccountIndexDetailComponent
+    AccountIndexDetailComponent,
+    RuntimeConstantDetailComponent
   ],
   imports: [
     BrowserModule,

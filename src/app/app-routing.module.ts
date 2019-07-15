@@ -54,6 +54,7 @@ import {DemocracyReferendumDetailComponent} from './pages/democracy-referendum-d
 import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {AccountIndexListComponent} from './pages/account-index-list/account-index-list.component';
 import {AccountIndexDetailComponent} from './pages/account-index-detail/account-index-detail.component';
+import {RuntimeConstantDetailComponent} from './pages/runtime-constant-detail/runtime-constant-detail.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -71,6 +72,7 @@ const routes: Routes = [
   { path: 'runtime-call/:id', component: RuntimeCallDetailComponent },
   { path: 'runtime-event/:id', component: RuntimeEventDetailComponent},
   { path: 'runtime-storage/:id', component: RuntimeStorageDetailComponent},
+  { path: 'runtime-constant/:id', component: RuntimeConstantDetailComponent},
   { path: 'account', component: AccountListComponent},
   { path: 'account/:id', component: AccountDetailComponent},
   { path: 'indices/account', component: AccountIndexListComponent},

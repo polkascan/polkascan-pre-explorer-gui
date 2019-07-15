@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
-import {RuntimeStorage} from "../../classes/runtime-storage.class";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {RuntimeStorageService} from "../../services/runtime-storage.service";
-import {switchMap} from "rxjs/operators";
+import {Observable} from 'rxjs';
+import {RuntimeStorage} from '../../classes/runtime-storage.class';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {RuntimeStorageService} from '../../services/runtime-storage.service';
+import {switchMap} from 'rxjs/operators';
 
 @Component({
   selector: 'app-runtime-storage-detail',

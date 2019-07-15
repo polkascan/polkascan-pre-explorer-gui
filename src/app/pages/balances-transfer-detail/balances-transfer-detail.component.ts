@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from "rxjs";
-import {ActivatedRoute, ParamMap} from "@angular/router";
-import {switchMap} from "rxjs/operators";
-import {BalanceTransfer} from "../../classes/balancetransfer.class";
-import {BalanceTransferService} from "../../services/balance-transfer.service";
-import {environment} from "../../../environments/environment";
+import {Observable} from 'rxjs';
+import {ActivatedRoute, ParamMap} from '@angular/router';
+import {switchMap} from 'rxjs/operators';
+import {BalanceTransfer} from '../../classes/balancetransfer.class';
+import {BalanceTransferService} from '../../services/balance-transfer.service';
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-balances-transfer-detail',
