@@ -20,10 +20,10 @@
  * harvester-admin.component.ts
  */
 
-import { Component, OnInit } from '@angular/core';
-import {interval, Observable, Subscription} from "rxjs";
-import {Networkstats} from "../../classes/networkstats.class";
-import {NetworkstatsService} from "../../services/networkstats.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {interval, Observable, Subscription} from 'rxjs';
+import {Networkstats} from '../../classes/networkstats.class';
+import {NetworkstatsService} from '../../services/networkstats.service';
 import { HttpClient } from '@angular/common/http';
 import {environment} from 'src/environments/environment';
 
@@ -32,7 +32,7 @@ import {environment} from 'src/environments/environment';
   templateUrl: './harvester-admin.component.html',
   styleUrls: ['./harvester-admin.component.scss']
 })
-export class HarvesterAdminComponent implements OnInit {
+export class HarvesterAdminComponent implements OnInit, OnDestroy {
 
   public networkstats$: Observable<Networkstats>;
 

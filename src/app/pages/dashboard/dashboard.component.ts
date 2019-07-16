@@ -20,7 +20,7 @@
  * dashboard.component.ts
  */
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DocumentCollection} from 'ngx-jsonapi';
 import {Block} from '../../classes/block.class';
 import {interval, Observable, Subscription} from 'rxjs';
@@ -31,14 +31,14 @@ import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {BalanceTransfer} from '../../classes/balancetransfer.class';
 import {BalanceTransferService} from '../../services/balance-transfer.service';
-import {environment} from "../../../environments/environment";
+import {environment} from '../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
   public blocks: DocumentCollection<Block>;
   public balanceTransfers: DocumentCollection<BalanceTransfer>;

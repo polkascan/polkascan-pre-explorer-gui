@@ -20,11 +20,11 @@
  * block-list.component.ts
  */
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import { Block } from '../../classes/block.class';
 import { BlockService} from '../../services/block.service';
 import { DocumentCollection } from 'ngx-jsonapi';
-import {interval, Subscription} from "rxjs";
+import {interval, Subscription} from 'rxjs';
 
 
 @Component({
@@ -32,7 +32,7 @@ import {interval, Subscription} from "rxjs";
   templateUrl: './block-list.component.html',
   styleUrls: ['./block-list.component.scss']
 })
-export class BlockListComponent implements OnInit {
+export class BlockListComponent implements OnInit, OnDestroy {
 
   public blocks: DocumentCollection<Block>;
 
