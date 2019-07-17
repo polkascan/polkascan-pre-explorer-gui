@@ -49,12 +49,13 @@ export class ExtrinsicListComponent implements OnInit {
 
   getExtrinsics(page: number, signedOnly: boolean): void {
 
-    let params = {
+    const params = {
       page: { number: page, size: 25},
       remotefilter: {},
     };
 
     if (this.signedOnly) {
+      // tslint:disable-next-line:no-string-literal
       params['remotefilter']['signed'] = 1;
     }
 

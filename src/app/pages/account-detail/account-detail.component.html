@@ -17,11 +17,11 @@
                           <tbody>
                               <tr>
                                 <td>Free Balance</td>
-                                <td>{{ formatBalance(account.attributes.free_balance) | number }} {{ networkTokenSymbol }}</td>
+                                <td>{{ formatBalance(account.attributes.free_balance) | number:'1.0-15' }} {{ networkTokenSymbol }}</td>
                               </tr>
                               <tr>
                                 <td>Reserved Balance</td>
-                                <td>{{ formatBalance(account.attributes.reserved_balance) | number }} {{ networkTokenSymbol }}</td>
+                                <td>{{ formatBalance(account.attributes.reserved_balance) | number:'1.0-15' }} {{ networkTokenSymbol }}</td>
                               </tr>
                               <tr>
                                 <td>Nonce</td>
@@ -79,7 +79,7 @@
                                 <td width="5%"><i class="fa fa-exchange-alt"></i></td>
                                 <td class="is-hidden-mobile"><a [routerLink]="['/', 'block', balanceTransfer.attributes.block_id]">{{ balanceTransfer.attributes.block_id }}</a></td>
                                 <td class="is-hidden-mobile"><a [routerLink]="['/', 'account', balanceTransfer.attributes.destination]" class="address-mobile-format"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination }}</a></td>
-                                <td>{{ formatBalance(balanceTransfer.attributes.value) | number }} {{ networkTokenSymbol }}</td>
+                                <td>{{ formatBalance(balanceTransfer.attributes.value) | number:'1.0-15' }} {{ networkTokenSymbol }}</td>
                                 <td width="5%"><a class="button is-small is-primary" routerLink="/balances/transfer/0x{{ balanceTransfer.id }}">Details</a></td>
                               </tr>
                           </tbody>
