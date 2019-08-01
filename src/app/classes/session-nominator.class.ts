@@ -21,14 +21,10 @@
  *
  */
 
-import {DocumentCollection, Resource} from 'ngx-jsonapi';
-import {SessionNominator} from './session-nominator.class';
+import { Resource } from 'ngx-jsonapi';
 
-export class SessionValidator extends Resource {
+export class SessionNominator extends Resource {
   public attributes = {
 
-  };
-  public relationships = {
-        nominators: new DocumentCollection<SessionNominator>(),
   };
 }

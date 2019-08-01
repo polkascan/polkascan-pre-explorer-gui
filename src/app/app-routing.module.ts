@@ -55,6 +55,7 @@ import {NotFoundComponent} from './pages/not-found/not-found.component';
 import {AccountIndexListComponent} from './pages/account-index-list/account-index-list.component';
 import {AccountIndexDetailComponent} from './pages/account-index-detail/account-index-detail.component';
 import {RuntimeConstantDetailComponent} from './pages/runtime-constant-detail/runtime-constant-detail.component';
+import {SessionValidatorDetailComponent} from './pages/session-validator-detail/session-validator-detail.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -81,6 +82,7 @@ const routes: Routes = [
   { path: 'contracts/contract/:id', component: ContractDetailComponent},
   { path: 'session/session', component: SessionListComponent},
   { path: 'session/session/:id', component: SessionDetailComponent},
+  { path: 'session/validator/:id', component: SessionValidatorDetailComponent},
   { path: 'democracy/proposal', component: DemocracyProposalListComponent},
   { path: 'democracy/proposal/:id', component: DemocracyProposalDetailComponent},
   { path: 'democracy/referendum', component: DemocracyReferendumListComponent},

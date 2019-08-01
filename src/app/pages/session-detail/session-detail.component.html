@@ -61,18 +61,18 @@
                               <tr>
                                 <th></th>
                                 <th>Address</th>
-                                <th>Rank</th>
+                                <th>Total bonded</th>
                                 <th></th>
                               </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let validator of session.relationships.validators.data; trackBy: session.relationships.validators.trackBy">
                                     <td width="5%">
-                                      <i class="fa fa-id-badge"></i>
+                                      <i class="fa fa-user-shield"></i>
                                     </td>
-                                    <td><a routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator }}" class="address-mobile-format"><app-identicon [accountId]="validator.attributes.validator_id"></app-identicon> {{ validator.attributes.validator }}</a></td>
-                                    <td>{{ validator.attributes.rank_validator !== null ? validator.attributes.rank_validator + 1 : 'N/A'}}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator }}">Details</a></td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator_stash }}" class="address-mobile-format"><app-identicon [accountId]="validator.attributes.validator_stash_id"></app-identicon> {{ validator.attributes.validator_stash }}</a></td>
+                                    <td>{{ formatBalance(validator.attributes.bonded_total) | number:'1.0-15'}} {{ networkTokenSymbol }}</td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/session/validator/{{ validator.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>
