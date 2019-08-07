@@ -7,9 +7,9 @@
                     <p class="card-header-title">
                         Events
                     </p>
-                    <a class="card-header-icon" aria-label="more options">
+                    <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
                       <span class="icon">
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        <i class="fa fa-calendar-check fa-2x" aria-hidden="true"></i>
                       </span>
                     </a>
                 </header>
@@ -21,9 +21,9 @@
                               <tr>
                                 <th></th>
                                 <th>Event ID</th>
-                                <th>Block</th>
-                                <th class="is-hidden-mobile">Module</th>
-                                <th class="is-hidden-mobile">Event</th>
+                                <th class="is-hidden-mobile">Block</th>
+                                <th>Module</th>
+                                <th>Event</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -33,9 +33,9 @@
                                       <i class="fa fa-calendar-check"></i>
                                     </td>
                                     <td><a routerLink="{{ networkURLPrefix }}/event/{{ event.id }}">{{ event.id }}</a></td>
-                                    <td><a routerLink="{{ networkURLPrefix }}/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
-                                    <td class="is-hidden-mobile">{{ event.attributes.module_id }}</td>
-                                    <td class="is-hidden-mobile">{{ event.attributes.event_id }}</td>
+                                    <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
+                                    <td>{{ event.attributes.module_id }}</td>
+                                    <td>{{ event.attributes.event_id }}</td>
                                     <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/event/{{ event.id }}">Details</a></td>
                                 </tr>
                             </tbody>

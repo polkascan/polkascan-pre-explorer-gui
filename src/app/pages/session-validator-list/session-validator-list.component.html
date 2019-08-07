@@ -1,0 +1,48 @@
+<div class="columns">
+    <div class="column is-12">
+        <app-polkascan-header></app-polkascan-header>
+        <section>
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Validators for current session
+                    </p>
+                    <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-user-shield fa-2x" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <app-loading-box *ngIf="!validators || validators.is_loading"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="validators && validators.data.length > 0">
+                             <thead>
+                              <tr>
+                                <th></th>
+                                <th>Address</th>
+                                <th>Total bonded</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let validator of validators.data; trackBy: validators.trackBy">
+                                    <td width="5%">
+                                      <i class="fa fa-user-shield"></i>
+                                    </td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator_stash }}" class="address-mobile-format"><app-identicon [accountId]="validator.attributes.validator_stash_id"></app-identicon> {{ validator.attributes.validator_stash }}</a></td>
+                                    <td>{{ formatBalance(validator.attributes.bonded_total) | number:'1.0-15'}} {{ networkTokenSymbol }}</td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/session/validator/{{ validator.id }}">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="no-items" *ngIf="validators && validators.data.length == 0 && !validators.is_loading">No items</div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a (click)="getNextItems()" class="card-footer-item">View next</a>
+                </footer>
+            </div>
+        </section>
+    </div>
+</div>

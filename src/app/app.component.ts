@@ -21,8 +21,8 @@
  */
 
 import { Component } from '@angular/core';
-import {environment} from "../environments/environment";
-import {Router} from "@angular/router";
+import {environment} from '../environments/environment';
+import {NavigationEnd, NavigationStart, Router} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +34,7 @@ export class AppComponent {
 
   public environment = environment;
   public showNavigation = false;
+  public showSubmenus = true;
 
   constructor(private router: Router) {
     router.events.subscribe((val) => {
@@ -43,5 +44,12 @@ export class AppComponent {
 
   toggleNavigation() {
     this.showNavigation = !this.showNavigation;
+  }
+
+  toggleSubmenus() {
+    this.showSubmenus = false;
+
+    setTimeout(() => { this.showSubmenus = true; }, 300);
+
   }
 }

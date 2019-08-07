@@ -56,6 +56,10 @@ import {AccountIndexListComponent} from './pages/account-index-list/account-inde
 import {AccountIndexDetailComponent} from './pages/account-index-detail/account-index-detail.component';
 import {RuntimeConstantDetailComponent} from './pages/runtime-constant-detail/runtime-constant-detail.component';
 import {SessionValidatorDetailComponent} from './pages/session-validator-detail/session-validator-detail.component';
+import {SessionValidatorListComponent} from "./pages/session-validator-list/session-validator-list.component";
+import {SessionNominatorListComponent} from "./pages/session-nominator-list/session-nominator-list.component";
+import {RuntimeModuleListComponent} from "./pages/runtime-module-list/runtime-module-list.component";
+import {RuntimeTypeListComponent} from "./pages/runtime-type-list/runtime-type-list.component";
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -69,11 +73,13 @@ const routes: Routes = [
   { path: 'log/:id', component: LogDetailComponent},
   { path: 'runtime', component: RuntimeListComponent },
   { path: 'runtime/:id', component: RuntimeDetailComponent },
+  { path: 'runtime-module', component: RuntimeModuleListComponent },
   { path: 'runtime-module/:id', component: RuntimeModuleDetailComponent },
   { path: 'runtime-call/:id', component: RuntimeCallDetailComponent },
   { path: 'runtime-event/:id', component: RuntimeEventDetailComponent},
   { path: 'runtime-storage/:id', component: RuntimeStorageDetailComponent},
   { path: 'runtime-constant/:id', component: RuntimeConstantDetailComponent},
+  { path: 'runtime-type', component: RuntimeTypeListComponent},
   { path: 'account', component: AccountListComponent},
   { path: 'account/:id', component: AccountDetailComponent},
   { path: 'indices/account', component: AccountIndexListComponent},
@@ -83,6 +89,8 @@ const routes: Routes = [
   { path: 'session/session', component: SessionListComponent},
   { path: 'session/session/:id', component: SessionDetailComponent},
   { path: 'session/validator/:id', component: SessionValidatorDetailComponent},
+  { path: 'session/validator', component: SessionValidatorListComponent},
+  { path: 'session/nominator', component: SessionNominatorListComponent},
   { path: 'democracy/proposal', component: DemocracyProposalListComponent},
   { path: 'democracy/proposal/:id', component: DemocracyProposalDetailComponent},
   { path: 'democracy/referendum', component: DemocracyReferendumListComponent},
@@ -112,7 +120,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes)],
+  imports: [ RouterModule.forRoot(routes, {
+      scrollPositionRestoration: 'enabled',
+      anchorScrolling: 'enabled',
+    })],
   exports: [ RouterModule ],
 })
 export class AppRoutingModule {}

@@ -43,15 +43,15 @@
               </div>
           </div>
         </section>
-        <section>
+        <section id="call-parameters">
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
                         Parameters
                     </p>
-                    <a  class="card-header-icon" aria-label="more options">
+                    <a [routerLink]="" fragment="call-parameters" class="card-header-icon" aria-label="more options">
                       <span class="icon">
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
+                        <i class="fa fa-stream fa-2x" aria-hidden="true"></i>
                       </span>
                     </a>
                 </header>
@@ -85,11 +85,7 @@
                     <p class="card-header-title">
                         Recent extrinsics using call "{{ runtimeCall.attributes.name }}"
                     </p>
-                    <a  class="card-header-icon" aria-label="more options">
-                      <span class="icon">
-                        <i class="fa fa-angle-down" aria-hidden="true"></i>
-                      </span>
-                    </a>
+
                 </header>
                 <div class="card-table">
                     <div class="content">
