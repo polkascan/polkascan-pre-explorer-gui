@@ -103,10 +103,15 @@ nav.navbar {
   }
 
   .card-header-icon {
-    color: #ba4887;
+    color: #da68a7;
   }
   .navbar {
     background: linear-gradient(to right, #da68a7, #ba4887);
+  }
+
+  .tabs li.is-active a {
+    color: #da68a7;
+    border-bottom-color: #da68a7;
   }
 }
 
@@ -129,6 +134,11 @@ nav.navbar {
   .navbar {
     background: linear-gradient(to right, #0ac5ff, #0a95df);
   }
+
+  .tabs li.is-active a {
+    color: #0ac5ff;
+    border-bottom-color: #0ac5ff;
+  }
 }
 
 .network-robonomics {
@@ -149,6 +159,11 @@ nav.navbar {
   }
   .navbar {
     background: linear-gradient(to right, #f15a24, #d13a04);
+  }
+
+  .tabs li.is-active a {
+    color: #f15a24;
+    border-bottom-color: #f15a24;
   }
 }
 
@@ -171,6 +186,10 @@ nav.navbar {
   .navbar {
     background: linear-gradient(to right, #00daaf, #00ba8f);
   }
+  .tabs li.is-active a {
+    color: #00daaf;
+    border-bottom-color: #00daaf;
+  }
 }
 
 .hero.welcome.is-info {
@@ -191,6 +210,11 @@ nav.navbar {
 
 .navbar {
   background: linear-gradient(to right, #999, #777);
+}
+
+.tabs li.is-active a {
+  color: #999;
+  border-bottom-color: #999;
 }
 
 .no-items {

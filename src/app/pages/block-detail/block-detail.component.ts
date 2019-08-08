@@ -46,6 +46,7 @@ export class BlockDetailComponent implements OnInit {
 
   public networkTokenDecimals: number;
   public networkTokenSymbol: string;
+  public currentTab: string;
 
   constructor(
     private route: ActivatedRoute,
@@ -58,6 +59,7 @@ export class BlockDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.currentTab = 'extrinsics';
 
     this.networkTokenDecimals = environment.networkTokenDecimals;
     this.networkTokenSymbol = environment.networkTokenSymbol;

@@ -95,20 +95,32 @@
               </div>
           </div>
         </section>
-
-        <section class="info-tiles" id="extrinsics" *ngIf="block.relationships.extrinsics.data.length > 0">
+        <section class="info-tiles">
           <div class="card ">
-            <header class="card-header">
-                <p class="card-header-title">
-                    Extrinsics
-                </p>
-                <a [routerLink]="" fragment="extrinsics" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-file-alt fa-2x" aria-hidden="true"></i>
-                  </span>
-                </a>
-            </header>
-            <div class="card-table">
+            <div class="tabs">
+              <ul>
+                <li [ngClass]="{'is-active': currentTab == 'extrinsics'}">
+                  <a (click)="currentTab = 'extrinsics'">
+                    <span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
+                    <span>Extrinsics</span>
+                  </a>
+                </li>
+                <li [ngClass]="{'is-active': currentTab == 'events'}" *ngIf="block.relationships.events.data.length > 0">
+                  <a (click)="currentTab = 'events'">
+                    <span class="icon is-small"><i class="fas fa-calendar-check" aria-hidden="true"></i></span>
+                    <span>Events</span>
+                  </a>
+                </li>
+                <li [ngClass]="{'is-active': currentTab == 'logs'}" *ngIf="block.relationships.logs.data.length > 0">
+                  <a (click)="currentTab = 'logs'">
+                    <span class="icon is-small"><i class="fas fa-book" aria-hidden="true"></i></span>
+                    <span>Logs</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card-table" id="extrinsics" *ngIf="currentTab == 'extrinsics'">
                 <div class="content">
                     <table class="table is-fullwidth is-striped">
                          <thead>
@@ -142,22 +154,8 @@
                     </table>
                 </div>
             </div>
-          </div>
-        </section>
 
-        <section class="info-tiles" id="events" *ngIf="block.relationships.events.data.length > 0">
-          <div class="card ">
-            <header class="card-header">
-                <p class="card-header-title">
-                    Events
-                </p>
-                <a [routerLink]="" fragment="events" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-calendar-check fa-2x" aria-hidden="true"></i>
-                  </span>
-                </a>
-            </header>
-            <div class="card-table">
+            <div class="card-table" id="events" *ngIf="currentTab == 'events'">
                 <div class="content">
                     <table class="table is-fullwidth is-striped">
                          <thead>
@@ -183,22 +181,8 @@
                     </table>
                 </div>
             </div>
-          </div>
-        </section>
 
-        <section class="info-tiles" id="logs" *ngIf="block.relationships.logs.data.length > 0">
-          <div class="card ">
-            <header class="card-header">
-                <p class="card-header-title">
-                    Logs
-                </p>
-                <a [routerLink]="" fragment="logs" class="card-header-icon" aria-label="more options">
-                  <span class="icon">
-                    <i class="fa fa-book fa-2x" aria-hidden="true"></i>
-                  </span>
-                </a>
-            </header>
-            <div class="card-table">
+            <div class="card-table" id="logs" *ngIf="currentTab == 'logs'">
                 <div class="content">
                     <table class="table is-fullwidth is-striped">
                        <thead>
@@ -222,6 +206,7 @@
                   </table>
                 </div>
             </div>
+
           </div>
         </section>
       </div>
