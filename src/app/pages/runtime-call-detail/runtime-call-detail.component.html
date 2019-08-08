@@ -79,13 +79,17 @@
                 </div>
             </div>
         </section>
-        <section *ngIf="runtimeCall.relationships.recent_extrinsics.data.length > 0">
+        <section *ngIf="runtimeCall.relationships.recent_extrinsics.data.length > 0" id="recent-extrinsics">
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
                         Recent extrinsics using call "{{ runtimeCall.attributes.name }}"
                     </p>
-
+                    <a [routerLink]="" fragment="recent-extrinsics" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-file-alt fa-2x" aria-hidden="true"></i>
+                      </span>
+                    </a>
                 </header>
                 <div class="card-table">
                     <div class="content">

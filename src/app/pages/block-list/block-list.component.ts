@@ -36,6 +36,8 @@ export class BlockListComponent implements OnInit, OnDestroy {
 
   public blocks: DocumentCollection<Block>;
 
+  public initialLoading: boolean;
+
   private blockUpdateSubsription: Subscription;
 
   currentPage = 1;
@@ -47,11 +49,14 @@ export class BlockListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.initialLoading = true;
+
     this.getBlocks(this.currentPage);
 
     const blockUpdateCounter = interval(6000);
 
     this.blockUpdateSubsription = blockUpdateCounter.subscribe( n => {
+      this.initialLoading = false;
       this.getBlocks(this.currentPage);
     });
 

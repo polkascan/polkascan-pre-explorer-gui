@@ -153,13 +153,17 @@
                 </div>
             </div>
         </section>
-        <section *ngIf="runtimeModule.relationships.constants.data.length > 0">
+        <section *ngIf="runtimeModule.relationships.constants.data.length > 0" id="constants">
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
                         Constants
                     </p>
-
+                    <a [routerLink]="" fragment="constants" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-memory fa-2x" aria-hidden="true"></i>
+                      </span>
+                    </a>
                 </header>
                 <div class="card-table">
                     <div class="content">
