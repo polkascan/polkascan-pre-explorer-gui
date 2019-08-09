@@ -249,3 +249,16 @@ nav.navbar {
     vertical-align: bottom;
   }
 }
+
+// FIXME Temporary Edge menu fix
+@import '~node_modules/bulma/sass/utilities/mixins';
+
+@include desktop {
+    .navbar-item {
+        &.is-hoverable:hover {
+            .navbar-dropdown {
+                display: block;
+            }
+        }
+    }
+}
