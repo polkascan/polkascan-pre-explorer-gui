@@ -56,15 +56,23 @@ import {AccountIndexListComponent} from './pages/account-index-list/account-inde
 import {AccountIndexDetailComponent} from './pages/account-index-detail/account-index-detail.component';
 import {RuntimeConstantDetailComponent} from './pages/runtime-constant-detail/runtime-constant-detail.component';
 import {SessionValidatorDetailComponent} from './pages/session-validator-detail/session-validator-detail.component';
-import {SessionValidatorListComponent} from "./pages/session-validator-list/session-validator-list.component";
-import {SessionNominatorListComponent} from "./pages/session-nominator-list/session-nominator-list.component";
-import {RuntimeModuleListComponent} from "./pages/runtime-module-list/runtime-module-list.component";
-import {RuntimeTypeListComponent} from "./pages/runtime-type-list/runtime-type-list.component";
+import {SessionValidatorListComponent} from './pages/session-validator-list/session-validator-list.component';
+import {SessionNominatorListComponent} from './pages/session-nominator-list/session-nominator-list.component';
+import {RuntimeModuleListComponent} from './pages/runtime-module-list/runtime-module-list.component';
+import {RuntimeTypeListComponent} from './pages/runtime-type-list/runtime-type-list.component';
+import {TransactionListComponent} from './pages/transaction-list/transaction-list.component';
+import {TransactionDetailComponent} from './pages/transaction-detail/transaction-detail.component';
+import {InherentListComponent} from './pages/inherent-list/inherent-list.component';
+import {InherentDetailComponent} from './pages/inherent-detail/inherent-detail.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
   { path: 'block', component: BlockListComponent },
   { path: 'block/:id', component: BlockDetailComponent },
+  { path: 'transaction', component: TransactionListComponent},
+  { path: 'transaction/:id', component: TransactionDetailComponent},
+  { path: 'inherent', component: InherentListComponent},
+  { path: 'inherent/:id', component: InherentDetailComponent},
   { path: 'extrinsic', component: ExtrinsicListComponent},
   { path: 'extrinsic/:id', component: ExtrinsicDetailComponent},
   { path: 'event', component: EventListComponent},

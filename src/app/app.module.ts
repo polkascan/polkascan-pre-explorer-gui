@@ -78,6 +78,10 @@ import { SessionValidatorListComponent } from './pages/session-validator-list/se
 import { SessionNominatorListComponent } from './pages/session-nominator-list/session-nominator-list.component';
 import { RuntimeModuleListComponent } from './pages/runtime-module-list/runtime-module-list.component';
 import { RuntimeTypeListComponent } from './pages/runtime-type-list/runtime-type-list.component';
+import { TransactionListComponent } from './pages/transaction-list/transaction-list.component';
+import { TransactionDetailComponent } from './pages/transaction-detail/transaction-detail.component';
+import { InherentListComponent } from './pages/inherent-list/inherent-list.component';
+import { InherentDetailComponent } from './pages/inherent-detail/inherent-detail.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -133,7 +137,11 @@ export class MyClock extends TimeagoClock {
     SessionValidatorListComponent,
     SessionNominatorListComponent,
     RuntimeModuleListComponent,
-    RuntimeTypeListComponent
+    RuntimeTypeListComponent,
+    TransactionListComponent,
+    TransactionDetailComponent,
+    InherentListComponent,
+    InherentDetailComponent
   ],
   imports: [
     BrowserModule,

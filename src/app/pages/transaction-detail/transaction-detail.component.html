@@ -1,0 +1,13 @@
+<div class="columns">
+  <div class="column is-12">
+      <app-polkascan-header></app-polkascan-header>
+       <section class="info-tiles">
+        <app-extrinsic-table
+          [extrinsic]="extrinsic$ | async"
+          [networkTokenDecimals]="networkTokenDecimals"
+          [networkTokenSymbol]="networkTokenSymbol"
+          title="Transaction"
+        ></app-extrinsic-table>
+       </section>
+  </div>
+</div>

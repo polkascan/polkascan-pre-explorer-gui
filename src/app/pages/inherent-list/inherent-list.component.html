@@ -1,0 +1,58 @@
+<div class="columns">
+    <div class="column is-12">
+        <app-polkascan-header></app-polkascan-header>
+        <section>
+            <div class="card ">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        Inherents
+                    </p>
+                    <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
+                      <span class="icon">
+                        <i class="fa fa-file-alt fa-2x" aria-hidden="true"></i>
+                      </span>
+                    </a>
+                </header>
+                <div class="card-table">
+                    <div class="content">
+                        <app-loading-box *ngIf="!extrinsics || extrinsics.is_loading"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="extrinsics && extrinsics.data.length > 0">
+                             <thead>
+                              <tr>
+                                <th></th>
+                                <th>Inherent ID</th>
+                                <th class="is-hidden-mobile">Block</th>
+                                <th>Module</th>
+                                <th>Call</th>
+                                <th>Success</th>
+                                <th></th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let extrinsic of extrinsics.data; trackBy: extrinsics.trackBy">
+                                    <td width="5%">
+                                      <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
+                                      <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
+                                    </td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.id }}</a></td>
+                                    <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
+                                    <td>{{ extrinsic.attributes.module_id }}</td>
+                                    <td>{{ extrinsic.attributes.call_id }}</td>
+                                    <td>
+                                      <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
+                                      <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
+                                    </td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/inherent/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="no-items" *ngIf="extrinsics && extrinsics.data.length == 0 && !extrinsics.is_loading">No items</div>
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a (click)="getNextExtrinsics()" class="card-footer-item">View next</a>
+                </footer>
+            </div>
+        </section>
+    </div>
+</div>

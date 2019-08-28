@@ -54,7 +54,7 @@
                               <i class="fa fa-file-signature fa-2x"></i>
                           </span>
                           <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_signed_extrinsics | number: '1.'}}</p>
-                          <p class="subtitle">Signed Extrinsics</p>
+                          <p class="subtitle">Transactions</p>
                         </div>
                       </a>
                     </article>
@@ -124,7 +124,7 @@
                                     <th></th>
                                     <th>Number</th>
                                     <th class="is-hidden-mobile">Age</th>
-                                    <th>Signed Extrinsics</th>
+                                    <th>Transactions</th>
                                     <th>Module Events</th>
                                     <th></th>
                                   </tr>
