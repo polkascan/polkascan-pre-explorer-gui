@@ -29,10 +29,10 @@ import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import {ExtrinsicService} from '../../services/extrinsic.service';
 import {EventService} from '../../services/event.service';
-import {environment} from "../../../environments/environment";
-import {BlockTotal} from "../../classes/block-total.class";
-import {BlockTotalService} from "../../services/block-total.service";
-import {LogService} from "../../services/log.service";
+import {environment} from '../../../environments/environment';
+import {BlockTotal} from '../../classes/block-total.class';
+import {BlockTotalService} from '../../services/block-total.service';
+import {LogService} from '../../services/log.service';
 
 @Component({
   selector: 'app-block-detail',
@@ -59,7 +59,7 @@ export class BlockDetailComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.currentTab = 'extrinsics';
+    this.currentTab = 'transactions';
 
     this.networkTokenDecimals = environment.networkTokenDecimals;
     this.networkTokenSymbol = environment.networkTokenSymbol;
@@ -67,10 +67,16 @@ export class BlockDetailComponent implements OnInit {
     this.block$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {
           if (params.get('id')) {
-            return this.blockService.get(params.get('id'), { include: ['extrinsics', 'events', 'logs'] });
+            return this.blockService.get(params.get('id'), { include: ['transactions', 'inherents', 'events', 'logs'] });
           }
       })
     );
+
+    this.block$.subscribe(value => {
+      if (value.relationships.transactions.data.length === 0 && value.relationships.inherents.data.length > 0) {
+        this.currentTab = 'inherents';
+      }
+    });
 
     this.blockTotal$ = this.route.paramMap.pipe(
       switchMap((params: ParamMap) => {

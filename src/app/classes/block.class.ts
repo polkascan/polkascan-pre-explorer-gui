@@ -40,6 +40,8 @@ export class Block extends Resource {
 
     public relationships = {
         extrinsics: new DocumentCollection<Extrinsic>(),
+        transactions: new DocumentCollection<Extrinsic>(),
+        inherents: new DocumentCollection<Extrinsic>(),
         events: new DocumentCollection<Event>(),
         logs: new DocumentCollection<Log>(),
     };

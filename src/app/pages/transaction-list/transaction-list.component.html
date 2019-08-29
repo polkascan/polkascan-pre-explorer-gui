@@ -35,7 +35,7 @@
                                       <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
                                       <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
                                     </td>
-                                    <td><a routerLink="{{ networkURLPrefix }}/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}"><div class="hash-format">{{ extrinsic.attributes.extrinsic_hash }}</div></a></td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/transaction/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}"><div class="hash-format">0x{{ extrinsic.attributes.extrinsic_hash }}</div></a></td>
                                     <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.address }}" class="address-format"><app-identicon [accountId]="extrinsic.attributes.address_id"></app-identicon> {{ extrinsic.attributes.address }}</a></td>
                                     <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                                     <td>{{ extrinsic.attributes.module_id }}</td>

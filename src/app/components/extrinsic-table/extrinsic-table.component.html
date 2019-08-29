@@ -1,8 +1,11 @@
 
       <div *ngIf="extrinsic" class="card events-card">
         <header class="card-header">
-            <div class="card-header-title">
-               Extrinsic #{{ extrinsic.id }}
+            <div class="card-header-title" *ngIf="extrinsic.attributes.extrinsic_hash">
+                {{ title || 'Extrinsic'}} 0x{{ extrinsic.attributes.extrinsic_hash }}
+            </div>
+          <div class="card-header-title" *ngIf="!extrinsic.attributes.extrinsic_hash">
+                {{ title || 'Extrinsic'}} #{{ extrinsic.id }}
             </div>
             <a  class="card-header-icon" aria-label="more options">
             <span class="icon">
@@ -17,15 +20,15 @@
                     <tbody>
                         <tr *ngIf="context != 'block'">
                           <td width="15%">Block</td>
-                          <td><a routerLink="/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
+                          <td><a routerLink="{{ networkURLPrefix }}/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                         </tr>
                         <tr>
-                          <td width="15%">Extrinsic Index</td>
+                          <td width="15%">{{ title || 'Extrinsic'}} Index</td>
                           <td>{{ extrinsic.attributes.extrinsic_idx }}</td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.extrinsic_hash">
-                          <td width="15%">Extrinsic Hash</td>
-                          <td><a routerLink="/extrinsic/0x{{ extrinsic.attributes.extrinsic_hash}}">0x{{ extrinsic.attributes.extrinsic_hash}}</a></td>
+                          <td width="15%">{{ title || 'Extrinsic'}} Hash</td>
+                          <td><a routerLink="{{ networkURLPrefix }}/transaction/0x{{ extrinsic.attributes.extrinsic_hash}}">0x{{ extrinsic.attributes.extrinsic_hash}}</a></td>
                         </tr>
                         <tr>
                           <td width="15%">Module</td>
@@ -37,7 +40,7 @@
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.address">
                           <td width="15%">Address</td>
-                          <td><a routerLink="/account/{{ extrinsic.attributes.address }}" class="address-mobile-format"><app-identicon [accountId]="extrinsic.attributes.address_id"></app-identicon> {{ extrinsic.attributes.address }}</a></td>
+                          <td><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.address }}" class="address-mobile-format"><app-identicon [accountId]="extrinsic.attributes.address_id"></app-identicon> {{ extrinsic.attributes.address }}</a></td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.account_index">
                           <td width="15%">Account Index</td>
@@ -74,7 +77,7 @@
                         <tr *ngFor="let param of extrinsic.attributes.params">
                           <td width="15%">{{ paramName(param.name) | titlecase}}</td>
                           <td [ngSwitch]="param.type">
-                            <div *ngSwitchCase="'Address'"><a routerLink="/account/{{ param.value }}" class="address-mobile-format"><app-identicon [accountId]="param.orig_value"></app-identicon>{{ param.value }}</a></div>
+                            <div *ngSwitchCase="'Address'"><a routerLink="{{ networkURLPrefix }}/account/{{ param.value }}" class="address-mobile-format"><app-identicon [accountId]="param.orig_value"></app-identicon> {{ param.value }}</a></div>
                             <div *ngSwitchCase="'Compact<Balance>'">{{ formatBalance(param.value) | number}} {{ networkTokenSymbol }}</div>
                             <div *ngSwitchCase="'Compact<Moment>'">{{ param.value | date:'medium' }}</div>
                             <div *ngSwitchDefault><pre>{{ param.value | json }}</pre></div>

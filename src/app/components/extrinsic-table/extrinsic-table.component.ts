@@ -37,6 +37,7 @@ export class ExtrinsicTableComponent implements OnInit {
   @Input() context: string = null;
   @Input() networkTokenDecimals: number = 0;
   @Input() networkTokenSymbol: string;
+  @Input() title: string;
 
   constructor(
     private location: Location,

@@ -33,11 +33,11 @@
                               </tr>
                               <tr>
                                 <td width="20%">Created at block</td>
-                                <td><a routerLink="/block/{{ account.attributes.created_at_block }}">{{account.attributes.created_at_block}}</a></td>
+                                <td><a routerLink="{{ networkURLPrefix }}/block/{{ account.attributes.created_at_block }}">{{account.attributes.created_at_block}}</a></td>
                               </tr>
                               <tr>
                                 <td width="20%">Updated at block</td>
-                                <td><a routerLink="/block/{{ account.attributes.updated_at_block }}">{{account.attributes.updated_at_block}}</a></td>
+                                <td><a routerLink="{{ networkURLPrefix }}/block/{{ account.attributes.updated_at_block }}">{{account.attributes.updated_at_block}}</a></td>
                               </tr>
                               <tr>
                                 <td>Active</td>
@@ -111,7 +111,6 @@
                                 <th class="is-hidden-mobile">Block</th>
                                 <th>Module</th>
                                 <th>Call</th>
-                                <th class="is-hidden-mobile">Signed</th>
                                 <th class="is-hidden-mobile">Success</th>
                                 <th></th>
                               </tr>
@@ -122,16 +121,15 @@
                                       <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
                                       <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
                                     </td>
-                                    <td><a routerLink="/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.id }}</a></td>
-                                    <td class="is-hidden-mobile"><a routerLink="/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
+                                    <td><a routerLink="{{ networkURLPrefix }}/transaction/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.id }}</a></td>
+                                    <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                                     <td>{{ extrinsic.attributes.module_id }}</td>
                                     <td>{{ extrinsic.attributes.call_id }}</td>
-                                    <td class="is-hidden-mobile"><span *ngIf="extrinsic.attributes.signed">Yes</span><span *ngIf="!extrinsic.attributes.signed">No</span></td>
-                                    <td>
+                                    <td class="is-hidden-mobile">
                                       <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
                                       <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
                                     </td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/transaction/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
                                 </tr>
                             </tbody>
                         </table>

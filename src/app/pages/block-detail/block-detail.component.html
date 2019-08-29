@@ -27,7 +27,7 @@
                               </tr>
                               <tr>
                                   <td>Parent hash</td>
-                                  <td><a *ngIf="block.id > 0" routerLink="/block/{{ block.id - 1 }}">{{block.attributes.parent_hash}}</a></td>
+                                  <td><a *ngIf="block.id > 0" routerLink="{{ networkURLPrefix }}/block/{{ block.id - 1 }}">{{block.attributes.parent_hash}}</a></td>
                               </tr>
                               <tr>
                                   <td>State Root</td>
@@ -79,7 +79,7 @@
                               </tr>
                               <tr>
                                   <td>Runtime version</td>
-                                  <td><a routerLink="/runtime/{{ block.attributes.spec_version_id }}">{{block.attributes.spec_version_id}}</a></td>
+                                  <td><a routerLink="{{ networkURLPrefix }}/runtime/{{ block.attributes.spec_version_id }}">{{block.attributes.spec_version_id}}</a></td>
                               </tr>
                               <tr *ngIf="blockTotal$ | async as blockTotal">
                                   <td>Block time</td>
@@ -87,7 +87,7 @@
                               </tr>
                               <tr *ngIf="blockTotal$ | async as blockTotal">
                                   <td>Session ID</td>
-                                  <td><a routerLink="/session/session/{{ blockTotal.attributes.session_id }}">{{ blockTotal.attributes.session_id }}</a></td>
+                                  <td><a routerLink="{{ networkURLPrefix }}/session/session/{{ blockTotal.attributes.session_id }}">{{ blockTotal.attributes.session_id }}</a></td>
                               </tr>
                           </tbody>
                       </table>
@@ -99,10 +99,16 @@
           <div class="card ">
             <div class="tabs">
               <ul>
-                <li [ngClass]="{'is-active': currentTab == 'extrinsics'}">
-                  <a (click)="currentTab = 'extrinsics'">
+                <li [ngClass]="{'is-active': currentTab == 'transactions'}" *ngIf="block.relationships.transactions.data.length > 0">
+                  <a (click)="currentTab = 'transactions'">
                     <span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
-                    <span>Extrinsics</span>
+                    <span>Transactions</span>
+                  </a>
+                </li>
+                <li [ngClass]="{'is-active': currentTab == 'inherents'}" *ngIf="block.relationships.inherents.data.length > 0">
+                  <a (click)="currentTab = 'inherents'">
+                    <span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
+                    <span>Inherents</span>
                   </a>
                 </li>
                 <li [ngClass]="{'is-active': currentTab == 'events'}" *ngIf="block.relationships.events.data.length > 0">
@@ -120,35 +126,68 @@
               </ul>
             </div>
 
-            <div class="card-table" id="extrinsics" *ngIf="currentTab == 'extrinsics'">
+            <div class="card-table" id="transactions" *ngIf="currentTab == 'transactions'">
                 <div class="content">
                     <table class="table is-fullwidth is-striped">
                          <thead>
                           <tr>
                             <th></th>
-                            <th>Extrinsic ID</th>
+                            <th>Transaction ID</th>
+                            <th class="is-hidden-mobile">From</th>
                             <th>Module</th>
                             <th>Call</th>
-                            <th class="is-hidden-mobile">Signed</th>
                             <th>Success</th>
                             <th></th>
                           </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let extrinsic of block.relationships.extrinsics.data; trackBy: block.relationships.extrinsics.trackBy">
+                            <tr *ngFor="let extrinsic of block.relationships.transactions.data; trackBy: block.relationships.transactions.trackBy">
                                 <td width="5%">
                                   <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
                                   <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
                                 </td>
-                                <td><a routerLink="{{ networkURLPrefix }}/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.id }}</a></td>
+                                <td><a routerLink="{{ networkURLPrefix }}/transaction/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}"><div class="hash-format">0x{{ extrinsic.attributes.extrinsic_hash }}</div></a></td>
+                                <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.address }}" class="address-format"><app-identicon [accountId]="extrinsic.attributes.address_id"></app-identicon> {{ extrinsic.attributes.address }}</a></td>
                                 <td>{{ extrinsic.attributes.module_id }}</td>
                                 <td>{{ extrinsic.attributes.call_id }}</td>
-                                <td class="is-hidden-mobile"><span *ngIf="extrinsic.attributes.signed">Yes</span><span *ngIf="!extrinsic.attributes.signed">No</span></td>
                                 <td>
                                   <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
                                   <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
                                 </td>
-                                <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
+                                <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/transaction/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card-table" id="inherents" *ngIf="currentTab == 'inherents'">
+                <div class="content">
+                    <table class="table is-fullwidth is-striped">
+                         <thead>
+                          <tr>
+                            <th></th>
+                            <th>Inherent ID</th>
+                            <th>Module</th>
+                            <th>Call</th>
+                            <th>Success</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let extrinsic of block.relationships.inherents.data; trackBy: block.relationships.inherents.trackBy">
+                                <td width="5%">
+                                  <i *ngIf="extrinsic.attributes.signed" class="fa fa-file-signature"></i>
+                                  <i *ngIf="extrinsic.attributes.unsigned" class="fa fa-file-alt"></i>
+                                </td>
+                                <td><a routerLink="{{ networkURLPrefix }}/inherent/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ extrinsic.id }}</a></td>
+                                <td>{{ extrinsic.attributes.module_id }}</td>
+                                <td>{{ extrinsic.attributes.call_id }}</td>
+                                <td>
+                                  <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
+                                  <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
+                                </td>
+                                <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/inherent/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
                             </tr>
                         </tbody>
                     </table>

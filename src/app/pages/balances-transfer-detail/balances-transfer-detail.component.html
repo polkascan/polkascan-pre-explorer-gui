@@ -29,7 +29,7 @@
                             </tr>
                             <tr>
                               <td>Value</td>
-                              <td>{{ formatBalance(balanceTransfer.attributes.value) | number:'1.0-15'}} {{ networkTokenSymbol }}</td>
+                              <td>{{ formatBalance(balanceTransfer.attributes.value) | number:'1.0-15' }} {{ networkTokenSymbol }}</td>
                             </tr>
                             <tr>
                               <td width="15%">Success</td>
@@ -43,8 +43,8 @@
                               <td><a routerLink="{{ networkURLPrefix }}/extrinsic/{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}">{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}</a></td>
                             </tr>
                             <tr>
-                              <td width="20%">Extrinsic Hash</td>
-                              <td><a routerLink="{{ networkURLPrefix }}/extrinsic/0x{{ balanceTransfer.id }}">0x{{ balanceTransfer.id }}</a></td>
+                              <td width="20%">Transaction Hash</td>
+                              <td><a routerLink="{{ networkURLPrefix }}/transaction/0x{{ balanceTransfer.id }}">0x{{ balanceTransfer.id }}</a></td>
                             </tr>
                           </tbody>
                       </table>
