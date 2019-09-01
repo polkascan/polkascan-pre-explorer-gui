@@ -41,6 +41,9 @@
                         </table>
                     </div>
                 </div>
+                <footer *ngIf="types && types.data.length == 50" class="card-footer">
+                    <a (click)="getNextItems()" class="card-footer-item">View next</a>
+                </footer>
             </div>
         </section>
       </div>
