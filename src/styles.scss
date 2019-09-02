@@ -113,31 +113,47 @@ nav.navbar {
     color: #da68a7;
     border-bottom-color: #da68a7;
   }
+
+  a {
+    color: #da68a7;
+  }
+
+  .navbar-item a {
+    color: #4a4a4a;
+  }
 }
 
 .network-edgeware {
   .hero.welcome.is-info {
-    background: linear-gradient(to right, #0ac5ff, #0a95df);
+    background: linear-gradient(to right, #0a95df, #0a95df);
   }
 
   .button.is-primary {
-    background-color: #0ac5ff;
+    background-color: #0a95df;
   }
 
   .button.is-primary:hover {
-    background-color: #0ac5ff;
+    background-color: #0a95df;
   }
 
   .card-header-icon {
-    color: #0ac5ff;
+    color: #0a95df;
   }
   .navbar {
-    background: linear-gradient(to right, #0ac5ff, #0a95df);
+    background: linear-gradient(to right, #0a95df, #0a95df);
   }
 
   .tabs li.is-active a {
-    color: #0ac5ff;
-    border-bottom-color: #0ac5ff;
+    color: #0a95df;
+    border-bottom-color: #0a95df;
+  }
+
+  a {
+    color: #0a95df;
+  }
+
+  .navbar-item a {
+    color: #4a4a4a;
   }
 }
 
@@ -165,6 +181,14 @@ nav.navbar {
     color: #f15a24;
     border-bottom-color: #f15a24;
   }
+
+  a {
+    color: #f15a24;
+  }
+
+  .navbar-item a {
+    color: #4a4a4a;
+  }
 }
 
 .network-kusama {
@@ -191,6 +215,14 @@ nav.navbar {
     color: #d32e79;
     border-bottom-color: #d32e79;
   }
+
+  a {
+    color: #d32e79;
+  }
+
+  .navbar-item a {
+    color: #4a4a4a;
+  }
 }
 
 .network-joystream {
@@ -215,6 +247,14 @@ nav.navbar {
   .tabs li.is-active a {
     color: #00daaf;
     border-bottom-color: #00daaf;
+  }
+
+  a {
+    color: #00ba8f;
+  }
+
+  .navbar-item a {
+    color: #4a4a4a;
   }
 }
 
@@ -241,6 +281,10 @@ nav.navbar {
 .tabs li.is-active a {
   color: #999;
   border-bottom-color: #999;
+}
+
+a {
+  color: #777;
 }
 
 .no-items {
