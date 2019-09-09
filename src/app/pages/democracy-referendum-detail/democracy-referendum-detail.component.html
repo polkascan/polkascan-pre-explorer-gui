@@ -23,12 +23,16 @@
                                 <td width="20%">Updated at block</td>
                                 <td><a routerLink="/block/{{ referendum.attributes.updated_at_block }}">{{ referendum.attributes.updated_at_block }}</a></td>
                               </tr>
-                              <tr *ngIf="referendum.attributes.proposal">
-                                <td width="20%">Proposal</td>
-                                <td>
-                                  <pre>{{ referendum.attributes.proposal | json }}</pre>
-                                </td>
-                              </tr>
+                              <ng-container *ngIf="referendum.attributes.proposal">
+                                <tr>
+                                  <td>Delay</td>
+                                  <td>{{ referendum.attributes.proposal.delay }}</td>
+                                </tr>
+                                <tr>
+                                  <td>End</td>
+                                  <td><a routerLink="{{ networkURLPrefix }}/block/{{ referendum.attributes.proposal.end }}">{{ referendum.attributes.proposal.end }}</a></td>
+                                </tr>
+                              </ng-container>
                               <tr>
                                 <td width="20%">Vote Threshold</td>
                                 <td>
@@ -52,6 +56,67 @@
                       </table>
                   </div>
               </div>
+          </div>
+        </section>
+        <section class="info-tiles" *ngIf="referendum">
+          <div class="card ">
+            <div class="tabs">
+              <ul>
+                <li [ngClass]="{'is-active': currentTab == 'proposal'}">
+                  <a (click)="currentTab = 'proposal'">
+                    <span class="icon is-small"><i class="fas fa-poll" aria-hidden="true"></i></span>
+                    <span>Proposal</span>
+                  </a>
+                </li>
+                <li [ngClass]="{'is-active': currentTab == 'votes'}">
+                  <a (click)="currentTab = 'votes'">
+                    <span class="icon is-small"><i class="fas fa-vote-yea" aria-hidden="true"></i></span>
+                    <span>Votes</span>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div class="card-table" id="proposal" *ngIf="currentTab == 'proposal'">
+                <div class="content">
+                  <app-proposal
+                    [proposal]="referendum.attributes.proposal.proposal"
+                    [networkTokenDecimals]="networkTokenDecimals"
+                    [networkTokenSymbol]="networkTokenSymbol"
+                  ></app-proposal>
+                </div>
+            </div>
+
+            <div class="card-table" id="votes" *ngIf="currentTab == 'votes'">
+                <div class="content">
+                    <table class="table is-fullwidth is-striped">
+                         <thead>
+                          <tr>
+                            <th></th>
+                            <th>Account</th>
+                            <th class="is-hidden-mobile">Stash</th>
+                            <th>Vote</th>
+                            <th class="is-hidden-mobile">Block</th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let vote of referendum.relationships.votes.data; trackBy: referendum.relationships.votes.trackBy">
+                                <td width="5%">
+                                  <i class="fa fa-vote-yea"></i>
+                                </td>
+                                <td><a routerLink="{{ networkURLPrefix }}/account/{{ vote.attributes.stash_address }}" class="address-mobile-format"><app-identicon [accountId]="vote.attributes.stash_account_id"></app-identicon> {{ vote.attributes.stash_address }}</a></td>
+                                <td class="is-hidden-mobile">{{ formatBalance(vote.attributes.stash) | number}} {{ networkTokenSymbol }}</td>
+                                <td>
+                                  <i *ngIf="vote.attributes.vote_yes" class="fa fa-check" style="color: forestgreen"></i>
+                                  <i *ngIf="vote.attributes.vote_no" class="fa fa-times" style="color: darkred"></i>
+                                </td>
+                                <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ vote.attributes.updated_at_block }}">{{ vote.attributes.updated_at_block }}</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
           </div>
         </section>
     </div>

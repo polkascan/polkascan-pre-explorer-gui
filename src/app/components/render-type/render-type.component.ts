@@ -17,19 +17,31 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * extrinsic.service.ts
+ * democracy-proposal.class.ts
+ *
  */
 
-import { Injectable } from '@angular/core';
-import {Autoregister, Service} from 'ngx-jsonapi';
-import {DemocracyReferendum} from '../classes/democracy-referendum.class';
+import {Component, Input, OnInit} from '@angular/core';
 
-@Injectable({
-  providedIn: 'root'
+@Component({
+  selector: 'app-render-type',
+  templateUrl: './render-type.component.html',
+  styleUrls: ['./render-type.component.scss']
 })
-@Autoregister()
-export class DemocracyReferendumService extends Service<DemocracyReferendum> {
-    public resource = DemocracyReferendum;
-    public type = 'democracyreferendum';
-    public path = 'democracy/referendum';
+export class RenderTypeComponent implements OnInit {
+
+  @Input() item = null;
+  @Input() networkURLPrefix = null;
+  @Input() networkTokenDecimals = 0;
+  @Input() networkTokenSymbol: string;
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+  public formatBalance(balance: number) {
+    return balance / Math.pow(10, this.networkTokenDecimals);
+  }
+
 }

@@ -76,11 +76,12 @@
                     <tbody>
                         <tr *ngFor="let param of extrinsic.attributes.params">
                           <td width="15%">{{ paramName(param.name) | titlecase}}</td>
-                          <td [ngSwitch]="param.type">
-                            <div *ngSwitchCase="'Address'"><a routerLink="{{ networkURLPrefix }}/account/{{ param.value }}" class="address-mobile-format"><app-identicon [accountId]="param.orig_value"></app-identicon> {{ param.value }}</a></div>
-                            <div *ngSwitchCase="'Compact<Balance>'">{{ formatBalance(param.value) | number}} {{ networkTokenSymbol }}</div>
-                            <div *ngSwitchCase="'Compact<Moment>'">{{ param.value | date:'medium' }}</div>
-                            <div *ngSwitchDefault><pre>{{ param.value | json }}</pre></div>
+                          <td>
+                            <app-render-type
+                              [item]="param"
+                              [networkTokenDecimals]="networkTokenDecimals"
+                              [networkTokenSymbol]="networkTokenSymbol"
+                            ></app-render-type>
                           </td>
                         </tr>
                     </tbody>

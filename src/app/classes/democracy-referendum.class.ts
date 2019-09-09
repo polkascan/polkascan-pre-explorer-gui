@@ -21,10 +21,14 @@
  *
  */
 
-import { Resource } from 'ngx-jsonapi';
+import {DocumentCollection, Resource} from 'ngx-jsonapi';
+import {DemocracyVote} from './democracy-vote.class';
 
 export class DemocracyReferendum extends Resource {
   public attributes = {
 
+  };
+  public relationships = {
+        votes: new DocumentCollection<DemocracyVote>()
   };
 }

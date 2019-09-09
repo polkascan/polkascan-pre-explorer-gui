@@ -22,14 +22,14 @@
 
 import { Injectable } from '@angular/core';
 import {Autoregister, Service} from 'ngx-jsonapi';
-import {DemocracyReferendum} from '../classes/democracy-referendum.class';
+import {DemocracyVote} from '../classes/democracy-vote.class';
 
 @Injectable({
   providedIn: 'root'
 })
 @Autoregister()
-export class DemocracyReferendumService extends Service<DemocracyReferendum> {
-    public resource = DemocracyReferendum;
-    public type = 'democracyreferendum';
-    public path = 'democracy/referendum';
+export class DemocracyVoteService extends Service<DemocracyVote> {
+  public resource = DemocracyVote;
+    public type = 'democracyvote';
+    public path = 'democracy/vote';
 }

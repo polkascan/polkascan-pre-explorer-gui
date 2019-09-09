@@ -82,6 +82,10 @@ import { TransactionListComponent } from './pages/transaction-list/transaction-l
 import { TransactionDetailComponent } from './pages/transaction-detail/transaction-detail.component';
 import { InherentListComponent } from './pages/inherent-list/inherent-list.component';
 import { InherentDetailComponent } from './pages/inherent-detail/inherent-detail.component';
+import { ProposalComponent } from './types/proposal/proposal.component';
+import { StructComponent } from './types/struct/struct.component';
+import { RenderTypeComponent } from './components/render-type/render-type.component';
+import { ReferendumInfoComponent } from './types/referendum-info/referendum-info.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -141,7 +145,11 @@ export class MyClock extends TimeagoClock {
     TransactionListComponent,
     TransactionDetailComponent,
     InherentListComponent,
-    InherentDetailComponent
+    InherentDetailComponent,
+    ProposalComponent,
+    StructComponent,
+    RenderTypeComponent,
+    ReferendumInfoComponent
   ],
   imports: [
     BrowserModule,

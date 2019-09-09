@@ -26,7 +26,11 @@
                               <tr>
                                 <td width="20%">Proposal</td>
                                 <td>
-                                  <pre>{{ proposal.attributes.proposal | json }}</pre>
+                                  <app-proposal
+                                    [proposal]="proposal.attributes.proposal"
+                                    [networkTokenDecimals]="networkTokenDecimals"
+                                    [networkTokenSymbol]="networkTokenSymbol"
+                                  ></app-proposal>
                                 </td>
                               </tr>
                               <tr>

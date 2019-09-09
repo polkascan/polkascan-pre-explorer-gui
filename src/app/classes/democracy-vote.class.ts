@@ -17,19 +17,14 @@
  * You should have received a copy of the GNU General Public License
  * along with Polkascan. If not, see <http://www.gnu.org/licenses/>.
  *
- * extrinsic.service.ts
+ * democracy-proposal.class.ts
+ *
  */
 
-import { Injectable } from '@angular/core';
-import {Autoregister, Service} from 'ngx-jsonapi';
-import {DemocracyReferendum} from '../classes/democracy-referendum.class';
+import { Resource } from 'ngx-jsonapi';
 
-@Injectable({
-  providedIn: 'root'
-})
-@Autoregister()
-export class DemocracyReferendumService extends Service<DemocracyReferendum> {
-    public resource = DemocracyReferendum;
-    public type = 'democracyreferendum';
-    public path = 'democracy/referendum';
+export class DemocracyVote extends Resource {
+  public attributes = {
+
+  };
 }
