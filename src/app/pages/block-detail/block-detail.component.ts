@@ -72,6 +72,12 @@ export class BlockDetailComponent implements OnInit {
       })
     );
 
+    this.route.fragment.subscribe(value => {
+      if (value === 'transactions' || value === 'inherents' || value === 'events' || value === 'logs') {
+        this.currentTab = value;
+      }
+    });
+
     this.block$.subscribe(value => {
       if (value.relationships.transactions.data.length === 0 && value.relationships.inherents.data.length > 0) {
         this.currentTab = 'inherents';

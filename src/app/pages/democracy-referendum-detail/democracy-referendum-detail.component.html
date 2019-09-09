@@ -63,13 +63,13 @@
             <div class="tabs">
               <ul>
                 <li [ngClass]="{'is-active': currentTab == 'proposal'}">
-                  <a (click)="currentTab = 'proposal'">
+                  <a routerLink="." fragment="proposal">
                     <span class="icon is-small"><i class="fas fa-poll" aria-hidden="true"></i></span>
                     <span>Proposal</span>
                   </a>
                 </li>
                 <li [ngClass]="{'is-active': currentTab == 'votes'}">
-                  <a (click)="currentTab = 'votes'">
+                  <a routerLink="." fragment="votes">
                     <span class="icon is-small"><i class="fas fa-vote-yea" aria-hidden="true"></i></span>
                     <span>Votes</span>
                   </a>

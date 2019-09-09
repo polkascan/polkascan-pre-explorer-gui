@@ -27,7 +27,11 @@
                         </tr>
                         <tr *ngIf="log.attributes.data">
                           <td width="15%">Data</td>
-                          <td><pre>{{ log.attributes.data.value | json }}</pre></td>
+                          <td>
+                            <app-struct
+                              [struct]="log.attributes.data.value"
+                            ></app-struct>
+                          </td>
                         </tr>
                     </tbody>
                 </table>
