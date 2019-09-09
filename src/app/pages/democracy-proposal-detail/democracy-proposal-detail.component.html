@@ -24,19 +24,31 @@
                                 <td><a routerLink="/block/{{ proposal.attributes.updated_at_block }}">{{ proposal.attributes.updated_at_block }}</a></td>
                               </tr>
                               <tr>
-                                <td width="20%">Proposal</td>
+                                <td width="20%">Module</td>
                                 <td>
-                                  <app-proposal
-                                    [proposal]="proposal.attributes.proposal"
+                                  {{ proposal.attributes.proposal?.call_module }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width="20%">Call</td>
+                                <td>
+                                  {{ proposal.attributes.proposal?.call_name }}
+                                </td>
+                              </tr>
+                              <tr>
+                                <td width="20%">Parameters</td>
+                                <td>
+                                  <app-struct
+                                    [struct]="proposal.attributes.proposal?.params"
                                     [networkTokenDecimals]="networkTokenDecimals"
                                     [networkTokenSymbol]="networkTokenSymbol"
-                                  ></app-proposal>
+                                  ></app-struct>
                                 </td>
                               </tr>
                               <tr>
                                 <td width="20%">Bond</td>
                                 <td>
-                                  {{ proposal.attributes.bond }}
+                                  {{ formatBalance(proposal.attributes.bond) | number}} {{ networkTokenSymbol }}
                                 </td>
                               </tr>
                               <tr>
