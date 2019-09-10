@@ -39,8 +39,8 @@
                         <div class="no-items" *ngIf="validators && validators.data.length == 0 && !validators.is_loading">No items</div>
                     </div>
                 </div>
-                <footer class="card-footer">
-                    <a (click)="getNextItems()" class="card-footer-item">View next</a>
+                <footer class="card-footer" *ngIf="validators && validators.data.length > 0">
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
                 </footer>
             </div>
         </section>

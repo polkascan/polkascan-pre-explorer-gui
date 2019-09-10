@@ -21,36 +21,48 @@
  *
  */
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DocumentCollection, Service} from 'ngx-jsonapi';
 import {ExtrinsicService} from '../../services/extrinsic.service';
 import {Extrinsic} from '../../classes/extrinsic.class';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-transaction-list',
   templateUrl: './transaction-list.component.html',
   styleUrls: ['./transaction-list.component.scss']
 })
-export class TransactionListComponent implements OnInit {
+export class TransactionListComponent implements OnInit, OnDestroy {
 
   public extrinsics: DocumentCollection<Extrinsic>;
-  currentPage = 1;
+  public currentPage = 1;
+
+  private fragmentSubsription: Subscription;
 
   constructor(
-    private extrinsicService: ExtrinsicService
+    private extrinsicService: ExtrinsicService,
+    private activatedRoute: ActivatedRoute,
   ) {
 
   }
 
   ngOnInit() {
-    this.getExtrinsics(this.currentPage);
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
+      if (+value > 0) {
+        this.currentPage = +value;
+      } else {
+        this.currentPage = 1;
+      }
+      this.getExtrinsics(this.currentPage);
+    });
   }
 
   getExtrinsics(page: number): void {
 
     const params = {
-      page: { number: page, size: 25},
-      remotefilter: { signed: 1},
+      page: {number: page, size: 25},
+      remotefilter: {signed: 1},
     };
 
     this.extrinsicService.all(params).subscribe(extrinsics => {
@@ -58,12 +70,8 @@ export class TransactionListComponent implements OnInit {
     });
   }
 
-  refreshExtrinsics(): void {
-    this.getExtrinsics(this.currentPage);
-  }
-
-  getNextExtrinsics(): void {
-    this.currentPage += 1;
-    this.refreshExtrinsics();
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
 }

@@ -49,8 +49,8 @@
                         <div class="no-items" *ngIf="extrinsics && extrinsics.data.length == 0 && !extrinsics.is_loading">No items</div>
                     </div>
                 </div>
-                <footer class="card-footer">
-                    <a (click)="getNextExtrinsics()" class="card-footer-item">View next</a>
+                <footer class="card-footer" *ngIf="extrinsics && extrinsics.data.length > 0">
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
                 </footer>
             </div>
         </section>

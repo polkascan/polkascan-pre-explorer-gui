@@ -25,6 +25,7 @@ import { Block } from '../../classes/block.class';
 import { BlockService} from '../../services/block.service';
 import { DocumentCollection } from 'ngx-jsonapi';
 import {interval, Subscription} from 'rxjs';
+import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
@@ -39,19 +40,19 @@ export class BlockListComponent implements OnInit, OnDestroy {
   public initialLoading: boolean;
 
   private blockUpdateSubsription: Subscription;
+  private fragmentSubsription: Subscription;
 
-  currentPage = 1;
+  public currentPage = 1;
 
   constructor(
-    private blockService: BlockService
+    private blockService: BlockService,
+    private activatedRoute: ActivatedRoute,
   ) {
 
   }
 
   ngOnInit() {
     this.initialLoading = true;
-
-    this.getBlocks(this.currentPage);
 
     const blockUpdateCounter = interval(6000);
 
@@ -60,21 +61,27 @@ export class BlockListComponent implements OnInit, OnDestroy {
       this.getBlocks(this.currentPage);
     });
 
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
+      if (+value > 0) {
+        this.currentPage = +value;
+      } else {
+        this.currentPage = 1;
+      }
+      this.getBlocks(this.currentPage);
+    });
+
   }
 
   getBlocks(page: number): void {
-
+    console.log('getBlocks', page);
     this.blockService.all({
       page: { number: page, size: 25}
     }).subscribe(blocks => (this.blocks = blocks));
   }
 
-  getNextBlocks(): void {
-    this.getBlocks(++this.currentPage);
-  }
-
   ngOnDestroy() {
     // Will clear when component is destroyed e.g. route is navigated away from.
     this.blockUpdateSubsription.unsubscribe();
+    this.fragmentSubsription.unsubscribe();
   }
 }

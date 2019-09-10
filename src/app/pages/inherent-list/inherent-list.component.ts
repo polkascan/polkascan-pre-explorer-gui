@@ -21,29 +21,41 @@
  *
  */
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DocumentCollection, Service} from 'ngx-jsonapi';
 import {ExtrinsicService} from '../../services/extrinsic.service';
 import {Extrinsic} from '../../classes/extrinsic.class';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-inherent-list',
   templateUrl: './inherent-list.component.html',
   styleUrls: ['./inherent-list.component.scss']
 })
-export class InherentListComponent implements OnInit {
+export class InherentListComponent implements OnInit, OnDestroy {
 
   public extrinsics: DocumentCollection<Extrinsic>;
   currentPage = 1;
 
+  private fragmentSubsription: Subscription;
+
   constructor(
-    private extrinsicService: ExtrinsicService
+    private extrinsicService: ExtrinsicService,
+    private activatedRoute: ActivatedRoute,
   ) {
 
   }
 
   ngOnInit() {
-    this.getExtrinsics(this.currentPage);
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
+      if (+value > 0) {
+        this.currentPage = +value;
+      } else {
+        this.currentPage = 1;
+      }
+      this.getExtrinsics(this.currentPage);
+    });
   }
 
   getExtrinsics(page: number): void {
@@ -58,12 +70,8 @@ export class InherentListComponent implements OnInit {
     });
   }
 
-  refreshExtrinsics(): void {
-    this.getExtrinsics(this.currentPage);
-  }
-
-  getNextExtrinsics(): void {
-    this.currentPage += 1;
-    this.refreshExtrinsics();
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
 }

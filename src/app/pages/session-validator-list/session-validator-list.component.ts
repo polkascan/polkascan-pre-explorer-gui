@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DocumentCollection} from 'ngx-jsonapi';
 import {SessionValidator} from '../../classes/session-validator.class';
 import {SessionValidatorService} from '../../services/session-validator.service';
 import {environment} from '../../../environments/environment';
+import {Subscription} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-session-validator-list',
   templateUrl: './session-validator-list.component.html',
   styleUrls: ['./session-validator-list.component.scss']
 })
-export class SessionValidatorListComponent implements OnInit {
+export class SessionValidatorListComponent implements OnInit, OnDestroy {
 
   public validators: DocumentCollection<SessionValidator>;
 
@@ -19,8 +21,11 @@ export class SessionValidatorListComponent implements OnInit {
 
   currentPage = 1;
 
+  private fragmentSubsription: Subscription;
+
   constructor(
-    private sessionValidatorService: SessionValidatorService
+    private sessionValidatorService: SessionValidatorService,
+    private activatedRoute: ActivatedRoute
   ) {
 
   }
@@ -30,7 +35,14 @@ export class SessionValidatorListComponent implements OnInit {
     this.networkTokenDecimals = environment.networkTokenDecimals;
     this.networkTokenSymbol = environment.networkTokenSymbol;
 
-    this.getItems(this.currentPage);
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
+      if (+value > 0) {
+        this.currentPage = +value;
+      } else {
+        this.currentPage = 1;
+      }
+      this.getItems(this.currentPage);
+    });
   }
 
   getItems(page: number): void {
@@ -45,13 +57,9 @@ export class SessionValidatorListComponent implements OnInit {
     });
   }
 
-  refreshItems(): void {
-    this.getItems(this.currentPage);
-  }
-
-  getNextItems(): void {
-    this.currentPage += 1;
-    this.refreshItems();
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
 
   public formatBalance(balance: number) {

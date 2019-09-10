@@ -43,8 +43,8 @@
                         <div class="no-items" *ngIf="events && events.data.length == 0 && !events.is_loading">No items</div>
                     </div>
                 </div>
-                <footer class="card-footer">
-                    <a (click)="getNextEvents()" class="card-footer-item">View next</a>
+                 <footer class="card-footer" *ngIf="events && events.data.length > 0">
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
                 </footer>
             </div>
         </section>

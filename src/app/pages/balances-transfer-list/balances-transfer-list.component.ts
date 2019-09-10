@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import {DocumentCollection} from "ngx-jsonapi";
-import {BalanceTransfer} from "../../classes/balancetransfer.class";
-import {BalanceTransferService} from "../../services/balance-transfer.service";
-import {environment} from "../../../environments/environment";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {DocumentCollection} from 'ngx-jsonapi';
+import {BalanceTransfer} from '../../classes/balancetransfer.class';
+import {BalanceTransferService} from '../../services/balance-transfer.service';
+import {environment} from '../../../environments/environment';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
   selector: 'app-balances-transfer-list',
   templateUrl: './balances-transfer-list.component.html',
   styleUrls: ['./balances-transfer-list.component.scss']
 })
-export class BalancesTransferListComponent implements OnInit {
+export class BalancesTransferListComponent implements OnInit, OnDestroy {
 
   public balanceTransfers: DocumentCollection<BalanceTransfer>;
   currentPage = 1;
@@ -17,8 +19,11 @@ export class BalancesTransferListComponent implements OnInit {
   public networkTokenDecimals: number;
   public networkTokenSymbol: string;
 
+  private fragmentSubsription: Subscription;
+
   constructor(
-    private balanceTransferService: BalanceTransferService
+    private balanceTransferService: BalanceTransferService,
+    private activatedRoute: ActivatedRoute,
   ) {
 
   }
@@ -26,12 +31,19 @@ export class BalancesTransferListComponent implements OnInit {
   ngOnInit() {
     this.networkTokenDecimals = environment.networkTokenDecimals;
     this.networkTokenSymbol = environment.networkTokenSymbol;
-    this.getItems(this.currentPage);
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
+      if (+value > 0) {
+        this.currentPage = +value;
+      } else {
+        this.currentPage = 1;
+      }
+      this.getItems(this.currentPage);
+    });
   }
 
   getItems(page: number): void {
 
-    let params = {
+    const params = {
       page: { number: page, size: 25},
       remotefilter: {},
     };
@@ -41,13 +53,9 @@ export class BalancesTransferListComponent implements OnInit {
     });
   }
 
-  refreshItems(): void {
-    this.getItems(this.currentPage);
-  }
-
-  getNextItems(): void {
-    this.currentPage += 1;
-    this.refreshItems();
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
 
   public formatBalance(balance: number) {

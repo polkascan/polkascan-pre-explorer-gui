@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {Observable, Subscription} from 'rxjs';
 import {ActivatedRoute, ParamMap, Router} from '@angular/router';
 import {switchMap} from 'rxjs/operators';
 import {DemocracyReferendum} from '../../classes/democracy-referendum.class';
@@ -12,7 +12,7 @@ import {DemocracyVoteService} from '../../services/democracy-vote.service';
   templateUrl: './democracy-referendum-detail.component.html',
   styleUrls: ['./democracy-referendum-detail.component.scss']
 })
-export class DemocracyReferendumDetailComponent implements OnInit {
+export class DemocracyReferendumDetailComponent implements OnInit, OnDestroy {
 
   public referendum$: Observable<DemocracyReferendum>;
 
@@ -20,6 +20,8 @@ export class DemocracyReferendumDetailComponent implements OnInit {
   public networkTokenSymbol: string;
   public networkURLPrefix: string;
   public currentTab: string;
+
+  private fragmentSubsription: Subscription;
 
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -39,7 +41,7 @@ export class DemocracyReferendumDetailComponent implements OnInit {
       })
     );
 
-    this.activatedRoute.fragment.subscribe(value => {
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
       if (value === 'proposal' || value === 'votes') {
         this.currentTab = value;
       }
@@ -48,6 +50,11 @@ export class DemocracyReferendumDetailComponent implements OnInit {
 
   public formatBalance(balance: number) {
     return balance / Math.pow(10, this.networkTokenDecimals);
+  }
+
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
 
 }

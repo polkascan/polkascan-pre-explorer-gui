@@ -1,27 +1,39 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DocumentCollection} from 'ngx-jsonapi';
 import {Event} from '../../classes/event.class';
 import {EventService} from '../../services/event.service';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-event-list',
   templateUrl: './event-list.component.html',
   styleUrls: ['./event-list.component.scss']
 })
-export class EventListComponent implements OnInit {
+export class EventListComponent implements OnInit, OnDestroy {
 
 public events: DocumentCollection<Event>;
 
-  currentPage = 1;
+  public currentPage = 1;
+
+  private fragmentSubsription: Subscription;
 
   constructor(
-    private eventService: EventService
+    private eventService: EventService,
+    private activatedRoute: ActivatedRoute,
   ) {
 
   }
 
   ngOnInit() {
-    this.getEvents(this.currentPage);
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
+      if (+value > 0) {
+        this.currentPage = +value;
+      } else {
+        this.currentPage = 1;
+      }
+      this.getEvents(this.currentPage);
+    });
   }
 
   getEvents(page: number): void {
@@ -30,9 +42,8 @@ public events: DocumentCollection<Event>;
     }).subscribe(events => (this.events = events));
   }
 
-  getNextEvents(): void {
-    this.currentPage += 1;
-    this.getEvents(this.currentPage);
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
-
 }

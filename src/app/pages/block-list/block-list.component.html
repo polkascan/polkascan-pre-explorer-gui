@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <a (click)="getNextBlocks()" class="card-footer-item">View next</a>
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
                 </footer>
             </div>
         </section>
