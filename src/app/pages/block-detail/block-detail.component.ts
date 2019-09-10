@@ -79,7 +79,8 @@ export class BlockDetailComponent implements OnInit {
     });
 
     this.block$.subscribe(value => {
-      if (value.relationships.transactions.data.length === 0 && value.relationships.inherents.data.length > 0) {
+      if (this.currentTab === 'transactions' && value.relationships.transactions.data.length === 0 &&
+        value.relationships.inherents.data.length > 0) {
         this.currentTab = 'inherents';
       }
     });
