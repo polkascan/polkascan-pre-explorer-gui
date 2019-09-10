@@ -3,19 +3,58 @@
         <app-polkascan-header></app-polkascan-header>
         <section>
             <div class="card ">
+
                 <header class="card-header">
-                    <p class="card-header-title">
-                        Transactions
-                    </p>
-                    <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
-                      <span class="icon">
-                        <i class="fa fa-file-signature fa-2x" aria-hidden="true"></i>
-                      </span>
-                    </a>
+                    <div class="card-header-title">
+                        <p>Transactions</p>
+
+                    </div>
+
+                    <div class="card-header-icon">
+                      <div class="filters">
+                        <div class="field has-addons">
+                          <div class="control is-expanded has-icons-left">
+                            <div class="select is-fullwidth">
+                              <select name="country" [(ngModel)]="filterModule" (ngModelChange)="selectModule($event)">
+                                <option [ngValue]="null">All modules</option>
+                                <option *ngFor="let module of runtimeModules.data" [ngValue]="module">{{module.attributes.name}}</option>
+                              </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                              <i class="fas fa-cog"></i>
+                            </span>
+                          </div>
+                          <div class="control is-expanded has-icons-left">
+                            <div class="select is-fullwidth">
+                              <select name="country" [(ngModel)]="filterCall" [disabled]="!runtimeCalls">
+                                <option [ngValue]="null">All calls</option>
+                                <ng-container *ngIf="runtimeCalls">
+                                <option *ngFor="let call of runtimeCalls.data" [ngValue]="call">{{call.attributes.name}}</option>
+                                </ng-container>
+                              </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                              <i class="fas fa-file-alt"></i>
+                            </span>
+                          </div>
+                          <div class="control">
+                            <button type="submit" class="button" (click)="applyFilters()">Filter</button>
+                          </div>
+                        </div>
+                      </div>
+                      <a [routerLink]="" fragment="list"  aria-label="more options">
+                        <span class="icon">
+                          <i class="fa fa-file-signature fa-2x" aria-hidden="true"></i>
+                        </span>
+                      </a>
+                    </div>
+
                 </header>
+
                 <div class="card-table">
                     <div class="content">
                         <app-loading-box *ngIf="!extrinsics || extrinsics.is_loading"></app-loading-box>
+
                         <table class="table is-fullwidth is-striped" *ngIf="extrinsics && extrinsics.data.length > 0">
                              <thead>
                               <tr>

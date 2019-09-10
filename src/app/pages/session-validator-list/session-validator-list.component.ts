@@ -3,8 +3,8 @@ import {DocumentCollection} from 'ngx-jsonapi';
 import {SessionValidator} from '../../classes/session-validator.class';
 import {SessionValidatorService} from '../../services/session-validator.service';
 import {environment} from '../../../environments/environment';
-import {Subscription} from "rxjs";
-import {ActivatedRoute} from "@angular/router";
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-session-validator-list',
