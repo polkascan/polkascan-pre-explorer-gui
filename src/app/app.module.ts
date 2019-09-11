@@ -86,6 +86,7 @@ import { ProposalComponent } from './types/proposal/proposal.component';
 import { StructComponent } from './types/struct/struct.component';
 import { RenderTypeComponent } from './components/render-type/render-type.component';
 import { ReferendumInfoComponent } from './types/referendum-info/referendum-info.component';
+import { AnalyticsSearchComponent } from './pages/analytics-search/analytics-search.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -149,7 +150,8 @@ export class MyClock extends TimeagoClock {
     ProposalComponent,
     StructComponent,
     RenderTypeComponent,
-    ReferendumInfoComponent
+    ReferendumInfoComponent,
+    AnalyticsSearchComponent
   ],
   imports: [
     BrowserModule,
