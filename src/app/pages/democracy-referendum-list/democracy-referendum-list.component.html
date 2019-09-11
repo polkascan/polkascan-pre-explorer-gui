@@ -15,8 +15,8 @@
                 </header>
                 <div class="card-table">
                     <div class="content">
-                        <app-loading-box *ngIf="referenda.is_loading"></app-loading-box>
-                        <table class="table is-fullwidth is-striped" *ngIf="referenda.data.length > 0">
+                        <app-loading-box *ngIf="referenda?.is_loading"></app-loading-box>
+                        <table class="table is-fullwidth is-striped" *ngIf="referenda?.data.length > 0">
                              <thead>
                               <tr>
                                 <th></th>
@@ -49,10 +49,10 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="referenda.data.length == 0 && !referenda.is_loading">No items</div>
+                        <div class="no-items" *ngIf="referenda?.data.length == 0 && !referenda.is_loading">No items</div>
                     </div>
                 </div>
-                <footer class="card-footer" *ngIf="referenda && referenda.data.length > 0">
+                <footer class="card-footer" *ngIf="referenda?.data.length > 0">
                     <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
                 </footer>
             </div>

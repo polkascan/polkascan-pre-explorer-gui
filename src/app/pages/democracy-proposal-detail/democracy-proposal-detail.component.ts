@@ -17,6 +17,7 @@ export class DemocracyProposalDetailComponent implements OnInit {
 
   public networkTokenDecimals: number;
   public networkTokenSymbol: string;
+  public networkURLPrefix: string;
 
   constructor(
     private activatedRoute: ActivatedRoute,
