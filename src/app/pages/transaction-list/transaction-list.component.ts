@@ -83,8 +83,6 @@ export class TransactionListComponent implements OnInit, OnDestroy {
 
   selectModule(module) {
 
-    console.log(module);
-
     this.filterModule = module;
     this.filterCall = null;
 

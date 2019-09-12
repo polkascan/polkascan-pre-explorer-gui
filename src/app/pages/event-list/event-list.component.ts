@@ -59,8 +59,6 @@ export class EventListComponent implements OnInit, OnDestroy {
 
   selectModule(module) {
 
-    console.log(module);
-
     this.filterModule = module;
     this.filterEvent = null;
 

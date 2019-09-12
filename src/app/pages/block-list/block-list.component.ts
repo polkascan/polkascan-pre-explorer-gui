@@ -73,7 +73,6 @@ export class BlockListComponent implements OnInit, OnDestroy {
   }
 
   getBlocks(page: number): void {
-    console.log('getBlocks', page);
     this.blockService.all({
       page: { number: page, size: 25}
     }).subscribe(blocks => (this.blocks = blocks));

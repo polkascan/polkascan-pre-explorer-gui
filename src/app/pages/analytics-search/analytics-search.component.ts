@@ -59,7 +59,7 @@ export class AnalyticsSearchComponent implements OnInit {
     this.currentSearchQuery = this.searchQuery.trim();
 
     if (this.currentSearchQuery !== '') {
-      console.log('hier');
+
       // Reset results
       this.account = null;
       this.block = null;
