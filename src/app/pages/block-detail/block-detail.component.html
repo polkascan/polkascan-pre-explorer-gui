@@ -100,25 +100,25 @@
             <div class="tabs">
               <ul>
                 <li [ngClass]="{'is-active': currentTab == 'transactions'}" *ngIf="block.relationships.transactions.data.length > 0">
-                  <a (click)="currentTab = 'transactions'">
+                  <a routerLink="." fragment="transactions">
                     <span class="icon is-small"><i class="fas fa-file-signature" aria-hidden="true"></i></span>
                     <span>Transactions</span>
                   </a>
                 </li>
                 <li [ngClass]="{'is-active': currentTab == 'inherents'}" *ngIf="block.relationships.inherents.data.length > 0">
-                  <a (click)="currentTab = 'inherents'">
+                  <a routerLink="." fragment="inherents">
                     <span class="icon is-small"><i class="fas fa-file-alt" aria-hidden="true"></i></span>
                     <span>Inherents</span>
                   </a>
                 </li>
                 <li [ngClass]="{'is-active': currentTab == 'events'}" *ngIf="block.relationships.events.data.length > 0">
-                  <a (click)="currentTab = 'events'">
+                  <a routerLink="." fragment="events">
                     <span class="icon is-small"><i class="fas fa-calendar-check" aria-hidden="true"></i></span>
                     <span>Events</span>
                   </a>
                 </li>
                 <li [ngClass]="{'is-active': currentTab == 'logs'}" *ngIf="block.relationships.logs.data.length > 0">
-                  <a (click)="currentTab = 'logs'">
+                  <a routerLink="." fragment="logs">
                     <span class="icon is-small"><i class="fas fa-book" aria-hidden="true"></i></span>
                     <span>Logs</span>
                   </a>

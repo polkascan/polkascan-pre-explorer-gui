@@ -64,6 +64,7 @@ import {TransactionListComponent} from './pages/transaction-list/transaction-lis
 import {TransactionDetailComponent} from './pages/transaction-detail/transaction-detail.component';
 import {InherentListComponent} from './pages/inherent-list/inherent-list.component';
 import {InherentDetailComponent} from './pages/inherent-detail/inherent-detail.component';
+import {AnalyticsSearchComponent} from './pages/analytics-search/analytics-search.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -105,6 +106,8 @@ const routes: Routes = [
   { path: 'democracy/referendum/:id', component: DemocracyReferendumDetailComponent},
   { path: 'balances/transfer', component: BalancesTransferListComponent},
   { path: 'balances/transfer/:id', component: BalancesTransferDetailComponent},
+  { path: 'analytics/search', component: AnalyticsSearchComponent},
+  { path: 'analytics/search/:query', component: AnalyticsSearchComponent},
   { path: 'settings', component: SettingsComponent},
   { path: 'harvester/admin', component: HarvesterAdminComponent },
 

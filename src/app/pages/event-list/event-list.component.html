@@ -4,14 +4,49 @@
         <section>
             <div class="card ">
                 <header class="card-header">
-                    <p class="card-header-title">
-                        Events
-                    </p>
-                    <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
-                      <span class="icon">
-                        <i class="fa fa-calendar-check fa-2x" aria-hidden="true"></i>
-                      </span>
-                    </a>
+                    <div class="card-header-title">
+                        <p>Events</p>
+
+                    </div>
+
+                    <div class="card-header-icon">
+                      <div class="filters">
+                        <div class="field has-addons">
+                          <div class="control is-expanded has-icons-left">
+                            <div class="select is-fullwidth">
+                              <select name="country" [(ngModel)]="filterModule" (ngModelChange)="selectModule($event)">
+                                <option [ngValue]="null">All modules</option>
+                                <option *ngFor="let module of runtimeModules.data" [ngValue]="module">{{module.attributes.name}}</option>
+                              </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                              <i class="fas fa-cog"></i>
+                            </span>
+                          </div>
+                          <div class="control is-expanded has-icons-left">
+                            <div class="select is-fullwidth">
+                              <select name="country" [(ngModel)]="filterEvent" [disabled]="!runtimeEvents">
+                                <option [ngValue]="null">All events</option>
+                                <ng-container *ngIf="runtimeEvents">
+                                <option *ngFor="let event of runtimeEvents.data" [ngValue]="event">{{ event.attributes.name }}</option>
+                                </ng-container>
+                              </select>
+                            </div>
+                            <span class="icon is-small is-left">
+                              <i class="fas fa-file-alt"></i>
+                            </span>
+                          </div>
+                          <div class="control">
+                            <button type="submit" class="button" (click)="applyFilters()">Filter</button>
+                          </div>
+                        </div>
+                      </div>
+                      <a [routerLink]="" fragment="list"  aria-label="more options">
+                        <span class="icon">
+                          <i class="fa fa-calendar-check fa-2x" aria-hidden="true"></i>
+                        </span>
+                      </a>
+                    </div>
                 </header>
                 <div class="card-table">
                     <div class="content">
@@ -43,8 +78,8 @@
                         <div class="no-items" *ngIf="events && events.data.length == 0 && !events.is_loading">No items</div>
                     </div>
                 </div>
-                <footer class="card-footer">
-                    <a (click)="getNextEvents()" class="card-footer-item">View next</a>
+                 <footer class="card-footer" *ngIf="events && events.data.length > 0">
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
                 </footer>
             </div>
         </section>

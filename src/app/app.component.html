@@ -98,6 +98,17 @@
 
                   <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                     <a class="navbar-link">
+                      Analytics
+                    </a>
+                    <div class="navbar-dropdown" (click)="toggleSubmenus()">
+                       <a class="navbar-item" routerLink="/analytics/search">
+                        Search
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
+                    <a class="navbar-link">
                       Runtime
                     </a>
                     <div class="navbar-dropdown" (click)="toggleSubmenus()">

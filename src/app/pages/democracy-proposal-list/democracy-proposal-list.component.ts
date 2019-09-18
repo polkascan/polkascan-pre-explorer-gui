@@ -1,26 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DocumentCollection} from 'ngx-jsonapi';
 import {DemocracyProposal} from '../../classes/democracy-proposal.class';
 import {DemocracyProposalService} from '../../services/democracy-proposal.service';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-democracy-proposal-list',
   templateUrl: './democracy-proposal-list.component.html',
   styleUrls: ['./democracy-proposal-list.component.scss']
 })
-export class DemocracyProposalListComponent implements OnInit {
+export class DemocracyProposalListComponent implements OnInit, OnDestroy {
 
   public proposals: DocumentCollection<DemocracyProposal>;
   currentPage = 1;
 
+  private fragmentSubsription: Subscription;
+
   constructor(
-    private democracyProposalService: DemocracyProposalService
+    private democracyProposalService: DemocracyProposalService,
+    private activatedRoute: ActivatedRoute
   ) {
 
   }
 
   ngOnInit() {
-    this.getItems(this.currentPage);
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
+      if (+value > 0) {
+        this.currentPage = +value;
+      } else {
+        this.currentPage = 1;
+      }
+      this.getItems(this.currentPage);
+    });
   }
 
   getItems(page: number): void {
@@ -35,13 +47,8 @@ export class DemocracyProposalListComponent implements OnInit {
     });
   }
 
-  refreshItems(): void {
-    this.getItems(this.currentPage);
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
-
-  getNextItems(): void {
-    this.currentPage += 1;
-    this.refreshItems();
-  }
-
 }

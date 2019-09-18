@@ -15,9 +15,9 @@
                 </header>
                 <div class="card-content">
                     <div class="content">
-                        <form (ngSubmit)="searchBlock()">
+                        <form (ngSubmit)="search()">
                         <div class="control has-icons-left has-icons-right">
-                            <input class="input is-large" type="text" [(ngModel)]="blockSearchText" [ngModelOptions]="{standalone: true}" placeholder="Search by block / extrinsic / account">
+                            <input class="input is-large" type="text" [(ngModel)]="blockSearchText" [ngModelOptions]="{standalone: true}" placeholder="Search by block / transaction / account">
                             <span class="icon is-medium is-left">
                               <i class="fa fa-search"></i>
                             </span>

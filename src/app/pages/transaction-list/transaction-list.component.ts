@@ -21,49 +21,117 @@
  *
  */
 
-import { Component, OnInit } from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {DocumentCollection, Service} from 'ngx-jsonapi';
 import {ExtrinsicService} from '../../services/extrinsic.service';
 import {Extrinsic} from '../../classes/extrinsic.class';
+import {ActivatedRoute} from '@angular/router';
+import {Subscription} from 'rxjs';
+import {RuntimeModule} from '../../classes/runtime-module.class';
+import {RuntimeModuleService} from '../../services/runtime-module.service';
+import {RuntimeCallService} from '../../services/runtime-call.service';
+import {RuntimeCall} from '../../classes/runtime-call.class';
 
 @Component({
   selector: 'app-transaction-list',
   templateUrl: './transaction-list.component.html',
   styleUrls: ['./transaction-list.component.scss']
 })
-export class TransactionListComponent implements OnInit {
+export class TransactionListComponent implements OnInit, OnDestroy {
 
   public extrinsics: DocumentCollection<Extrinsic>;
-  currentPage = 1;
+
+  public runtimeModules: DocumentCollection<RuntimeModule>;
+  public runtimeCalls: DocumentCollection<RuntimeCall>;
+  public filterModule: RuntimeModule = null;
+  public filterCall: RuntimeCall = null;
+
+  public currentPage = 1;
+
+  public networkURLPrefix;
+
+  private fragmentSubsription: Subscription;
 
   constructor(
-    private extrinsicService: ExtrinsicService
+    private extrinsicService: ExtrinsicService,
+    private runtimeModuleService: RuntimeModuleService,
+    private runtimeCallService: RuntimeCallService,
+    private activatedRoute: ActivatedRoute,
   ) {
 
   }
 
   ngOnInit() {
+
+    const params = {
+      remotefilter: {latestRuntime: true},
+    };
+
+    this.runtimeModuleService.all(params).subscribe(runtimeModules => {
+      this.runtimeModules = runtimeModules;
+    });
+
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
+      if (+value > 0) {
+        this.currentPage = +value;
+      } else {
+        this.currentPage = 1;
+      }
+      this.getExtrinsics(this.currentPage);
+    });
+  }
+
+  selectModule(module) {
+
+    this.filterModule = module;
+    this.filterCall = null;
+
+    if (module !== null) {
+      const params = {
+        page: {number: 0, size: 100},
+        remotefilter: {latestRuntime: true, module_id: this.filterModule.attributes.module_id},
+      };
+
+      this.runtimeCallService.all(params).subscribe(runtimeCalls => {
+        this.runtimeCalls = runtimeCalls;
+      });
+    } else {
+      this.runtimeCalls = null;
+    }
+  }
+
+  applyFilters() {
+    this.currentPage = 1;
     this.getExtrinsics(this.currentPage);
   }
 
   getExtrinsics(page: number): void {
 
-    const params = {
-      page: { number: page, size: 25},
-      remotefilter: { signed: 1},
+    // tslint:disable-next-line:prefer-const
+    let params = {
+      page: {number: page, size: 25},
+      remotefilter: {
+        signed: 1
+      },
     };
+
+    if (this.filterModule !== null) {
+      // @ts-ignore
+      params.remotefilter.module_id = this.filterModule.attributes.module_id;
+    }
+
+    if (this.filterCall !== null) {
+      // @ts-ignore
+      params.remotefilter.call_id = this.filterCall.attributes.call_id;
+    }
 
     this.extrinsicService.all(params).subscribe(extrinsics => {
       this.extrinsics = extrinsics;
     });
   }
 
-  refreshExtrinsics(): void {
-    this.getExtrinsics(this.currentPage);
-  }
-
-  getNextExtrinsics(): void {
-    this.currentPage += 1;
-    this.refreshExtrinsics();
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
 }

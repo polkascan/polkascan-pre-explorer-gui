@@ -61,7 +61,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-
+    this.networkURLPrefix = '';
     this.networkTokenDecimals = environment.networkTokenDecimals;
     this.networkTokenSymbol = environment.networkTokenSymbol;
 
@@ -86,13 +86,11 @@ export class DashboardComponent implements OnInit, OnDestroy {
     }).subscribe(balanceTransfers => (this.balanceTransfers = balanceTransfers));
   }
 
-  searchBlock(): void {
-    if (this.blockSearchText.startsWith('0x') || this.blockSearchText.includes('-')) {
-      this.router.navigate(['extrinsic', this.blockSearchText]);
-    } else if (+this.blockSearchText) {
-      this.router.navigate(['block', this.blockSearchText]);
-    } else {
-      this.router.navigate(['account', this.blockSearchText]);
+   search(): void {
+    // Strip whitespace from search text
+    this.blockSearchText = this.blockSearchText.trim();
+    if (this.blockSearchText !== '') {
+      this.router.navigate([this.networkURLPrefix, 'analytics', 'search', this.blockSearchText]);
     }
   }
 

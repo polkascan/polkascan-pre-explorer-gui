@@ -20,12 +20,12 @@
  * block-detail.component.ts
  */
 
-import { Component, OnInit, Input } from '@angular/core';
+import {Component, OnInit, Input, OnDestroy} from '@angular/core';
 import { Location } from '@angular/common';
 import { Block } from '../../classes/block.class';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { BlockService } from '../../services/block.service';
-import { Observable } from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 import {ExtrinsicService} from '../../services/extrinsic.service';
 import {EventService} from '../../services/event.service';
@@ -39,7 +39,7 @@ import {LogService} from '../../services/log.service';
   templateUrl: './block-detail.component.html',
   styleUrls: ['./block-detail.component.scss'],
 })
-export class BlockDetailComponent implements OnInit {
+export class BlockDetailComponent implements OnInit, OnDestroy {
 
   block$: Observable<Block>;
   blockTotal$: Observable<BlockTotal>;
@@ -47,6 +47,8 @@ export class BlockDetailComponent implements OnInit {
   public networkTokenDecimals: number;
   public networkTokenSymbol: string;
   public currentTab: string;
+
+  private fragmentSubsription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -72,8 +74,15 @@ export class BlockDetailComponent implements OnInit {
       })
     );
 
+    this.fragmentSubsription = this.route.fragment.subscribe(value => {
+      if (value === 'transactions' || value === 'inherents' || value === 'events' || value === 'logs') {
+        this.currentTab = value;
+      }
+    });
+
     this.block$.subscribe(value => {
-      if (value.relationships.transactions.data.length === 0 && value.relationships.inherents.data.length > 0) {
+      if (this.currentTab === 'transactions' && value.relationships.transactions.data.length === 0 &&
+        value.relationships.inherents.data.length > 0) {
         this.currentTab = 'inherents';
       }
     });
@@ -89,6 +98,11 @@ export class BlockDetailComponent implements OnInit {
 
   goBack(): void {
     this.location.back();
+  }
+
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
 
 }

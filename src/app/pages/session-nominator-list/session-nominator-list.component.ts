@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import {DocumentCollection} from "ngx-jsonapi";
-import {SessionValidator} from "../../classes/session-validator.class";
-import {SessionValidatorService} from "../../services/session-validator.service";
-import {environment} from "../../../environments/environment";
-import {SessionNominator} from "../../classes/session-nominator.class";
-import {SessionNominatorService} from "../../services/session-nominator.service";
+import {Component, OnDestroy, OnInit} from '@angular/core';
+import {DocumentCollection} from 'ngx-jsonapi';
+import {SessionValidator} from '../../classes/session-validator.class';
+import {SessionValidatorService} from '../../services/session-validator.service';
+import {environment} from '../../../environments/environment';
+import {SessionNominator} from '../../classes/session-nominator.class';
+import {SessionNominatorService} from '../../services/session-nominator.service';
+import {Subscription} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-session-nominator-list',
   templateUrl: './session-nominator-list.component.html',
   styleUrls: ['./session-nominator-list.component.scss']
 })
-export class SessionNominatorListComponent implements OnInit {
+export class SessionNominatorListComponent implements OnInit, OnDestroy {
 
   public nominators: DocumentCollection<SessionNominator>;
 
@@ -21,8 +23,11 @@ export class SessionNominatorListComponent implements OnInit {
 
   currentPage = 1;
 
+  private fragmentSubsription: Subscription;
+
   constructor(
-    private sessionNominatorService: SessionNominatorService
+    private sessionNominatorService: SessionNominatorService,
+    private activatedRoute: ActivatedRoute
   ) {
 
   }
@@ -32,7 +37,14 @@ export class SessionNominatorListComponent implements OnInit {
     this.networkTokenDecimals = environment.networkTokenDecimals;
     this.networkTokenSymbol = environment.networkTokenSymbol;
 
-    this.getItems(this.currentPage);
+    this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
+      if (+value > 0) {
+        this.currentPage = +value;
+      } else {
+        this.currentPage = 1;
+      }
+      this.getItems(this.currentPage);
+    });
   }
 
   getItems(page: number): void {
@@ -47,13 +59,9 @@ export class SessionNominatorListComponent implements OnInit {
     });
   }
 
-  refreshItems(): void {
-    this.getItems(this.currentPage);
-  }
-
-  getNextItems(): void {
-    this.currentPage += 1;
-    this.refreshItems();
+  ngOnDestroy() {
+    // Will clear when component is destroyed e.g. route is navigated away from.
+    this.fragmentSubsription.unsubscribe();
   }
 
   public formatBalance(balance: number) {
