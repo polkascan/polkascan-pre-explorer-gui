@@ -21,7 +21,7 @@ export class AnalyticsSearchComponent implements OnInit {
 
   public networkURLPrefix: string;
   public loadingCount: number;
-  public skipLocationChange: boolean;
+  public replaceUrl: boolean;
 
   public account: Account;
   public accountIndex: AccountIndex;
@@ -42,14 +42,14 @@ export class AnalyticsSearchComponent implements OnInit {
     this.searchQuery = '';
     this.loadingCount = 0;
     this.networkURLPrefix = '';
-    this.skipLocationChange = false;
+    this.replaceUrl = false;
 
     if (this.route.snapshot.paramMap.get('query') !== null) {
       this.searchQuery = this.route.snapshot.paramMap.get('query');
-      this.skipLocationChange = true;
+      this.replaceUrl = true;
       this.search();
     } else {
-      this.skipLocationChange = false;
+      this.replaceUrl = false;
     }
   }
 
@@ -76,7 +76,7 @@ export class AnalyticsSearchComponent implements OnInit {
           if (this.extrinsic.attributes.extrinsic_hash) {
             this.router.navigate(
               [this.networkURLPrefix, 'transaction', '0x' + this.extrinsic.attributes.extrinsic_hash],
-              { skipLocationChange: this.skipLocationChange }
+              { replaceUrl: this.replaceUrl }
             );
           } else {
             this.router.navigate([this.networkURLPrefix, 'inherent', this.extrinsic.id]);
@@ -94,7 +94,7 @@ export class AnalyticsSearchComponent implements OnInit {
       }, () => {
         this.router.navigate(
           [this.networkURLPrefix, 'account', this.account.id],
-          { skipLocationChange: this.skipLocationChange }
+          { replaceUrl: this.replaceUrl }
           );
         this.loadingCount--;
       });
@@ -109,7 +109,7 @@ export class AnalyticsSearchComponent implements OnInit {
         }, () => {
           this.router.navigate(
             [this.networkURLPrefix, 'block', this.block.attributes.id],
-            { skipLocationChange: this.skipLocationChange }
+            { replaceUrl: this.replaceUrl }
             );
           this.loadingCount--;
         });
@@ -124,7 +124,7 @@ export class AnalyticsSearchComponent implements OnInit {
       }, () => {
         this.router.navigate(
           [this.networkURLPrefix, 'indices', 'account', this.accountIndex.id],
-          { skipLocationChange: this.skipLocationChange }
+          { replaceUrl: this.replaceUrl }
           );
         this.loadingCount--;
       });
