@@ -86,7 +86,7 @@ nav.navbar {
   margin-bottom: 0;
 }
 .events-card .card-table {
-  overflow-y: scroll;
+  overflow-x: scroll;
 }
 
 .network-alexander {
@@ -319,6 +319,15 @@ a {
     text-overflow: ellipsis;
     white-space: nowrap;
     max-width: 198px;
+    display: inline-block;
+    vertical-align: bottom;
+  }
+
+  .mobile-hash-format {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 132px;
     display: inline-block;
     vertical-align: bottom;
   }

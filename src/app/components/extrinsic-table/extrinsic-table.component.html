@@ -2,7 +2,7 @@
       <div *ngIf="extrinsic" class="card events-card">
         <header class="card-header">
             <div class="card-header-title" *ngIf="extrinsic.attributes.extrinsic_hash">
-                {{ title || 'Extrinsic'}} 0x{{ extrinsic.attributes.extrinsic_hash }}
+              <div>{{ title || 'Extrinsic'}} <span class="mobile-hash-format">0x{{ extrinsic.attributes.extrinsic_hash }}</span></div>
             </div>
           <div class="card-header-title" *ngIf="!extrinsic.attributes.extrinsic_hash">
                 {{ title || 'Extrinsic'}} #{{ extrinsic.id }}
@@ -28,7 +28,7 @@
                         </tr>
                         <tr *ngIf="extrinsic.attributes.extrinsic_hash">
                           <td width="15%">{{ title || 'Extrinsic'}} Hash</td>
-                          <td><a routerLink="{{ networkURLPrefix }}/transaction/0x{{ extrinsic.attributes.extrinsic_hash}}">0x{{ extrinsic.attributes.extrinsic_hash}}</a></td>
+                          <td><a routerLink="{{ networkURLPrefix }}/transaction/0x{{ extrinsic.attributes.extrinsic_hash}}" class="mobile-hash-format">0x{{ extrinsic.attributes.extrinsic_hash}}</a></td>
                         </tr>
                         <tr>
                           <td width="15%">Module</td>

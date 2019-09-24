@@ -23,19 +23,19 @@
                               </tr>
                               <tr>
                                   <td width="15%">Hash</td>
-                                  <td>{{block.attributes.hash}}</td>
+                                  <td><div class="mobile-hash-format">{{block.attributes.hash}}</div></td>
                               </tr>
                               <tr>
                                   <td>Parent hash</td>
-                                  <td><a *ngIf="block.id > 0" routerLink="{{ networkURLPrefix }}/block/{{ block.id - 1 }}">{{block.attributes.parent_hash}}</a></td>
+                                  <td><a *ngIf="block.id > 0" routerLink="{{ networkURLPrefix }}/block/{{ block.id - 1 }}" class="mobile-hash-format">{{block.attributes.parent_hash}}</a></td>
                               </tr>
                               <tr>
                                   <td>State Root</td>
-                                  <td >{{block.attributes.state_root}}</td>
+                                  <td><div class="mobile-hash-format">{{block.attributes.state_root}}</div></td>
                               </tr>
                               <tr>
                                   <td>Extrinsics Root</td>
-                                  <td >{{block.attributes.extrinsics_root}}</td>
+                                  <td><div class="mobile-hash-format">{{block.attributes.extrinsics_root}}</div></td>
                               </tr>
                               <tr>
                                   <td>Total extrinsics</td>
