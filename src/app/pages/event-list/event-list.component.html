@@ -5,7 +5,7 @@
             <div class="card ">
                 <header class="card-header">
                     <div class="card-header-title">
-                        <p>Events</p>
+                        <p>{{ 'Event-list.Events' | translate }}</p>
 
                     </div>
 
@@ -15,7 +15,7 @@
                           <div class="control is-expanded has-icons-left">
                             <div class="select is-fullwidth">
                               <select name="country" [(ngModel)]="filterModule" (ngModelChange)="selectModule($event)">
-                                <option [ngValue]="null">All modules</option>
+                                <option [ngValue]="null">{{ 'Event-list.All modules' | translate }}</option>
                                 <option *ngFor="let module of runtimeModules.data" [ngValue]="module">{{module.attributes.name}}</option>
                               </select>
                             </div>
@@ -26,7 +26,7 @@
                           <div class="control is-expanded has-icons-left">
                             <div class="select is-fullwidth">
                               <select name="country" [(ngModel)]="filterEvent" [disabled]="!runtimeEvents">
-                                <option [ngValue]="null">All events</option>
+                                <option [ngValue]="null">{{ 'Event-list.All events' | translate }}</option>
                                 <ng-container *ngIf="runtimeEvents">
                                 <option *ngFor="let event of runtimeEvents.data" [ngValue]="event">{{ event.attributes.name }}</option>
                                 </ng-container>
@@ -37,7 +37,7 @@
                             </span>
                           </div>
                           <div class="control">
-                            <button type="submit" class="button" (click)="applyFilters()">Filter</button>
+                            <button type="submit" class="button" (click)="applyFilters()">{{ 'Event-list.Filter' | translate }}</button>
                           </div>
                         </div>
                       </div>
@@ -55,10 +55,10 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Event ID</th>
-                                <th class="is-hidden-mobile">Block</th>
-                                <th>Module</th>
-                                <th>Event</th>
+                                <th>{{ 'Event-list.Event ID' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'Event-list.Block' | translate }}</th>
+                                <th>{{ 'Event-list.Module' | translate }}</th>
+                                <th>{{ 'Event-list.Event' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -71,15 +71,15 @@
                                     <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
                                     <td>{{ event.attributes.module_id }}</td>
                                     <td>{{ event.attributes.event_id }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/event/{{ event.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/event/{{ event.id }}">{{ 'Event-list.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="events && events.data.length == 0 && !events.is_loading">No items</div>
+                        <div class="no-items" *ngIf="events && events.data.length == 0 && !events.is_loading">{{ 'Event-list.No items' | translate }}</div>
                     </div>
                 </div>
                  <footer class="card-footer" *ngIf="events && events.data.length > 0">
-                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">{{ 'Event-list.View next' | translate }}</a>
                 </footer>
             </div>
         </section>

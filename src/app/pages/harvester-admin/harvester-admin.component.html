@@ -9,7 +9,7 @@
                             <i class="fa fa-cube fa-2x"></i>
                         </span>
                         <p class="title" *ngIf="networkstats$ | async as networkstats">{{ networkstats.attributes.best_block| number: '1.'}}</p>
-                        <p class="subtitle">Harvester Head</p>
+                        <p class="subtitle">{{ 'Harvester-admin.Harvester Head' | translate }}</p>
                     </article>
                 </div>
                 <div class="tile is-parent is-2-tablet">
@@ -18,7 +18,7 @@
                             <i class="fa fa-cubes fa-2x"></i>
                         </span>
                         <p *ngIf="networkstats$ | async as networkstats" class="title">{{ networkstats.attributes.total_blocks | number: '1.'}}</p>
-                        <p class="subtitle">Blocks harvested</p>
+                        <p class="subtitle">{{ 'Harvester-admin.Blocks harvested' | translate }}</p>
                     </article>
                 </div>
                 <div class="tile is-parent is-2-tablet">
@@ -27,7 +27,7 @@
                             <i class="fa fa-percentage fa-2x"></i>
                         </span>
                         <p class="title" *ngIf="networkstats$ | async as networkstats">{{ ((networkstats.attributes.total_blocks / (networkstats.attributes.best_block + 1)) * 100) | number: '1.2'}}</p>
-                        <p class="subtitle">Progress</p>
+                        <p class="subtitle">{{ 'Harvester-admin.Progress' | translate }}</p>
                     </article>
                 </div>
                 <div class="tile is-parent is-2-tablet">
@@ -35,8 +35,8 @@
                         <span class="icon">
                             <i class="fa fa-cogs fa-2x"></i>
                         </span>
-                        <p class="title">Running</p>
-                        <p class="subtitle"><button (click)="startHarvester()" class="button is-primary">Start</button></p>
+                        <p class="title">{{ 'Harvester-admin.Running' | translate }}</p>
+                        <p class="subtitle"><button (click)="startHarvester()" class="button is-primary">{{ 'Harvester-admin.Start' | translate }}</button></p>
                     </article>
                 </div>
             </div>
@@ -50,7 +50,7 @@
                 <div class="card events-card">
                     <header class="card-header">
                         <p class="card-header-title">
-                            Harvester queue
+                            {{ 'Harvester-admin.Harvester queue' | translate }}
                         </p>
 
                     </header>
@@ -59,8 +59,8 @@
                             <table class="table is-fullwidth is-striped">
                                 <thead>
                                   <th></th>
-                                  <th>From</th>
-                                  <th>To</th>
+                                  <th>{{ 'Harvester-admin.From' | translate }}</th>
+                                  <th>{{ 'Harvester-admin.To' | translate }}</th>
                                 <th></th>
                                 </thead>
                                 <tbody>

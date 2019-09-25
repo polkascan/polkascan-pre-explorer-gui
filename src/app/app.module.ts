@@ -21,8 +21,22 @@
  */
 
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { LOCALE_ID, NgModule } from '@angular/core';
+import { TranslateCompiler, TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateMessageFormatCompiler } from 'ngx-translate-messageformat-compiler';
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr';
+import localeDe from '@angular/common/locales/de';
+import localeEs from '@angular/common/locales/es';
+import localeIt from '@angular/common/locales/it';
+import localeJa from '@angular/common/locales/ja';
+import localeKo from '@angular/common/locales/ko';
+import localeRu from '@angular/common/locales/ru';
+import localeUk from '@angular/common/locales/uk';
+import localeZh from '@angular/common/locales/zh';
+
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NgxJsonapiModule } from 'ngx-jsonapi';
@@ -157,6 +171,17 @@ export class MyClock extends TimeagoClock {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      },
+      compiler: {
+        provide: TranslateCompiler,
+        useClass: TranslateMessageFormatCompiler
+      }
+    }),
     FormsModule,
     NgxJsonapiModule.forRoot({
         url: environment.jsonApiRootUrl
@@ -169,3 +194,8 @@ export class MyClock extends TimeagoClock {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}

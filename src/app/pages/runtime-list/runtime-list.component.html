@@ -5,7 +5,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Runtimes
+                        {{ 'runtime-list.Runtimes' | translate }}
                     </p>
                     <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -20,9 +20,9 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Spec ID</th>
-                                <th>Name</th>
-                                <th>Spec version</th>
+                                <th>{{ 'runtime-list.Spec ID' | translate }}</th>
+                                <th>{{ 'runtime-list.Name' | translate }}</th>
+                                <th>{{ 'runtime-list.Spec version' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -32,7 +32,7 @@
                                     <td width="10%"><a routerLink="{{ networkURLPrefix }}/runtime/{{ runtime.id }}">{{ runtime.id }}</a></td>
                                     <td>{{ runtime.attributes.impl_name }}</td>
                                     <td>{{ runtime.attributes.spec_version }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime/{{ runtime.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime/{{ runtime.id }}">{{ 'runtime-list.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>

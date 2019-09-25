@@ -5,7 +5,7 @@
           <div class="card events-card">
               <header class="card-header">
                   <p class="card-header-title">
-                      Democracy referendum #{{ referendum.attributes.id }}
+                      {{ 'Democracy-referendum-detail.Democracy referendum' | translate }} #{{ referendum.attributes.id }}
                   </p>
                   <a  class="card-header-icon" aria-label="more options">
                  <span class="icon"><i class="fa fa-person-booth fa-2x"></i></span>
@@ -16,37 +16,37 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                               <tr>
-                                <td width="20%">Created at block</td>
+                                <td width="20%">{{ 'Democracy-referendum-detail.Created at block' | translate }}</td>
                                 <td><a routerLink="/block/{{ referendum.attributes.created_at_block }}">{{ referendum.attributes.created_at_block }}</a></td>
                               </tr>
                               <tr>
-                                <td width="20%">Updated at block</td>
+                                <td width="20%">{{ 'Democracy-referendum-detail.Updated at block' | translate }}</td>
                                 <td><a routerLink="/block/{{ referendum.attributes.updated_at_block }}">{{ referendum.attributes.updated_at_block }}</a></td>
                               </tr>
                               <ng-container *ngIf="referendum.attributes.proposal">
                                 <tr>
-                                  <td>Delay</td>
+                                  <td>{{ 'Democracy-referendum-detail.Delay' | translate }}</td>
                                   <td>{{ referendum.attributes.proposal.delay }}</td>
                                 </tr>
                                 <tr>
-                                  <td>End</td>
+                                  <td>{{ 'Democracy-referendum-detail.End' | translate }}</td>
                                   <td><a routerLink="{{ networkURLPrefix }}/block/{{ referendum.attributes.proposal.end }}">{{ referendum.attributes.proposal.end }}</a></td>
                                 </tr>
                               </ng-container>
                               <tr>
-                                <td width="20%">Vote Threshold</td>
+                                <td width="20%">{{ 'Democracy-referendum-detail.Vote Threshold' | translate }}</td>
                                 <td>
                                   {{ referendum.attributes.vote_threshold }}
                                 </td>
                               </tr>
                               <tr>
-                                <td width="20%">Status</td>
+                                <td width="20%">{{ 'Democracy-referendum-detail.Status' | translate }}</td>
                                 <td>
                                   {{ referendum.attributes.status }}
                                 </td>
                               </tr>
                               <tr>
-                                <td width="15%">Result</td>
+                                <td width="15%">{{ 'Democracy-referendum-detail.Result' | translate }}</td>
                                 <td>
                                   <i *ngIf="referendum.attributes.success === true" class="fa fa-check" style="color: forestgreen"></i>
                                   <i *ngIf="referendum.attributes.success === false" class="fa fa-times" style="color: darkred"></i>
@@ -65,13 +65,13 @@
                 <li [ngClass]="{'is-active': currentTab == 'proposal'}">
                   <a routerLink="." fragment="proposal">
                     <span class="icon is-small"><i class="fas fa-poll" aria-hidden="true"></i></span>
-                    <span>Proposal</span>
+                    <span>{{ 'Democracy-referendum-detail.Proposal' | translate }}</span>
                   </a>
                 </li>
                 <li [ngClass]="{'is-active': currentTab == 'votes'}">
                   <a routerLink="." fragment="votes">
                     <span class="icon is-small"><i class="fas fa-vote-yea" aria-hidden="true"></i></span>
-                    <span>Votes</span>
+                    <span>{{ 'Democracy-referendum-detail.Votes' | translate }}</span>
                   </a>
                 </li>
               </ul>
@@ -93,10 +93,10 @@
                          <thead>
                           <tr>
                             <th></th>
-                            <th>Account</th>
-                            <th class="is-hidden-mobile">Stash</th>
-                            <th>Vote</th>
-                            <th class="is-hidden-mobile">Block</th>
+                            <th>{{ 'Democracy-referendum-detail.Account' | translate }}</th>
+                            <th class="is-hidden-mobile">{{ 'Democracy-referendum-detail.Stash' | translate }}</th>
+                            <th>{{ 'Democracy-referendum-detail.Vote' | translate }}</th>
+                            <th class="is-hidden-mobile">{{ 'Democracy-referendum-detail.Block' | translate }}</th>
                             <th></th>
                           </tr>
                         </thead>

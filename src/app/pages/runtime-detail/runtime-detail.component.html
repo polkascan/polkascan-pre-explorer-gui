@@ -7,7 +7,7 @@
           <div class="card events-card">
               <header class="card-header">
                   <p class="card-header-title">
-                      Runtime #{{ runtime.id }}
+                      {{ 'runtime-detail.Runtime' | translate }} #{{ runtime.id }}
                   </p>
                   <a  class="card-header-icon" aria-label="more options">
                  <span class="icon"><i class="fa fa-cogs fa-2x"></i></span>
@@ -18,11 +18,11 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                               <tr>
-                                  <td width="20%">Name</td>
+                                  <td width="20%">{{ 'runtime-detail.Name' | translate }}</td>
                                   <td >{{runtime.attributes.impl_name}}</td>
                               </tr>
                               <tr>
-                                  <td>Spec version</td>
+                                  <td>{{ 'runtime-detail.Spec version' | translate }}</td>
                                   <td >{{runtime.attributes.spec_version}}</td>
                               </tr>
                           </tbody>
@@ -35,7 +35,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Modules
+                        {{ 'runtime-detail.Modules' | translate }}
                     </p>
                     <a [routerLink]="" fragment="modules" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -50,10 +50,10 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Name</th>
-                                <th class="is-hidden-mobile">Call Functions</th>
-                                <th class="is-hidden-mobile">Events</th>
-                                <th class="is-hidden-mobile">Storage Functions</th>
+                                <th>{{ 'runtime-detail.Name' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-detail.Call Functions' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-detail.Events' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-detail.Storage Functions' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -79,7 +79,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Types
+                        {{ 'runtime-detail.Types' | translate }}
                     </p>
                     <a [routerLink]="" fragment="types" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -94,8 +94,8 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Type string</th>
-                                <th class="is-hidden-mobile">Compatible with Polkascan</th>
+                                <th>{{ 'runtime-detail.Type string' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-detail.Compatible with Polkascan' | translate }}</th>
                               </tr>
                             </thead>
                             <tbody>

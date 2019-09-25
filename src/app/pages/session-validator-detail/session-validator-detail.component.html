@@ -5,7 +5,7 @@
           <div class="card events-card">
               <header class="card-header">
                   <p class="card-header-title">
-                      Validator {{ validator.attributes.validator_stash }} for session #{{validator.attributes.session_id  }}
+                      {{ 'session-validator-detail.Validator' | translate }} {{ validator.attributes.validator_stash }} {{ 'session-validator-detail.for session' | translate }} #{{validator.attributes.session_id  }}
                   </p>
                   <a [routerLink]="" fragment="details" class="card-header-icon" aria-label="more options">
                  <span class="icon"><i class="fa fa-user-shield fa-2x"></i></span>
@@ -16,39 +16,39 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                             <tr>
-                              <td width="20%">Stash account</td>
+                              <td width="20%">{{ 'session-validator-detail.Stash account' | translate }}</td>
                               <td><a routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator_stash }}" class="address-mobile-format"><app-identicon [accountId]="validator.attributes.validator_stash_id"></app-identicon> {{ validator.attributes.validator_stash }}</a></td>
                             </tr>
                             <tr>
-                              <td width="20%">Controller account</td>
+                              <td width="20%">{{ 'session-validator-detail.Controller account' | translate }}</td>
                               <td><a routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator_controller }}" class="address-mobile-format"><app-identicon [accountId]="validator.attributes.validator_controller_id"></app-identicon> {{ validator.attributes.validator_controller }}</a></td>
                             </tr>
                             <tr>
-                              <td width="20%">Session account</td>
+                              <td width="20%">{{ 'session-validator-detail.Session account' | translate }}</td>
                               <td><a routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator_session }}" class="address-mobile-format"><app-identicon [accountId]="validator.attributes.validator_session_id"></app-identicon> {{ validator.attributes.validator_session }}</a></td>
                             </tr>
                             <tr>
-                              <td width="20%">Bonded Total</td>
+                              <td width="20%">{{ 'session-validator-detail.Bonded Total' | translate }}</td>
                               <td>{{ formatBalance(validator.attributes.bonded_total) | number:'1.0-15'}} {{ networkTokenSymbol }}</td>
                             </tr>
                             <tr>
-                              <td width="20%">Bonded own stash</td>
+                              <td width="20%">{{ 'session-validator-detail.Bonded own stash' | translate }}</td>
                               <td>{{ formatBalance(validator.attributes.bonded_own) | number:'1.0-15'}} {{ networkTokenSymbol }}</td>
                             </tr>
                             <tr>
-                              <td width="20%">Additional bonded by nominators</td>
+                              <td width="20%">{{ 'session-validator-detail.Additional bonded by nominators' | translate }}</td>
                               <td>{{ formatBalance(validator.attributes.bonded_nominators) | number:'1.0-15'}} {{ networkTokenSymbol }}</td>
                             </tr>
                             <tr>
-                              <td width="20%"># nominators</td>
+                              <td width="20%"># {{ 'session-validator-detail.nominators' | translate }}</td>
                               <td>{{ validator.attributes.count_nominators }}</td>
                             </tr>
                             <tr>
-                              <td width="20%">Commission</td>
+                              <td width="20%">{{ 'session-validator-detail.Commission' | translate }}</td>
                               <td>{{ validator.attributes.commission }}</td>
                             </tr>
                             <tr>
-                              <td width="20%">Unstake threshold</td>
+                              <td width="20%">{{ 'session-validator-detail.Unstake threshold' | translate }}</td>
                               <td>{{ validator.attributes.unstake_threshold }}</td>
                             </tr>
                           </tbody>
@@ -61,7 +61,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Nominators
+                        {{ 'session-validator-detail.Nominators' | translate }}
                     </p>
                     <a [routerLink]="" fragment="nominators" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -75,8 +75,8 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Address</th>
-                                <th>Bonded</th>
+                                <th>{{ 'session-validator-detail.Address' | translate }}</th>
+                                <th>{{ 'session-validator-detail.Bonded' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -90,7 +90,7 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="validator.relationships.nominators.data.length == 0">No nominators for this validator</div>
+                        <div class="no-items" *ngIf="validator.relationships.nominators.data.length == 0">{{ 'session-validator-detail.No nominators for this validator' | translate }}</div>
                     </div>
                 </div>
             </div>

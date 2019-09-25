@@ -5,7 +5,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Contracts
+                        {{ 'Contract-List.Contracts' | translate }}
                     </p>
                     <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -20,9 +20,9 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Code Hash</th>
-                                <th class="is-hidden-mobile">Block</th>
-                                <th>Verified</th>
+                                <th>{{ 'Contract-List.Code Hash' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'Contract-List.Block' | translate }}</th>
+                                <th>{{ 'Contract-List.Verified' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -37,15 +37,15 @@
                                       <i *ngIf="contract.attributes.source" class="fa fa-check" style="color: forestgreen"></i>
                                       <i *ngIf="!contract.attributes.source" class="fa fa-times" style="color: darkred"></i>
                                     </td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="/contracts/contract/{{ contract.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="/contracts/contract/{{ contract.id }}">{{ 'Contract-List.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="contracts.data.length == 0 && !contracts.is_loading">No items</div>
+                        <div class="no-items" *ngIf="contracts.data.length == 0 && !contracts.is_loading">{{ 'Contract-List.No items' | translate }}</div>
                     </div>
                 </div>
                 <footer class="card-footer" *ngIf="contracts && contracts.data.length > 0">
-                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">{{ 'Contract-List.View next' | translate }}</a>
                 </footer>
             </div>
         </section>

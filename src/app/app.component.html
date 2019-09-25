@@ -23,111 +23,128 @@
               <div class="navbar-start">
                   <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                     <a class="navbar-link">
-                      Chain
+                      {{ 'NavBar.Chain' | translate }}
                     </a>
                     <div class="navbar-dropdown" (click)="toggleSubmenus()">
                       <a class="navbar-item" routerLink="/block">
-                        Blocks
+                        {{ 'NavBar.item_Blocks' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/transaction">
-                        Transactions
+                        {{ 'NavBar.item_Transactions' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/inherent">
-                        Inherents
+                        {{ 'NavBar.item_Inherents' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/event">
-                        Events
+                        {{ 'NavBar.item_Events' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/log">
-                        Logs
+                        {{ 'NavBar.item_Logs' | translate }}
                       </a>
                     </div>
                   </div>
 
                   <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                     <a class="navbar-link">
-                      Accounts
+                      {{ 'NavBar.Accounts' | translate }}
                     </a>
                     <div class="navbar-dropdown" (click)="toggleSubmenus()">
                       <a class="navbar-item" routerLink="/account">
-                        Accounts
+                        {{ 'NavBar.item_Accounts' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/indices/account">
-                        Indices
+                        {{ 'NavBar.item_Indices' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/balances/transfer">
-                        Transfers
+                        {{ 'NavBar.item_Transfers' | translate }}
                       </a>
                       <hr class="navbar-divider">
                       <a class="navbar-item" routerLink="/contracts/contract">
-                        Contracts
+                        {{ 'NavBar.item_Contracts' | translate }}
                       </a>
                     </div>
                   </div>
 
                   <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                     <a class="navbar-link">
-                      Staking
+                      {{ 'NavBar.Staking' | translate }}
                     </a>
                     <div class="navbar-dropdown" (click)="toggleSubmenus()">
                        <a class="navbar-item" routerLink="/session/session">
-                        Sessions
+                        {{ 'NavBar.item_Sessions' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/session/validator">
-                        Validators
+                        {{ 'NavBar.item_Validators' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/session/nominator">
-                        Nominators
+                        {{ 'NavBar.item_Nominators' | translate }}
                       </a>
                     </div>
                   </div>
 
                   <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                     <a class="navbar-link">
-                      Governance
+                      {{ 'NavBar.Governance' | translate }}
                     </a>
                     <div class="navbar-dropdown" (click)="toggleSubmenus()">
                        <a class="navbar-item" routerLink="/democracy/proposal">
-                        Proposals
+                        {{ 'NavBar.item_Proposals' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/democracy/referendum">
-                        Referenda
+                        {{ 'NavBar.item_Referenda' | translate }}
                       </a>
                     </div>
                   </div>
 
                   <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                     <a class="navbar-link">
-                      Analytics
+                        {{ 'NavBar.Analytics' | translate }}
                     </a>
                     <div class="navbar-dropdown" (click)="toggleSubmenus()">
                        <a class="navbar-item" routerLink="/analytics/search">
-                        Search
+                           {{ 'NavBar.item_Search' | translate }}
                       </a>
                     </div>
                   </div>
 
                   <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                     <a class="navbar-link">
-                      Runtime
+                        {{ 'NavBar.Runtime' | translate }}
                     </a>
                     <div class="navbar-dropdown" (click)="toggleSubmenus()">
                       <a class="navbar-item" routerLink="/runtime-module">
-                        Modules
+                        {{ 'NavBar.item_Modules' | translate }}
                       </a>
                       <a class="navbar-item" routerLink="/runtime-type">
-                        Types
+                        {{ 'NavBar.item_Types' | translate }}
                       </a>
                       <hr class="navbar-divider">
                       <a class="navbar-item" routerLink="/runtime">
-                        Upgrade history
+                        {{ 'NavBar.item_Upgrade_history' | translate }}
                       </a>
                     </div>
                   </div>
               </div>
 
+              <div class="navbar-end">
+                <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
+                    <a class="navbar-link">
+                      <img class="locale-flag" src="./assets/i18n/flags/{{selectedLanguage}}.png" width="20" height="20" margin-right=20> {{ langsTitle(selectedLanguage) }}
+                    </a>
+                    <div class="navbar-dropdown" (click)="toggleSubmenus()">
+                      <ul *ngFor="let lang of langs">
+                        <li>
+                          <a class="navbar-item" (click)="selectedLanguage = lang; translate.use(lang)">
+                            <img class="locale-flag" src="./assets/i18n/flags/{{lang}}.png" width="20" height="20" margin-right=20> {{ langsTitle(lang) }}
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+              </div>
+
           </div>
-      </div>
+        </div>
   </nav>
   <!-- END NAV -->
   <div class="container" >

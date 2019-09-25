@@ -7,7 +7,7 @@
           <div class="card events-card">
               <header class="card-header">
                   <p class="card-header-title">
-                      Event "{{ runtimeEvent.attributes.name }}"
+                      {{ 'runtime-event-detail.Event' | translate }} "{{ runtimeEvent.attributes.name }}"
                   </p>
                   <a  class="card-header-icon" aria-label="more options">
                  <span class="icon"><i class="fa fa-calendar-check fa-2x"></i></span>
@@ -18,23 +18,23 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                               <tr>
-                                  <td width="20%">Name</td>
+                                  <td width="20%">{{ 'runtime-event-detail.Name' | translate }}</td>
                                   <td >{{ runtimeEvent.attributes.name }}</td>
                               </tr>
                               <tr>
-                                  <td>Module</td>
+                                  <td>{{ 'runtime-event-detail.Module' | translate }}</td>
                                   <td >{{ runtimeEvent.attributes.module_id }}</td>
                               </tr>
                               <tr>
-                                  <td>Spec version</td>
+                                  <td>{{ 'runtime-event-detail.Spec version' | translate }}</td>
                                   <td >{{ runtimeEvent.attributes.spec_version }}</td>
                               </tr>
                               <tr>
-                                  <td>Lookup</td>
+                                  <td>{{ 'runtime-event-detail.Lookup' | translate }}</td>
                                   <td >{{ runtimeEvent.attributes.lookup }}</td>
                               </tr>
                               <tr>
-                                  <td>Documentation</td>
+                                  <td>{{ 'runtime-event-detail.Documentation' | translate }}</td>
                                   <td>{{ runtimeEvent.attributes.documentation }}</td>
                               </tr>
                           </tbody>
@@ -47,7 +47,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Attributes
+                        {{ 'runtime-event-detail.Attributes' | translate }}
                     </p>
                     <a [routerLink]="" fragment="event-attributes" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -61,7 +61,7 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Type</th>
+                                <th>{{ 'runtime-event-detail.Type' | translate }}</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -81,7 +81,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Recent "{{ runtimeEvent.attributes.name }}" events
+                        {{ 'runtime-event-detail.Recent' | translate }} "{{ runtimeEvent.attributes.name }}" {{ 'runtime-event-detail.events' | translate }}
                     </p>
 
                 </header>
@@ -91,8 +91,8 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>ID</th>
-                                <th>Block</th>
+                                <th>{{ 'runtime-event-detail.ID' | translate }}</th>
+                                <th>{{ 'runtime-event-detail.Block' | translate }}</th>
                               </tr>
                             </thead>
                             <tbody>

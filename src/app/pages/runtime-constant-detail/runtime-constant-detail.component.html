@@ -7,7 +7,7 @@
           <div class="card">
               <header class="card-header">
                   <p class="card-header-title">
-                      Constant "{{ runtimeConstant.attributes.name }}"
+                      {{ 'runtime-constant-detail.Constant' | translate }} "{{ runtimeConstant.attributes.name }}"
                   </p>
                   <a  class="card-header-icon" aria-label="more options">
                  <span class="icon"><i class="fa fa-memory fa-2x"></i></span>
@@ -18,23 +18,23 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                               <tr>
-                                  <td width="20%">Name</td>
+                                  <td width="20%">{{ 'runtime-constant-detail.Name' | translate }}</td>
                                   <td >{{runtimeConstant.attributes.name}}</td>
                               </tr>
                               <tr>
-                                  <td>Module</td>
+                                  <td>{{ 'runtime-constant-detail.Module' | translate }}</td>
                                   <td >{{runtimeConstant.attributes.module_id}}</td>
                               </tr>
                               <tr>
-                                  <td>Spec version</td>
+                                  <td>{{ 'runtime-constant-detail.Spec version' | translate }}</td>
                                   <td >{{runtimeConstant.attributes.spec_version}}</td>
                               </tr>
                               <tr>
-                                  <td>Type</td>
+                                  <td>{{ 'runtime-constant-detail.Type' | translate }}</td>
                                   <td >{{runtimeConstant.attributes.type}}</td>
                               </tr>
                               <tr>
-                                  <td>Value</td>
+                                  <td>{{ 'runtime-constant-detail.Value' | translate }}</td>
                                   <td [ngSwitch]="runtimeConstant.attributes.type">
                                   <div *ngSwitchCase="'Address'"><a routerLink="/account/{{ runtimeConstant.attributes.value }}" class="address-mobile-format"><app-identicon [accountId]="runtimeConstant.attributes.value"></app-identicon>{{ runtimeConstant.attributes.value }}</a></div>
                                   <div *ngSwitchCase="'Balance'">{{ formatBalance(runtimeConstant.attributes.value) | number}} {{ networkTokenSymbol }}</div>
@@ -43,7 +43,7 @@
                                 </td>
                               </tr>
                               <tr>
-                                  <td>Documentation</td>
+                                  <td>{{ 'runtime-constant-detail.Documentation' | translate }}</td>
                                   <td>{{runtimeConstant.attributes.documentation }}</td>
                               </tr>
                           </tbody>

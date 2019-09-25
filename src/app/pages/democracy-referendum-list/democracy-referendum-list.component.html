@@ -5,7 +5,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Democracy Referenda
+                        {{ 'Democracy-referendum-list.Democracy Referenda' | translate }}
                     </p>
                     <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -20,11 +20,11 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Referendum ID</th>
-                                <th class="is-hidden-mobile">Created at Block</th>
-                                <th>Vote Threshold</th>
-                                <th>Status</th>
-                                <th>Success</th>
+                                <th>{{ 'Democracy-referendum-list.Referendum ID' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'Democracy-referendum-list.Created at Block' | translate }}</th>
+                                <th>{{ 'Democracy-referendum-list.Vote Threshold' | translate }}</th>
+                                <th>{{ 'Democracy-referendum-list.Status' | translate }}</th>
+                                <th>{{ 'Democracy-referendum-list.Success' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -45,15 +45,15 @@
                                       <i *ngIf="referendum.attributes.success === true" class="fa fa-check" style="color: forestgreen"></i>
                                       <i *ngIf="referendum.attributes.success === false" class="fa fa-times" style="color: darkred"></i>
                                     </td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/democracy/referendum/{{ referendum.attributes.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/democracy/referendum/{{ referendum.attributes.id }}">{{ 'Democracy-referendum-list.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="referenda?.data.length == 0 && !referenda.is_loading">No items</div>
+                        <div class="no-items" *ngIf="referenda?.data.length == 0 && !referenda.is_loading">{{ 'Democracy-referendum-list.No items' | translate }}</div>
                     </div>
                 </div>
                 <footer class="card-footer" *ngIf="referenda?.data.length > 0">
-                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">{{ 'Democracy-referendum-list.View next' | translate }}</a>
                 </footer>
             </div>
         </section>

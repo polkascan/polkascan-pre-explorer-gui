@@ -5,7 +5,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Logs
+                        {{ 'Log-list.Logs' | translate }}
                     </p>
                     <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -20,9 +20,9 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Log ID</th>
-                                <th class="is-hidden-mobile">Block</th>
-                                <th>Type</th>
+                                <th>{{ 'Log-list.Log ID' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'Log-list.Block' | translate }}</th>
+                                <th>{{ 'Log-list.Type' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -34,15 +34,15 @@
                                     <td><a routerLink="{{ networkURLPrefix }}/log/{{ log.id }}">{{ log.id }}</a></td>
                                     <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ log.attributes.block_id }}">{{ log.attributes.block_id }}</a></td>
                                     <td>{{ log.attributes.type }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/log/{{ log.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/log/{{ log.id }}">{{ 'Log-list.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="logs && logs.data.length == 0 && !logs.is_loading">No items</div>
+                        <div class="no-items" *ngIf="logs && logs.data.length == 0 && !logs.is_loading">{{ 'Log-list.No items' | translate }}</div>
                     </div>
                 </div>
                 <footer class="card-footer" *ngIf="logs && logs.data.length > 0">
-                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">{{ 'Log-list.View next' | translate }}</a>
                 </footer>
             </div>
         </section>

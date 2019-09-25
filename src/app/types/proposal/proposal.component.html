@@ -1,15 +1,15 @@
 <table class="table is-striped" *ngIf="proposal">
   <tbody>
     <tr>
-      <td>Module</td>
+      <td>{{ 'Proposal.Module' | translate }}</td>
       <td>{{ proposal.call_module }}</td>
     </tr>
     <tr>
-      <td>Call</td>
+      <td>{{ 'Proposal.Call' | translate }}</td>
       <td>{{ proposal.call_name }}</td>
     </tr>
     <tr>
-      <td>Parameters</td>
+      <td>{{ 'Proposal.Parameters' | translate }}</td>
       <td>
         <app-struct
           [struct]="proposal.params"

@@ -7,7 +7,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Runtime Types
+                        {{ 'runtime-type-list.Runtime Types' | translate }}
                     </p>
                      <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -22,8 +22,8 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Type string</th>
-                                <th class="is-hidden-mobile">Compatible with Polkascan</th>
+                                <th>{{ 'runtime-type-list.Type string' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-type-list.Compatible with Polkascan' | translate }}</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -42,7 +42,7 @@
                     </div>
                 </div>
                 <footer class="card-footer" *ngIf="types && types.data.length > 0">
-                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">{{ 'Global.View next' | translate }}</a>
                 </footer>
             </div>
         </section>

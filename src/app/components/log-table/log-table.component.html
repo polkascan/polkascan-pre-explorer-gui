@@ -1,7 +1,7 @@
     <div *ngIf="log" class="card events-card">
         <header class="card-header">
             <div class="card-header-title">
-               Log #{{ log.id }}
+               {{ 'log-table.Log' | translate }} #{{ log.id }}
             </div>
             <a class="card-header-icon" aria-label="more options">
             <span class="icon">
@@ -14,19 +14,19 @@
                 <table class="table is-fullwidth is-striped">
                     <tbody>
                         <tr *ngIf="context != 'block'">
-                          <td width="15%">Block</td>
+                          <td width="15%">{{ 'log-table.Block' | translate }}</td>
                           <td><a routerLink="/block/{{ log.attributes.block_id }}">{{ log.attributes.block_id }}</a></td>
                         </tr>
                         <tr>
-                          <td width="15%">Log Index</td>
+                          <td width="15%">{{ 'log-table.Log Index' | translate }}</td>
                           <td>{{ log.attributes.log_idx }}</td>
                         </tr>
                         <tr>
-                          <td width="15%">Type</td>
+                          <td width="15%">{{ 'log-table.Type' | translate }}</td>
                           <td>{{ log.attributes.type }}</td>
                         </tr>
                         <tr *ngIf="log.attributes.data">
-                          <td width="15%">Data</td>
+                          <td width="15%">{{ 'log-table.Data' | translate }}</td>
                           <td>
                             <app-struct
                               [struct]="log.attributes.data.value"

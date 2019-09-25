@@ -5,7 +5,7 @@
           <div class="card events-card">
               <header class="card-header">
                   <p class="card-header-title">
-                      Contract "{{ contract.id }}"
+                      {{ 'Contract-Detail.Contract' | translate }} "{{ contract.id }}"
                   </p>
                   <a  class="card-header-icon" aria-label="more options">
                  <span class="icon"><i class="fa fa-file-contract fa-2x"></i></span>
@@ -16,11 +16,11 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                               <tr>
-                                <td width="20%">Created at block</td>
+                                <td width="20%">{{ 'Contract-Detail.Created at block' | translate }}</td>
                                 <td><a routerLink="/block/{{ contract.attributes.created_at_block }}">{{ contract.attributes.created_at_block }}</a></td>
                               </tr>
                               <tr>
-                                <td width="20%">Verified source</td>
+                                <td width="20%">{{ 'Contract-Detail.Verified source' | translate }}</td>
                                 <td>
                                   <pre *ngIf="contract.attributes.source">{{ contract.attributes.source }}</pre>
                                   <i *ngIf="!contract.attributes.source" class="fa fa-times" style="color: darkred"></i>

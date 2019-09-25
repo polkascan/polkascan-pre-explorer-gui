@@ -5,7 +5,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Validators for current session
+                        {{ 'session-validator-list.Validators for current session' | translate }}
                     </p>
                     <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -20,8 +20,8 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Address</th>
-                                <th>Total bonded</th>
+                                <th>{{ 'session-validator-list.Address' | translate }}</th>
+                                <th>{{ 'session-validator-list.Total bonded' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -32,15 +32,15 @@
                                     </td>
                                     <td><a routerLink="{{ networkURLPrefix }}/account/{{ validator.attributes.validator_stash }}" class="address-mobile-format"><app-identicon [accountId]="validator.attributes.validator_stash_id"></app-identicon> {{ validator.attributes.validator_stash }}</a></td>
                                     <td>{{ formatBalance(validator.attributes.bonded_total) | number:'1.0-15'}} {{ networkTokenSymbol }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/session/validator/{{ validator.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/session/validator/{{ validator.id }}">{{ 'session-validator-list.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="validators && validators.data.length == 0 && !validators.is_loading">No items</div>
+                        <div class="no-items" *ngIf="validators && validators.data.length == 0 && !validators.is_loading">{{ 'session-validator-list.No items' | translate }}</div>
                     </div>
                 </div>
                 <footer class="card-footer" *ngIf="validators && validators.data.length > 0">
-                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">View next</a>
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">{{ 'Global.View next' | translate }}</a>
                 </footer>
             </div>
         </section>
