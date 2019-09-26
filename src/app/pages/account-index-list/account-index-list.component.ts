@@ -1,9 +1,9 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {DocumentCollection} from 'ngx-jsonapi';
-import {AccountIndexService} from '../../services/account-index.service';
-import {AccountIndex} from '../../classes/account-index.class';
-import {Subscription} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DocumentCollection } from 'ngx-jsonapi';
+import { AccountIndexService } from '../../services/account-index.service';
+import { AccountIndex } from '../../classes/account-index.class';
+import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-account-index-list',
@@ -38,7 +38,7 @@ export class AccountIndexListComponent implements OnInit, OnDestroy {
   getItems(page: number): void {
 
     const params = {
-      page: { number: page, size: 25},
+      page: { number: page, size: 25 },
       remotefilter: {},
     };
 

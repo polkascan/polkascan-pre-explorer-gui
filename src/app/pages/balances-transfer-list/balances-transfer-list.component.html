@@ -47,7 +47,7 @@
                     </div>
                 </div>
                 <footer class="card-footer" *ngIf="balanceTransfers && balanceTransfers.data.length > 0">
-                    <a (click)="getNextItems()" class="card-footer-item">{{ 'BalanceTransferList.View next' | translate }}</a>
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">{{ 'BalanceTransferList.View next' | translate }}</a>
                 </footer>
             </div>
         </section>

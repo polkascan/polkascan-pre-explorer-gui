@@ -8,9 +8,9 @@ describe('AccountIndexListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AccountIndexListComponent ]
+      declarations: [AccountIndexListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
