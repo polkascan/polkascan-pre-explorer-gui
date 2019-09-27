@@ -5,7 +5,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Extrinsics
+                        {{ 'Extrinsic-list.Extrinsics' | translate }}
                     </p>
                     <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -20,7 +20,7 @@
                       <td><div class="field">
                         <div class="control">
                           <label class="checkbox">
-                            <input type="checkbox" [value]="true" [(ngModel)]="signedOnly" (ngModelChange)="refreshExtrinsics()"> Signed only
+                            <input type="checkbox" [value]="true" [(ngModel)]="signedOnly" (ngModelChange)="refreshExtrinsics()"> {{ 'Extrinsic-list.Signed only' | translate }}
                           </label>
                         </div>
                       </div>
@@ -36,12 +36,12 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Extrinsic ID</th>
-                                <th class="is-hidden-mobile">Block</th>
-                                <th>Module</th>
-                                <th>Call</th>
-                                <th class="is-hidden-mobile">Signed</th>
-                                <th>Success</th>
+                                <th>{{ 'Extrinsic-list.Extrinsic ID' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'Extrinsic-list.Block' | translate }}</th>
+                                <th>{{ 'Extrinsic-list.Module' | translate }}</th>
+                                <th>{{ 'Extrinsic-list.Call' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'Extrinsic-list.Signed' | translate }}</th>
+                                <th>{{ 'Extrinsic-list.Success' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -55,20 +55,20 @@
                                     <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                                     <td>{{ extrinsic.attributes.module_id }}</td>
                                     <td>{{ extrinsic.attributes.call_id }}</td>
-                                    <td class="is-hidden-mobile"><span *ngIf="extrinsic.attributes.signed">Yes</span><span *ngIf="!extrinsic.attributes.signed">No</span></td>
+                                    <td class="is-hidden-mobile"><span *ngIf="extrinsic.attributes.signed">{{ 'Extrinsic-list.Yes' | translate }}</span><span *ngIf="!extrinsic.attributes.signed">{{ 'Extrinsic-list.No' | translate }}</span></td>
                                     <td>
                                       <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
                                       <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
                                     </td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/extrinsic/{{ extrinsic.attributes.extrinsic_hash ? '0x' + extrinsic.attributes.extrinsic_hash : extrinsic.id }}">{{ 'Extrinsic-list.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="no-items" *ngIf="extrinsics && extrinsics.data.length == 0 && !extrinsics.is_loading">No items</div>
+                        <div class="no-items" *ngIf="extrinsics && extrinsics.data.length == 0 && !extrinsics.is_loading">{{ 'Extrinsic-list.No items' | translate }}</div>
                     </div>
                 </div>
                 <footer class="card-footer">
-                    <a (click)="getNextExtrinsics()" class="card-footer-item">View next</a>
+                    <a (click)="getNextExtrinsics()" class="card-footer-item">{{ 'Extrinsic-list.View next' | translate }}</a>
                 </footer>
             </div>
         </section>

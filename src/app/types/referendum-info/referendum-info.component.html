@@ -1,15 +1,15 @@
 <table class="table is-striped is-bordered" *ngIf="referendum">
   <tbody>
     <tr>
-      <td>Delay</td>
+      <td>{{ 'Referendum-Info.Delay' | translate }}</td>
       <td>{{ referendum.delay }}</td>
     </tr>
     <tr>
-      <td>End</td>
+      <td>{{ 'Referendum-Info.End' | translate }}</td>
       <td><a routerLink="{{ networkURLPrefix }}/block/{{ referendum.end }}">{{ referendum.end }}</a></td>
     </tr>
     <tr>
-      <td>Proposal</td>
+      <td>{{ 'Referendum-Info.Proposal' | translate }}</td>
       <td>
         <app-proposal
           [proposal]="referendum.proposal"

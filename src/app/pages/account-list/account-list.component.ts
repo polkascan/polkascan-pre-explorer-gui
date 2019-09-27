@@ -24,6 +24,7 @@ export class AccountListComponent implements OnInit, OnDestroy {
 
   }
 
+
   ngOnInit() {
     this.fragmentSubsription = this.activatedRoute.fragment.subscribe(value => {
       if (+value > 0) {
@@ -38,7 +39,7 @@ export class AccountListComponent implements OnInit, OnDestroy {
   getItems(page: number): void {
 
     const params = {
-      page: { number: page, size: 25},
+      page: { number: page, size: 25 },
       remotefilter: {},
     };
 

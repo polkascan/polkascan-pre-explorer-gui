@@ -2,7 +2,7 @@
       <div *ngIf="extrinsic" class="card events-card">
         <header class="card-header">
             <div class="card-header-title" *ngIf="extrinsic.attributes.extrinsic_hash">
-                {{ title || 'Extrinsic'}} 0x{{ extrinsic.attributes.extrinsic_hash }}
+              <div>{{ title || 'Extrinsic'}} <span class="mobile-hash-format">0x{{ extrinsic.attributes.extrinsic_hash }}</span></div>
             </div>
           <div class="card-header-title" *ngIf="!extrinsic.attributes.extrinsic_hash">
                 {{ title || 'Extrinsic'}} #{{ extrinsic.id }}
@@ -19,43 +19,43 @@
                 <table class="table is-fullwidth is-striped">
                     <tbody>
                         <tr *ngIf="context != 'block'">
-                          <td width="15%">Block</td>
+                          <td width="15%">{{ 'extrinsic-table.Block' | translate }}</td>
                           <td><a routerLink="{{ networkURLPrefix }}/block/{{ extrinsic.attributes.block_id }}">{{ extrinsic.attributes.block_id }}</a></td>
                         </tr>
                         <tr>
-                          <td width="15%">{{ title || 'Extrinsic'}} Index</td>
+                          <td width="15%">{{ title || 'Extrinsic'}} {{ 'extrinsic-table.Index' | translate }}</td>
                           <td>{{ extrinsic.attributes.extrinsic_idx }}</td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.extrinsic_hash">
-                          <td width="15%">{{ title || 'Extrinsic'}} Hash</td>
-                          <td><a routerLink="{{ networkURLPrefix }}/transaction/0x{{ extrinsic.attributes.extrinsic_hash}}">0x{{ extrinsic.attributes.extrinsic_hash}}</a></td>
+                          <td width="15%">{{ title || 'Extrinsic'}} {{ 'extrinsic-table.Hash' | translate }}</td>
+                          <td><a routerLink="{{ networkURLPrefix }}/transaction/0x{{ extrinsic.attributes.extrinsic_hash}}" class="mobile-hash-format">0x{{ extrinsic.attributes.extrinsic_hash}}</a></td>
                         </tr>
                         <tr>
-                          <td width="15%">Module</td>
+                          <td width="15%">{{ 'extrinsic-table.Module' | translate }}</td>
                           <td>{{ extrinsic.attributes.module_id }}</td>
                         </tr>
                         <tr>
-                          <td width="15%">Call</td>
+                          <td width="15%">{{ 'extrinsic-table.Call' | translate }}</td>
                           <td>{{ extrinsic.attributes.call_id }}</td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.address">
-                          <td width="15%">Address</td>
+                          <td width="15%">{{ 'extrinsic-table.Address' | translate }}</td>
                           <td><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.address }}" class="address-mobile-format"><app-identicon [accountId]="extrinsic.attributes.address_id"></app-identicon> {{ extrinsic.attributes.address }}</a></td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.account_index">
-                          <td width="15%">Account Index</td>
+                          <td width="15%">{{ 'extrinsic-table.Account Index' | translate }}</td>
                           <td>{{ extrinsic.attributes.account_index }}</td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed">
-                          <td width="15%">Nonce</td>
+                          <td width="15%">{{ 'extrinsic-table.Nonce' | translate }}</td>
                           <td>{{ extrinsic.attributes.nonce }}</td>
                         </tr>
                         <tr *ngIf="extrinsic.attributes.signed">
-                          <td width="15%">Signature</td>
+                          <td width="15%">{{ 'extrinsic-table.Signature' | translate }}</td>
                           <td><div class="address-mobile-format">0x{{ extrinsic.attributes.signature }}</div></td>
                         </tr>
                         <tr>
-                          <td width="15%">Result</td>
+                          <td width="15%">{{ 'extrinsic-table.Result' | translate }}</td>
                           <td>
                             <i *ngIf="extrinsic.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
                             <i *ngIf="extrinsic.attributes.error" class="fa fa-times" style="color: darkred"></i>
@@ -70,7 +70,7 @@
                 <table class="table is-fullwidth is-striped">
                     <thead>
                       <tr>
-                        <th colspan="2" style="color: #8F99A3; font-weight: 400; font-size: 16px">Parameters</th>
+                        <th colspan="2" style="color: #8F99A3; font-weight: 400; font-size: 16px">{{ 'extrinsic-table.Parameters' | translate }}</th>
                       </tr>
                     </thead>
                     <tbody>

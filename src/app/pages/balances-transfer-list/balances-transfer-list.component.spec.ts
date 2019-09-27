@@ -8,9 +8,9 @@ describe('BalancesTransferListComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BalancesTransferListComponent ]
+      declarations: [BalancesTransferListComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

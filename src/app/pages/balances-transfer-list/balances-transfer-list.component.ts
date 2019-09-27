@@ -1,10 +1,10 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {DocumentCollection} from 'ngx-jsonapi';
-import {BalanceTransfer} from '../../classes/balancetransfer.class';
-import {BalanceTransferService} from '../../services/balance-transfer.service';
-import {environment} from '../../../environments/environment';
-import {ActivatedRoute} from '@angular/router';
-import {Subscription} from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { DocumentCollection } from 'ngx-jsonapi';
+import { BalanceTransfer } from '../../classes/balancetransfer.class';
+import { BalanceTransferService } from '../../services/balance-transfer.service';
+import { environment } from '../../../environments/environment';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-balances-transfer-list',
@@ -44,7 +44,7 @@ export class BalancesTransferListComponent implements OnInit, OnDestroy {
   getItems(page: number): void {
 
     const params = {
-      page: { number: page, size: 25},
+      page: { number: page, size: 25 },
       remotefilter: {},
     };
 

@@ -7,7 +7,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Runtime Modules
+                        {{ 'runtime-module-list.Runtime Modules' | translate }}
                     </p>
                     <a [routerLink]="" fragment="list" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -22,10 +22,10 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Name</th>
-                                <th class="is-hidden-mobile">Call Functions</th>
-                                <th class="is-hidden-mobile">Events</th>
-                                <th class="is-hidden-mobile">Storage Functions</th>
+                                <th>{{ 'runtime-module-list.Name' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-module-list.Call Functions' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-module-list.Events' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-module-list.Storage Functions' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -38,7 +38,7 @@
                                     <td class="is-hidden-mobile">{{ module.attributes.count_call_functions }}</td>
                                     <td class="is-hidden-mobile">{{ module.attributes.count_events }}</td>
                                     <td class="is-hidden-mobile">{{ module.attributes.count_storage_functions }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-module/{{ module.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-module/{{ module.id }}">{{ 'runtime-module-list.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>

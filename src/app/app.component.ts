@@ -23,6 +23,7 @@
 import { Component } from '@angular/core';
 import {environment} from '../environments/environment';
 import {NavigationEnd, NavigationStart, Router} from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -35,11 +36,18 @@ export class AppComponent {
   public environment = environment;
   public showNavigation = false;
   public showSubmenus = true;
+  private langs = ['en', 'de', 'fr', 'it', 'es', 'zh', 'ja', 'ko', 'ru', 'uk'];
+  private selectedLanguage = 'en';
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private translate: TranslateService) {
     router.events.subscribe((val) => {
         this.showNavigation = false;
     });
+    translate.addLangs(this.langs);
+    translate.setDefaultLang('en');
+
+    this.selectedLanguage = translate.getBrowserLang();
+    translate.use(this.selectedLanguage.match(/en|de|fr|it|es|zh|ja|ko|ru|uk/) ? this.selectedLanguage : 'en');
   }
 
   toggleNavigation() {
@@ -51,5 +59,30 @@ export class AppComponent {
 
     setTimeout(() => { this.showSubmenus = true; }, 300);
 
+  }
+
+  langsTitle(selectedLang: string) {
+    switch (selectedLang) {
+      case 'de':
+        return 'Deutsche';
+      case 'fr':
+        return 'Française';
+      case 'it':
+        return 'Italiano';
+      case 'es':
+        return 'Español';
+      case 'zh':
+        return '中國';
+      case 'ja':
+        return '日本語';
+      case 'ko':
+        return '한국어';
+      case 'ru':
+        return 'Русский';
+      case 'uk':
+        return 'Українська';
+      default:
+        return 'English';
+    }
   }
 }

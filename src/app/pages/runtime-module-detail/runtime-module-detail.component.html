@@ -7,7 +7,7 @@
           <div class="card events-card">
               <header class="card-header">
                   <p class="card-header-title">
-                      Runtime module "{{ runtimeModule.attributes.name }}" for runtime # {{ runtimeModule.attributes.spec_version }}
+                      {{ 'runtime-module-detail.Runtime module' | translate }} "{{ runtimeModule.attributes.name }}" {{ 'runtime-module-detail.for runtime' | translate }} # {{ runtimeModule.attributes.spec_version }}
                   </p>
                   <a [routerLink]="" fragment="details" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -20,11 +20,11 @@
                       <table class="table is-fullwidth is-striped">
                           <tbody>
                               <tr>
-                                  <td width="20%">Name</td>
+                                  <td width="20%">{{ 'runtime-module-detail.Name' | translate }}</td>
                                   <td >{{runtimeModule.attributes.name}}</td>
                               </tr>
                               <tr>
-                                  <td>Spec version</td>
+                                  <td>{{ 'runtime-module-detail.Spec version' | translate }}</td>
                                   <td>{{runtimeModule.attributes.spec_version}}</td>
                               </tr>
                           </tbody>
@@ -37,7 +37,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Call functions
+                        {{ 'runtime-module-detail.Call functions' | translate }}
                     </p>
                     <a [routerLink]="" fragment="call-functions" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -51,9 +51,9 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Name</th>
-                                <th class="is-hidden-mobile">Lookup</th>
-                                <th class="is-hidden-mobile">Parameters</th>
+                                <th>{{ 'runtime-module-detail.Name' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-module-detail.Lookup' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-module-detail.Parameters' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -66,7 +66,7 @@
                                     <td class="is-hidden-mobile">{{ call.attributes.lookup }}</td>
                                     <td class="is-hidden-mobile">{{ call.attributes.count_params }}</td>
 
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-call/{{ call.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-call/{{ call.id }}">{{ 'runtime-module-detail.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -78,7 +78,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Events
+                        Events{{ 'runtime-module-detail.Runtimes' | translate }}
                     </p>
                     <a [routerLink]="" fragment="events" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -92,9 +92,9 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Name</th>
-                                <th class="is-hidden-mobile">Lookup</th>
-                                <th class="is-hidden-mobile">Attributes</th>
+                                <th>{{ 'runtime-module-detail.Name' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-module-detail.Lookup' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-module-detail.Attributes' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -107,7 +107,7 @@
                                     <td class="is-hidden-mobile">{{ event.attributes.lookup }}</td>
                                     <td class="is-hidden-mobile">{{ event.attributes.count_attributes }}</td>
 
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-event/{{ event.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-event/{{ event.id }}">{{ 'runtime-module-detail.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -119,7 +119,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Storage functions
+                        {{ 'runtime-module-detail.Storage functions' | translate }}
                     </p>
                     <a [routerLink]="" fragment="storage-functions" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -133,8 +133,8 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Name</th>
-                                <th class="is-hidden-mobile">Type</th>
+                                <th>{{ 'runtime-module-detail.Name' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-module-detail.Type' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -145,7 +145,7 @@
                                     </td>
                                     <td><a routerLink="{{ networkURLPrefix }}/runtime-storage/{{ storage.id }}">{{ storage.attributes.name }}</a></td>
                                     <td class="is-hidden-mobile">{{ storage.attributes.type_value }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-storage/{{ storage.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-storage/{{ storage.id }}">{{ 'runtime-module-detail.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -157,7 +157,7 @@
             <div class="card ">
                 <header class="card-header">
                     <p class="card-header-title">
-                        Constants
+                        {{ 'runtime-module-detail.Constants' | translate }}
                     </p>
                     <a [routerLink]="" fragment="constants" class="card-header-icon" aria-label="more options">
                       <span class="icon">
@@ -171,9 +171,9 @@
                              <thead>
                               <tr>
                                 <th></th>
-                                <th>Name</th>
-                                <th class="is-hidden-mobile">Type</th>
-                                <th>Value</th>
+                                <th>{{ 'runtime-module-detail.Name' | translate }}</th>
+                                <th class="is-hidden-mobile">{{ 'runtime-module-detail.Type' | translate }}</th>
+                                <th>{{ 'runtime-module-detail.Value' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -185,7 +185,7 @@
                                     <td><a routerLink="{{ networkURLPrefix }}/runtime-constant/{{ constant.id }}">{{ constant.attributes.name }}</a></td>
                                     <td class="is-hidden-mobile">{{ constant.attributes.type }}</td>
                                     <td>{{ constant.attributes.value }}</td>
-                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-constant/{{ constant.id }}">Details</a></td>
+                                    <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/runtime-constant/{{ constant.id }}">{{ 'runtime-module-detail.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -2,7 +2,7 @@
       <div *ngIf="event" class="card events-card">
         <header class="card-header">
             <div class="card-header-title">
-               Event #{{ event.id }}
+               {{ 'event-table.Event' | translate }} #{{ event.id }}
             </div>
             <a  class="card-header-icon" aria-label="more options">
             <span class="icon">
@@ -15,19 +15,19 @@
                 <table class="table is-fullwidth is-striped">
                     <tbody>
                         <tr *ngIf="context != 'block'">
-                          <td width="15%">Block</td>
+                          <td width="15%">{{ 'event-table.Block' | translate }}</td>
                           <td><a routerLink="/block/{{ event.attributes.block_id }}">{{ event.attributes.block_id }}</a></td>
                         </tr>
                         <tr>
-                          <td width="15%">Event Index</td>
+                          <td width="15%">{{ 'event-table.Event Index' | translate }}</td>
                           <td>{{ event.attributes.event_idx }}</td>
                         </tr>
                         <tr>
-                          <td width="15%">Module</td>
+                          <td width="15%">{{ 'event-table.Module' | translate }}</td>
                           <td>{{ event.attributes.module_id }}</td>
                         </tr>
                         <tr>
-                          <td width="15%">Event name</td>
+                          <td width="15%">{{ 'event-table.Event name' | translate }}</td>
                           <td>{{ event.attributes.event_id }}</td>
                         </tr>
                     </tbody>
@@ -39,7 +39,7 @@
                 <table class="table is-fullwidth is-striped">
                     <thead>
                       <tr>
-                        <th colspan="2" style="color: #8F99A3; font-weight: 400; font-size: 16px">Attributes</th>
+                        <th colspan="2" style="color: #8F99A3; font-weight: 400; font-size: 16px">{{ 'event-table.Attributes' | translate }}</th>
                       </tr>
                     </thead>
                     <tbody>
