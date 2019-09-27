@@ -35,8 +35,9 @@ export class ExtrinsicTableComponent implements OnInit {
   @Input() extrinsic: Extrinsic = null;
   @Input() extrinsicId: string = null;
   @Input() context: string = null;
-  @Input() networkTokenDecimals: number = 0;
+  @Input() networkTokenDecimals = 0;
   @Input() networkTokenSymbol: string;
+  @Input() networkURLPrefix: string;
   @Input() title: string;
 
   constructor(
