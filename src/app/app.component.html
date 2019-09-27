@@ -129,13 +129,13 @@
               <div class="navbar-end">
                 <div class="navbar-item has-dropdown" [ngClass]="{'is-hoverable': showSubmenus}">
                     <a class="navbar-link">
-                      <img class="locale-flag" src="./assets/i18n/flags/{{selectedLanguage}}.png" width="20" height="20" margin-right=20> {{ langsTitle(selectedLanguage) }}
+                      <img class="locale-flag" src="./assets/i18n/flags/{{selectedLanguage}}.png" width="20" height="20">
                     </a>
                     <div class="navbar-dropdown" (click)="toggleSubmenus()">
                       <ul *ngFor="let lang of langs">
                         <li>
                           <a class="navbar-item" (click)="selectedLanguage = lang; translate.use(lang)">
-                            <img class="locale-flag" src="./assets/i18n/flags/{{lang}}.png" width="20" height="20" margin-right=20> {{ langsTitle(lang) }}
+                            <img class="locale-flag" src="./assets/i18n/flags/{{lang}}.png" width="20" height="20"> {{ langsTitle(lang) }}
                           </a>
                         </li>
                       </ul>
