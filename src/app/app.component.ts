@@ -36,8 +36,8 @@ export class AppComponent {
   public environment = environment;
   public showNavigation = false;
   public showSubmenus = true;
-  private langs = ['en', 'de', 'fr', 'it', 'es', 'zh', 'ja', 'ko', 'ru', 'uk'];
-  private selectedLanguage = 'en';
+  public langs = ['en', 'de', 'fr', 'it', 'es', 'zh', 'ja', 'ko', 'ru', 'uk'];
+  public selectedLanguage = 'en';
 
   constructor(private router: Router, private translate: TranslateService) {
     router.events.subscribe((val) => {
@@ -46,8 +46,8 @@ export class AppComponent {
     translate.addLangs(this.langs);
     translate.setDefaultLang('en');
 
-    this.selectedLanguage = translate.getBrowserLang();
-    translate.use(this.selectedLanguage.match(/en|de|fr|it|es|zh|ja|ko|ru|uk/) ? this.selectedLanguage : 'en');
+    this.selectedLanguage = translate.getBrowserLang().match(/en|de|fr|it|es|zh|ja|ko|ru|uk/) ? translate.getBrowserLang() : 'en';
+    translate.use(this.selectedLanguage);
   }
 
   toggleNavigation() {
