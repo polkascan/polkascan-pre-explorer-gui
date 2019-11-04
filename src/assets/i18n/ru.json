@@ -72,10 +72,9 @@
 		"Balance transfer": "Перевод баланса",
 		"Block": "Блок",
 		"Destination": "Место назначения",
-		"Extrinsic Index": "Внешний индекс",
+		"Event ID": "",
+		"Fee": "",
 		"Sender": "Отправитель",
-		"Success": "Успех",
-		"Transaction Hash": "Хэш транзакции",
 		"Value": "Значение"
 	},
 	"BalanceTransferList": {
@@ -85,7 +84,6 @@
 		"Details": "Детали",
 		"No items": "Нет Объектов",
 		"Sender": "Отправитель",
-		"Success": "Успех",
 		"Value": "Значение",
 		"View next": "Смотреть дальше"
 	},

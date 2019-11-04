@@ -72,10 +72,9 @@
 		"Balance transfer": "残高の移動",
 		"Block": "ブロック",
 		"Destination": "先",
-		"Extrinsic Index": "外部インデックス",
+		"Event ID": "",
+		"Fee": "",
 		"Sender": "送信者",
-		"Success": "成功",
-		"Transaction Hash": "トランザクションハッシュ",
 		"Value": "値"
 	},
 	"BalanceTransferList": {
@@ -85,7 +84,6 @@
 		"Details": "詳細",
 		"No items": "アイテムはありません",
 		"Sender": "送信者",
-		"Success": "成功",
 		"Value": "値",
 		"View next": "次を見る"
 	},

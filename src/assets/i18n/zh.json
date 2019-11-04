@@ -72,10 +72,9 @@
 		"Balance transfer": "余额转介",
 		"Block": "块",
 		"Destination": "目的地",
-		"Extrinsic Index": "外在指数",
+		"Event ID": "",
+		"Fee": "",
 		"Sender": "寄件人",
-		"Success": "成功",
-		"Transaction Hash": "交易哈希",
 		"Value": "值"
 	},
 	"BalanceTransferList": {
@@ -85,7 +84,6 @@
 		"Details": "细节",
 		"No items": "没有项目",
 		"Sender": "寄件人",
-		"Success": "成功",
 		"Value": "值",
 		"View next": "查看下一个"
 	},

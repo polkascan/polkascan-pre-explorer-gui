@@ -24,7 +24,6 @@
                                 <th class="is-hidden-mobile">{{ 'BalanceTransferList.Sender' | translate }}</th>
                                 <th>{{ 'BalanceTransferList.Destination' | translate }}</th>
                                 <th>{{ 'BalanceTransferList.Value' | translate }}</th>
-                                <th>{{ 'BalanceTransferList.Success' | translate }}</th>
                                 <th></th>
                               </tr>
                             </thead>
@@ -35,11 +34,7 @@
                                   <td class="is-hidden-mobile"><a routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.sender }}" class="address-format"><app-identicon [accountId]="balanceTransfer.attributes.sender_id"></app-identicon> {{ balanceTransfer.attributes.sender }}</a></td>
                                   <td><a routerLink="{{ networkURLPrefix }}/account/{{ balanceTransfer.attributes.destination }}" class="address-format"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination }}</a></td>
                                   <td>{{ formatBalance(balanceTransfer.attributes.value) | number:'1.0-15'}} {{ networkTokenSymbol }}</td>
-                                  <td>
-                                    <i *ngIf="balanceTransfer.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
-                                    <i *ngIf="balanceTransfer.attributes.error" class="fa fa-times" style="color: darkred"></i>
-                                  </td>
-                                  <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/balances/transfer/0x{{ balanceTransfer.id }}">{{ 'BalanceTransferList.Details' | translate }}</a></td>
+                                  <td width="5%"><a class="button is-small is-primary" routerLink="{{ networkURLPrefix }}/balances/transfer/{{ balanceTransfer.id }}">{{ 'BalanceTransferList.Details' | translate }}</a></td>
                                 </tr>
                             </tbody>
                         </table>

@@ -72,10 +72,9 @@
 		"Balance transfer": "Balance transfer",
 		"Block": "Block",
 		"Destination": "Destination",
-		"Extrinsic Index": "Extrinsic Index",
+		"Event ID": "Event ID",
+		"Fee": "Fee",
 		"Sender": "Sender",
-		"Success": "Success",
-		"Transaction Hash": "Transaction Hash",
 		"Value": "Value"
 	},
 	"BalanceTransferList": {
@@ -85,7 +84,6 @@
 		"Details": "Details",
 		"No items": "No items",
 		"Sender": "Sender",
-		"Success": "Success",
 		"Value": "Value",
 		"View next": "View next"
 	},

@@ -72,10 +72,9 @@
 		"Balance transfer": "Переказ балансу",
 		"Block": "Блок",
 		"Destination": "Місце призначення",
-		"Extrinsic Index": "Зовнішній індекс",
+		"Event ID": "",
+		"Fee": "",
 		"Sender": "Відправник",
-		"Success": "Успіх",
-		"Transaction Hash": "Хеш транзакції",
 		"Value": "Значення"
 	},
 	"BalanceTransferList": {
@@ -85,7 +84,6 @@
 		"Details": "Деталі",
 		"No items": "Немає предметів",
 		"Sender": "Відправник",
-		"Success": "Успіх",
 		"Value": "Значення",
 		"View next": "Переглянути далі"
 	},

@@ -72,10 +72,9 @@
 		"Balance transfer": "Transfert de solde",
 		"Block": "Bloc",
 		"Destination": "Destination",
-		"Extrinsic Index": "Index extrinsèque",
+		"Event ID": "",
+		"Fee": "",
 		"Sender": "Expéditeur",
-		"Success": "Succès",
-		"Transaction Hash": "Hachage de transaction",
 		"Value": "Valeur"
 	},
 	"BalanceTransferList": {
@@ -85,7 +84,6 @@
 		"Details": "Détails",
 		"No items": "Pas d'objet",
 		"Sender": "Expéditeur",
-		"Success": "Succès",
 		"Value": "Valeur",
 		"View next": "Voir suivant"
 	},

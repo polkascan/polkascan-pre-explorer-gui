@@ -52,42 +52,6 @@
               </div>
           </div>
         </section>
-        <section class="info-tiles" *ngIf="!balanceTransfers || balanceTransfers.data.length > 0" id="balance-transfers">
-         <div class="card" *ngIf="account">
-              <header class="card-header">
-                  <p class="card-header-title">
-                      {{ 'AccountDetail.Last 25 balance transfers' | translate }}
-                  </p>
-                  <a [routerLink]="" fragment="balance-transfers" class="card-header-icon" aria-label="more options">
-                    <span class="icon">
-                      <i class="fa fa-exchange-alt fa-2x" aria-hidden="true"></i>
-                    </span>
-                  </a>
-              </header>
-              <div class="card-table">
-                  <div class="content">
-                      <table class="table is-fullwidth is-striped">
-                          <thead>
-                            <th></th>
-                            <th class="is-hidden-mobile">{{ 'AccountDetail.Block' | translate }} #</th>
-                            <th>{{ 'AccountDetail.Destination' | translate }}</th>
-                            <th>{{ 'AccountDetail.Amount' | translate }}</th>
-                            <th></th>
-                          </thead>
-                          <tbody>
-                              <tr *ngFor="let balanceTransfer of balanceTransfers.data; trackBy: balanceTransfers.trackBy">
-                                <td width="5%"><i class="fa fa-exchange-alt"></i></td>
-                                <td class="is-hidden-mobile"><a [routerLink]="['/', 'block', balanceTransfer.attributes.block_id]">{{ balanceTransfer.attributes.block_id }}</a></td>
-                                <td><a [routerLink]="['/', 'account', balanceTransfer.attributes.destination]" class="address-mobile-format"><app-identicon [accountId]="balanceTransfer.attributes.destination_id"></app-identicon> {{ balanceTransfer.attributes.destination }}</a></td>
-                                <td>{{ formatBalance(balanceTransfer.attributes.value) | number:'1.0-15' }} {{ networkTokenSymbol }}</td>
-                                <td width="5%"><a class="button is-small is-primary" routerLink="/balances/transfer/0x{{ balanceTransfer.id }}">{{ 'AccountDetail.Details' | translate }}</a></td>
-                              </tr>
-                          </tbody>
-                      </table>
-                  </div>
-              </div>
-          </div>
-       </section>
         <section id="extrinsics">
             <div class="card ">
                 <header class="card-header">

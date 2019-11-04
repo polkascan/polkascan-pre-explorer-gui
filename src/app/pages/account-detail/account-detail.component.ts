@@ -48,11 +48,6 @@ export class AccountDetailComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(val => {
 
-      this.balanceTransferService.all({
-        remotefilter: {address: val.id},
-        page: { number: 0}
-      }).subscribe(balanceTransfers => (this.balanceTransfers = balanceTransfers));
-
       const params = {
         page: {number: 0, size: 25},
         remotefilter: {address: val.id},

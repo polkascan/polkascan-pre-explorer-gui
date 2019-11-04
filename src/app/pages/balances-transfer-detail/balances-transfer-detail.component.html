@@ -31,20 +31,13 @@
                               <td>{{ 'BalanceTransfer.Value' | translate }}</td>
                               <td>{{ formatBalance(balanceTransfer.attributes.value) | number:'1.0-15' }} {{ networkTokenSymbol }}</td>
                             </tr>
-                            <tr>
-                              <td width="15%">{{ 'BalanceTransfer.Success' | translate }}</td>
-                              <td>
-                                <i *ngIf="balanceTransfer.attributes.success" class="fa fa-check" style="color: forestgreen"></i>
-                                <i *ngIf="balanceTransfer.attributes.error" class="fa fa-times" style="color: darkred"></i>
-                              </td>
+                             <tr>
+                              <td>{{ 'BalanceTransfer.Fee' | translate }}</td>
+                              <td>{{ formatBalance(balanceTransfer.attributes.fee) | number:'1.0-15' }} {{ networkTokenSymbol }}</td>
                             </tr>
                             <tr>
-                              <td width="20%">{{ 'BalanceTransfer.Extrinsic Index' | translate }}</td>
-                              <td><a routerLink="{{ networkURLPrefix }}/extrinsic/{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}">{{ balanceTransfer.attributes.block_id }}-{{ balanceTransfer.attributes.extrinsic_idx }}</a></td>
-                            </tr>
-                            <tr>
-                              <td width="20%">{{ 'BalanceTransfer.Transaction Hash' | translate }}</td>
-                              <td><a routerLink="{{ networkURLPrefix }}/transaction/0x{{ balanceTransfer.id }}">0x{{ balanceTransfer.id }}</a></td>
+                              <td width="20%">{{ 'BalanceTransfer.Event ID' | translate }}</td>
+                              <td><a routerLink="{{ networkURLPrefix }}/event/{{ balanceTransfer.attributes.event_id }}">{{ balanceTransfer.attributes.event_id }}</a></td>
                             </tr>
                           </tbody>
                       </table>

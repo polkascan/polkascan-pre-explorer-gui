@@ -72,10 +72,9 @@
 		"Balance transfer": "Ausgleichsübertragung",
 		"Block": "Block",
 		"Destination": "Ziel",
-		"Extrinsic Index": "Extrinsischer Index",
+		"Event ID": "",
+		"Fee": "",
 		"Sender": "Absender",
-		"Success": "Erfolg",
-		"Transaction Hash": "Transaktions-Hash",
 		"Value": "Wert"
 	},
 	"BalanceTransferList": {
@@ -85,7 +84,6 @@
 		"Details": "Einzelheiten",
 		"No items": "Keine Gegenstände",
 		"Sender": "Absender",
-		"Success": "Erfolg",
 		"Value": "Wert",
 		"View next": "Nächste anzeigen"
 	},

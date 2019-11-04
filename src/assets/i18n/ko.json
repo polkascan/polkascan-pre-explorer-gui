@@ -72,10 +72,9 @@
 		"Balance transfer": "잔액 송금",
 		"Block": "블록",
 		"Destination": "목적지",
-		"Extrinsic Index": "외부 지수",
+		"Event ID": "",
+		"Fee": "",
 		"Sender": "송신기",
-		"Success": "성공",
-		"Transaction Hash": "거래 해시",
 		"Value": "값"
 	},
 	"BalanceTransferList": {
@@ -85,7 +84,6 @@
 		"Details": "세부",
 		"No items": "항목이 없습니다",
 		"Sender": "송신기",
-		"Success": "성공",
 		"Value": "값",
 		"View next": "다음에보기"
 	},

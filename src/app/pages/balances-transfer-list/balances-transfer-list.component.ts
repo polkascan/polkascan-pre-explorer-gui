@@ -18,6 +18,7 @@ export class BalancesTransferListComponent implements OnInit, OnDestroy {
 
   public networkTokenDecimals: number;
   public networkTokenSymbol: string;
+  public networkURLPrefix: string;
 
   private fragmentSubsription: Subscription;
 
