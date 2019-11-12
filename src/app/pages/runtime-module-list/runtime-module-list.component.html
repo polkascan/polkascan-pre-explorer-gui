@@ -44,6 +44,9 @@
                         </table>
                     </div>
                 </div>
+                <footer class="card-footer" *ngIf="modules?.data.length == 25">
+                    <a routerLink="." fragment="{{ currentPage + 1 }}" class="card-footer-item">{{ 'runtime-module-list.View next' | translate }}</a>
+                </footer>
             </div>
         </section>
       </div>
