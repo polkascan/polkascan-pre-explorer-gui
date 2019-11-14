@@ -415,11 +415,14 @@
 	},
 	"runtime-module-list": {
 		"Call Functions": "Funciones de llamada",
+		"Constants": "",
 		"Details": "Detalles",
+		"Error Types": "",
 		"Events": "Eventos",
 		"Name": "Nombre",
 		"Runtime Modules": "Módulos de tiempo de ejecución",
-		"Storage Functions": "Funciones de almacenamiento"
+		"Storage Functions": "Funciones de almacenamiento",
+		"View next": ""
 	},
 	"runtime-storage-detail": {
 		"Default": "Defecto",

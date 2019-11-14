@@ -415,11 +415,14 @@
 	},
 	"runtime-module-list": {
 		"Call Functions": "Функции вызова",
+		"Constants": "",
 		"Details": "Детали",
+		"Error Types": "",
 		"Events": "События",
 		"Name": "имя",
 		"Runtime Modules": "Модули времени выполнения",
-		"Storage Functions": "Функции хранения"
+		"Storage Functions": "Функции хранения",
+		"View next": ""
 	},
 	"runtime-storage-detail": {
 		"Default": "По умолчанию",

@@ -415,11 +415,14 @@
 	},
 	"runtime-module-list": {
 		"Call Functions": "Call Functions",
+		"Constants": "Constants",
 		"Details": "Details",
+		"Error Types": "Error Types",
 		"Events": "Events",
 		"Name": "Name",
 		"Runtime Modules": "Runtime Modules",
-		"Storage Functions": "Storage Functions"
+		"Storage Functions": "Storage Functions",
+		"View next": "View next"
 	},
 	"runtime-storage-detail": {
 		"Default": "Default",

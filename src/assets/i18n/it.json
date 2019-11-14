@@ -415,11 +415,14 @@
 	},
 	"runtime-module-list": {
 		"Call Functions": "Funzioni di chiamata",
+		"Constants": "",
 		"Details": "Dettagli",
+		"Error Types": "",
 		"Events": "Eventi",
 		"Name": "Nome",
 		"Runtime Modules": "Moduli di runtime",
-		"Storage Functions": "Funzioni di archiviazione"
+		"Storage Functions": "Funzioni di archiviazione",
+		"View next": ""
 	},
 	"runtime-storage-detail": {
 		"Default": "Predefinito",

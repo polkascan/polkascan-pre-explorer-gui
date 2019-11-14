@@ -415,11 +415,14 @@
 	},
 	"runtime-module-list": {
 		"Call Functions": "通話功能",
+		"Constants": "",
 		"Details": "细节",
+		"Error Types": "",
 		"Events": "活动",
 		"Name": "名稱",
 		"Runtime Modules": "運行時模塊",
-		"Storage Functions": "存儲功能"
+		"Storage Functions": "存儲功能",
+		"View next": ""
 	},
 	"runtime-storage-detail": {
 		"Default": "默認",

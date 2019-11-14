@@ -415,11 +415,14 @@
 	},
 	"runtime-module-list": {
 		"Call Functions": "통화 기능",
+		"Constants": "",
 		"Details": "세부",
+		"Error Types": "",
 		"Events": "이벤트",
 		"Name": "이름",
 		"Runtime Modules": "런타임 모듈",
-		"Storage Functions": "저장 기능"
+		"Storage Functions": "저장 기능",
+		"View next": ""
 	},
 	"runtime-storage-detail": {
 		"Default": "기본",

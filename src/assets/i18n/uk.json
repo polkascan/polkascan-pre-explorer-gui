@@ -415,11 +415,14 @@
 	},
 	"runtime-module-list": {
 		"Call Functions": "Функції виклику",
+		"Constants": "",
 		"Details": "Деталі",
+		"Error Types": "",
 		"Events": "Події",
 		"Name": "Ім'я",
 		"Runtime Modules": "Модулі виконання",
-		"Storage Functions": "Функції зберігання"
+		"Storage Functions": "Функції зберігання",
+		"View next": ""
 	},
 	"runtime-storage-detail": {
 		"Default": "За замовчуванням",

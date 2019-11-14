@@ -415,11 +415,14 @@
 	},
 	"runtime-module-list": {
 		"Call Functions": "Funktionen Aufrufen",
+		"Constants": "",
 		"Details": "Einzelheiten",
+		"Error Types": "",
 		"Events": "Veranstaltungen",
 		"Name": "Name",
 		"Runtime Modules": "Laufzeitmodule",
-		"Storage Functions": "Speicherfunktionen"
+		"Storage Functions": "Speicherfunktionen",
+		"View next": ""
 	},
 	"runtime-storage-detail": {
 		"Default": "Standard",

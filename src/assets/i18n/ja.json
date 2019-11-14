@@ -415,11 +415,14 @@
 	},
 	"runtime-module-list": {
 		"Call Functions": "関数を呼び出す",
+		"Constants": "",
 		"Details": "詳細",
+		"Error Types": "",
 		"Events": "イベント",
 		"Name": "名前",
 		"Runtime Modules": "ランタイムモジュール",
-		"Storage Functions": "ストレージ機能"
+		"Storage Functions": "ストレージ機能",
+		"View next": ""
 	},
 	"runtime-storage-detail": {
 		"Default": "デフォルト",
