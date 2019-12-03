@@ -79,11 +79,19 @@
 
             <div class="card-table" id="proposal" *ngIf="currentTab == 'proposal'">
                 <div class="content">
-                  <app-proposal
+                  <app-proposal *ngIf="referendum.attributes.proposal?.proposal">
                     [proposal]="referendum.attributes.proposal.proposal"
                     [networkTokenDecimals]="networkTokenDecimals"
                     [networkTokenSymbol]="networkTokenSymbol"
                   ></app-proposal>
+                  <table class="table is-striped" *ngIf="referendum.attributes.proposal?.proposalHash">
+                  <tbody>
+                    <tr>
+                      <td>{{ 'Democracy-referendum-detail.Proposal Hash' | translate }}</td>
+                      <td>{{ referendum.attributes.proposal?.proposalHash }}</td>
+                    </tr>
+                  </tbody>
+                  </table>
                 </div>
             </div>
 
