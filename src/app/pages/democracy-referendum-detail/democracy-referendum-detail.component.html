@@ -78,12 +78,35 @@
             </div>
 
             <div class="card-table" id="proposal" *ngIf="currentTab == 'proposal'">
-                <div class="content">
-                  <app-proposal *ngIf="referendum.attributes.proposal?.proposal">
-                    [proposal]="referendum.attributes.proposal.proposal"
-                    [networkTokenDecimals]="networkTokenDecimals"
-                    [networkTokenSymbol]="networkTokenSymbol"
-                  ></app-proposal>
+                <div class="content" *ngIf="referendum.attributes.proposal?.proposal">
+                  <table class="table is-striped">
+                  <tbody>
+                    <tr *ngIf="referendum.attributes.proposal.proposal.call_documentation">
+                      <td>{{ 'Proposal.Description' | translate}}</td>
+                      <td>{{ referendum.attributes.proposal.proposal.call_documentation }}</td>
+                    </tr>
+                    <tr>
+                      <td>{{ 'Proposal.Module' | translate }}</td>
+                      <td>{{ referendum.attributes.proposal.proposal.call_module }}</td>
+                    </tr>
+                    <tr>
+                      <td>{{ 'Proposal.Call' | translate }}</td>
+                      <td>{{ referendum.attributes.proposal.proposal.call_name }}</td>
+                    </tr>
+                    <tr>
+                      <td>{{ 'Proposal.Parameters' | translate }}</td>
+                      <td>
+                        <app-struct
+                          [struct]="referendum.attributes.proposal.proposal.params"
+                          [networkTokenDecimals]="networkTokenDecimals"
+                          [networkTokenSymbol]="networkTokenSymbol"
+                          [networkURLPrefix]="networkURLPrefix"
+                        ></app-struct>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+
                   <table class="table is-striped" *ngIf="referendum.attributes.proposal?.proposalHash">
                   <tbody>
                     <tr>

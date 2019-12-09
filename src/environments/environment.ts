@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  jsonApiRootUrl: 'https://polkascan.io/kusama-cc2/api/v1/',
+  jsonApiRootUrl: 'https://polkascan.io/kusama-cc3/api/v1/',
   networkName: 'Kusama',
   networkTokenSymbol: 'KSM',
   networkTokenDecimals: 12

@@ -303,6 +303,7 @@
 	"PlaceHolderSearch": "按區塊/交易/賬戶搜索",
 	"Proposal": {
 		"Call": "呼叫",
+		"Description": "",
 		"Module": "模",
 		"Parameters": "參數"
 	},

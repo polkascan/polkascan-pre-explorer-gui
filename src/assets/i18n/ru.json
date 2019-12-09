@@ -303,6 +303,7 @@
 	"PlaceHolderSearch": "Поиск по блоку / транзакции / аккаунту",
 	"Proposal": {
 		"Call": "Вызов",
+		"Description": "",
 		"Module": "Модуль",
 		"Parameters": "параметры"
 	},

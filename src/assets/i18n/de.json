@@ -303,6 +303,7 @@
 	"PlaceHolderSearch": "Suche nach Block / Transaktion / Konto",
 	"Proposal": {
 		"Call": "Anruf",
+		"Description": "",
 		"Module": "Modul",
 		"Parameters": "Parameter"
 	},

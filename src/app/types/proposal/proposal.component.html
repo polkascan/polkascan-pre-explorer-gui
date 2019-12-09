@@ -1,5 +1,9 @@
 <table class="table is-striped" *ngIf="proposal">
   <tbody>
+    <tr *ngIf="proposal.call_documentation">
+      <td>{{ 'Proposal.Description' | translate }}</td>
+      <td>{{ proposal.call_documentation }}</td>
+    </tr>
     <tr>
       <td>{{ 'Proposal.Module' | translate }}</td>
       <td>{{ proposal.call_module }}</td>

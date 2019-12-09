@@ -303,6 +303,7 @@
 	"PlaceHolderSearch": "ブロック/トランザクション/アカウントで検索",
 	"Proposal": {
 		"Call": "コール",
+		"Description": "",
 		"Module": "モジュール",
 		"Parameters": "パラメーター"
 	},

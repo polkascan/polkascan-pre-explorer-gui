@@ -303,6 +303,7 @@
 	"PlaceHolderSearch": "블록 / 거래 / 계정으로 검색",
 	"Proposal": {
 		"Call": "요구",
+		"Description": "",
 		"Module": "구성 단위",
 		"Parameters": "매개 변수"
 	},

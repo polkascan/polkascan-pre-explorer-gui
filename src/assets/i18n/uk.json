@@ -303,6 +303,7 @@
 	"PlaceHolderSearch": "Пошук за блоком / транзакцією / рахунком",
 	"Proposal": {
 		"Call": "Телефонуйте",
+		"Description": "",
 		"Module": "Модуль",
 		"Parameters": "Параметри"
 	},
