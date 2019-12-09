@@ -78,8 +78,8 @@
             </div>
 
             <div class="card-table" id="proposal" *ngIf="currentTab == 'proposal'">
-                <div class="content" *ngIf="referendum.attributes.proposal?.proposal">
-                  <table class="table is-striped">
+                <div class="content">
+                  <table class="table is-striped" *ngIf="referendum.attributes.proposal?.proposal">
                   <tbody>
                     <tr *ngIf="referendum.attributes.proposal.proposal.call_documentation">
                       <td>{{ 'Proposal.Description' | translate}}</td>
