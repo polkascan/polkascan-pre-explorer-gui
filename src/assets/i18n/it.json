@@ -145,6 +145,35 @@
 		"Verified": "verificata",
 		"View next": "Visualizza il prossimo"
 	},
+	"Council-motion-detail": {
+		"Account": "",
+		"Aye votes": "",
+		"Block": "",
+		"Council Motion": "",
+		"Created at block": "",
+		"Execution result": "",
+		"Member Threshold": "",
+		"Motion Hash": "",
+		"Nay votes": "",
+		"Proposal": "",
+		"Proposal Hash": "",
+		"Status": "",
+		"Updated at block": "",
+		"Vote": "",
+		"Votes": ""
+	},
+	"Council-motion-list": {
+		"Aye votes": "",
+		"Council Motions": "",
+		"Created at Block": "",
+		"Details": "",
+		"Member Threshold": "",
+		"Nay votes": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"View next": ""
+	},
 	"DashBoard": {
 		"Active Accounts": "Conti attivi",
 		"Age": "Età",
@@ -280,6 +309,7 @@
 		"item_Accounts": "Conti",
 		"item_Blocks": "Blocchi",
 		"item_Contracts": "Contratti",
+		"item_CouncilMotions": "",
 		"item_Events": "Eventi",
 		"item_Indices": "Indici",
 		"item_Inherents": "Inherents",

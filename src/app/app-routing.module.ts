@@ -65,6 +65,8 @@ import {TransactionDetailComponent} from './pages/transaction-detail/transaction
 import {InherentListComponent} from './pages/inherent-list/inherent-list.component';
 import {InherentDetailComponent} from './pages/inherent-detail/inherent-detail.component';
 import {AnalyticsSearchComponent} from './pages/analytics-search/analytics-search.component';
+import {CouncilMotionListComponent} from './pages/council-motion-list/council-motion-list.component';
+import {CouncilMotionDetailComponent} from './pages/council-motion-detail/council-motion-detail.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -104,6 +106,8 @@ const routes: Routes = [
   { path: 'democracy/proposal/:id', component: DemocracyProposalDetailComponent},
   { path: 'democracy/referendum', component: DemocracyReferendumListComponent},
   { path: 'democracy/referendum/:id', component: DemocracyReferendumDetailComponent},
+  { path: 'council/motion', component: CouncilMotionListComponent},
+  { path: 'council/motion/:id', component: CouncilMotionDetailComponent},
   { path: 'balances/transfer', component: BalancesTransferListComponent},
   { path: 'balances/transfer/:id', component: BalancesTransferDetailComponent},
   { path: 'analytics/search', component: AnalyticsSearchComponent},

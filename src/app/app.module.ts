@@ -101,6 +101,8 @@ import { StructComponent } from './types/struct/struct.component';
 import { RenderTypeComponent } from './components/render-type/render-type.component';
 import { ReferendumInfoComponent } from './types/referendum-info/referendum-info.component';
 import { AnalyticsSearchComponent } from './pages/analytics-search/analytics-search.component';
+import { CouncilMotionListComponent } from './pages/council-motion-list/council-motion-list.component';
+import { CouncilMotionDetailComponent } from './pages/council-motion-detail/council-motion-detail.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -165,7 +167,9 @@ export class MyClock extends TimeagoClock {
     StructComponent,
     RenderTypeComponent,
     ReferendumInfoComponent,
-    AnalyticsSearchComponent
+    AnalyticsSearchComponent,
+    CouncilMotionListComponent,
+    CouncilMotionDetailComponent
   ],
   imports: [
     BrowserModule,

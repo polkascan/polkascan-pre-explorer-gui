@@ -145,6 +145,35 @@
 		"Verified": "验证",
 		"View next": "查看下一个"
 	},
+	"Council-motion-detail": {
+		"Account": "",
+		"Aye votes": "",
+		"Block": "",
+		"Council Motion": "",
+		"Created at block": "",
+		"Execution result": "",
+		"Member Threshold": "",
+		"Motion Hash": "",
+		"Nay votes": "",
+		"Proposal": "",
+		"Proposal Hash": "",
+		"Status": "",
+		"Updated at block": "",
+		"Vote": "",
+		"Votes": ""
+	},
+	"Council-motion-list": {
+		"Aye votes": "",
+		"Council Motions": "",
+		"Created at Block": "",
+		"Details": "",
+		"Member Threshold": "",
+		"Nay votes": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"View next": ""
+	},
 	"DashBoard": {
 		"Active Accounts": "活跃账户",
 		"Age": "年龄",
@@ -280,6 +309,7 @@
 		"item_Accounts": "帳號",
 		"item_Blocks": "塊",
 		"item_Contracts": "合同",
+		"item_CouncilMotions": "",
 		"item_Events": "活动",
 		"item_Indices": "指數",
 		"item_Inherents": "Inherents",

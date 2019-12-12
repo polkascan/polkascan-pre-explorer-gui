@@ -145,6 +145,35 @@
 		"Verified": "検証済み",
 		"View next": "次を見る"
 	},
+	"Council-motion-detail": {
+		"Account": "",
+		"Aye votes": "",
+		"Block": "",
+		"Council Motion": "",
+		"Created at block": "",
+		"Execution result": "",
+		"Member Threshold": "",
+		"Motion Hash": "",
+		"Nay votes": "",
+		"Proposal": "",
+		"Proposal Hash": "",
+		"Status": "",
+		"Updated at block": "",
+		"Vote": "",
+		"Votes": ""
+	},
+	"Council-motion-list": {
+		"Aye votes": "",
+		"Council Motions": "",
+		"Created at Block": "",
+		"Details": "",
+		"Member Threshold": "",
+		"Nay votes": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"View next": ""
+	},
 	"DashBoard": {
 		"Active Accounts": "有効なアカウント",
 		"Age": "年齢",
@@ -280,6 +309,7 @@
 		"item_Accounts": "アカウント",
 		"item_Blocks": "ブロック",
 		"item_Contracts": "契約",
+		"item_CouncilMotions": "",
 		"item_Events": "イベント",
 		"item_Indices": "指数",
 		"item_Inherents": "固有の",

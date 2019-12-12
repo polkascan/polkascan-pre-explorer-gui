@@ -145,6 +145,35 @@
 		"Verified": "Verified",
 		"View next": "View next"
 	},
+	"Council-motion-detail": {
+		"Account": "Account",
+		"Aye votes": "Aye votes",
+		"Block": "Block",
+		"Council Motion": "Council Motion",
+		"Created at block": "Created at block",
+		"Execution result": "Execution result",
+		"Member Threshold": "Member Threshold",
+		"Motion Hash": "Motion Hash",
+		"Nay votes": "Nay votes",
+		"Proposal": "Proposal",
+		"Proposal Hash": "Proposal Hash",
+		"Status": "Status",
+		"Updated at block": "Updated at block",
+		"Vote": "Vote",
+		"Votes": "Votes"
+	},
+	"Council-motion-list": {
+		"Aye votes": "Aye votes",
+		"Council Motions": "Council Motions",
+		"Created at Block": "Created at Block",
+		"Details": "Details",
+		"Member Threshold": "Member Threshold",
+		"Nay votes": "Nay votes",
+		"No items": "No items",
+		"Proposal ID": "Proposal ID",
+		"Status": "Status",
+		"View next": "View next"
+	},
 	"DashBoard": {
 		"Active Accounts": "Active Accounts",
 		"Age": "Age",
@@ -280,6 +309,7 @@
 		"item_Accounts": "Accounts",
 		"item_Blocks": "Blocks",
 		"item_Contracts": "Contracts",
+		"item_CouncilMotions": "Council Motions",
 		"item_Events": "Events",
 		"item_Indices": "Indices",
 		"item_Inherents": "Inherents",
