@@ -157,6 +157,7 @@
 		"Nay votes": "",
 		"Proposal": "",
 		"Proposal Hash": "",
+		"Proposer": "",
 		"Status": "",
 		"Updated at block": "",
 		"Vote": "",
@@ -345,6 +346,7 @@
 	"event-table": {
 		"Attributes": "attributi",
 		"Block": "Bloccare",
+		"Description": "",
 		"Event": "Evento",
 		"Event Index": "Indice degli eventi",
 		"Event name": "Nome dell'evento",
@@ -355,6 +357,7 @@
 		"Address": "Indirizzo",
 		"Block": "Bloccare",
 		"Call": "Chiamata",
+		"Description": "",
 		"Hash": "Hash",
 		"Index": "Indice",
 		"Module": "Modulo",

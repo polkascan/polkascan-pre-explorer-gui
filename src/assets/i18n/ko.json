@@ -157,6 +157,7 @@
 		"Nay votes": "",
 		"Proposal": "",
 		"Proposal Hash": "",
+		"Proposer": "",
 		"Status": "",
 		"Updated at block": "",
 		"Vote": "",
@@ -345,6 +346,7 @@
 	"event-table": {
 		"Attributes": "속성",
 		"Block": "블록",
+		"Description": "",
 		"Event": "행사",
 		"Event Index": "이벤트 인덱스",
 		"Event name": "행사 명",
@@ -355,6 +357,7 @@
 		"Address": "주소",
 		"Block": "블록",
 		"Call": "요구",
+		"Description": "",
 		"Hash": "해시시",
 		"Index": "인덱스",
 		"Module": "구성 단위",

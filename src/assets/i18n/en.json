@@ -157,6 +157,7 @@
 		"Nay votes": "Nay votes",
 		"Proposal": "Proposal",
 		"Proposal Hash": "Proposal Hash",
+		"Proposer": "Proposed By",
 		"Status": "Status",
 		"Updated at block": "Updated at block",
 		"Vote": "Vote",
@@ -345,6 +346,7 @@
 	"event-table": {
 		"Attributes": "Attributes",
 		"Block": "Block",
+		"Description": "Description",
 		"Event": "Event",
 		"Event Index": "Event Index",
 		"Event name": "Event name",
@@ -355,6 +357,7 @@
 		"Address": "Address",
 		"Block": "Block",
 		"Call": "Call",
+		"Description": "Description",
 		"Hash": "Hash",
 		"Index": "Index",
 		"Module": "Module",

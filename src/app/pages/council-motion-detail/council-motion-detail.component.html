@@ -30,6 +30,10 @@
                                 </td>
                               </tr>
                               <tr>
+                                <td>{{ 'Council-motion-detail.Proposer' | translate }}</td>
+                                <td><a routerLink="{{ networkURLPrefix }}/account/{{ councilMotion.attributes.address }}" class="address-mobile-format"><app-identicon [accountId]="councilMotion.attributes.account_id"></app-identicon> {{ councilMotion.attributes.address }}</a></td>
+                              </tr>
+                              <tr>
                                 <td width="20%">{{ 'Council-motion-detail.Member Threshold' | translate }}</td>
                                 <td>
                                   {{ councilMotion.attributes.member_threshold }}

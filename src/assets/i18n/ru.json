@@ -157,6 +157,7 @@
 		"Nay votes": "",
 		"Proposal": "",
 		"Proposal Hash": "",
+		"Proposer": "",
 		"Status": "",
 		"Updated at block": "",
 		"Vote": "",
@@ -345,6 +346,7 @@
 	"event-table": {
 		"Attributes": "Атрибуты",
 		"Block": "Блок",
+		"Description": "",
 		"Event": "Событие",
 		"Event Index": "Индекс событий",
 		"Event name": "Название события",
@@ -355,6 +357,7 @@
 		"Address": "Адрес",
 		"Block": "Блок",
 		"Call": "Вызов",
+		"Description": "",
 		"Hash": "Хэш",
 		"Index": "Индекс",
 		"Module": "Модуль",

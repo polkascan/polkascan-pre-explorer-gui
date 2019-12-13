@@ -1,0 +1,14 @@
+.truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 1024px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+@media screen and (max-width: 1088px) {
+  .truncate {
+    max-width: 512px;
+  }
+}

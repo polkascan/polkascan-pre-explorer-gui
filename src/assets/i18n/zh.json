@@ -157,6 +157,7 @@
 		"Nay votes": "",
 		"Proposal": "",
 		"Proposal Hash": "",
+		"Proposer": "",
 		"Status": "",
 		"Updated at block": "",
 		"Vote": "",
@@ -345,6 +346,7 @@
 	"event-table": {
 		"Attributes": "屬性",
 		"Block": "块",
+		"Description": "",
 		"Event": "事件",
 		"Event Index": "活動索引",
 		"Event name": "活動名稱",
@@ -355,6 +357,7 @@
 		"Address": "地址",
 		"Block": "块",
 		"Call": "呼叫",
+		"Description": "",
 		"Hash": "哈希",
 		"Index": "指數",
 		"Module": "模",

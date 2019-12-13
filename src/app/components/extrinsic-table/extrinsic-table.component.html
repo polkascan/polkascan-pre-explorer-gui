@@ -38,6 +38,10 @@
                           <td width="15%">{{ 'extrinsic-table.Call' | translate }}</td>
                           <td>{{ extrinsic.attributes.call_id }}</td>
                         </tr>
+                        <tr>
+                          <td width="15%">{{ 'extrinsic-table.Description' | translate }}</td>
+                          <td><span title="{{ extrinsic.attributes.documentation }}" class="truncate">{{ extrinsic.attributes.documentation }}</span></td>
+                        </tr>
                         <tr *ngIf="extrinsic.attributes.signed && extrinsic.attributes.address">
                           <td width="15%">{{ 'extrinsic-table.Address' | translate }}</td>
                           <td><a routerLink="{{ networkURLPrefix }}/account/{{ extrinsic.attributes.address }}" class="address-mobile-format"><app-identicon [accountId]="extrinsic.attributes.address_id"></app-identicon> {{ extrinsic.attributes.address }}</a></td>
