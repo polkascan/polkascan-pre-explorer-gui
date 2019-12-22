@@ -321,8 +321,10 @@
 		"item_Referenda": "Референдумы",
 		"item_Search": "Поиск",
 		"item_Sessions": "Сессии",
+		"item_TechCommProposals": "",
 		"item_Transactions": "Транзакции",
 		"item_Transfers": "Переводы",
+		"item_TreasuryProposals": "",
 		"item_Types": "Типы",
 		"item_Upgrade_history": "Обновить Историю",
 		"item_Validators": "Валидаторы"
@@ -342,6 +344,57 @@
 		"Delay": "задержка",
 		"End": "Конец",
 		"Proposal": "Предложение"
+	},
+	"Tech-comm-proposal-detail": {
+		"Account": "",
+		"Aye votes": "",
+		"Block": "",
+		"Created at block": "",
+		"Execution result": "",
+		"Member Threshold": "",
+		"Motion Hash": "",
+		"Nay votes": "",
+		"Proposal": "",
+		"Proposal Hash": "",
+		"Proposer": "",
+		"Status": "",
+		"Technical Committee Proposal": "",
+		"Updated at block": "",
+		"Vote": "",
+		"Votes": ""
+	},
+	"Tech-comm-proposal-list": {
+		"Aye votes": "",
+		"Created at Block": "",
+		"Details": "",
+		"Member Threshold": "",
+		"Nay votes": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"Technical committee proposals": "",
+		"View next": ""
+	},
+	"Treasury-proposal-detail": {
+		"Beneficiary": "",
+		"Created at block": "",
+		"Proposed by": "",
+		"Slash value": "",
+		"Status": "",
+		"Treasury Proposal": "",
+		"Updated at block": "",
+		"Value": ""
+	},
+	"Treasury-proposal-list": {
+		"Beneficiary": "",
+		"Created at Block": "",
+		"Details": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"Treasury proposals": "",
+		"Value": "",
+		"View next": ""
 	},
 	"event-table": {
 		"Attributes": "Атрибуты",

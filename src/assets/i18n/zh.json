@@ -321,8 +321,10 @@
 		"item_Referenda": "公投",
 		"item_Search": "搜索",
 		"item_Sessions": "會議",
+		"item_TechCommProposals": "",
 		"item_Transactions": "交易",
 		"item_Transfers": "轉讓",
+		"item_TreasuryProposals": "",
 		"item_Types": "類型",
 		"item_Upgrade_history": "升級歷史記錄",
 		"item_Validators": "驗證器"
@@ -342,6 +344,57 @@
 		"Delay": "延遲",
 		"End": "結束",
 		"Proposal": "提案"
+	},
+	"Tech-comm-proposal-detail": {
+		"Account": "",
+		"Aye votes": "",
+		"Block": "",
+		"Created at block": "",
+		"Execution result": "",
+		"Member Threshold": "",
+		"Motion Hash": "",
+		"Nay votes": "",
+		"Proposal": "",
+		"Proposal Hash": "",
+		"Proposer": "",
+		"Status": "",
+		"Technical Committee Proposal": "",
+		"Updated at block": "",
+		"Vote": "",
+		"Votes": ""
+	},
+	"Tech-comm-proposal-list": {
+		"Aye votes": "",
+		"Created at Block": "",
+		"Details": "",
+		"Member Threshold": "",
+		"Nay votes": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"Technical committee proposals": "",
+		"View next": ""
+	},
+	"Treasury-proposal-detail": {
+		"Beneficiary": "",
+		"Created at block": "",
+		"Proposed by": "",
+		"Slash value": "",
+		"Status": "",
+		"Treasury Proposal": "",
+		"Updated at block": "",
+		"Value": ""
+	},
+	"Treasury-proposal-list": {
+		"Beneficiary": "",
+		"Created at Block": "",
+		"Details": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"Treasury proposals": "",
+		"Value": "",
+		"View next": ""
 	},
 	"event-table": {
 		"Attributes": "屬性",

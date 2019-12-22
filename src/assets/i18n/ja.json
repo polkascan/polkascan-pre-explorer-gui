@@ -321,8 +321,10 @@
 		"item_Referenda": "国⺠民投票",
 		"item_Search": "調べる",
 		"item_Sessions": "セッション",
+		"item_TechCommProposals": "",
 		"item_Transactions": "取引",
 		"item_Transfers": "乗り換え",
+		"item_TreasuryProposals": "",
 		"item_Types": "タイプ",
 		"item_Upgrade_history": "アップグレード履履 歴",
 		"item_Validators": "バリデーター"
@@ -342,6 +344,57 @@
 		"Delay": "ディレイ",
 		"End": "終わり",
 		"Proposal": "提案"
+	},
+	"Tech-comm-proposal-detail": {
+		"Account": "",
+		"Aye votes": "",
+		"Block": "",
+		"Created at block": "",
+		"Execution result": "",
+		"Member Threshold": "",
+		"Motion Hash": "",
+		"Nay votes": "",
+		"Proposal": "",
+		"Proposal Hash": "",
+		"Proposer": "",
+		"Status": "",
+		"Technical Committee Proposal": "",
+		"Updated at block": "",
+		"Vote": "",
+		"Votes": ""
+	},
+	"Tech-comm-proposal-list": {
+		"Aye votes": "",
+		"Created at Block": "",
+		"Details": "",
+		"Member Threshold": "",
+		"Nay votes": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"Technical committee proposals": "",
+		"View next": ""
+	},
+	"Treasury-proposal-detail": {
+		"Beneficiary": "",
+		"Created at block": "",
+		"Proposed by": "",
+		"Slash value": "",
+		"Status": "",
+		"Treasury Proposal": "",
+		"Updated at block": "",
+		"Value": ""
+	},
+	"Treasury-proposal-list": {
+		"Beneficiary": "",
+		"Created at Block": "",
+		"Details": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"Treasury proposals": "",
+		"Value": "",
+		"View next": ""
 	},
 	"event-table": {
 		"Attributes": "属性",

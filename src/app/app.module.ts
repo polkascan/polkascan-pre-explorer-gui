@@ -103,6 +103,10 @@ import { ReferendumInfoComponent } from './types/referendum-info/referendum-info
 import { AnalyticsSearchComponent } from './pages/analytics-search/analytics-search.component';
 import { CouncilMotionListComponent } from './pages/council-motion-list/council-motion-list.component';
 import { CouncilMotionDetailComponent } from './pages/council-motion-detail/council-motion-detail.component';
+import { TechCommProposalListComponent } from './pages/tech-comm-proposal-list/tech-comm-proposal-list.component';
+import { TechCommProposalDetailComponent } from './pages/tech-comm-proposal-detail/tech-comm-proposal-detail.component';
+import { TreasuryProposalListComponent } from './pages/treasury-proposal-list/treasury-proposal-list.component';
+import { TreasuryProposalDetailComponent } from './pages/treasury-proposal-detail/treasury-proposal-detail.component';
 
 export class MyClock extends TimeagoClock {
   tick(then: number): Observable<number> {
@@ -169,7 +173,11 @@ export class MyClock extends TimeagoClock {
     ReferendumInfoComponent,
     AnalyticsSearchComponent,
     CouncilMotionListComponent,
-    CouncilMotionDetailComponent
+    CouncilMotionDetailComponent,
+    TechCommProposalListComponent,
+    TechCommProposalDetailComponent,
+    TreasuryProposalListComponent,
+    TreasuryProposalDetailComponent
   ],
   imports: [
     BrowserModule,

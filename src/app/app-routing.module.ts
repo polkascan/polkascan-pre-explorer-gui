@@ -67,6 +67,11 @@ import {InherentDetailComponent} from './pages/inherent-detail/inherent-detail.c
 import {AnalyticsSearchComponent} from './pages/analytics-search/analytics-search.component';
 import {CouncilMotionListComponent} from './pages/council-motion-list/council-motion-list.component';
 import {CouncilMotionDetailComponent} from './pages/council-motion-detail/council-motion-detail.component';
+import {TechCommProposalListComponent} from './pages/tech-comm-proposal-list/tech-comm-proposal-list.component';
+import {TechCommProposalDetailComponent} from './pages/tech-comm-proposal-detail/tech-comm-proposal-detail.component';
+import {TreasuryProposalListComponent} from './pages/treasury-proposal-list/treasury-proposal-list.component';
+import {TreasuryProposalDetailComponent} from './pages/treasury-proposal-detail/treasury-proposal-detail.component';
+
 
 const routes: Routes = [
   { path: '', component: DashboardComponent},
@@ -108,6 +113,10 @@ const routes: Routes = [
   { path: 'democracy/referendum/:id', component: DemocracyReferendumDetailComponent},
   { path: 'council/motion', component: CouncilMotionListComponent},
   { path: 'council/motion/:id', component: CouncilMotionDetailComponent},
+  { path: 'techcomm/proposal', component: TechCommProposalListComponent},
+  { path: 'techcomm/proposal/:id', component: TechCommProposalDetailComponent},
+  { path: 'treasury/proposal', component: TreasuryProposalListComponent},
+  { path: 'treasury/proposal/:id', component: TreasuryProposalDetailComponent},
   { path: 'balances/transfer', component: BalancesTransferListComponent},
   { path: 'balances/transfer/:id', component: BalancesTransferDetailComponent},
   { path: 'analytics/search', component: AnalyticsSearchComponent},

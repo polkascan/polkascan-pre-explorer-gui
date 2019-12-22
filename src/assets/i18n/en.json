@@ -321,8 +321,10 @@
 		"item_Referenda": "Referenda",
 		"item_Search": "Search",
 		"item_Sessions": "Sessions",
+		"item_TechCommProposals": "Tech. comm. proposals",
 		"item_Transactions": "Transactions",
 		"item_Transfers": "Transfers",
+		"item_TreasuryProposals": "Treasury proposals",
 		"item_Types": "Types",
 		"item_Upgrade_history": "Upgrade history",
 		"item_Validators": "Validators"
@@ -342,6 +344,57 @@
 		"Delay": "Delay",
 		"End": "End",
 		"Proposal": "Proposal"
+	},
+	"Tech-comm-proposal-detail": {
+		"Account": "Account",
+		"Aye votes": "Aye votes",
+		"Block": "Block",
+		"Created at block": "Created at block",
+		"Execution result": "Execution result",
+		"Member Threshold": "Member Threshold",
+		"Motion Hash": "Motion Hash",
+		"Nay votes": "Nay votes",
+		"Proposal": "Proposal",
+		"Proposal Hash": "Proposal Hash",
+		"Proposer": "Proposer",
+		"Status": "Status",
+		"Technical Committee Proposal": "Technical Committee Proposal",
+		"Updated at block": "Updated at block",
+		"Vote": "Vote",
+		"Votes": "Votes"
+	},
+	"Tech-comm-proposal-list": {
+		"Aye votes": "Aye votes",
+		"Created at Block": "Created at Block",
+		"Details": "Details",
+		"Member Threshold": "Member Threshold",
+		"Nay votes": "Nay votes",
+		"No items": "No items",
+		"Proposal ID": "Proposal ID",
+		"Status": "Status",
+		"Technical committee proposals": "Technical committee proposals",
+		"View next": "View next"
+	},
+	"Treasury-proposal-detail": {
+		"Beneficiary": "Beneficiary",
+		"Created at block": "Created at block",
+		"Proposed by": "Proposed by",
+		"Slash value": "Slash value",
+		"Status": "Status",
+		"Treasury Proposal": "Treasury Proposal",
+		"Updated at block": "Updated at block",
+		"Value": "Value"
+	},
+	"Treasury-proposal-list": {
+		"Beneficiary": "Beneficiary",
+		"Created at Block": "Created at Block",
+		"Details": "Details",
+		"No items": "No items",
+		"Proposal ID": "Proposal ID",
+		"Status": "Status",
+		"Treasury proposals": "Treasury proposals",
+		"Value": "Value",
+		"View next": "View next"
 	},
 	"event-table": {
 		"Attributes": "Attributes",

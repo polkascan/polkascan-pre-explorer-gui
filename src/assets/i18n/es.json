@@ -321,8 +321,10 @@
 		"item_Referenda": "Referéndums",
 		"item_Search": "Buscar",
 		"item_Sessions": "Sesiones",
+		"item_TechCommProposals": "",
 		"item_Transactions": "Actas",
 		"item_Transfers": "Traslados",
+		"item_TreasuryProposals": "",
 		"item_Types": "Tipos",
 		"item_Upgrade_history": "Historial De Actualizaciones",
 		"item_Validators": "Validadores"
@@ -342,6 +344,57 @@
 		"Delay": "Retrasar",
 		"End": "Fin",
 		"Proposal": "Propuesta"
+	},
+	"Tech-comm-proposal-detail": {
+		"Account": "",
+		"Aye votes": "",
+		"Block": "",
+		"Created at block": "",
+		"Execution result": "",
+		"Member Threshold": "",
+		"Motion Hash": "",
+		"Nay votes": "",
+		"Proposal": "",
+		"Proposal Hash": "",
+		"Proposer": "",
+		"Status": "",
+		"Technical Committee Proposal": "",
+		"Updated at block": "",
+		"Vote": "",
+		"Votes": ""
+	},
+	"Tech-comm-proposal-list": {
+		"Aye votes": "",
+		"Created at Block": "",
+		"Details": "",
+		"Member Threshold": "",
+		"Nay votes": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"Technical committee proposals": "",
+		"View next": ""
+	},
+	"Treasury-proposal-detail": {
+		"Beneficiary": "",
+		"Created at block": "",
+		"Proposed by": "",
+		"Slash value": "",
+		"Status": "",
+		"Treasury Proposal": "",
+		"Updated at block": "",
+		"Value": ""
+	},
+	"Treasury-proposal-list": {
+		"Beneficiary": "",
+		"Created at Block": "",
+		"Details": "",
+		"No items": "",
+		"Proposal ID": "",
+		"Status": "",
+		"Treasury proposals": "",
+		"Value": "",
+		"View next": ""
 	},
 	"event-table": {
 		"Attributes": "Atributos",
